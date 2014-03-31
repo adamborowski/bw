@@ -21,6 +21,9 @@
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Declaration>
+        <Class IRI="#Kapitalizm"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#NurtPolityczny"/>
     </Declaration>
     <Declaration>
@@ -33,7 +36,22 @@
         <Class IRI="#Polityk"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Progospodarka"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Prorodzinny"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Socjalizm"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Ustawa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WolnyRynek"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ZielonaWyspa"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#deklarujeNurt"/>
@@ -59,6 +77,30 @@
     <Declaration>
         <ObjectProperty IRI="#obiecal"/>
     </Declaration>
+    <SubClassOf>
+        <Class IRI="#Kapitalizm"/>
+        <Class IRI="#NurtPolityczny"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Progospodarka"/>
+        <Class IRI="#NurtPolityczny"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Prorodzinny"/>
+        <Class IRI="#NurtPolityczny"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Socjalizm"/>
+        <Class IRI="#NurtPolityczny"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WolnyRynek"/>
+        <Class IRI="#NurtPolityczny"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ZielonaWyspa"/>
+        <Class IRI="#NurtPolityczny"/>
+    </SubClassOf>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#jestZgodnaZ"/>
         <Class IRI="#Obietnica"/>
