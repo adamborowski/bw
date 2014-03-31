@@ -35,6 +35,38 @@
     <Declaration>
         <Class IRI="#Ustawa"/>
     </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#deklarujeNurt"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#dokonal"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#glosowalPrzeciw"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#glosowalZa"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#jestNiezgodnaZ"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#jestZgodnaZ"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#nalezyDo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#obiecal"/>
+    </Declaration>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#jestZgodnaZ"/>
+        <Class IRI="#Obietnica"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#jestZgodnaZ"/>
+        <Class IRI="#NurtPolityczny"/>
+    </ObjectPropertyRange>
 </Ontology>
 
 
