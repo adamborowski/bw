@@ -55,6 +55,9 @@
         <ObjectProperty IRI="#jestZgodnaZ"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#maPolityka"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#nalezyDo"/>
     </Declaration>
     <Declaration>
@@ -114,6 +117,13 @@
     <Declaration>
         <NamedIndividual IRI="#zielonaWyspa"/>
     </Declaration>
+    <DisjointClasses>
+        <Class IRI="#NurtPolityczny"/>
+        <Class IRI="#Obietnica"/>
+        <Class IRI="#Partia"/>
+        <Class IRI="#Polityk"/>
+        <Class IRI="#Ustawa"/>
+    </DisjointClasses>
     <ClassAssertion>
         <Class IRI="#Partia"/>
         <NamedIndividual IRI="#KNP"/>
@@ -186,13 +196,48 @@
         <Class IRI="#NurtPolityczny"/>
         <NamedIndividual IRI="#zielonaWyspa"/>
     </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#deklarujeNurt"/>
+        <NamedIndividual IRI="#PIS"/>
+        <NamedIndividual IRI="#prorodzinny"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#deklarujeNurt"/>
+        <NamedIndividual IRI="#PO"/>
+        <NamedIndividual IRI="#zielonaWyspa"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#nalezyDo"/>
+        <NamedIndividual IRI="#donaldTusk"/>
+        <NamedIndividual IRI="#PO"/>
+    </ObjectPropertyAssertion>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#maPolityka"/>
+        <ObjectProperty IRI="#nalezyDo"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#deklarujeNurt"/>
+        <Class IRI="#Partia"/>
+    </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#jestZgodnaZ"/>
         <Class IRI="#Obietnica"/>
     </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#nalezyDo"/>
+        <Class IRI="#Polityk"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#deklarujeNurt"/>
+        <Class IRI="#NurtPolityczny"/>
+    </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#jestZgodnaZ"/>
         <Class IRI="#NurtPolityczny"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#nalezyDo"/>
+        <Class IRI="#Partia"/>
     </ObjectPropertyRange>
 </Ontology>
 
