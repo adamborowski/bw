@@ -10,19 +10,17 @@
 
 
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://www.semanticweb.org/student/ontologies/2014/2/untitled-ontology-11"
+     xml:base="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     ontologyIRI="http://www.semanticweb.org/student/ontologies/2014/2/untitled-ontology-11">
-    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+     ontologyIRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
-    <Declaration>
-        <Class IRI="#Kapitalizm"/>
-    </Declaration>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Declaration>
         <Class IRI="#NurtPolityczny"/>
     </Declaration>
@@ -36,22 +34,7 @@
         <Class IRI="#Polityk"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Progospodarka"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Prorodzinny"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Socjalizm"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Ustawa"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#WolnyRynek"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#ZielonaWyspa"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#deklarujeNurt"/>
@@ -77,30 +60,132 @@
     <Declaration>
         <ObjectProperty IRI="#obiecal"/>
     </Declaration>
-    <SubClassOf>
-        <Class IRI="#Kapitalizm"/>
+    <Declaration>
+        <NamedIndividual IRI="#KNP"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PIS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PO"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PSL"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SLD"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#bronislawKomorowski"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#donaldTusk"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#januszKorwinMikke"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#januszPalikot"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#jaroslawKaczynski"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#kapitalizm"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#lechMiller"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#progospodarka"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#prorodzinny"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#socjalizm"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#waldemarPawlak"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#wolnyRynek"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#zielonaWyspa"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Partia"/>
+        <NamedIndividual IRI="#KNP"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Partia"/>
+        <NamedIndividual IRI="#PIS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Partia"/>
+        <NamedIndividual IRI="#PO"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Partia"/>
+        <NamedIndividual IRI="#PSL"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Partia"/>
+        <NamedIndividual IRI="#SLD"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Polityk"/>
+        <NamedIndividual IRI="#bronislawKomorowski"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Polityk"/>
+        <NamedIndividual IRI="#donaldTusk"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Polityk"/>
+        <NamedIndividual IRI="#januszKorwinMikke"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Polityk"/>
+        <NamedIndividual IRI="#januszPalikot"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Polityk"/>
+        <NamedIndividual IRI="#jaroslawKaczynski"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#NurtPolityczny"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Progospodarka"/>
+        <NamedIndividual IRI="#kapitalizm"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Polityk"/>
+        <NamedIndividual IRI="#lechMiller"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#NurtPolityczny"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Prorodzinny"/>
+        <NamedIndividual IRI="#progospodarka"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#NurtPolityczny"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Socjalizm"/>
+        <NamedIndividual IRI="#prorodzinny"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#NurtPolityczny"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#WolnyRynek"/>
+        <NamedIndividual IRI="#socjalizm"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Polityk"/>
+        <NamedIndividual IRI="#waldemarPawlak"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#NurtPolityczny"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#ZielonaWyspa"/>
+        <NamedIndividual IRI="#wolnyRynek"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#NurtPolityczny"/>
-    </SubClassOf>
+        <NamedIndividual IRI="#zielonaWyspa"/>
+    </ClassAssertion>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#jestZgodnaZ"/>
         <Class IRI="#Obietnica"/>
