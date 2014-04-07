@@ -308,6 +308,11 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#deklarujeNurt"/>
         <NamedIndividual IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#SLD"/>
+        <NamedIndividual IRI="#swobodaObywatelska"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#deklarujeNurt"/>
+        <NamedIndividual IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#SLD"/>
         <NamedIndividual IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#socjalizm"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -341,9 +346,14 @@
         <NamedIndividual IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#KNP"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#glosowalPrzeciw"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#jaroslawKaczynski"/>
-        <NamedIndividual IRI="#wprowadzenieACTA"/>
+        <ObjectProperty IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#glosowalZa"/>
+        <NamedIndividual IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#januszPalikot"/>
+        <NamedIndividual IRI="#podwyzszeniePodatkuVAT"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#obiecal"/>
+        <NamedIndividual IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#januszPalikot"/>
+        <NamedIndividual IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#niskiePodatki"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#glosowalPrzeciw"/>
@@ -351,9 +361,19 @@
         <NamedIndividual IRI="#podwyzszeniePodatkuVAT"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#glosowalPrzeciw"/>
+        <NamedIndividual IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#jaroslawKaczynski"/>
+        <NamedIndividual IRI="#wprowadzenieACTA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#nalezyDo"/>
         <NamedIndividual IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#jaroslawKaczynski"/>
         <NamedIndividual IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#PIS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#glosowalZa"/>
+        <NamedIndividual IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#lechMiller"/>
+        <NamedIndividual IRI="#wprowadzenieACTA"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#nalezyDo"/>
@@ -438,6 +458,11 @@
         <ObjectProperty IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#obiecal"/>
         <Class IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#Akcja"/>
     </ObjectPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Klamca</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">do tego dochodzi jeszcze: obiecał ale zagłosował niezgodnie</Literal>
+    </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Klamca</IRI>
