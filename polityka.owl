@@ -121,6 +121,9 @@
         <NamedIndividual IRI="#p_EugeniuszNiezdecydowany"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#p_JoannaSenyszyn"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#u_becikowe"/>
     </Declaration>
     <Declaration>
@@ -131,6 +134,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#u_podwyzszeniePodatkuVAT"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#u_prywatyzacjaStoczni"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#u_wprowadzenieACTA"/>
@@ -275,6 +281,23 @@
         <Class IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#Polityk"/>
         <Class IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#Ustawa"/>
     </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#KlamcaPIS"/>
+        <Class IRI="#KlamcaPO"/>
+        <Class IRI="#KlamcaSLD"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#UstawaDlaPIS"/>
+        <Class IRI="#UstawaNieDlaPIS"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#UstawaDlaPO"/>
+        <Class IRI="#UstawaNieDlaPO"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#UstawaDlaSLD"/>
+        <Class IRI="#UstawaNieDlaSLD"/>
+    </DisjointClasses>
     <ClassAssertion>
         <Class IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#Partia"/>
         <NamedIndividual IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#a_PIS"/>
@@ -318,6 +341,10 @@
     <ClassAssertion>
         <Class IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#Polityk"/>
         <NamedIndividual IRI="#p_EugeniuszNiezdecydowany"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#KlamcaSLD"/>
+        <NamedIndividual IRI="#p_JoannaSenyszyn"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#UstawaProrodzinna"/>
@@ -511,6 +538,11 @@
         <ObjectProperty IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#nalezyDoPartii"/>
         <NamedIndividual IRI="#p_EugeniuszNiezdecydowany"/>
         <NamedIndividual IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#a_PIS"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#glosowalZa"/>
+        <NamedIndividual IRI="#p_JoannaSenyszyn"/>
+        <NamedIndividual IRI="#u_prywatyzacjaStoczni"/>
     </ObjectPropertyAssertion>
     <InverseObjectProperties>
         <ObjectProperty IRI="#zaglosowanaPrzeciwPrzez"/>
