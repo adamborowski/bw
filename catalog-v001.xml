@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1397141419231" name="http://www.semanticweb.org/adam/ontologies/2014/3/untitled-ontology-4" uri="nowaPolityka.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1397141419231" name="http://www.semanticweb.org/student/ontologies/2014/2/polityka-ABorowski-PCieply" uri="polityka.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1397241805352" name="http://www.semanticweb.org/adam/ontologies/2014/3/untitled-ontology-4" uri="nowaPolityka.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1397241805352" name="http://www.semanticweb.org/student/ontologies/2014/2/polityka-ABorowski-PCieply" uri="polityka.owl"/>
     </group>
 </catalog>
