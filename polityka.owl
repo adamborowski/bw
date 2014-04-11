@@ -266,6 +266,11 @@
         <Class IRI="#UstawaPrzeciwkoReligii"/>
         <Class IRI="#UstawaNieDlaPIS"/>
     </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#Partia"/>
+        <Class IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#Polityk"/>
+        <Class IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#Ustawa"/>
+    </DisjointClasses>
     <ClassAssertion>
         <Class IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#Partia"/>
         <NamedIndividual IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#a_PIS"/>
