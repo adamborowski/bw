@@ -420,12 +420,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#glosowalZa"/>
         <NamedIndividual IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#p_JanuszPalikot"/>
-        <NamedIndividual IRI="#u_zniesienieReligiiWSzkolach"/>
+        <NamedIndividual IRI="#u_odebraniePrawWyborczychKobietom"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#glosowalZa"/>
         <NamedIndividual IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#p_JanuszPalikot"/>
-        <NamedIndividual IRI="#u_odebraniePrawWyborczychKobietom"/>
+        <NamedIndividual IRI="#u_zniesienieReligiiWSzkolach"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#glosowalZa"/>
@@ -587,6 +587,46 @@
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#UstawaDlaPIS</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">Ustawa zgodna z programem wyborczym partii PIS</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#UstawaDlaPO</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Ustawa zgodna z programem wyborczym partii PO</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#UstawaDlaSLD</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Ustawa zgodna z programem wyborczym partii SLD</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#UstawaNieDlaPIS</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Ustawa niezgodna z programem wyborczym partii PIS</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#UstawaNieDlaPO</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Ustawa niezgodna z programem wyborczym partii PO</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#UstawaNieDlaSLD</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Ustawa niezgodna z programem wyborczym partii SLD</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#UstawaOgraniczajacaWolnosc</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Ustawa ograniczająca swobodę obywatelską</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#UstawaProrodzinna</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Ustawa wspierająca rodzinę</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#UstawaPrzeciwkoReligii</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Ustawa mająca na celu oddzielić państwo od Kościoła</Literal>
     </AnnotationAssertion>
 </Ontology>
 
