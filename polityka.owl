@@ -282,11 +282,6 @@
         <Class IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#Ustawa"/>
     </DisjointClasses>
     <DisjointClasses>
-        <Class IRI="#KlamcaPIS"/>
-        <Class IRI="#KlamcaPO"/>
-        <Class IRI="#KlamcaSLD"/>
-    </DisjointClasses>
-    <DisjointClasses>
         <Class IRI="#UstawaDlaPIS"/>
         <Class IRI="#UstawaNieDlaPIS"/>
     </DisjointClasses>
