@@ -256,6 +256,10 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#UstawaProrodzinna"/>
+        <Class IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#Ustawa"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#UstawaProrodzinna"/>
         <Class IRI="#UstawaDlaPIS"/>
     </SubClassOf>
     <SubClassOf>
@@ -416,12 +420,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#glosowalZa"/>
         <NamedIndividual IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#p_JanuszPalikot"/>
-        <NamedIndividual IRI="#u_odebraniePrawWyborczychKobietom"/>
+        <NamedIndividual IRI="#u_zniesienieReligiiWSzkolach"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#glosowalZa"/>
         <NamedIndividual IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#p_JanuszPalikot"/>
-        <NamedIndividual IRI="#u_zniesienieReligiiWSzkolach"/>
+        <NamedIndividual IRI="#u_odebraniePrawWyborczychKobietom"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#glosowalZa"/>
@@ -546,14 +550,43 @@
     </ObjectPropertyRange>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Klamca</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">do tego dochodzi jeszcze: obiecał ale zagłosował niezgodnie</Literal>
+        <IRI>http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#Partia</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Osobniki reprezentują daną partię</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#Polityk</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Osobniki reprezentują polityków</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://www.semanticweb.org/student/ontologies/2014/2/polityka-11#Ustawa</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Osobniki reprezentują ustawy sejmowe, nad którymi głosowano.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Klamca</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">nie wiem do konca jak zrobić equivalent to, bo jak powiedzieć że 
-this głosował za (some Ustawa and jestZgodnaZ some (NurtPolityczny and inverse jestZgodnaZ (some Partia and posiada this)</Literal>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Polityk, który zagłosował niezgodnie z linią partii</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#KlamcaPIS</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Kłamca pochodzący z partii PIS</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#KlamcaPO</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Kłamca pochodzący z partii PO</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#KlamcaSLD</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Kłamca pochodzący z partii SLD</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#UstawaDlaPIS</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Ustawa zgodna z programem wyborczym partii PIS</Literal>
     </AnnotationAssertion>
 </Ontology>
 
