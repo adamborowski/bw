@@ -72,6 +72,32 @@
         <NamedIndividual IRI="#uPrawicowa3"/>
     </Declaration>
     <EquivalentClasses>
+        <Class IRI="#PartiaCentrum"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#glosowalZa"/>
+                <Class IRI="#UstawaLewicowa"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#glosowalZa"/>
+                <Class IRI="#UstawaPrawicowa"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#PartiaLewicowa"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#glosowalZa"/>
+                <Class IRI="#UstawaLewicowa"/>
+            </ObjectSomeValuesFrom>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#glosowalZa"/>
+                <Class IRI="#UstawaLewicowa"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
         <Class IRI="#PartiaPrawicowa"/>
         <ObjectIntersectionOf>
             <ObjectSomeValuesFrom>
@@ -99,6 +125,13 @@
     <SubClassOf>
         <Class IRI="#PartiaLewicowa"/>
         <Class IRI="#Partia"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PartiaLewicowa"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#glosowalZa"/>
+            <Class IRI="#UstawaLewicowa"/>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#PartiaPrawicowa"/>
