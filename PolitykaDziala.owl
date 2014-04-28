@@ -1,0 +1,260 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/adam/ontologies/2014/3/ABPC2014"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://www.semanticweb.org/adam/ontologies/2014/3/ABPC2014">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Partia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PartiaCentrum"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PartiaLewicowa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PartiaPrawicowa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ustawa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#UstawaLewicowa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#UstawaPrawicowa"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#glosowalPrzeciw"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#glosowalZa"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PIS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PO"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SLD"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#uLewicowa1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#uLewicowa2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#uLewicowa3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#uPrawicowa1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#uPrawicowa2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#uPrawicowa3"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#PartiaCentrum"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#glosowalZa"/>
+                <Class IRI="#UstawaLewicowa"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#glosowalZa"/>
+                <Class IRI="#UstawaPrawicowa"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#PartiaLewicowa"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#glosowalZa"/>
+                <Class IRI="#UstawaLewicowa"/>
+            </ObjectSomeValuesFrom>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#glosowalZa"/>
+                <Class IRI="#UstawaLewicowa"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#PartiaPrawicowa"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#glosowalZa"/>
+                <Class IRI="#UstawaPrawicowa"/>
+            </ObjectSomeValuesFrom>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#glosowalZa"/>
+                <Class IRI="#UstawaPrawicowa"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#UstawaLewicowa"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#uLewicowa3"/>
+            <NamedIndividual IRI="#uLewicowa2"/>
+            <NamedIndividual IRI="#uLewicowa1"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#UstawaPrawicowa"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#uPrawicowa3"/>
+            <NamedIndividual IRI="#uPrawicowa2"/>
+            <NamedIndividual IRI="#uPrawicowa1"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Partia"/>
+        <ObjectUnionOf>
+            <Class IRI="#PartiaCentrum"/>
+            <Class IRI="#PartiaLewicowa"/>
+            <Class IRI="#PartiaPrawicowa"/>
+        </ObjectUnionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PartiaCentrum"/>
+        <Class IRI="#Partia"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PartiaLewicowa"/>
+        <Class IRI="#Partia"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PartiaLewicowa"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#glosowalZa"/>
+            <Class IRI="#UstawaLewicowa"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PartiaPrawicowa"/>
+        <Class IRI="#Partia"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PartiaPrawicowa"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#glosowalZa"/>
+            <Class IRI="#UstawaPrawicowa"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ustawa"/>
+        <ObjectUnionOf>
+            <Class IRI="#UstawaLewicowa"/>
+            <Class IRI="#UstawaPrawicowa"/>
+        </ObjectUnionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#UstawaLewicowa"/>
+        <Class IRI="#Ustawa"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#UstawaPrawicowa"/>
+        <Class IRI="#Ustawa"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Partia"/>
+        <Class IRI="#Ustawa"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#UstawaLewicowa"/>
+        <Class IRI="#UstawaPrawicowa"/>
+    </DisjointClasses>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#glosowalPrzeciw"/>
+        <NamedIndividual IRI="#PIS"/>
+        <NamedIndividual IRI="#uLewicowa3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#glosowalPrzeciw"/>
+        <NamedIndividual IRI="#PIS"/>
+        <NamedIndividual IRI="#uLewicowa1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#glosowalPrzeciw"/>
+        <NamedIndividual IRI="#PIS"/>
+        <NamedIndividual IRI="#uLewicowa2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#glosowalZa"/>
+        <NamedIndividual IRI="#PIS"/>
+        <NamedIndividual IRI="#uPrawicowa1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#glosowalZa"/>
+        <NamedIndividual IRI="#PIS"/>
+        <NamedIndividual IRI="#uPrawicowa2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#glosowalZa"/>
+        <NamedIndividual IRI="#PO"/>
+        <NamedIndividual IRI="#uPrawicowa1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#glosowalZa"/>
+        <NamedIndividual IRI="#PO"/>
+        <NamedIndividual IRI="#uLewicowa3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#glosowalZa"/>
+        <NamedIndividual IRI="#SLD"/>
+        <NamedIndividual IRI="#uLewicowa1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#glosowalZa"/>
+        <NamedIndividual IRI="#SLD"/>
+        <NamedIndividual IRI="#uLewicowa2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#glosowalPrzeciw"/>
+        <Class IRI="#Partia"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#glosowalZa"/>
+        <Class IRI="#Partia"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#glosowalPrzeciw"/>
+        <Class IRI="#Ustawa"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#glosowalZa"/>
+        <Class IRI="#Ustawa"/>
+    </ObjectPropertyRange>
+    <DisjointObjectProperties>
+        <ObjectProperty IRI="#glosowalPrzeciw"/>
+        <ObjectProperty IRI="#glosowalZa"/>
+    </DisjointObjectProperties>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
