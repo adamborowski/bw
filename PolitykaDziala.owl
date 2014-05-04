@@ -147,22 +147,8 @@
         <Class IRI="#Partia"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#PartiaLewicowa"/>
-        <ObjectAllValuesFrom>
-            <ObjectProperty IRI="#glosowalZa"/>
-            <Class IRI="#UstawaLewicowa"/>
-        </ObjectAllValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#PartiaPrawicowa"/>
         <Class IRI="#Partia"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#PartiaPrawicowa"/>
-        <ObjectAllValuesFrom>
-            <ObjectProperty IRI="#glosowalZa"/>
-            <Class IRI="#UstawaPrawicowa"/>
-        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Ustawa"/>
@@ -190,7 +176,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#glosowalPrzeciw"/>
         <NamedIndividual IRI="#PIS"/>
-        <NamedIndividual IRI="#uLewicowa3"/>
+        <NamedIndividual IRI="#uLewicowa2"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#glosowalPrzeciw"/>
@@ -200,12 +186,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#glosowalPrzeciw"/>
         <NamedIndividual IRI="#PIS"/>
-        <NamedIndividual IRI="#uLewicowa2"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#glosowalZa"/>
-        <NamedIndividual IRI="#PIS"/>
-        <NamedIndividual IRI="#uPrawicowa1"/>
+        <NamedIndividual IRI="#uLewicowa3"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#glosowalZa"/>
@@ -214,7 +195,7 @@
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#glosowalZa"/>
-        <NamedIndividual IRI="#PO"/>
+        <NamedIndividual IRI="#PIS"/>
         <NamedIndividual IRI="#uPrawicowa1"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -224,13 +205,38 @@
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#glosowalZa"/>
+        <NamedIndividual IRI="#PO"/>
+        <NamedIndividual IRI="#uPrawicowa1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#glosowalPrzeciw"/>
+        <NamedIndividual IRI="#SLD"/>
+        <NamedIndividual IRI="#uPrawicowa3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#glosowalPrzeciw"/>
+        <NamedIndividual IRI="#SLD"/>
+        <NamedIndividual IRI="#uPrawicowa1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#glosowalPrzeciw"/>
+        <NamedIndividual IRI="#SLD"/>
+        <NamedIndividual IRI="#uPrawicowa2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#glosowalZa"/>
+        <NamedIndividual IRI="#SLD"/>
+        <NamedIndividual IRI="#uLewicowa2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#glosowalZa"/>
         <NamedIndividual IRI="#SLD"/>
         <NamedIndividual IRI="#uLewicowa1"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#glosowalZa"/>
         <NamedIndividual IRI="#SLD"/>
-        <NamedIndividual IRI="#uLewicowa2"/>
+        <NamedIndividual IRI="#uLewicowa3"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#glosowalPrzeciw"/>
