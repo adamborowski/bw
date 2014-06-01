@@ -1,0 +1,191 @@
+# baseURI: http://topbraid.org/examples/topquadrant
+# imports: http://topbraid.org/schema/schema-single-range
+# imports: http://www.fao.org/countryprofiles/geoinfo/geopolitical/resource/geopolitical.owl
+
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix resource: <http://www.fao.org/countryprofiles/geoinfo/geopolitical/resource/> .
+@prefix schema: <http://schema.org/> .
+@prefix tq: <http://topbraid.org/examples/topquadrant#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://topbraid.org/examples/topquadrant>
+  rdf:type owl:Ontology ;
+  rdfs:comment "Some information about TopQuadrant, including some of its employees and products."^^xsd:string ;
+  rdfs:label "TopQuadrant Schema.org Example"^^xsd:string ;
+  owl:imports <http://topbraid.org/schema/schema-single-range> ;
+  owl:imports <http://www.fao.org/countryprofiles/geoinfo/geopolitical/resource/geopolitical.owl> ;
+  owl:versionInfo "0.2.0"^^xsd:string ;
+.
+tq:HolgerKnublauch
+  rdf:type schema:Person ;
+  schema:address [
+      rdf:type schema:PostalAddress ;
+      schema:addressCountry <http://www.fao.org/countryprofiles/geoinfo/geopolitical/resource/geopolitical.owl#Australia> ;
+      schema:addressLocality "Kewarra Beach"^^xsd:string ;
+      schema:addressRegion "QLD"^^xsd:string ;
+      schema:email "holger@topquadrant.com"^^xsd:string ;
+      schema:postalCode "4879"^^xsd:string ;
+      schema:streetAddress "3 Teewah Close"^^xsd:string ;
+    ] ;
+  schema:birthDate "1971-07-07"^^xsd:date ;
+  schema:email "holger@topquadrant.com"^^xsd:string ;
+  schema:familyName "Knublauch"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Holger"^^xsd:string ;
+  schema:honorificPrefix "Dr."^^xsd:string ;
+  schema:image <http://www.topquadrant.com/images/headshots/Knublauch_SM.jpg> ;
+  schema:jobTitle "VP of Research and Development"^^xsd:string ;
+  schema:nationality <http://www.fao.org/countryprofiles/geoinfo/geopolitical/resource/geopolitical.owl#Germany> ;
+  schema:worksFor tq:TopQuadrant ;
+  rdfs:comment """Dr. Holger Knublauch is well known in the Semantic Web community as the designer and developer of the Protégé Web Ontology Language (OWL) Plugin. He joined TopQuadrant in late 2006 to develop the next generation of Semantic Web tools and middleware. Holger leads the development of TopBraid Suite.
+
+Prior to TopQuadrant Holger was a Post-Doctoral Research Fellow at Stanford Medical Informatics at the Stanford University where he was responsible for research and development of various components of the knowledge modeling tool Protégé including Protege OWL, UML interfaces and interoperability with a Meta Object Facility (MOF) format.
+
+Holger actively contributed to the World Wide Web Consortium’s Semantic Web Best Practices Working Group by developing guidance for building Semantic Web applications. He holds a Ph.D. in Computer Science from the University of Ulm in Germany, 2002."""^^xsd:string ;
+  rdfs:label "Holger Knublauch"^^xsd:string ;
+.
+tq:IrenePolikoff
+  rdf:type schema:Person ;
+  schema:email "irene@topquadrant.com"^^xsd:string ;
+  schema:familyName "Polikoff"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Irene"^^xsd:string ;
+  schema:image <http://www.topquadrant.com/images/headshots/Polikoff_SM.jpg> ;
+  schema:jobTitle "Co-Founder/CEO"^^xsd:string ;
+  schema:worksFor tq:TopQuadrant ;
+  rdfs:comment """Irene Polikoff has more than two decades of experience in software development, management, consulting and strategic planning. Since co-founding TopQuadrant in 2001 Irene has been involved in more than a dozen projects in government and commercial sectors. She has written strategy papers, trained customers on the use of the Semantic Web standards, developed ontology models, designed solution architectures and defined deployment processes and guidance.
+
+With the introduction of TopQuadrant's Semantic Solution Platform, TopBraid Suite, Irene has been leading the evolution of the company from a consulting firm to a software vendor. As an executive leader of TopQuadrant Irene is responsible for daily operations and long term strategy of the company.
+
+Before starting TopQuadrant Irene was a Principal in the national Knowledge, Content Management and Portals Practice in IBM Global Services. Prior to that she was a Senior Development Manager and a Project Executive for IBM worldwide consultant's tools and methods.
+
+Prior to IBM, Ms. Polikoff held IT management positions at Fortune 500 companies where she was responsible for development and deployment of enterprise-wide mission critical information systems. Irene has a Masters degree in Operations Research from Columbia University. She is co-author of a recently published book on software requirements and architecture - \"Capability Cases: Solution Envisioning Approach\"."""^^xsd:string ;
+  rdfs:label "Irene Polikoff"^^xsd:string ;
+.
+tq:RalphHodgson
+  rdf:type schema:Person ;
+  schema:email "ralph@topquadrant.com"^^xsd:string ;
+  schema:familyName "Hodgson"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Ralph"^^xsd:string ;
+  schema:image <http://www.topquadrant.com/images/headshots/Hodgson_SM.jpg> ;
+  schema:jobTitle "Co-founder/CTO"^^xsd:string ;
+  schema:worksFor tq:TopQuadrant ;
+  rdfs:comment """Ralph has over 25 years experience in the United States and internationally in enterprise systems design, consulting, software development and methodology development and deployment.
+
+Before co-founding TopQuadrant he has held executive consulting positions at IBM Global Services where he was a founding member of Portal Practice and Object Technology Practice. Prior to IBM, he was European Technology Director, founder and Managing Director of Interactive Development Environments, which was an international CASE tools vendor. He started his career in the Research and Development Department of Hewlett Packard where he designed telecommunications test instrumentation.
+
+As a technologist, he maintains an interest in software technologies for intelligent systems. He is a recognized thought leader in the object technology community. Ralph is a member of the \"Intent Alliance\", an organization that was formed to promote the value of systems thinking for intelligent enterprises. He is a published author and a frequent speaker at international software engineering conferences. Between 1996 and 2000, he organized the OOPSLA workshops on \"System Envisioning\"."""^^xsd:string ;
+  rdfs:label "Ralph Hodgson"^^xsd:string ;
+.
+tq:RobertCoyne
+  rdf:type schema:Person ;
+  schema:email "robert@topquadrant.com"^^xsd:string ;
+  schema:familyName "Coyne"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Robert"^^xsd:string ;
+  schema:honorificPrefix "Dr."^^xsd:string ;
+  schema:image <http://www.topquadrant.com/images/headshots/Coyne_SM.jpg> ;
+  schema:jobTitle "Co-founder/CMO and VP of Professional Services"^^xsd:string ;
+  schema:worksFor tq:TopQuadrant ;
+  rdfs:comment """Dr. Coyne has over 25 years’ experience in system design and IT with complementary experience in business, consulting, academia and research. As CMO, Robert leads TopQuadrant’s marketing and public relations initiatives centered on its TopBraid business solutions and semantic solutions platform.  At TopQuadrant he has served in multiple roles from COO to account manager for key customers and has consulted consults with clients on knowledge-based solutions, the semantic web, semantic technology trainings and solution envisioning.
+
+Prior to joining TopQuadrant as a founder, Robert was Executive Vice President & Chief Technology Officer of Solution Technology International, Inc. He co-designed a web-based ‘straight through processing’ platform for the insurance industry. Before that he was a Senior Consultant at Object Technology Practice (OTP) in IBM Global Services where he co-architected IBM's object-oriented methodology for client engagements, and served as a knowledge management /collaboration expert for the global OTP.
+
+Dr. Coyne received a PhD (1991) in Computer-Aided Design while working as Research Faculty and Lecturer at Carnegie Mellon University.  He has authored over 30 technical papers, journal articles and book chapters, and is co-author of a the book Capability Cases: Solution Envisioning Approach."""^^xsd:string ;
+  rdfs:label "Robert Coyne"^^xsd:string ;
+.
+tq:TBC-FE
+  rdf:type schema:Product ;
+  schema:brand tq:TopBraid ;
+  schema:isSimilarTo tq:TBC-ME ;
+  schema:isSimilarTo tq:TBC-SE ;
+  schema:logo <http://www.topquadrant.com/products/images/TBC_logo_C_2009_LG_print.jpg> ;
+  schema:manufacturer tq:TopQuadrant ;
+  rdfs:comment "TopBraid Composer is the world’s most powerful modeling environment and an IDE for building semantic applications. Fully compliant with W3C standards, Composer offers complete support for developing, managing and testing configurations of ontologies and linked data. As part of TopBraid Suite, Composer provides a comprehensive IDE for developing semantic solutions that can integrate disparate applications and data sources."^^xsd:string ;
+  rdfs:label "TopBraid Composer Free Edition"^^xsd:string ;
+.
+tq:TBC-ME
+  rdf:type schema:Product ;
+  schema:brand tq:TopBraid ;
+  schema:isSimilarTo tq:TBC-FE ;
+  schema:isSimilarTo tq:TBC-SE ;
+  schema:logo <http://www.topquadrant.com/products/images/TBC_logo_C_2009_LG_print.jpg> ;
+  schema:manufacturer tq:TopQuadrant ;
+  rdfs:comment "TopBraid Composer is the world’s most powerful modeling environment and an IDE for building semantic applications. Fully compliant with W3C standards, Composer offers complete support for developing, managing and testing configurations of ontologies and linked data. As part of TopBraid Suite, Composer provides a comprehensive IDE for developing semantic solutions that can integrate disparate applications and data sources."^^xsd:string ;
+  rdfs:label "TopBraid Composer Maestro Edition"^^xsd:string ;
+.
+tq:TBC-SE
+  rdf:type schema:Product ;
+  schema:brand tq:TopBraid ;
+  schema:isSimilarTo tq:TBC-FE ;
+  schema:isSimilarTo tq:TBC-ME ;
+  schema:logo <http://www.topquadrant.com/products/images/TBC_logo_C_2009_LG_print.jpg> ;
+  schema:manufacturer tq:TopQuadrant ;
+  rdfs:comment "TopBraid Composer is the world’s most powerful modeling environment and an IDE for building semantic applications. Fully compliant with W3C standards, Composer offers complete support for developing, managing and testing configurations of ontologies and linked data. As part of TopBraid Suite, Composer provides a comprehensive IDE for developing semantic solutions that can integrate disparate applications and data sources."^^xsd:string ;
+  rdfs:label "TopBraid Composer Standard Edition"^^xsd:string ;
+.
+tq:TBEVN
+  rdf:type schema:Product ;
+  schema:logo <http://www.topquadrant.com/images/TBEVN_logo-364x110.jpg> ;
+  rdfs:comment "TopBraid Enterprise Vocabulary Net (TopBraid EVN) is a web-based solution for simplified development and management of interconnected controlled vocabularies. It supports business stakeholders who need to collaborate on defining and linking enterprise vocabularies, taxonomies, thesauri and ontologies used for information integration, customization and search."^^xsd:string ;
+  rdfs:label "TopBraid Enterprise Vocabulary Net"^^xsd:string ;
+  rdfs:seeAlso <http://www.topquadrant.com/solutions/ent_vocab_net.html> ;
+.
+tq:TBLSI
+  rdf:type schema:Product ;
+  schema:brand tq:TopBraid ;
+  rdfs:comment "TopBraid Insight is an “out of the box” Logical Data Warehouse that offers an agile, extensible approach to querying data from diverse data sources in a high performance open architecture that has proven enterprise scalability.  TopQuadrant intends to build solutions based on this approach for targeted industries—the first is for the life sciences."^^xsd:string ;
+  rdfs:label "TopBraid Life Sciences Insight"^^xsd:string ;
+  rdfs:seeAlso <http://www.topquadrant.com/solutions/insight.html> ;
+.
+tq:TBSuite
+  rdf:type schema:Product ;
+  schema:brand tq:TopBraid ;
+  schema:logo <http://www.topquadrant.com/images/TB_Suite_logo.jpg> ;
+  rdfs:comment """TopBraid Suite™ leverages semantic technology to help our customers connect silos of data, systems and infrastructure and to build flexible applications from linked data models.
+
+TopBraid Suite is a set of integrated products that seamlessly fit into existing IT environments. All components of the suite work within an open architecture platform built specifically to implement W3C standards for integration and combination of data drawn from diverse sources."""^^xsd:string ;
+  rdfs:label "TopBraid Suite"^^xsd:string ;
+  rdfs:seeAlso <http://www.topquadrant.com/products/TB_Suite.html> ;
+.
+tq:TopBraid
+  rdf:type schema:Brand ;
+  rdfs:label "TopBraid"^^xsd:string ;
+.
+tq:TopQuadrant
+  rdf:type schema:Corporation ;
+  schema:address tq:TopQuadrantHeadquarterAddress ;
+  schema:brand tq:TopBraid ;
+  schema:email "info@topquadrant.com"^^xsd:string ;
+  schema:founder tq:IrenePolikoff ;
+  schema:founder tq:RalphHodgson ;
+  schema:founder tq:RobertCoyne ;
+  schema:legalName "TopQuadrant, Inc."^^xsd:string ;
+  schema:makesOffer [
+      rdf:type schema:Offer ;
+      schema:itemOffered tq:TBC-ME ;
+      schema:price "3450"^^xsd:float ;
+      schema:priceCurrency "USD"^^xsd:string ;
+    ] ;
+  schema:makesOffer [
+      rdf:type schema:Offer ;
+      schema:itemOffered tq:TBC-SE ;
+      schema:price "1850"^^xsd:float ;
+      schema:priceCurrency "USD"^^xsd:string ;
+    ] ;
+  rdfs:label "TopQuadrant"^^xsd:string ;
+.
+tq:TopQuadrantHeadquarterAddress
+  rdf:type schema:PostalAddress ;
+  schema:addressCountry <http://www.fao.org/countryprofiles/geoinfo/geopolitical/resource/geopolitical.owl#United_States_of_America> ;
+  schema:addressLocality "Alexandria"^^xsd:string ;
+  schema:addressRegion "VA"^^xsd:string ;
+  schema:faxNumber "+1 703 299 8330"^^xsd:string ;
+  schema:postalCode "22314-5760"^^xsd:string ;
+  schema:streetAddress "330 John Carlyle Street, Suite 180"^^xsd:string ;
+  schema:telephone "+1 703 299 9330"^^xsd:string ;
+  rdfs:label "TopQuadrant's headquarter address"^^xsd:string ;
+.

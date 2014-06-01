@@ -1,0 +1,946 @@
+# baseURI: http://topbraid.org/diff
+# imports: http://topbraid.org/sparqlmotionlib-tb
+
+# c14n-version: 3
+@prefix diff: <http://topbraid.org/diff#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix smf: <http://topbraid.org/sparqlmotionfunctions#> .
+@prefix sml: <http://topbraid.org/sparqlmotionlib#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+<http://topbraid.org/diff>
+  rdf:type owl:Ontology ;
+  rdfs:comment "An RDF Schema that can be used to represent the results of a diff operation (differences between two versions of an RDF model). Also provides SPIN rules that can be used to construct instances."^^xsd:string ;
+  owl:imports <http://topbraid.org/sparqlmotionlib-tb> ;
+  owl:versionInfo "1.1.1"^^xsd:string ;
+.
+diff:AddedBlankNodeDiff
+  rdf:type rdfs:Class ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:label ;
+            sp:subject spin:_this ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "subject"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:subject ;
+            sp:subject spin:_this ;
+          ]
+          [
+            sp:object [
+                sp:varName "predicate"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:predicate ;
+            sp:subject spin:_this ;
+          ]
+          [
+            sp:object [
+                sp:varName "objectName"^^xsd:string ;
+              ] ;
+            sp:predicate diff:objectName ;
+            sp:subject spin:_this ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type smf:buildString ;
+                sp:arg1 "Added \"{?objectName}\" to {?predicate} at {?subject}" ;
+              ] ;
+            sp:variable [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  diff:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object diff:AddedBlankNodeDiff ;
+            sp:predicate rdf:type ;
+            sp:subject _:b19072 ;
+          ]
+          [
+            sp:object [
+                sp:varName "subject"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:subject ;
+            sp:subject _:b19072 ;
+          ]
+          [
+            sp:object [
+                sp:varName "predicate"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:predicate ;
+            sp:subject _:b19072 ;
+          ]
+          [
+            sp:object [
+                sp:varName "objectName"^^xsd:string ;
+              ] ;
+            sp:predicate diff:objectName ;
+            sp:subject _:b19072 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:NamedGraph ;
+            sp:elements (
+                [
+                  rdf:type sp:NamedGraph ;
+                  sp:elements (
+                      [
+                        sp:object [
+                            sp:varName "object"^^xsd:string ;
+                          ] ;
+                        sp:predicate [
+                            sp:varName "predicate"^^xsd:string ;
+                          ] ;
+                        sp:subject [
+                            sp:varName "subject"^^xsd:string ;
+                          ] ;
+                      ]
+                      [
+                        rdf:type sp:Bind ;
+                        sp:expression [
+                            rdf:type smf:if ;
+                            sp:arg1 [
+  rdf:type sp:and ;
+  sp:arg1 [
+      rdf:type sp:and ;
+      sp:arg1 [
+          rdf:type sp:isIRI ;
+          sp:arg1 [
+              sp:varName "subject"^^xsd:string ;
+            ] ;
+        ] ;
+      sp:arg2 [
+          rdf:type sp:isIRI ;
+          sp:arg1 [
+              sp:varName "predicate"^^xsd:string ;
+            ] ;
+        ] ;
+    ] ;
+  sp:arg2 [
+      rdf:type sp:isBlank ;
+      sp:arg1 [
+          sp:varName "object"^^xsd:string ;
+        ] ;
+    ] ;
+] ;
+                            sp:arg2 [
+  rdf:type smf:name ;
+  sp:arg1 [
+      sp:varName "object"^^xsd:string ;
+    ] ;
+] ;
+                          ] ;
+                        sp:variable [
+                            sp:varName "objectName"^^xsd:string ;
+                          ] ;
+                      ]
+                    ) ;
+                  sp:graphNameNode diff:new ;
+                ]
+                [
+                  rdf:type sp:Filter ;
+                  sp:expression [
+                      rdf:type sp:not ;
+                      sp:arg1 [
+                          rdf:type fn:starts-with ;
+                          sp:arg1 [
+sp:varName "objectName"^^xsd:string ;
+                            ] ;
+                          sp:arg2 "<@" ;
+                        ] ;
+                    ] ;
+                ]
+                [
+                  rdf:type sp:Filter ;
+                  sp:expression [
+                      rdf:type sp:not ;
+                      sp:arg1 [
+                          rdf:type diff:hasValueWithName ;
+                          sp:arg1 [
+sp:varName "subject"^^xsd:string ;
+                            ] ;
+                          sp:arg2 [
+sp:varName "predicate"^^xsd:string ;
+                            ] ;
+                          sp:arg3 [
+sp:varName "objectName"^^xsd:string ;
+                            ] ;
+                        ] ;
+                    ] ;
+                ]
+              ) ;
+            sp:graphNameNode diff:old ;
+          ]
+        ) ;
+      rdfs:comment "Construct AddedBlankNodeDiffs for added blank nodes"^^xsd:string ;
+    ] ;
+  rdfs:label "Added blank node diff"^^xsd:string ;
+  rdfs:subClassOf diff:BlankNodeDiff ;
+.
+diff:AddedTripleDiff
+  rdf:type rdfs:Class ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:label ;
+            sp:subject spin:_this ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "subject"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:subject ;
+            sp:subject spin:_this ;
+          ]
+          [
+            sp:object [
+                sp:varName "predicate"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:predicate ;
+            sp:subject spin:_this ;
+          ]
+          [
+            sp:object [
+                sp:varName "object"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:object ;
+            sp:subject spin:_this ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type smf:buildString ;
+                sp:arg1 "Added {?object} to {?predicate} at {?subject}" ;
+              ] ;
+            sp:variable [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  diff:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object diff:AddedTripleDiff ;
+            sp:predicate rdf:type ;
+            sp:subject _:b35182 ;
+          ]
+          [
+            sp:object [
+                sp:varName "subject"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:subject ;
+            sp:subject _:b35182 ;
+          ]
+          [
+            sp:object [
+                sp:varName "predicate"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:predicate ;
+            sp:subject _:b35182 ;
+          ]
+          [
+            sp:object [
+                sp:varName "object"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:object ;
+            sp:subject _:b35182 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:NamedGraph ;
+            sp:elements (
+                [
+                  rdf:type sp:NamedGraph ;
+                  sp:elements (
+                      [
+                        sp:object [
+                            sp:varName "object"^^xsd:string ;
+                          ] ;
+                        sp:predicate [
+                            sp:varName "predicate"^^xsd:string ;
+                          ] ;
+                        sp:subject [
+                            sp:varName "subject"^^xsd:string ;
+                          ] ;
+                      ]
+                      [
+                        rdf:type sp:Filter ;
+                        sp:expression [
+                            rdf:type sp:and ;
+                            sp:arg1 [
+  rdf:type sp:and ;
+  sp:arg1 [
+      rdf:type sp:isIRI ;
+      sp:arg1 [
+          sp:varName "subject"^^xsd:string ;
+        ] ;
+    ] ;
+  sp:arg2 [
+      rdf:type sp:isIRI ;
+      sp:arg1 [
+          sp:varName "predicate"^^xsd:string ;
+        ] ;
+    ] ;
+] ;
+                            sp:arg2 [
+  rdf:type sp:not ;
+  sp:arg1 [
+      rdf:type sp:isBlank ;
+      sp:arg1 [
+          sp:varName "object"^^xsd:string ;
+        ] ;
+    ] ;
+] ;
+                          ] ;
+                      ]
+                    ) ;
+                  sp:graphNameNode diff:new ;
+                ]
+                [
+                  rdf:type sp:NotExists ;
+                  sp:elements (
+                      [
+                        sp:object [
+                            sp:varName "object"^^xsd:string ;
+                          ] ;
+                        sp:predicate [
+                            sp:varName "predicate"^^xsd:string ;
+                          ] ;
+                        sp:subject [
+                            sp:varName "subject"^^xsd:string ;
+                          ] ;
+                      ]
+                    ) ;
+                ]
+              ) ;
+            sp:graphNameNode diff:old ;
+          ]
+        ) ;
+      rdfs:comment "Construct AddedTripleDiffs for added triples"^^xsd:string ;
+    ] ;
+  rdfs:label "Added triple diff"^^xsd:string ;
+  rdfs:subClassOf diff:TripleDiff ;
+.
+diff:BlankNodeDiff
+  rdf:type rdfs:Class ;
+  rdfs:label "Blank node diff"^^xsd:string ;
+  rdfs:subClassOf diff:Diff ;
+.
+diff:DeletedBlankNodeDiff
+  rdf:type rdfs:Class ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:label ;
+            sp:subject spin:_this ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "subject"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:subject ;
+            sp:subject spin:_this ;
+          ]
+          [
+            sp:object [
+                sp:varName "predicate"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:predicate ;
+            sp:subject spin:_this ;
+          ]
+          [
+            sp:object [
+                sp:varName "objectName"^^xsd:string ;
+              ] ;
+            sp:predicate diff:objectName ;
+            sp:subject spin:_this ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type smf:buildString ;
+                sp:arg1 "Deleted \"{?objectName}\" from {?predicate} at {?subject}" ;
+              ] ;
+            sp:variable [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  diff:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object diff:DeletedBlankNodeDiff ;
+            sp:predicate rdf:type ;
+            sp:subject _:b22931 ;
+          ]
+          [
+            sp:object [
+                sp:varName "subject"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:subject ;
+            sp:subject _:b22931 ;
+          ]
+          [
+            sp:object [
+                sp:varName "predicate"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:predicate ;
+            sp:subject _:b22931 ;
+          ]
+          [
+            sp:object [
+                sp:varName "objectName"^^xsd:string ;
+              ] ;
+            sp:predicate diff:objectName ;
+            sp:subject _:b22931 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:NamedGraph ;
+            sp:elements (
+                [
+                  rdf:type sp:NamedGraph ;
+                  sp:elements (
+                      [
+                        sp:object [
+                            sp:varName "object"^^xsd:string ;
+                          ] ;
+                        sp:predicate [
+                            sp:varName "predicate"^^xsd:string ;
+                          ] ;
+                        sp:subject [
+                            sp:varName "subject"^^xsd:string ;
+                          ] ;
+                      ]
+                      [
+                        rdf:type sp:Bind ;
+                        sp:expression [
+                            rdf:type smf:if ;
+                            sp:arg1 [
+  rdf:type sp:and ;
+  sp:arg1 [
+      rdf:type sp:and ;
+      sp:arg1 [
+          rdf:type sp:isIRI ;
+          sp:arg1 [
+              sp:varName "subject"^^xsd:string ;
+            ] ;
+        ] ;
+      sp:arg2 [
+          rdf:type sp:isIRI ;
+          sp:arg1 [
+              sp:varName "predicate"^^xsd:string ;
+            ] ;
+        ] ;
+    ] ;
+  sp:arg2 [
+      rdf:type sp:isBlank ;
+      sp:arg1 [
+          sp:varName "object"^^xsd:string ;
+        ] ;
+    ] ;
+] ;
+                            sp:arg2 [
+  rdf:type smf:name ;
+  sp:arg1 [
+      sp:varName "object"^^xsd:string ;
+    ] ;
+] ;
+                          ] ;
+                        sp:variable [
+                            sp:varName "objectName"^^xsd:string ;
+                          ] ;
+                      ]
+                    ) ;
+                  sp:graphNameNode diff:old ;
+                ]
+                [
+                  rdf:type sp:Filter ;
+                  sp:expression [
+                      rdf:type sp:not ;
+                      sp:arg1 [
+                          rdf:type fn:starts-with ;
+                          sp:arg1 [
+sp:varName "objectName"^^xsd:string ;
+                            ] ;
+                          sp:arg2 "<@" ;
+                        ] ;
+                    ] ;
+                ]
+                [
+                  rdf:type sp:Filter ;
+                  sp:expression [
+                      rdf:type sp:not ;
+                      sp:arg1 [
+                          rdf:type diff:hasValueWithName ;
+                          sp:arg1 [
+sp:varName "subject"^^xsd:string ;
+                            ] ;
+                          sp:arg2 [
+sp:varName "predicate"^^xsd:string ;
+                            ] ;
+                          sp:arg3 [
+sp:varName "objectName"^^xsd:string ;
+                            ] ;
+                        ] ;
+                    ] ;
+                ]
+              ) ;
+            sp:graphNameNode diff:new ;
+          ]
+        ) ;
+      rdfs:comment "Construct DeletedBlankNodeDiffs for added blank nodes"^^xsd:string ;
+    ] ;
+  rdfs:label "Deleted blank node diff"^^xsd:string ;
+  rdfs:subClassOf diff:BlankNodeDiff ;
+.
+diff:DeletedTripleDiff
+  rdf:type rdfs:Class ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:label ;
+            sp:subject spin:_this ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "subject"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:subject ;
+            sp:subject spin:_this ;
+          ]
+          [
+            sp:object [
+                sp:varName "predicate"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:predicate ;
+            sp:subject spin:_this ;
+          ]
+          [
+            sp:object [
+                sp:varName "object"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:object ;
+            sp:subject spin:_this ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type smf:buildString ;
+                sp:arg1 "Deleted {?object} from {?predicate} at {?subject}" ;
+              ] ;
+            sp:variable [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  diff:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object diff:DeletedTripleDiff ;
+            sp:predicate rdf:type ;
+            sp:subject _:b32610 ;
+          ]
+          [
+            sp:object [
+                sp:varName "subject"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:subject ;
+            sp:subject _:b32610 ;
+          ]
+          [
+            sp:object [
+                sp:varName "predicate"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:predicate ;
+            sp:subject _:b32610 ;
+          ]
+          [
+            sp:object [
+                sp:varName "object"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:object ;
+            sp:subject _:b32610 ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:NamedGraph ;
+            sp:elements (
+                [
+                  rdf:type sp:NamedGraph ;
+                  sp:elements (
+                      [
+                        sp:object [
+                            sp:varName "object"^^xsd:string ;
+                          ] ;
+                        sp:predicate [
+                            sp:varName "predicate"^^xsd:string ;
+                          ] ;
+                        sp:subject [
+                            sp:varName "subject"^^xsd:string ;
+                          ] ;
+                      ]
+                      [
+                        rdf:type sp:Filter ;
+                        sp:expression [
+                            rdf:type sp:and ;
+                            sp:arg1 [
+  rdf:type sp:and ;
+  sp:arg1 [
+      rdf:type sp:isIRI ;
+      sp:arg1 [
+          sp:varName "subject"^^xsd:string ;
+        ] ;
+    ] ;
+  sp:arg2 [
+      rdf:type sp:isIRI ;
+      sp:arg1 [
+          sp:varName "predicate"^^xsd:string ;
+        ] ;
+    ] ;
+] ;
+                            sp:arg2 [
+  rdf:type sp:not ;
+  sp:arg1 [
+      rdf:type sp:isBlank ;
+      sp:arg1 [
+          sp:varName "object"^^xsd:string ;
+        ] ;
+    ] ;
+] ;
+                          ] ;
+                      ]
+                    ) ;
+                  sp:graphNameNode diff:old ;
+                ]
+                [
+                  rdf:type sp:NotExists ;
+                  sp:elements (
+                      [
+                        sp:object [
+                            sp:varName "object"^^xsd:string ;
+                          ] ;
+                        sp:predicate [
+                            sp:varName "predicate"^^xsd:string ;
+                          ] ;
+                        sp:subject [
+                            sp:varName "subject"^^xsd:string ;
+                          ] ;
+                      ]
+                    ) ;
+                ]
+              ) ;
+            sp:graphNameNode diff:new ;
+          ]
+        ) ;
+      rdfs:comment "Construct DeletedTripleDiffs for added triples"^^xsd:string ;
+    ] ;
+  rdfs:label "Deleted triple diff"^^xsd:string ;
+  rdfs:subClassOf diff:TripleDiff ;
+.
+diff:Diff
+  rdf:type rdfs:Class ;
+  rdfs:label "Diff"^^xsd:string ;
+.
+diff:ShowAllDiffs
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "subject"^^xsd:string ;
+          ]
+          [
+            sp:varName "predicate"^^xsd:string ;
+          ]
+          [
+            sp:varName "label"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:TriplePath ;
+            sp:object diff:Diff ;
+            sp:path [
+                rdf:type sp:ModPath ;
+                sp:modMax -2 ;
+                sp:modMin 0 ;
+                sp:subPath rdfs:subClassOf ;
+              ] ;
+            sp:subject [
+                sp:varName "type"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "type"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "diff"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Optional ;
+            sp:elements (
+                [
+                  sp:object [
+                      sp:varName "label"^^xsd:string ;
+                    ] ;
+                  sp:predicate rdfs:label ;
+                  sp:subject [
+                      sp:varName "diff"^^xsd:string ;
+                    ] ;
+                ]
+              ) ;
+          ]
+          [
+            rdf:type sp:Optional ;
+            sp:elements (
+                [
+                  sp:object [
+                      sp:varName "subject"^^xsd:string ;
+                    ] ;
+                  sp:predicate rdf:subject ;
+                  sp:subject [
+                      sp:varName "diff"^^xsd:string ;
+                    ] ;
+                ]
+              ) ;
+          ]
+          [
+            rdf:type sp:Optional ;
+            sp:elements (
+                [
+                  sp:object [
+                      sp:varName "predicate"^^xsd:string ;
+                    ] ;
+                  sp:predicate rdf:predicate ;
+                  sp:subject [
+                      sp:varName "diff"^^xsd:string ;
+                    ] ;
+                ]
+              ) ;
+          ]
+        ) ;
+    ] ;
+  spin:labelTemplate "Diffs"^^xsd:string ;
+  rdfs:comment "Shows all Diffs in the current model." ;
+  rdfs:label "Show all diffs"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+diff:ShowRelatedDiffs
+  rdf:type spin:Template ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "label"^^xsd:string ;
+          ]
+          [
+            sp:varName "diff"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:TriplePath ;
+            sp:object diff:Diff ;
+            sp:path [
+                rdf:type sp:ModPath ;
+                sp:modMax -2 ;
+                sp:modMin 0 ;
+                sp:subPath rdfs:subClassOf ;
+              ] ;
+            sp:subject [
+                sp:varName "type"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "type"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "diff"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Union ;
+            sp:elements (
+                (
+                  [
+                    sp:object [
+                        sp:varName "selectedResource"^^xsd:string ;
+                      ] ;
+                    sp:predicate rdf:subject ;
+                    sp:subject [
+                        sp:varName "diff"^^xsd:string ;
+                      ] ;
+                  ]
+                )
+                (
+                  [
+                    sp:object [
+                        sp:varName "selectedResource"^^xsd:string ;
+                      ] ;
+                    sp:predicate rdf:predicate ;
+                    sp:subject [
+                        sp:varName "diff"^^xsd:string ;
+                      ] ;
+                  ]
+                )
+                (
+                  [
+                    sp:object [
+                        sp:varName "selectedResource"^^xsd:string ;
+                      ] ;
+                    sp:predicate rdf:object ;
+                    sp:subject [
+                        sp:varName "diff"^^xsd:string ;
+                      ] ;
+                  ]
+                )
+              ) ;
+          ]
+          [
+            sp:object [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:label ;
+            sp:subject [
+                sp:varName "diff"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type sml:SelectedResourceArgument ;
+      spl:predicate sml:selectedResource ;
+    ] ;
+  spin:labelTemplate "{?selectedResource} Diffs"^^xsd:string ;
+  rdfs:comment "Shows all Diffs related to a selected resource." ;
+  rdfs:label "Show related diffs"^^xsd:string ;
+  rdfs:subClassOf spin:Templates ;
+.
+diff:TripleDiff
+  rdf:type rdfs:Class ;
+  rdfs:label "Triple diff"^^xsd:string ;
+  rdfs:subClassOf diff:Diff ;
+.
+diff:hasValueWithName
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "object"^^xsd:string ;
+              ] ;
+            sp:predicate spin:_arg2 ;
+            sp:subject spin:_arg1 ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:eq ;
+                sp:arg1 [
+                    rdf:type smf:name ;
+                    sp:arg1 [
+                        sp:varName "object"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg2 spin:_arg3 ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The subject to match (or null)."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg2 ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The predicate to match (or null)"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg3 ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The string to compare the label with."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Checks whether a given subject (?arg1) / predicate (?arg2) combination has an object that has a label that matches a given label (?arg3), where the labels are compared using smf:name. This function can be used to check whether a given blank node (with a given label) is still available (via string comparison) in another graph." ;
+  rdfs:label "has value with name"^^xsd:string ;
+  rdfs:subClassOf spl:BooleanFunctions ;
+.
+diff:new
+  rdf:type rdfs:Resource ;
+  rdfs:comment "Name of the new graph during a diff:rule execution." ;
+  rdfs:label "new"^^xsd:string ;
+.
+diff:objectName
+  rdf:type rdf:Property ;
+  rdfs:label "object name"^^xsd:string ;
+.
+diff:old
+  rdf:type rdfs:Resource ;
+  rdfs:comment "Name of the old graph during a diff:rule execution." ;
+  rdfs:label "old"^^xsd:string ;
+.
+diff:rule
+  rdf:type rdf:Property ;
+  rdfs:comment "Points to a diff rule" ;
+  rdfs:label "rule"^^xsd:string ;
+  rdfs:range sp:Construct ;
+  rdfs:subPropertyOf spin:query ;
+.

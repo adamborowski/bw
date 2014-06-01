@@ -1,0 +1,1445 @@
+# baseURI: http://topbraid.org/sparqlmotionlib-tb
+# imports: http://topbraid.org/email
+# imports: http://topbraid.org/search
+# imports: http://topbraid.org/sparqlmotionfunctions
+# imports: http://topbraid.org/sparqlmotionlib-core
+# imports: http://uispin.org/ui
+
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://topbraid.org/sparqlmotion#> .
+@prefix smf: <http://topbraid.org/sparqlmotionfunctions#> .
+@prefix sml: <http://topbraid.org/sparqlmotionlib#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix sxml: <http://topbraid.org/sxml#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://spinrdf.org/arg#divider>
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+<http://spinrdf.org/arg#endIndex>
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+<http://spinrdf.org/arg#sourceFilePath>
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+<http://spinrdf.org/arg#startIndex>
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+sml:AddGraph
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:uri ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The URI of the graph to add the triples to."^^xsd:string ;
+    ] ;
+  rdfs:comment "Performs a bulk update in which all triples from the input graph are added to a given named graph."^^xsd:string ;
+  rdfs:label "Add graph"^^xsd:string ;
+  rdfs:subClassOf sml:RDFProcessingModules ;
+.
+sml:ApplyJenaInferencing
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "sml:RDFS_MEM_TRANS_INF" ;
+      spl:predicate sml:inferencingMode ;
+      spl:valueType sml:JenaInferencingMode ;
+      rdfs:comment "Specifies the Jena inferencing mode that shall be applied. The permitted values must be instances of sml:JenaInferencingSpec. Default spec is RDFS_MEM_TRANS_INF."^^xsd:string ;
+    ] ;
+  rdfs:comment "Applies one of the Jena inference engines on the input triples." ;
+  rdfs:label "Apply Jena inferencing"^^xsd:string ;
+  rdfs:subClassOf sml:RDFProcessingModules ;
+.
+sml:ApplyJenaRules
+  rdf:type sm:Module ;
+  rdfs:comment "Applies the rules specified as values of the jena:rule property in the source ontologies. The inferred triples will be added to the input triples stream."^^xsd:string ;
+  rdfs:label "Apply Jena rules"^^xsd:string ;
+  rdfs:subClassOf sml:RDFProcessingModules ;
+.
+sml:ApplyOWLIM
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:replace ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "Specifies whether the resulting infererred triples shall replace the input. If false, the union of inferred triples and old triples are returned."^^xsd:string ;
+    ] ;
+  rdfs:comment """Runs the OWLIM inferencer over the input triples, adding the inferred triples.
+
+Note that this SPARQLMotion module does not (yet) support the various settings of OWLIM that are accessible through TBC. Let us know if you need any of them!"""^^xsd:string ;
+  rdfs:label "Apply OWLIM"^^xsd:string ;
+  rdfs:subClassOf sml:RDFProcessingModules ;
+.
+sml:BindByXPath
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue xsd:string ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:datatype ;
+      spl:valueType rdfs:Datatype ;
+      rdfs:comment "The datatype of the result variable (xsd:string if left blank)."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "value"^^xsd:string ;
+      spl:predicate sm:outputVariable ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the variable to bind."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:xml ;
+      rdfs:comment "The XML document or node to operate on."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:xpath ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The XPath to process."^^xsd:string ;
+    ] ;
+  rdfs:comment "Evaluates an XPath on a given XML node (or document) and binds the first result to a given variable." ;
+  rdfs:label "Bind by XPath"^^xsd:string ;
+  rdfs:subClassOf sml:XMLProcessingModules ;
+.
+sml:BindWithParameter
+  rdf:type sm:Module ;
+  rdf:type owl:DeprecatedClass ;
+  spin:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Deprecated since 2.0.0: Web Services are now defined like user-defined functions and SPIN functions, and the parameters are instances of spl:Argument." ;
+  rdfs:label "Bind with parameter"^^xsd:string ;
+  rdfs:subClassOf sml:ControlFlowModules ;
+.
+sml:CallCalais
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:text ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The text that shall be sent to the Calais service."^^xsd:string ;
+    ] ;
+  rdfs:comment "Runs the OpenCalais web service to extract RDF entities from text. The result will be the input triples plus the extracted triples (instances of the Calais ontology classes)." ;
+  rdfs:label "Call Calais"^^xsd:string ;
+  rdfs:subClassOf sml:TextProcessingModules ;
+.
+sml:CheckSpelling
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:selectQuery ;
+      spl:valueType sp:Select ;
+      rdfs:comment "The SELECT query that delivers all the literals that shall be spell checked."^^xsd:string ;
+    ] ;
+  rdfs:comment """Runs a SPARQL select query and binds result variables for each matching result set.  Strings bound to variables in the SELECT clause will be passed to a TBL spellchecker, which will parse the string into individual words and return triples representing each word from the string not in the dictionary.  Each word returned is represented as an instance of the class http://topbraid.org/spellcheckresults#SpellResult with properties inputString, foundError, mispelledWords, and suggestions, all with the same prefix as SpellResult, http://topbraid.org/spellcheckresults#. The value of the suggestions property is an rdf:Bag with five suggested replacements for the word. In the checked content, terms in all upper-case such as acronyms are ignored.
+
+The spellcheck dictionary is included with TopBraid Live (both Personal and Enterprise Server).  Words can be added to the dictionary through the sml:UpdateUserWordDictionary module."""^^xsd:string ;
+  rdfs:label "Check spelling" ;
+  rdfs:subClassOf sml:RDFProcessingModules ;
+.
+sml:CollectGarbage
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:baseURI ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The base URI of the RDF model to \"forget\"."^^xsd:string ;
+    ] ;
+  rdfs:comment "Collects \"garbage\" to clean up memory from RDF models that are no longer used. Currently, this requires specifying the base URI of a graph that has been previously loaded. Note that the use of this module is not safe in a multi-user setting, and should only be used if you know what you are doing."^^xsd:string ;
+  rdfs:label "Collect garbage"^^xsd:string ;
+  rdfs:subClassOf sml:ControlFlowModules ;
+.
+sml:ConvertDatatype
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:datatype ;
+      spl:valueType rdfs:Datatype ;
+      rdfs:comment "The datatype (e.g. xsd:string) of the new triples. If the datatype is rdfs:Resource and the lexical form of the old value is a valid URI, then the resulting triple will point to a resource with that URI."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:predicate ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The predicate of the triples that shall be replaced."^^xsd:string ;
+    ] ;
+  rdfs:comment "Replaces all triples that have a given property as predicate (specified by sml:predicate) by converting its object literals into a different RDF datatype (specified as sml:datatype)." ;
+  rdfs:label "Convert datatype"^^xsd:string ;
+  rdfs:subClassOf sml:RDFProcessingModules ;
+.
+sml:ConvertJSONToRDF
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "root"^^xsd:string ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sm:outputVariable ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the result variable (defaults to \"root\") that will contain the root object of the converted JSON code."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:text ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The JSON input text, either a JSON object or array."^^xsd:string ;
+    ] ;
+  rdfs:comment """Takes a JSON object or array (represented as text) and converts it to RDF triples with the same structure. The result graph will only contain the generated triples - the input graph will be ignored and may need to be passed on with a separate sm:next relationship. The graph uses the namespace prefix \"json\" for http://topbraid.org/json#.
+
+The conversion will start at the JSON root and does a recursive walk through of the JSON objects and arrays. Each JSON object becomes a blank node of type json:Object. Each attribute of the JSON object is mapped into a property from the json namespace, e.g. attribute \"firstName\" becomes a property json:firstName. No types are generated for those properties (but a simple CONSTRUCT could be used). The values of those properties depend on the JSON attribute value. Arrays are converted to rdf:Lists, JSON objects recursively become new blank nodes. Numbers, booleans and strings become corresponding RDF literals.
+
+Optionally, the module can bind a new variable pointing at the root object of the new JSON data structure in RDF."""^^xsd:string ;
+  rdfs:label "Convert JSON to RDF"^^xsd:string ;
+  rdfs:subClassOf sml:TextProcessingModules ;
+.
+sml:ConvertJavaObjectsToRDF
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "java"^^xsd:string ;
+      spl:predicate sml:inputVariable ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the variable that is currently pointing to the Java objects to convert."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sm:outputVariable ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of an output variable that will contain the root object (in RDF)."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Attribute ;
+      spl:predicate sml:javaClass ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The names of the Java classes in scope of the conversion. All (indirect) instances of those classes will be included in the conversion. The names may end with .* to indicate packages."^^xsd:string ;
+    ] ;
+  rdfs:comment "Converts Java objects (e.g. loaded using sml:ImportJavaObjectsFromEMFFile) into RDF classes, properties and instances that have the same structure. The module will start at a root object and traverse all properties of that object (using JavaBeans-like getter methods), converting each instance into RDF blank nodes. The traversal into adjacent objects only continues if the object has one of the types specified by this module."^^xsd:string ;
+  rdfs:label "Convert Java objects to RDF"^^xsd:string ;
+  rdfs:subClassOf sml:RDFProcessingModules ;
+.
+sml:ConvertRDFToXML
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "xml" ;
+      spl:predicate sm:outputVariable ;
+      rdfs:comment "The name of the variable that will hold the resulting XML data. Default: xml."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:document ;
+      spl:valueType sxml:Document ;
+      rdfs:comment "The sxml:Document to use - if unspecified it will pick one found in the model, which will be unpredictable if multiple sxml:Document instances exist."^^xsd:string ;
+    ] ;
+  rdfs:comment "Converts RDF into XML using the Semantic XML (sxml) ontology for the round-tripping. The resulting XML will be bound to the specified output variable. Note that this requires the RDF model to contain an SXML root document element - this function does not work with arbitrary RDF data!  For more, see Help > Import and Export > Creating, Importing, Querying, Saving XML documents with Semantic XML."^^xsd:string ;
+  rdfs:label "Convert RDF to XML"^^xsd:string ;
+  rdfs:seeAlso <http://composing-the-semantic-web.blogspot.com/2007/11/xmap-mapping-arbitrary-xml-documents-to.html> ;
+  rdfs:seeAlso sml:ConvertXMLToRDF ;
+  rdfs:subClassOf sml:XMLProcessingModules ;
+.
+sml:ConvertSpreadsheetToRDF
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:className ;
+      rdfs:comment "The optional name of the target class. If this value is unspecified, then cell (0, 0) of the spreadsheet is used instead. This value can be a localname, a qname or a URI string. If it doesn't exist, then it is created."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:encoding ;
+      rdfs:comment "The canonical name of the text encoding of the spreadsheet file. If no value for this property is given, then the default JRE encoding is used. If an encoding value is given for this property, then the spreadsheet file will be evaluated using this value. The supported encodings can be found at the website: <http://java.sun.com/j2se/1.5.0/docs/guide/intl/encoding.doc.html>"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:importToInputGraph ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "If set to true, then the import will attempt to reuse properties defined in the input RDF graph for the column-to-property mapping."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:instancePattern ;
+      rdfs:comment "The naming pattern for the generated instances. This can contain static characters or placeholders for columns. For example Person-%1 will create names that consist of the static string \"Person-\" and then the value of the first column."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:propertyPrefix ;
+      rdfs:comment "The prefix that shall be used for the generated property names. Only used if no qname is specified for a column property and if a new graph is created from the spreadsheet, i.e. importToInputGraph value is false."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:sourceFilePath ;
+      rdfs:comment "An optional file path to the spreadsheet. If this is specified then the module will directly do streaming loading from the given file. This should make it possible to handle files of arbitrary size."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:text ;
+      rdfs:comment "The spreadsheet's text that shall be converted. If sml:sourceFilePath is set then this value is ignored."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:useUnderscore ;
+      rdfs:comment "If true, it replaces special characters, i.e. characters that cannot be imported by default to create a resource URI, with an underscore. If false, these characters are ignored during import."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:useVerbatim ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "If true, it imports special characters, i.e. characters that cannot be imported by default to create a resource URI. If false, these characters are ignored during import."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:schemaNamespace ;
+      rdfs:comment "The base namespace of the target schema."^^xsd:string ;
+    ] ;
+  rdfs:comment """Creates an RDF graph from a tab-separated spreadsheet which is specified from a given string variable. In a typical use case, this will be used after sml:ImportTextFile, which binds the variable text which is also the default input variable of this module. For very large files that cannot be loaded into memory, the module provides the option to specify a file directly using sml:sourceFilePath.
+
+Note that TopBraid supports multiple spreadsheet importer algorithms, including Semantic Tables and the Excel cell importer (sml:ImportExcelCellInstances). This module provides the functionality that is accessible through the TopBraid Composer Spreadsheet import wizard (Help > Import > Import Tab-Delimited Spreadsheet File)."""^^xsd:string ;
+  rdfs:label "Convert spreadsheet to RDF"^^xsd:string ;
+  rdfs:seeAlso sml:ImportExcelCellInstances ;
+  rdfs:subClassOf sml:TextProcessingModules ;
+.
+sml:ConvertXMLByXSLT
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "xml"^^xsd:string ;
+      spl:predicate sm:outputVariable ;
+      rdfs:comment "The generated XML string variable. The recommended module to export or return the value of this variable is sml:ExportToXMLFile or sml:ReturnXML."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:template ;
+      rdfs:comment "The string variable holding the XSLT script"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:xml ;
+      rdfs:comment "The source XML variable"^^xsd:string ;
+    ] ;
+  rdfs:comment """Converts an XML document into another XML document using XSLT. The source XML document is either a XML or string variable. The target XML document is a string variable. XSLT script is provided as a string.
+
+Any property other than the expected arguments (sm:outputVariable, sml:template, sml:xml, rdfs:label, and rdf:type) can be used to specify additional parameters for the XSL transformer. The local name of the property will be the parameter name. The values must be string literals. For example, set arg:myParam to \"{?myValue}\" and the value of the variable ?myValue will be set as parameter \"myParam\"."""^^xsd:string ;
+  rdfs:label "Convert XML by XSLT"^^xsd:string ;
+  rdfs:subClassOf sml:XMLProcessingModules ;
+.
+sml:ConvertXMLToRDF
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:xmlType ;
+      spl:valueType xsd:string ;
+      rdfs:comment "An (optional) type indicator for the Semantic XML conversion. Current supported values are \"XHTML\" (treats the input as HTML source, and may run a tidy algorithm in case the HTML is not well-formed XHTML)."^^xsd:string ;
+    ] ;
+  rdfs:seeAlso sml:ConvertRDFToXML ;
+.
+sml:DatabaseType
+  rdf:type rdfs:Class ;
+  rdfs:comment "The class of database configurations used by Jena SDB (and possibly other databases)."^^xsd:string ;
+  rdfs:label "Database type"^^xsd:string ;
+.
+sml:Diff
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:ignoreBlankNodes ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "True to bypass comparison of blank nodes - which may take up a lot of time."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:newGraph ;
+      spl:valueType sm:Modules ;
+      rdfs:comment "The module representing the new graph. Must be a predecessor of the current module to ensure that the module has been executed before."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:oldGraph ;
+      spl:valueType sm:Modules ;
+      rdfs:comment "The module representing the old graph. Must be a predecessor of the current module to ensure that the module has been executed before."^^xsd:string ;
+    ] ;
+  rdfs:comment "This module exposes the functionality known from TopBraid Composer under Model > Compare current RDF Model with... It returns a diff graph between an old graph and a new graph. This module is related to the old graph with sml:oldGraph and the new graph with sml:newGraph properties. The output is a collection of instances from the http://topbraid.org/diff namespace."^^xsd:string ;
+  rdfs:label "Diff"^^xsd:string ;
+  rdfs:subClassOf sml:RDFProcessingModules ;
+.
+sml:ExportBatch
+  rdf:type sml:OracleExportMode ;
+  rdfs:label "ExportBatch"^^xsd:string ;
+.
+sml:ExportBulk
+  rdf:type sml:OracleExportMode ;
+  rdfs:label "ExportBulk"^^xsd:string ;
+.
+sml:ExportIncremental
+  rdf:type sml:OracleExportMode ;
+  rdfs:label "ExportIncremental"^^xsd:string ;
+.
+sml:ExportToJMS
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "ConnectionFactory"^^xsd:string ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:jmsConnectionFactory ;
+      spl:valueType xsd:string ;
+      rdfs:comment "Connection Factory name for the JMS Queue"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "false"^^xsd:boolean ;
+      spl:predicate sml:className ;
+      spl:valueType xsd:string ;
+      rdfs:comment "Fully qualified class name of JNDI Initial Context Factory for the JMS Queue."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "false"^^xsd:boolean ;
+      spl:predicate sml:jmsDestination ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the JMS queue to send the message to."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "false"^^xsd:boolean ;
+      spl:predicate sml:text ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The text to be submitted to the JMS queue."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "false"^^xsd:boolean ;
+      spl:predicate sml:url ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The URL of the JMS broker."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:userName ;
+      spl:valueType xsd:string ;
+      rdfs:comment "JMS broker username."^^xsd:string ;
+    ] ;
+  rdfs:comment "Exports a string to a JMS queue.  The text to export must be specified as value of the argument sml:text."^^xsd:string ;
+  rdfs:label "Export to JMS"^^xsd:string ;
+  rdfs:subClassOf sml:ExportToRemoteModules ;
+.
+sml:ExportToOracleRDFDatabase
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue sml:ExportBulk ;
+      spl:predicate sml:exportMode ;
+      spl:valueType sml:OracleExportMode ;
+      rdfs:comment "the mode of export to use"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:password ;
+      rdfs:comment "The password to log in with. Can be left empty if the built-in security mechanism (of Eclipse) shall be used."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:replace ;
+      rdfs:comment "true to replace all triples currently in the database."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:modelName ;
+      rdfs:comment "The internal Oracle name of the database."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:url ;
+      rdfs:comment "The URL of the database."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:userName ;
+      rdfs:comment "The user name to log in with."^^xsd:string ;
+    ] ;
+  rdfs:comment """Connects to an Oracle 11g RDF database and writes the input triples into it.
+
+Note: This is a low-level system module. The preferred way of writing to databases is using sml:PerformUpdate."""^^xsd:string ;
+  rdfs:label "Export to Oracle RDF database"^^xsd:string ;
+  rdfs:subClassOf sml:ExportToRemoteModules ;
+.
+sml:ExportToSDB
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "true"^^xsd:boolean ;
+      spl:predicate sml:replace ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "Indicates whether all existing content of the SDB shall be overwritten."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:graphName ;
+      spl:valueType xsd:string ;
+      rdfs:comment "the named graph URI"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:password ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The password to log in with. Can be left empty if the built-in security mechanism (of Eclipse) shall be used."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:targetFilePath ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The (optional) path to a .sdb file that can later be opened from within TopBraid."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:userName ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The user name to log in with."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:baseURI ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The base URI of the target SDB database. This will serve as a unique identifier of the triple store in TopBraid, and is typically also represented by an owl:Ontology."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:databaseType ;
+      spl:valueType sml:DatabaseType ;
+      rdfs:comment "The database type, e.g. Oracle."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:url ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The URL of the database."^^xsd:string ;
+    ] ;
+  rdfs:comment """Writes the input triples to a specified Jena SDB database.
+
+Note: This is a low-level system module. The preferred way of writing to databases is using sml:PerformUpdate."""^^xsd:string ;
+  rdfs:label "Export to SDB"^^xsd:string ;
+  rdfs:subClassOf sml:ExportToRemoteModules ;
+.
+sml:ExportToSesameRemoteRepository
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:baseURI ;
+      rdfs:comment "The base URI of the target repository. Must be specified if a connection file (*.s2r) shall be created."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:graphName ;
+      spl:valueType xsd:string ;
+      rdfs:comment "the graph name URI"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:modelName ;
+      rdfs:comment "The id of the model on the server, if necessary."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:password ;
+      rdfs:comment "The password if required to log into the repository. Can be left empty if the built-in security mechanism (of Eclipse) shall be used."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:replace ;
+      rdfs:comment "true clears the repository before writing into it."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:targetFilePath ;
+      rdfs:comment "An (optional) path to a connection metadata file that will be created so that tools can connect to the repository later. This path is relative to the workspace root, e.g. \"/myProject/myFolder/myFile.s2r\". Must be used in conjunction with sml:baseURI."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:userName ;
+      rdfs:comment "The user name if required to log into the repository."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:url ;
+      rdfs:comment "The URL of the Sesame server."^^xsd:string ;
+    ] ;
+  rdfs:comment """Writes the input triples into a Sesame remote repository.
+
+Note: This is a low-level system module. The preferred way of writing to databases is using sml:PerformUpdate."""^^xsd:string ;
+  rdfs:label "Export to Sesame remote repository"^^xsd:string ;
+  rdfs:subClassOf sml:ExportToRemoteModules ;
+.
+sml:ExportToSolrFields
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "http://localhost:8983/solr"^^xsd:string ;
+      spl:predicate sml:url ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The URL of the Solr server."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:password ;
+      spl:valueType xsd:string ;
+      rdfs:comment "Password for authentication at the Solr server (if needed). If left blank and a user name is provided, then the system will look up a password from TopBraid's secure storage."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:replace ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "True to clear out the Solr index before adding the fields."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:selectQuery ;
+      spl:valueType sp:Select ;
+      rdfs:comment "An optional SELECT query that returns all resources that shall be exported. If not specified, then the module will export all subjects."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:useURIs ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "True to use full URIs for field names - the system will try to use qnames otherwise and this may lead to problems if either no prefixes exist or names clash."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:userName ;
+      spl:valueType xsd:string ;
+      rdfs:comment "User name for authentication at the Solr server (if needed)."^^xsd:string ;
+    ] ;
+  rdfs:comment "Exports documents and their fields derived from the current input graph to a given Solr instance. The algorithm iterates over a set of subjects, which can be specified by a given selectQuery. It turns each subject into a Solr document, and each property of the subject by default is mapped to a dynamic field, based on the types of the values. For example, a single-valued xsd:string property ex:myProperty is mapped to a Solr field \"ex_myProperty_s\" (if the qname option has been selected). Each document also has an \"id\" field which contains the URI of the subject, and a \"name\" field which contains the human-readable label of the subject. In contrast, rdfs:label and its sub-properties are not exported unless explicitly overridden. It is possible to override the property naming convention by attaching the solr:fieldName values to the properties in the RDF graph. If the value of solr:fieldName is \"-\" then the property will not be exported at all."^^xsd:string ;
+  rdfs:label "Export to Solr fields"^^xsd:string ;
+  rdfs:subClassOf sml:ExportToRemoteModules ;
+.
+sml:ExportToTDB
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:replace ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "True to overwrite any pre-existing database at this location."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:baseURI ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The base URI for the TDB repository."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:targetFilePath ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The path to the TDB database."^^xsd:string ;
+    ] ;
+  rdfs:comment """Export the input RDF triples to a given Jena TDB database.
+
+Note: This is a low-level system module. The preferred way of writing to databases is using sml:PerformUpdate."""^^xsd:string ;
+  rdfs:label "Export to TDB"^^xsd:string ;
+  rdfs:subClassOf sml:ExportToLocalModules ;
+.
+sml:FilterByFilterGraph
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:filterGraph ;
+      spl:valueType sm:Modules ;
+      rdfs:comment "The module that contains the triples that shall be filtered out. Must be one of the predecessors of this module, to make sure that it has been executed before."^^xsd:string ;
+    ] ;
+  rdfs:comment "Filters input graphs with filter graphs. This module is linked to filter graph modules by sml:filterGraph property."^^xsd:string ;
+  rdfs:label "Filter by filter graph"^^xsd:string ;
+  rdfs:subClassOf sml:RDFProcessingModules ;
+.
+sml:ImportAndSplitTextFile
+  rdf:type spin:SelectTemplate ;
+  rdf:type sm:Module ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "segment"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "sourceFilePath"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "divider"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "?2"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "startIndex"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "?3"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "endIndex"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?3"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object () ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?3"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "segment"^^xsd:string ;
+              ] ;
+            sp:predicate smf:splitTextFile ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate <http://spinrdf.org/arg#endIndex> ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "The segment index to end with (first matching segment has index 1)."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate <http://spinrdf.org/arg#startIndex> ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "The segment index to start with (first matching segment has index 1)."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate <http://spinrdf.org/arg#divider> ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The string dividing the segments in the text file, for example \",\" for comma-separated snippets."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate <http://spinrdf.org/arg#sourceFilePath> ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The absolute path to the text file in the workspace (e.g., /myProject/myFolder/test.txt)."^^xsd:string ;
+    ] ;
+  rdfs:comment """Performs a streaming load over a text file and iterates over a selection of segments (divided by a given separator) inside of that text file. The body of this module will be executed for each matching segment, and the variable ?segment will be bound in each iteration.
+
+This module uses the magic property smf:splitTextfile for the bulk of the work, and you can also use that magic property for finer-grained control of the iteration."""^^xsd:string ;
+  rdfs:label "Import and split text file"^^xsd:string ;
+  rdfs:subClassOf sm:SelectTemplates ;
+  rdfs:subClassOf sml:ImportFromLocalModules ;
+.
+sml:ImportCurrentRDF
+  rdf:type sm:Module ;
+  rdfs:comment """Depending on the context, this module delivers different results.
+
+When called from TBC, this will return the RDF graph of the currently open file. In many use cases this will include the script itself, unless the script is a background service such as an sml:TrackChanges script.
+
+When called from a user-defined SPARQLMotion/SPIN Function, this module will return the context graph, which is the graph that the surrounding SPARQL query will currently operate on.
+
+When called as a TopBraid Live (stand-alone) web service, this module will throw an exception because there is no current graph available."""^^xsd:string ;
+  rdfs:label "Import current RDF"^^xsd:string ;
+  rdfs:subClassOf sml:ImportFromVariousModules ;
+.
+sml:ImportEMails
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:loadBodies ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "Indicates whether the bodies of the email should also be downloaded. Note that the value of true will be significantly slower than the (default value) false."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:path ;
+      rdfs:comment "An (optional) path to those folders the headers of which shall be loaded. For example /INBOX/TBC-MailingList will load the emails from the TBC-MailingList folder inside of the INBOX folder."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:baseURI ;
+      rdfs:comment "The base URI of the RDF objects created from the emails."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:emailAccount ;
+      spl:valueType <http://topbraid.org/email#Address> ;
+      rdfs:comment "The address to load the emails from. The address must have valid values for email:userName, email:protocol, email:password, email:server."^^xsd:string ;
+    ] ;
+  rdfs:comment "Imports email messages from an account. This feature is based on the TopBraid email ontology (http://topbraid.org/email). The property sml:emailAccount must point to one email:Address instance. The system will connect to the account and import its emails into OWL instances of the email ontology." ;
+  rdfs:label "Import emails"^^xsd:string ;
+  rdfs:subClassOf sml:ImportFromRemoteModules ;
+.
+sml:ImportExcelCellInstances
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:sourceFilePath ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The path to the Excel source file in the workspace. The path can be relative to the current script's folder (e.g., myFolder/test.xls) or absolute to the workspace root /myProject/myFolder/test.xls."^^xsd:string ;
+    ] ;
+  rdfs:comment """Loads an Excel file into instances of the TopBraid spreadsheets ontology - each non-empty cell becomes an instance of ss:Cell. In a typical scenario, the resulting cell instances are passed into other modules (such as sml:ApplyConstruct) to convert the raw data into a more useful format. This module provides the functionality that is accessible from TBC, as described in Help > Import > Import Excel File into Spreadsheet Ontology.
+
+This module is distinct from the Semantic Tables importer, which can be used with sml:ImportRDFFormWorkspace to also import Excel files. The latter is better suited for spreadsheets consisting of regular tables, while this module here is optimized for cases in which the Excel file is not well-structured and each individual cell has a different meaning or role."""^^xsd:string ;
+  rdfs:label "Import Excel cell instances"^^xsd:string ;
+  rdfs:seeAlso sml:ConvertSpreadsheetToRDF ;
+  rdfs:seeAlso sml:ImportRDFFromWorkspace ;
+  rdfs:subClassOf sml:ImportFromLocalModules ;
+.
+sml:ImportJavaObjectsFromEMFFile
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "java"^^xsd:string ;
+      spl:predicate sm:outputVariable ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the output variable that will contain the reference to the Java objects."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:sourceFilePath ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The path to the EMF file."^^xsd:string ;
+    ] ;
+  rdfs:comment "Loads an EMF file from the workspace and makes it possible to process the resulting Java objects further down in the script (e.g., with sml:ConvertJavaObjectsToRDF)."^^xsd:string ;
+  rdfs:label "Import java objects from EMF file"^^xsd:string ;
+  rdfs:subClassOf sml:ImportFromLocalModules ;
+.
+sml:ImportMicrodata
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:url ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The URL of the Microdata file to import."^^xsd:string ;
+    ] ;
+  rdfs:comment "Imports RDF triples encoded as Microdata from a given URL."^^xsd:string ;
+  rdfs:label "Import Microdata"^^xsd:string ;
+  rdfs:subClassOf sml:ImportFromRemoteModules ;
+.
+sml:ImportNewsFeed
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:url ;
+      rdfs:comment "The URL of the newsfeed."^^xsd:string ;
+    ] ;
+  rdfs:comment "Connects to a newsfeed specified by a URL and returns its content as RDF triples. Supported formats are Atom 0.3, Atom 1.0, RSS 0.91, 0.92, 1.0, 2.0. The url string may contain variable placeholders such as {?keyword} to insert variable bindings." ;
+  rdfs:label "Import news feed"^^xsd:string ;
+  rdfs:subClassOf sml:ImportFromRemoteModules ;
+.
+sml:ImportOracleRDFDatabase
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:cached ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "Indicates whether the Oracle database shall be wrapped with a local cache for optimized performance."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:password ;
+      rdfs:comment "The (optional) password to log into the database. Can be left empty if the built-in security mechanism (of Eclipse) shall be used."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:modelName ;
+      rdfs:comment "The internal Oracle database name."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:url ;
+      rdfs:comment "The URL of the database."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:userName ;
+      rdfs:comment "The (optional) user name to log into the database."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Attribute ;
+      spl:predicate sml:ruleBaseName ;
+      rdfs:comment "The name(s) of rule bases that shall be used for server-side inferencing. The standard inferences are RDFS, RDFS++, OWLSIF and OWLPRIME."^^xsd:string ;
+    ] ;
+  rdfs:comment """Connects to an Oracle 11g RDF database.
+
+Note: This is a low-level system module. The preferred way of operating on existing databases is using sml:ImportRDFFromWorkspace."""^^xsd:string ;
+  rdfs:label "Import Oracle RDF database"^^xsd:string ;
+  rdfs:subClassOf sml:ImportFromRemoteModules ;
+.
+sml:ImportRDFa
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:needsTidy ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "If set to true, the engine will attempt to clean up the HTML so that it becomes well-formed XHTML."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:url ;
+      rdfs:comment "The URL of the RDFa file (typically HTML)."^^xsd:string ;
+    ] ;
+  rdfs:comment """Imports the RDF triples from a given RDFa page with a given URL.
+
+Depending on the file format, other kinds of pre-processing may be needed to tidy up the HTML into proper XHTML. This can be specified with an option. By default, well-formed XHTML is assumed."""^^xsd:string ;
+  rdfs:label "Import RDFa"^^xsd:string ;
+  rdfs:subClassOf sml:ImportFromRemoteModules ;
+.
+sml:ImportSDB
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:graphName ;
+      spl:valueType xsd:string ;
+      rdfs:comment "the named graph URI"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:password ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The password of the connection. Can be left empty if the built-in security mechanism (of Eclipse) shall be used."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:userName ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The user name of the connection."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:databaseType ;
+      spl:valueType sml:DatabaseType ;
+      rdfs:comment "The database type, such as Oracle."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:url ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The database URL."^^xsd:string ;
+    ] ;
+  rdfs:comment """Connects to an existing Jena SDB database.
+
+Note: This is a low-level system module. The preferred way of operating on existing SDBs is using sml:ImportRDFFromWorkspace."""^^xsd:string ;
+  rdfs:label "Import SDB"^^xsd:string ;
+  rdfs:subClassOf sml:ImportFromRemoteModules ;
+.
+sml:ImportSesameRemoteRepository
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:graphName ;
+      spl:valueType xsd:string ;
+      rdfs:comment "the named graph URI"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:modelName ;
+      rdfs:comment "The id of the model on the server, if necessary."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:password ;
+      rdfs:comment "The password if required to log into the repository. Can be left empty if the built-in security mechanism (of Eclipse) shall be used."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:userName ;
+      rdfs:comment "The user name if required to log into the repository."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:url ;
+      rdfs:comment "The URL of the Sesame server."^^xsd:string ;
+    ] ;
+  rdfs:comment """Connects to a remote Sesame 2 repository.
+
+Note: This is a low-level system module. The preferred way of operating on existing databases is using sml:ImportRDFFromWorkspace."""^^xsd:string ;
+  rdfs:label "Import Sesame remote repository"^^xsd:string ;
+  rdfs:subClassOf sml:ImportFromRemoteModules ;
+.
+sml:ImportTDB
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:dataPath ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The path to the TBD data files. This is usually the .tdb connector file name plus .data."^^xsd:string ;
+    ] ;
+  rdfs:comment """Opens a Jena TDB database stored in the workspace at a given path.
+
+Note: This is a low-level system module. The preferred way of operating on existing TDBs is using sml:ImportRDFFromWorkspace."""^^xsd:string ;
+  rdfs:label "Import TDB"^^xsd:string ;
+  rdfs:subClassOf sml:ImportFromLocalModules ;
+.
+sml:ImportXHTML
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "xml" ;
+      spl:predicate sm:outputVariable ;
+      rdfs:comment "The name of the variable that will contain the XHTML as an XML document. Default: xml."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:url ;
+      rdfs:comment "The URL of the HTML page. May contain variables such as {?varName}."^^xsd:string ;
+    ] ;
+  rdfs:comment "Opens an HTML document from a URI, using Tidy to convert it to XHTML (XML). The url must point to the URL of the file. The URL may contain variables from the input modules. The resulting XML will be assigned to the specified output variable." ;
+  rdfs:label "Import XHTML"^^xsd:string ;
+  rdfs:subClassOf sml:ImportFromRemoteModules ;
+.
+sml:IterateOverArguments
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Attribute ;
+      spl:maxCount 1 ;
+      spl:minCount 1 ;
+      spl:predicate sm:body ;
+      rdfs:comment "The body to execute with the two variable bindings (?argName and ?argValue)."^^xsd:string ;
+    ] ;
+  rdfs:comment "In scripts that are called as web service, this module can be used to iterate over all arguments of the web service. In each iteration, the body will be executed with two variable bindings: the argument name (?argName) and argument value (?argValue), both as xsd:string literals. The result of the module itself will be the union of the results of all body iterations, comparable to sml:IterateOverSelect. In a typical scenario, the body would consist of sml:ApplyConstruct modules that turn the raw arguments into some more meaningful data structure, that is then further processed by the rest of the script."^^xsd:string ;
+  rdfs:label "Iterate over arguments"^^xsd:string ;
+  rdfs:subClassOf sml:ControlFlowModules ;
+.
+sml:IterateOverSQL
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:password ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The password for the database."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:userName ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The user name for the database."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:databaseType ;
+      spl:valueType sml:DatabaseType ;
+      rdfs:comment "The type of the database."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:sql ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The SQL SELECT query to send to the database."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:url ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The URL of the database."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Attribute ;
+      spl:maxCount 1 ;
+      spl:minCount 1 ;
+      spl:predicate sm:body ;
+      rdfs:comment "The body of the iteration loop."^^xsd:string ;
+    ] ;
+  rdfs:comment """Repeats a given sub-script for each matching result set of a given SQL Select query. The system will do a mapping of SQL values to suitable XSD datatypes.
+
+The start of the sub-script is specified by the body property, and the input RDF of the body is the same as the input of the iteration module itself. The result variables of the Select query will be bound in each iteration of the loop.
+
+The result of this module are the accumulated triples from the end nodes of the body scripts. No internal variable bindings of the body will be used outside of the body."""^^xsd:string ;
+  rdfs:label "Iterate over SQL"^^xsd:string ;
+  rdfs:subClassOf sml:ControlFlowModules ;
+.
+sml:IterateOverXPath
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "xml"^^xsd:string ;
+      spl:predicate sm:outputVariable ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the variable that will be bound in each iteration."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:xml ;
+      rdfs:comment "The XML node (document or element) to operate on."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:xpath ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The XPath to evaluate."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Attribute ;
+      spl:maxCount 1 ;
+      spl:minCount 1 ;
+      spl:predicate sm:body ;
+      rdfs:comment "The body to execute in each iteration."^^xsd:string ;
+    ] ;
+  rdfs:comment "Evaluates an XPath on a given XML document (or node) and executes a given body for each binding. The outputVariable will be bound in each iteration of the loop, bound to the XML node. The main use case of this module is in combination with sml:BindByXPath: IterateOverXPath walks through a list of top-level nodes and sml:BindByXPath is then used to extract individual values in each iteration." ;
+  rdfs:label "Iterate over XPath"^^xsd:string ;
+  rdfs:subClassOf sml:XMLProcessingModules ;
+.
+sml:JenaInferencingMode
+  rdf:type rdfs:Class ;
+  rdfs:comment "The inferencing types supported by Jena." ;
+  rdfs:label "Jena inferencing mode"^^xsd:string ;
+  rdfs:subClassOf rdfs:Resource ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:oneOf (
+          sml:OWL_MEM
+          sml:OWL_MEM_MICRO_RULE_INF
+          sml:OWL_MEM_MINI_RULE_INF
+          sml:OWL_MEM_RDFS_INF
+          sml:OWL_MEM_RULE_INF
+          sml:OWL_MEM_TRANS_INF
+          sml:OWL_DL_MEM
+          sml:OWL_DL_MEM_RDFS_INF
+          sml:OWL_DL_MEM_RULE_INF
+          sml:OWL_DL_MEM_TRANS_INF
+          sml:RDFS_MEM_RDFS_INF
+          sml:RDFS_MEM_TRANS_INF
+        ) ;
+    ] ;
+.
+sml:MySQL
+  rdf:type sml:DatabaseType ;
+  rdfs:label "MySQL"^^xsd:string ;
+.
+sml:OWL_DL_MEM
+  rdf:type sml:JenaInferencingMode ;
+  rdfs:label "OWL_DL_MEM"^^xsd:string ;
+.
+sml:OWL_DL_MEM_RDFS_INF
+  rdf:type sml:JenaInferencingMode ;
+  rdfs:label "OWL_DL_MEM_RDFS_INF"^^xsd:string ;
+.
+sml:OWL_DL_MEM_RULE_INF
+  rdf:type sml:JenaInferencingMode ;
+  rdfs:label "OWL_DL_MEM_RULE_INF"^^xsd:string ;
+.
+sml:OWL_DL_MEM_TRANS_INF
+  rdf:type sml:JenaInferencingMode ;
+  rdfs:label "OWL_DL_MEM_TRANS_INF"^^xsd:string ;
+.
+sml:OWL_MEM
+  rdf:type sml:JenaInferencingMode ;
+  rdfs:label "OWL_MEM"^^xsd:string ;
+.
+sml:OWL_MEM_MICRO_RULE_INF
+  rdf:type sml:JenaInferencingMode ;
+  rdfs:label "OWL_MEM_MICRO_RULE_INF"^^xsd:string ;
+.
+sml:OWL_MEM_MINI_RULE_INF
+  rdf:type sml:JenaInferencingMode ;
+  rdfs:label "OWL_MEM_MINI_RULE_INF"^^xsd:string ;
+.
+sml:OWL_MEM_RDFS_INF
+  rdf:type sml:JenaInferencingMode ;
+  rdfs:label "OWL_MEM_RDFS_INF"^^xsd:string ;
+.
+sml:OWL_MEM_RULE_INF
+  rdf:type sml:JenaInferencingMode ;
+  rdfs:label "OWL_MEM_RULE_INF"^^xsd:string ;
+.
+sml:OWL_MEM_TRANS_INF
+  rdf:type sml:JenaInferencingMode ;
+  rdfs:label "OWL_MEM_TRANS_INF"^^xsd:string ;
+.
+sml:Oracle
+  rdf:type sml:DatabaseType ;
+  rdfs:label "Oracle"^^xsd:string ;
+.
+sml:OracleExportMode
+  rdf:type rdfs:Class ;
+  rdfs:comment "The export modes supported by Oracle RDF." ;
+  rdfs:label "Oracle export mode"^^xsd:string ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:oneOf (
+          sml:ExportBatch
+          sml:ExportBulk
+          sml:ExportIncremental
+        ) ;
+    ] ;
+.
+sml:PerformFacetedSearch
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:search ;
+      spl:valueType <http://topbraid.org/search#Search> ;
+      rdfs:comment "The Search to execute."^^xsd:string ;
+    ] ;
+  rdfs:comment """Executes a faceted search. The main input to this module is a search:Search object that describes the search:Facets that shall be delivered and search:FacetValues used for filtering. The module will issue this search to the target specified in the Search and add the resulting counts to the search:Search object. By default, the Search will be executed against the RDF graph mentioned in search:queryGraph. However, if the Search is an instance of solr:Search, then it will be sent to a Solr server.
+
+Note that the input resource will be modified and in a typical use case this should be in a temporary graph, such as one created with ui:createSessionGraph()."""^^xsd:string ;
+  rdfs:label "Perform faceted search"^^xsd:string ;
+  rdfs:subClassOf sml:RDFProcessingModules ;
+.
+sml:PostRequest
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "response"^^xsd:string ;
+      spl:predicate sm:outputVariable ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the output variable to bind the result with."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:content ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The content to send."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:contentType ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The type of the content to be sent."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:password ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The password to use for authentication - leave empty to rely on the password stored in secure storage. Only used if sml:userName is set."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:userName ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The user name for authentication."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sml:url ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The URL to post to."^^xsd:string ;
+    ] ;
+  rdfs:comment "Sends a POST request to a web server and binds the result stream with the outputVariable. The request will include variable bindings for all non-system properties of this module. For example, you can set arg:test to some value that will be mapped to the name-value-pair \"test\". The recommended way of doing this is to subclass the sml:PostRequest class and declare the additional arguments as spin:constraints."^^xsd:string ;
+  rdfs:label "Post request"^^xsd:string ;
+  rdfs:subClassOf sml:ExportToRemoteModules ;
+.
+sml:PostgreSQL
+  rdf:type sml:DatabaseType ;
+  rdfs:label "PostgreSQL"^^xsd:string ;
+.
+sml:RDFS_MEM_RDFS_INF
+  rdf:type sml:JenaInferencingMode ;
+  rdfs:label "RDFS_MEM_RDFS_INF"^^xsd:string ;
+.
+sml:RDFS_MEM_TRANS_INF
+  rdf:type sml:JenaInferencingMode ;
+  rdfs:label "RDFS_MEM_TRANS_INF"^^xsd:string ;
+.
+sml:ReleaseLock
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "http://topbraid.org/sparqlmotionlib#DefaultLock"^^xsd:string ;
+      spl:predicate sml:uri ;
+      rdfs:comment "the lock URI (either xsd:string or resource)"^^xsd:string ;
+    ] ;
+  rdfs:comment "Releases any exclusive system lock that was identfied by the URI given as an argument and received previously using sml:RequestLock."^^xsd:string ;
+  rdfs:label "Release lock"^^xsd:string ;
+  rdfs:seeAlso sml:RequestLock ;
+  rdfs:subClassOf sml:ControlFlowModules ;
+.
+sml:RequestLock
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "http://topbraid.org/sparqlmotionlib#DefaultLock"^^xsd:string ;
+      spl:predicate sml:uri ;
+      rdfs:comment "the lock URI (either xsd:string or resource)"^^xsd:string ;
+    ] ;
+  rdfs:comment """Requests an exclusive system lock identified by the URI given as an argument. This will make sure that the following modules in the script can proceed without risking interrupts or concurrent modification exceptions for the duration of the lock. When another thread attempts to request a lock with the same URI, the module will wait until the lock is released and then continue execution. The lock will be released if the script terminates or sml:ReleaseLock is reached.
+
+Please use this module with care and release the lock as quickly as possible to avoid contention issues. Other concurrent requests may need to wait until the script has been finished."""^^xsd:string ;
+  rdfs:label "Request lock"^^xsd:string ;
+  rdfs:seeAlso sml:ReleaseLock ;
+  rdfs:subClassOf sml:ControlFlowModules ;
+.
+sml:SQLServer
+  rdf:type sml:DatabaseType ;
+  rdfs:label "Microsoft SQL Server"^^xsd:string ;
+.
+sml:SelectedResourceArgument
+  rdf:type spin:Template ;
+  spin:labelTemplate "Selected Resource {?predicate}"^^xsd:string ;
+  rdfs:comment """A system argument representing the \"selected\" resource. This can be used to implement services that operate on the currently selected resource in TopBraid Composer or Ensemble. The value of this argument will be set automatically by the engine in TBC. In TBE the selected resource's URI needs to be passed in.
+Note: this replaces sml:BindWithSelectedResource from older TBC versions.""" ;
+  rdfs:label "Selected resource argument"^^xsd:string ;
+  rdfs:subClassOf spl:Argument ;
+.
+sml:SendEMails
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:selectQuery ;
+      spl:valueType sp:Select ;
+      rdfs:comment "A SPARQL Select query that binds instances of email:Message to send out. If left blank, all instances of email:Message in the input graph will be sent."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sml:smtpServer ;
+      spl:valueType <http://topbraid.org/email#Server> ;
+      rdfs:comment "The SMTP server that shall be used to send the emails from. If no server has been specified, the default SMTP server from the TBL server configuration will be used."^^xsd:string ;
+    ] ;
+  rdfs:comment "Sends one or more emails. In a typical scenario, previous steps such as sml:ApplyConstruct have created instances of email:Message. The body of the emails could be created using sml:CreateUISPINDocument. A SPARQL Select query is then used to select those messages that shall be sent out, based on the given server parameters."^^xsd:string ;
+  rdfs:label "Send emails"^^xsd:string ;
+  rdfs:subClassOf sml:ExportToRemoteModules ;
+.
+sml:UpdateUserWordDictionary
+  rdf:type sm:Module ;
+  spin:constraint [
+      rdf:type spl:Attribute ;
+      spl:maxCount 1 ;
+      spl:minCount 1 ;
+      spl:predicate sml:selectQuery ;
+      spl:valueType sp:Select ;
+      rdfs:comment "The SELECT query that delivers action (remove / add) and the literal that shall be removed / added from / to the dictionary of user specified words. <http://topbraid.org/spellcheckresults#removeWord> is used to specify remove action and <http://topbraid.org/spellcheckresults#addWord> is used to specify add action."^^xsd:string ;
+    ] ;
+  rdfs:comment "SM Module for adding and removing words from the dictionary of user specified words. Words in the dictionary of user specified words are ignored by the CheckSpelling module."^^xsd:string ;
+  rdfs:label "Update user word dictionary" ;
+  rdfs:subClassOf sml:RDFProcessingModules ;
+.
+sml:document
+  rdf:type rdf:Property ;
+  rdfs:label "document"^^xsd:string ;
+.
+sml:emailAccount
+  rdf:type rdf:Property ;
+  rdfs:label "emailAccount"^^xsd:string ;
+  rdfs:range <http://topbraid.org/email#Address> ;
+.
+sml:ignoreBlankNodes
+  rdf:type rdf:Property ;
+  rdfs:label "ignore blank nodes"^^xsd:string ;
+  rdfs:range xsd:boolean ;
+.
+sml:search
+  rdf:type rdf:Property ;
+  rdfs:label "search"^^xsd:string ;
+.
+sml:smtpServer
+  rdf:type rdf:Property ;
+  rdfs:label "smtpServer"^^xsd:string ;
+  rdfs:range <http://topbraid.org/email#Server> ;
+.
+sml:useURIs
+  rdf:type rdf:Property ;
+  rdfs:label "use URIs"^^xsd:string ;
+.
+<http://topbraid.org/sparqlmotionlib-tb>
+  rdf:type owl:Ontology ;
+  rdfs:comment "A library of SPARQLMotion modules that are supported by the TopBraid platform, including TopBraid Live and Composer."^^xsd:string ;
+  owl:imports <http://topbraid.org/email> ;
+  owl:imports <http://topbraid.org/search> ;
+  owl:imports <http://topbraid.org/sparqlmotionfunctions> ;
+  owl:imports <http://topbraid.org/sparqlmotionlib-core> ;
+  owl:imports <http://uispin.org/ui> ;
+  owl:versionInfo "0.8.4"^^xsd:string ;
+.

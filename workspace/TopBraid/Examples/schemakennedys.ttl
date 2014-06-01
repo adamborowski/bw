@@ -1,0 +1,959 @@
+# baseURI: http://topbraid.org/examples/schemakennedys
+# imports: http://topbraid.org/schema/schema-single-range
+
+# c14n-version: 3
+@prefix kennedys: <http://topbraid.org/examples/kennedys#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+kennedys:AlfredTucker
+  rdf:type schema:Person ;
+  schema:familyName "Tucker"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Alfred"^^xsd:string ;
+  schema:spouse kennedys:KymSmith ;
+  rdfs:label "Alfred Tucker"^^xsd:string ;
+.
+kennedys:AlinaMojica
+  rdf:type schema:Person ;
+  schema:familyName "Mojica"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Alina"^^xsd:string ;
+  schema:spouse kennedys:AnthonyShriver ;
+  rdfs:label "Alina Mojica"^^xsd:string ;
+.
+kennedys:AmandaSmith
+  rdf:type schema:Person ;
+  schema:familyName "Smith"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Amanda"^^xsd:string ;
+  schema:parent kennedys:JeanKennedy ;
+  schema:parent kennedys:StephenSmith ;
+  schema:spouse kennedys:CartHood ;
+  rdfs:label "Amanda Smith"^^xsd:string ;
+.
+kennedys:AndrewCuomo
+  rdf:type schema:Person ;
+  schema:birthDate "1957-12-06"^^xsd:date ;
+  schema:familyName "Cuomo"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Andrew"^^xsd:string ;
+  schema:jobTitle "cabinet-secretary" ;
+  schema:spouse kennedys:MaryKKennedy ;
+  rdfs:label "Andrew Cuomo"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Andrew_Cuomo> ;
+.
+kennedys:AnneKelly
+  rdf:type schema:Person ;
+  schema:familyName "Kelly"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Anne"^^xsd:string ;
+  schema:spouse kennedys:JosephKennedyII ;
+  rdfs:label "Anne Kelly"^^xsd:string ;
+.
+kennedys:AnthonyShriver
+  rdf:type schema:Person ;
+  schema:birthDate "1965-07-20"^^xsd:date ;
+  schema:familyName "Shriver"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Anthony"^^xsd:string ;
+  schema:parent kennedys:EuniceKennedy ;
+  schema:parent kennedys:RobertShriver ;
+  schema:spouse kennedys:AlinaMojica ;
+  rdfs:label "Anthony Shriver"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Anthony_Shriver> ;
+.
+kennedys:AristotleOnassis
+  rdf:type schema:Person ;
+  schema:birthDate "1906-01-20"^^xsd:date ;
+  schema:deathDate "1975-03-15"^^xsd:date ;
+  schema:familyName "Onassis"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Aristotle"^^xsd:string ;
+  schema:image <http://www.topbraidcomposer.org/demos/kennedys/images/AristotleOnassis.jpg> ;
+  schema:jobTitle "shipping" ;
+  schema:spouse kennedys:JacquelineBouvier ;
+  rdfs:label "Aristotle Onassis"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Aristotle_Onassis> ;
+.
+kennedys:ArnoldSchwarzenegger
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:UniversityOfWisconsin ;
+  schema:birthDate "1947-07-30"^^xsd:date ;
+  schema:familyName "Schwarzenegger"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Arnold"^^xsd:string ;
+  schema:image <http://www.topbraidcomposer.org/demos/kennedys/images/Arnold_Schwarzenegger_2004-01-30.jpg> ;
+  schema:jobTitle "actor" ;
+  schema:jobTitle "body-builder" ;
+  schema:jobTitle "governor" ;
+  schema:spouse kennedys:MariaShriver ;
+  rdfs:label "Arnold Schwarzenegger"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Arnold_Schwarzenegger> ;
+.
+kennedys:BostonUniversity
+  rdf:type schema:CollegeOrUniversity ;
+.
+kennedys:Brown
+  rdf:type schema:CollegeOrUniversity ;
+.
+kennedys:CarolineKennedy
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:Columbia ;
+  schema:alumniOf kennedys:Harvard ;
+  schema:birthDate "1957-11-27"^^xsd:date ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Caroline"^^xsd:string ;
+  schema:jobTitle "non-profit" ;
+  schema:parent kennedys:JacquelineBouvier ;
+  schema:parent kennedys:JohnKennedy ;
+  schema:spouse kennedys:EdwinSchlossberg ;
+  rdfs:label "Caroline Kennedy"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Caroline_Kennedy> ;
+.
+kennedys:CarolynBessette
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:BostonUniversity ;
+  schema:birthDate "1966-01-07"^^xsd:date ;
+  schema:deathDate "1999-07-16"^^xsd:date ;
+  schema:familyName "Bessette"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Carolyn"^^xsd:string ;
+  schema:jobTitle "kennedys:PR" ;
+  schema:jobTitle "model" ;
+  schema:spouse kennedys:JohnKennedyJr ;
+  rdfs:label "Carolyn Bessette"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Carolyn_Bessette-Kennedy> ;
+.
+kennedys:CartHood
+  rdf:type schema:Person ;
+  schema:familyName "Hood"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Cart"^^xsd:string ;
+  schema:spouse kennedys:AmandaSmith ;
+  rdfs:label "Cart Hood"^^xsd:string ;
+.
+kennedys:CatholicUniversity
+  rdf:type schema:CollegeOrUniversity ;
+.
+kennedys:ChristopherKennedy
+  rdf:type schema:Person ;
+  schema:birthDate "1963-07-04"^^xsd:date ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Christopher"^^xsd:string ;
+  schema:parent kennedys:EthelSkakel ;
+  schema:parent kennedys:RobertKennedy ;
+  schema:spouse kennedys:SheilaBerner ;
+  rdfs:label "Christopher Kennedy"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Christopher_G._Kennedy> ;
+.
+kennedys:ChristopherLawford
+  rdf:type schema:Person ;
+  schema:birthDate "1955-03-29"^^xsd:date ;
+  schema:familyName "Lawford"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Christopher"^^xsd:string ;
+  schema:image <http://www.topbraidcomposer.org/demos/kennedys/images/ChristopherLawford.jpg> ;
+  schema:jobTitle "actor" ;
+  schema:parent kennedys:PatriciaKennedy ;
+  schema:parent kennedys:PeterLawford ;
+  schema:spouse kennedys:JeanOlsson ;
+  rdfs:label "Christopher Lawford"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Christopher_Lawford> ;
+.
+kennedys:Columbia
+  rdf:type schema:CollegeOrUniversity ;
+.
+kennedys:DavidKennedy
+  rdf:type schema:Person ;
+  schema:birthDate "1955-06-15"^^xsd:date ;
+  schema:deathDate "1984-04-25"^^xsd:date ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "David"^^xsd:string ;
+  schema:jobTitle "writer" ;
+  schema:parent kennedys:EthelSkakel ;
+  schema:parent kennedys:RobertKennedy ;
+  rdfs:label "David Kennedy"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/David_Kennedy> ;
+.
+kennedys:DavidTownsend
+  rdf:type schema:Person ;
+  schema:familyName "Townsend"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "David"^^xsd:string ;
+  schema:spouse kennedys:KathleenHKennedy ;
+  rdfs:label "David Townsend"^^xsd:string ;
+.
+kennedys:DouglasKennedy
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:Brown ;
+  schema:birthDate "1967-03-24"^^xsd:date ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Douglas"^^xsd:string ;
+  schema:jobTitle "reporter" ;
+  schema:parent kennedys:EthelSkakel ;
+  schema:parent kennedys:RobertKennedy ;
+  schema:spouse kennedys:MollyStark ;
+  rdfs:label "Douglas Kennedy"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Douglas_Harriman_Kennedy> ;
+.
+kennedys:EdwardKennedy
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:Harvard ;
+  schema:alumniOf kennedys:UniversityOfVirginia ;
+  schema:birthDate "1932-02-22"^^xsd:date ;
+  schema:deathDate "2009-08-25"^^xsd:date ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Edward"^^xsd:string ;
+  schema:image <http://www.topbraidcomposer.org/demos/kennedys/images/Ted_Kennedy.jpg> ;
+  schema:jobTitle "army" ;
+  schema:jobTitle "senator" ;
+  schema:parent kennedys:JosephKennedy ;
+  schema:parent kennedys:RoseFitzgerald ;
+  schema:spouse kennedys:VictoriaReggie ;
+  schema:spouse kennedys:VirginiaBennett ;
+  rdfs:label "Edward Kennedy"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Ted_Kennedy> ;
+.
+kennedys:EdwardKennedyJr
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:UniversityOfConnecticut ;
+  schema:alumniOf kennedys:WesleyanUniversity ;
+  schema:alumniOf kennedys:Yale ;
+  schema:birthDate "1961-09-26"^^xsd:date ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Edward"^^xsd:string ;
+  schema:honorificSuffix "Jr"^^xsd:string ;
+  schema:jobTitle "attorney" ;
+  schema:jobTitle "business" ;
+  schema:parent kennedys:EdwardKennedy ;
+  schema:parent kennedys:VirginiaBennett ;
+  schema:spouse kennedys:KatherineGershman ;
+  rdfs:label "Edward Kennedy Jr"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Edward_M._Kennedy%2C_Jr.> ;
+.
+kennedys:EdwinSchlossberg
+  rdf:type schema:Person ;
+  schema:birthDate "1945-07-19"^^xsd:date ;
+  schema:familyName "Schlossberg"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Edwin"^^xsd:string ;
+  schema:spouse kennedys:CarolineKennedy ;
+  rdfs:label "Edwin Schlossberg"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Edwin_Schlossberg> ;
+.
+kennedys:EmilyBlack
+  rdf:type schema:Person ;
+  schema:familyName "Black"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Emily"^^xsd:string ;
+  schema:spouse kennedys:RobertKennedyJr ;
+  rdfs:label "Emily Black"^^xsd:string ;
+.
+kennedys:EthelSkakel
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:ManhattanvilleCollege ;
+  schema:birthDate "1928-04-11"^^xsd:date ;
+  schema:familyName "Skakel"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Ethel"^^xsd:string ;
+  schema:jobTitle "home-maker" ;
+  schema:jobTitle "non-profit" ;
+  schema:spouse kennedys:RobertKennedy ;
+  rdfs:label "Ethel Skakel"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Ethel_Kennedy> ;
+.
+kennedys:EuniceKennedy
+  rdf:type schema:Person ;
+  schema:birthDate "1921-07-10"^^xsd:date ;
+  schema:deathDate "2009-08-11"^^xsd:date ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Eunice"^^xsd:string ;
+  schema:image <http://www.topbraidcomposer.org/demos/kennedys/images/180px-Eunice-zurab.jpg> ;
+  schema:jobTitle "volunteer" ;
+  schema:parent kennedys:JosephKennedy ;
+  schema:parent kennedys:RoseFitzgerald ;
+  schema:spouse kennedys:RobertShriver ;
+  rdfs:label "Eunice Kennedy"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Eunice_Kennedy_Shriver> ;
+.
+kennedys:GeorgeWashingtonU
+  rdf:type schema:CollegeOrUniversity ;
+.
+kennedys:GeorgetownUniversity
+  rdf:type schema:CollegeOrUniversity ;
+.
+kennedys:Harvard
+  rdf:type schema:CollegeOrUniversity ;
+.
+kennedys:JacquelineBouvier
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:GeorgeWashingtonU ;
+  schema:birthDate "1929-07-28"^^xsd:date ;
+  schema:deathDate "1994-05-19"^^xsd:date ;
+  schema:familyName "Bouvier"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Jacqueline"^^xsd:string ;
+  schema:image <http://www.topbraidcomposer.org/demos/kennedys/images/175px-Whitehouseportraitjackie_curvecorrected.jpg> ;
+  schema:jobTitle "editor" ;
+  schema:jobTitle "home-maker" ;
+  schema:jobTitle "photographer" ;
+  schema:spouse kennedys:AristotleOnassis ;
+  schema:spouse kennedys:JohnKennedy ;
+  rdfs:label "Jacqueline Bouvier"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Jacqueline_Kennedy_Onassis> ;
+.
+kennedys:JamesMcKelvy
+  rdf:type schema:Person ;
+  schema:familyName "McKelvy"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "James"^^xsd:string ;
+  schema:spouse kennedys:SydneyLawford ;
+  rdfs:label "James McKelvy"^^xsd:string ;
+.
+kennedys:JeanKennedy
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:ManhattanvilleCollege ;
+  schema:birthDate "1928-02-20"^^xsd:date ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Jean"^^xsd:string ;
+  schema:jobTitle "ambassador" ;
+  schema:jobTitle "non-profit" ;
+  schema:jobTitle "writer" ;
+  schema:parent kennedys:JosephKennedy ;
+  schema:parent kennedys:RoseFitzgerald ;
+  schema:spouse kennedys:StephenSmith ;
+  rdfs:label "Jean Kennedy"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Jean_Kennedy_Smith> ;
+.
+kennedys:JeanOlsson
+  rdf:type schema:Person ;
+  schema:familyName "Olsson"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Jean"^^xsd:string ;
+  schema:spouse kennedys:ChristopherLawford ;
+  rdfs:label "Jean Olsson"^^xsd:string ;
+.
+kennedys:JeannieRipp
+  rdf:type schema:Person ;
+  schema:familyName "Ripp"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Jeannie"^^xsd:string ;
+  schema:spouse kennedys:MarkShriver ;
+  rdfs:label "Jeannie Ripp"^^xsd:string ;
+.
+kennedys:JeffreyRuhe
+  rdf:type schema:Person ;
+  schema:familyName "Ruhe"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Jeffrey"^^xsd:string ;
+  schema:spouse kennedys:MaryCKennedy ;
+  rdfs:label "Jeffrey Ruhe"^^xsd:string ;
+.
+kennedys:JohnKennedy
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:Harvard ;
+  schema:alumniOf kennedys:Princeton ;
+  schema:birthDate "1917-05-29"^^xsd:date ;
+  schema:deathDate "1963-11-22"^^xsd:date ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "John"^^xsd:string ;
+  schema:image <http://www.topbraidcomposer.org/demos/kennedys/images/204px-John_F._Kennedy,_White_House_color_photo_portrait.jpg> ;
+  schema:jobTitle "congressman" ;
+  schema:jobTitle "navy" ;
+  schema:jobTitle "president" ;
+  schema:jobTitle "senator" ;
+  schema:parent kennedys:JosephKennedy ;
+  schema:parent kennedys:RoseFitzgerald ;
+  schema:spouse kennedys:JacquelineBouvier ;
+  rdfs:label "John Kennedy"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/John_F._Kennedy> ;
+.
+kennedys:JohnKennedyJr
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:Brown ;
+  schema:alumniOf kennedys:NYU ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "John"^^xsd:string ;
+  schema:honorificSuffix "Jr"^^xsd:string ;
+  schema:image <http://www.topbraidcomposer.org/demos/kennedys/images/180px-JFKJr2.jpg> ;
+  schema:jobTitle "district-attorney" ;
+  schema:jobTitle "publisher" ;
+  schema:parent kennedys:JacquelineBouvier ;
+  schema:parent kennedys:JohnKennedy ;
+  schema:spouse kennedys:CarolynBessette ;
+  rdfs:label "John Kennedy Jr"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/wiki/John_F._Kennedy%2C_Jr.> ;
+.
+kennedys:JosephKennedy
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:Harvard ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Joseph"^^xsd:string ;
+  schema:image <http://www.topbraidcomposer.org/demos/kennedys/images/Joseph_Kennedy.jpg> ;
+  schema:jobTitle "ambassador" ;
+  schema:jobTitle "banker" ;
+  schema:jobTitle "producer" ;
+  schema:spouse kennedys:RoseFitzgerald ;
+  rdfs:label "Joseph Kennedy"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Joseph_P._Kennedy%2C_Sr.> ;
+.
+kennedys:JosephKennedyII
+  rdf:type schema:Person ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Joseph"^^xsd:string ;
+  schema:honorificSuffix "II"^^xsd:string ;
+  schema:image <http://www.topbraidcomposer.org/demos/kennedys/images/160px-Joe_Kennedy.jpg> ;
+  schema:jobTitle "congressman" ;
+  schema:parent kennedys:EthelSkakel ;
+  schema:parent kennedys:RobertKennedy ;
+  schema:spouse kennedys:AnneKelly ;
+  schema:spouse kennedys:SheilaRauch ;
+  rdfs:label "Joseph Kennedy II"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/wiki/Joseph_Kennedy_II> ;
+.
+kennedys:JosephKennedyJr
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:Harvard ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Joseph"^^xsd:string ;
+  schema:honorificSuffix "Jr"^^xsd:string ;
+  schema:jobTitle "navy" ;
+  schema:parent kennedys:JosephKennedy ;
+  schema:parent kennedys:RoseFitzgerald ;
+  rdfs:label "Joseph Kennedy Jr"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/wiki/Joseph_P._Kennedy%2C_Jr.> ;
+.
+kennedys:KaraKennedy
+  rdf:type schema:Person ;
+  schema:birthDate "1960-02-27"^^xsd:date ;
+  schema:deathDate "2011-09-16"^^xsd:date ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Kara"^^xsd:string ;
+  schema:parent kennedys:EdwardKennedy ;
+  schema:parent kennedys:VirginiaBennett ;
+  schema:spouse kennedys:MichaelAllen ;
+  rdfs:label "Kara Kennedy"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Kara_Kennedy> ;
+.
+kennedys:KatherineGershman
+  rdf:type schema:Person ;
+  schema:familyName "Gershman"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Katherine"^^xsd:string ;
+  schema:jobTitle "professor" ;
+  schema:spouse kennedys:EdwardKennedyJr ;
+  rdfs:label "Katherine Gershman"^^xsd:string ;
+.
+kennedys:KathleenAKennedy
+  rdf:type schema:Person ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Kathleen"^^xsd:string ;
+  schema:jobTitle "volunteer" ;
+  schema:parent kennedys:JosephKennedy ;
+  schema:parent kennedys:RoseFitzgerald ;
+  schema:spouse kennedys:WilliamCavendish ;
+  rdfs:label "Kathleen A. Kennedy"^^xsd:string ;
+.
+kennedys:KathleenHKennedy
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:Harvard ;
+  schema:alumniOf kennedys:UniversityOfNewMexico ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Kathleen"^^xsd:string ;
+  schema:image <http://www.topbraidcomposer.org/demos/kennedys/images/Kathleen_Kennedy_Townsend.jpg> ;
+  schema:jobTitle "attorney" ;
+  schema:jobTitle "kennedys:Lt-governor" ;
+  schema:parent kennedys:EthelSkakel ;
+  schema:parent kennedys:RobertKennedy ;
+  schema:spouse kennedys:DavidTownsend ;
+  rdfs:label "Kathleen H. Kennedy"^^xsd:string ;
+.
+kennedys:KymSmith
+  rdf:type schema:Person ;
+  schema:familyName "Smith"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Kym"^^xsd:string ;
+  schema:parent kennedys:JeanKennedy ;
+  schema:parent kennedys:StephenSmith ;
+  schema:spouse kennedys:AlfredTucker ;
+  rdfs:label "Kym Smith"^^xsd:string ;
+.
+kennedys:LindaPotter
+  rdf:type schema:Person ;
+  schema:familyName "Potter"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Linda"^^xsd:string ;
+  schema:spouse kennedys:TimothyShriver ;
+  rdfs:label "Linda Potter"^^xsd:string ;
+.
+kennedys:ManhattanvilleCollege
+  rdf:type schema:CollegeOrUniversity ;
+.
+kennedys:MariaShriver
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:GeorgetownUniversity ;
+  schema:familyName "Shriver"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Maria"^^xsd:string ;
+  schema:jobTitle "reporter" ;
+  schema:parent kennedys:EuniceKennedy ;
+  schema:parent kennedys:RobertShriver ;
+  schema:spouse kennedys:ArnoldSchwarzenegger ;
+.
+kennedys:MarkBailey
+  rdf:type schema:Person ;
+  schema:familyName "Bailey"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Mark"^^xsd:string ;
+  schema:spouse kennedys:RoryKennedy ;
+  rdfs:label "Mark Bailey"^^xsd:string ;
+.
+kennedys:MarkShriver
+  rdf:type schema:Person ;
+  schema:birthDate "1964-02-17"^^xsd:date ;
+  schema:familyName "Shriver"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Mark"^^xsd:string ;
+  schema:parent kennedys:EuniceKennedy ;
+  schema:parent kennedys:RobertShriver ;
+  schema:spouse kennedys:JeannieRipp ;
+  rdfs:label "Mark Shriver"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Mark_Shriver> ;
+.
+kennedys:MaryCKennedy
+  rdf:type schema:Person ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Mary"^^xsd:string ;
+  schema:parent kennedys:EthelSkakel ;
+  schema:parent kennedys:RobertKennedy ;
+  schema:spouse kennedys:JeffreyRuhe ;
+  schema:spouse kennedys:PaulHill ;
+  rdfs:label "Mary Kennedy"^^xsd:string ;
+.
+kennedys:MaryKKennedy
+  rdf:type schema:Person ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Mary"^^xsd:string ;
+  schema:jobTitle "non-profit" ;
+  schema:parent kennedys:EthelSkakel ;
+  schema:parent kennedys:RobertKennedy ;
+  schema:spouse kennedys:AndrewCuomo ;
+  rdfs:label "Mary Kennedy"^^xsd:string ;
+.
+kennedys:MaryRichardson
+  rdf:type schema:Person ;
+  schema:familyName "Richardson"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Mary"^^xsd:string ;
+  schema:spouse kennedys:RobertKennedyJr ;
+  rdfs:label "Mary Richardson"^^xsd:string ;
+.
+kennedys:MatthewKennedy
+  rdf:type schema:Person ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Matthew"^^xsd:string ;
+  schema:parent kennedys:EthelSkakel ;
+  schema:parent kennedys:RobertKennedy ;
+  schema:spouse kennedys:VictoriaStauss ;
+  rdfs:label "Matthew Kennedy"^^xsd:string ;
+.
+kennedys:MichaelAllen
+  rdf:type schema:Person ;
+  schema:familyName "Allen"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Michael"^^xsd:string ;
+  schema:spouse kennedys:KaraKennedy ;
+  rdfs:label "Michael Allen"^^xsd:string ;
+.
+kennedys:MichaelKennedy
+  rdf:type schema:Person ;
+  schema:birthDate "1958-02-27"^^xsd:date ;
+  schema:deathDate "1997-12-31"^^xsd:date ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Michael"^^xsd:string ;
+  schema:parent kennedys:EthelSkakel ;
+  schema:parent kennedys:RobertKennedy ;
+  schema:spouse kennedys:VictoriaGifford ;
+  rdfs:label "Michael Kennedy"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Michael_LeMoyne_Kennedy> ;
+.
+kennedys:MollyStark
+  rdf:type schema:Person ;
+  schema:familyName "Stark"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Molly"^^xsd:string ;
+  schema:spouse kennedys:DouglasKennedy ;
+  rdfs:label "Molly Stark"^^xsd:string ;
+.
+kennedys:NYU
+  rdf:type schema:CollegeOrUniversity ;
+.
+kennedys:PatriciaKennedy
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:RosemontCollege ;
+  schema:birthDate "1924-05-06"^^xsd:date ;
+  schema:deathDate "2006-09-17"^^xsd:date ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Patricia"^^xsd:string ;
+  schema:image <http://www.topbraidcomposer.org/demos/kennedys/images/Patriciakennedylawford.jpg> ;
+  schema:jobTitle "home-maker" ;
+  schema:jobTitle "producer" ;
+  schema:parent kennedys:JosephKennedy ;
+  schema:parent kennedys:RoseFitzgerald ;
+  schema:spouse kennedys:PeterLawford ;
+  rdfs:label "Patricia Kennedy"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Patricia_Kennedy_Lawford> ;
+.
+kennedys:PatrickBKennedy
+  rdf:type schema:Person ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Patrick"^^xsd:string ;
+  schema:parent kennedys:JacquelineBouvier ;
+  schema:parent kennedys:JohnKennedy ;
+  rdfs:label "Patrick B. Kennedy"^^xsd:string ;
+.
+kennedys:PatrickJKennedy
+  rdf:type schema:Person ;
+  schema:birthDate "1967-07-14"^^xsd:date ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Patrick"^^xsd:string ;
+  schema:image <http://www.topbraidcomposer.org/demos/kennedys/images/160px-Patrick_J._Kennedy,.JPG> ;
+  schema:jobTitle "congressman" ;
+  schema:parent kennedys:EdwardKennedy ;
+  schema:parent kennedys:VirginiaBennett ;
+  rdfs:label "Patrick J. Kennedy"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Patrick_J._Kennedy> ;
+.
+kennedys:PaulHill
+  rdf:type schema:Person ;
+  schema:familyName "Hill"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Paul"^^xsd:string ;
+  schema:spouse kennedys:MaryCKennedy ;
+  rdfs:label "Paul Hill"^^xsd:string ;
+.
+kennedys:PeterLawford
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:Columbia ;
+  schema:birthDate "1923-09-07"^^xsd:date ;
+  schema:deathDate "1984-12-24"^^xsd:date ;
+  schema:familyName "Lawford"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Peter"^^xsd:string ;
+  schema:image <http://www.topbraidcomposer.org/demos/kennedys/images/220px-Peter_Lawford_in_Royal_Wedding_(2).jpg> ;
+  schema:jobTitle "actor" ;
+  schema:spouse kennedys:PatriciaKennedy ;
+  rdfs:label "Peter Lawford"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Peter_Lawford> ;
+.
+kennedys:Princeton
+  rdf:type schema:CollegeOrUniversity ;
+.
+kennedys:RobertKennedy
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:UniversityOfVirginia ;
+  schema:birthDate "1925-11-20"^^xsd:date ;
+  schema:deathDate "1968-06-06"^^xsd:date ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Robert"^^xsd:string ;
+  schema:image <http://www.topbraidcomposer.org/demos/kennedys/images/196px-Robertkennedy.jpg> ;
+  schema:jobTitle "attorney-general" ;
+  schema:jobTitle "navy" ;
+  schema:jobTitle "senator" ;
+  schema:parent kennedys:JosephKennedy ;
+  schema:parent kennedys:RoseFitzgerald ;
+  schema:spouse kennedys:EthelSkakel ;
+  rdfs:label "Robert Kennedy"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Robert_F._Kennedy> ;
+.
+kennedys:RobertKennedyJr
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:Harvard ;
+  schema:alumniOf kennedys:UniversityOfVirginia ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Robert"^^xsd:string ;
+  schema:honorificSuffix "Jr"^^xsd:string ;
+  schema:image <http://www.topbraidcomposer.org/demos/kennedys/images/250px-RobertFKennedyJr.jpg> ;
+  schema:jobTitle "attorney" ;
+  schema:jobTitle "broadcaster" ;
+  schema:jobTitle "professor" ;
+  schema:parent kennedys:EthelSkakel ;
+  schema:parent kennedys:RobertKennedy ;
+  schema:spouse kennedys:EmilyBlack ;
+  schema:spouse kennedys:MaryRichardson ;
+  rdfs:label "Robert Kennedy Jr"^^xsd:string ;
+.
+kennedys:RobertPenderJr
+  rdf:type schema:Person ;
+  schema:familyName "Pender"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Robert"^^xsd:string ;
+  schema:honorificSuffix "Jr"^^xsd:string ;
+  schema:spouse kennedys:VictoriaLawford ;
+  rdfs:label "Robert Pender Jr"^^xsd:string ;
+.
+kennedys:RobertShriver
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:Yale ;
+  schema:familyName "Shriver"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Robert"^^xsd:string ;
+  schema:image <http://www.topbraidcomposer.org/demos/kennedys/images/2002F_Shriver12.jpg> ;
+  schema:jobTitle "ambassador" ;
+  schema:jobTitle "navy" ;
+  schema:jobTitle "peace-corp" ;
+  schema:spouse kennedys:EuniceKennedy ;
+  rdfs:label "Robert Shriver"^^xsd:string ;
+.
+kennedys:RobertShriverIII
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:Yale ;
+  schema:familyName "Shriver"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Robert"^^xsd:string ;
+  schema:honorificSuffix "III"^^xsd:string ;
+  schema:jobTitle "attorney" ;
+  schema:jobTitle "goverment" ;
+  schema:jobTitle "producer" ;
+  schema:parent kennedys:EuniceKennedy ;
+  schema:parent kennedys:RobertShriver ;
+  rdfs:label "Robert Shriver III"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Bobby_Shriver> ;
+.
+kennedys:RobinLawford
+  rdf:type schema:Person ;
+  schema:familyName "Lawford"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Robin"^^xsd:string ;
+  schema:parent kennedys:PatriciaKennedy ;
+  schema:parent kennedys:PeterLawford ;
+  rdfs:label "Robin Lawford"^^xsd:string ;
+.
+kennedys:RoryKennedy
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:Brown ;
+  schema:birthDate "1968-12-12"^^xsd:date ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Rory"^^xsd:string ;
+  schema:jobTitle "producer" ;
+  schema:parent kennedys:EthelSkakel ;
+  schema:parent kennedys:RobertKennedy ;
+  schema:spouse kennedys:MarkBailey ;
+  rdfs:label "Rory Kennedy"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Rory_Kennedy> ;
+.
+kennedys:RoseFitzgerald
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:SacredHeartConvent ;
+  schema:familyName "Fitzgerald"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Rose"^^xsd:string ;
+  schema:image <http://www.topbraidcomposer.org/demos/kennedys/images/Rose_kennedy.JPG> ;
+  schema:jobTitle "home-maker" ;
+  schema:spouse kennedys:JosephKennedy ;
+  rdfs:label "Rose Fitzgerald"^^xsd:string ;
+.
+kennedys:RoseKennedy
+  rdf:type schema:Person ;
+  schema:birthDate "1890-07-22"^^xsd:date ;
+  schema:deathDate "1995-01-22"^^xsd:date ;
+  schema:familyName "Kennedy"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Rose"^^xsd:string ;
+  schema:parent kennedys:JosephKennedy ;
+  schema:parent kennedys:RoseFitzgerald ;
+  rdfs:label "Rose Kennedy"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Rose_Kennedy> ;
+.
+kennedys:RosemontCollege
+  rdf:type schema:CollegeOrUniversity ;
+.
+kennedys:SacredHeartConvent
+  rdf:type schema:CollegeOrUniversity ;
+.
+kennedys:SheilaBerner
+  rdf:type schema:Person ;
+  schema:familyName "Berner"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Sheila"^^xsd:string ;
+  schema:spouse kennedys:ChristopherKennedy ;
+  rdfs:label "Sheila Berner"^^xsd:string ;
+.
+kennedys:SheilaRauch
+  rdf:type schema:Person ;
+  schema:familyName "Rauch"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Sheila"^^xsd:string ;
+  schema:spouse kennedys:JosephKennedyII ;
+  rdfs:label "Sheila Rauch"^^xsd:string ;
+.
+kennedys:StephenSmith
+  rdf:type schema:Person ;
+  schema:birthDate "1927-09-24"^^xsd:date ;
+  schema:deathDate "1990-08-19"^^xsd:date ;
+  schema:familyName "Smith"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Stephen"^^xsd:string ;
+  schema:jobTitle "campaign-organizer" ;
+  schema:spouse kennedys:JeanKennedy ;
+  rdfs:label "Stephen Smith"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Stephen_Edward_Smith> ;
+.
+kennedys:StephenSmithJr
+  rdf:type schema:Person ;
+  schema:familyName "Smith"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Stephen"^^xsd:string ;
+  schema:honorificSuffix "Jr"^^xsd:string ;
+  schema:parent kennedys:JeanKennedy ;
+  schema:parent kennedys:StephenSmith ;
+  rdfs:label "Stephen Smith Jr"^^xsd:string ;
+.
+kennedys:SydneyLawford
+  rdf:type schema:Person ;
+  schema:familyName "Lawford"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Sydney"^^xsd:string ;
+  schema:parent kennedys:PatriciaKennedy ;
+  schema:parent kennedys:PeterLawford ;
+  schema:spouse kennedys:JamesMcKelvy ;
+  rdfs:label "Sydney Lawford"^^xsd:string ;
+.
+kennedys:TimothyShriver
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:CatholicUniversity ;
+  schema:alumniOf kennedys:UniversityOfConnecticut ;
+  schema:alumniOf kennedys:Yale ;
+  schema:birthDate "1959-08-29"^^xsd:date ;
+  schema:familyName "Shriver"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "Timothy"^^xsd:string ;
+  schema:jobTitle "non-profit" ;
+  schema:jobTitle "teacher" ;
+  schema:parent kennedys:EuniceKennedy ;
+  schema:parent kennedys:RobertShriver ;
+  schema:spouse kennedys:LindaPotter ;
+  rdfs:label "Timothy Shriver"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Timothy_Shriver> ;
+.
+kennedys:UniversityOfConnecticut
+  rdf:type schema:CollegeOrUniversity ;
+.
+kennedys:UniversityOfNewMexico
+  rdf:type schema:CollegeOrUniversity ;
+.
+kennedys:UniversityOfVirginia
+  rdf:type schema:CollegeOrUniversity ;
+.
+kennedys:UniversityOfWisconsin
+  rdf:type schema:CollegeOrUniversity ;
+.
+kennedys:VictoriaGifford
+  rdf:type schema:Person ;
+  schema:familyName "Gifford"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Victoria"^^xsd:string ;
+  schema:spouse kennedys:MichaelKennedy ;
+  rdfs:label "Victoria Gifford"^^xsd:string ;
+.
+kennedys:VictoriaLawford
+  rdf:type schema:Person ;
+  schema:familyName "Lawford"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Victoria"^^xsd:string ;
+  schema:parent kennedys:PatriciaKennedy ;
+  schema:parent kennedys:PeterLawford ;
+  schema:spouse kennedys:RobertPenderJr ;
+  rdfs:label "Victoria Lawford"^^xsd:string ;
+.
+kennedys:VictoriaReggie
+  rdf:type schema:Person ;
+  schema:birthDate "1954-02-26"^^xsd:date ;
+  schema:familyName "Reggie"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Victoria"^^xsd:string ;
+  schema:jobTitle "attorney" ;
+  schema:spouse kennedys:EdwardKennedy ;
+  rdfs:label "Victoria Reggie"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/Victoria_Reggie_Kennedy> ;
+.
+kennedys:VictoriaStauss
+  rdf:type schema:Person ;
+  schema:familyName "Stauss"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Victoria"^^xsd:string ;
+  schema:spouse kennedys:MatthewKennedy ;
+  rdfs:label "Victoria Stauss"^^xsd:string ;
+.
+kennedys:VirginiaBennett
+  rdf:type schema:Person ;
+  schema:alumniOf kennedys:ManhattanvilleCollege ;
+  schema:familyName "Bennett"^^xsd:string ;
+  schema:gender "female"^^xsd:string ;
+  schema:givenName "Virginia"^^xsd:string ;
+  schema:jobTitle "home-maker" ;
+  schema:jobTitle "model" ;
+  schema:spouse kennedys:EdwardKennedy ;
+  rdfs:label "Virginia Bennett"^^xsd:string ;
+.
+kennedys:WesleyanUniversity
+  rdf:type schema:CollegeOrUniversity ;
+.
+kennedys:WilliamCavendish
+  rdf:type schema:Person ;
+  schema:familyName "Cavendish"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "William"^^xsd:string ;
+  schema:jobTitle "army" ;
+  schema:spouse kennedys:KathleenAKennedy ;
+  rdfs:label "William Cavendish"^^xsd:string ;
+.
+kennedys:WilliamSmith
+  rdf:type schema:Person ;
+  schema:birthDate "1960-09-04"^^xsd:date ;
+  schema:familyName "Smith"^^xsd:string ;
+  schema:gender "male"^^xsd:string ;
+  schema:givenName "William"^^xsd:string ;
+  schema:jobTitle "doctor" ;
+  schema:parent kennedys:JeanKennedy ;
+  schema:parent kennedys:StephenSmith ;
+  rdfs:label "William Smith"^^xsd:string ;
+  owl:sameAs <http://dbpedia.org/resource/William_Kennedy_Smith> ;
+.
+kennedys:Yale
+  rdf:type schema:CollegeOrUniversity ;
+.
+<http://topbraid.org/examples/schemakennedys>
+  rdf:type owl:Ontology ;
+  owl:imports <http://topbraid.org/schema/schema-single-range> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.

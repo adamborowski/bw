@@ -1,0 +1,513 @@
+# baseURI: http://topbraid.org/visual
+
+# c14n-version: 3
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix visual: <http://topbraid.org/visual#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+<http://topbraid.org/visual>
+  rdf:type owl:Ontology ;
+  rdfs:comment "A generic graphics ontology for drawing engines."^^xsd:string ;
+  owl:versionInfo "0.6.0"^^xsd:string ;
+.
+visual:Alignment
+  rdf:type rdfs:Class ;
+.
+visual:ArialFont
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf visual:Font ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "Arial"^^xsd:string ;
+      owl:onProperty visual:fontName ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "SansSerif"^^xsd:string ;
+      owl:onProperty visual:fontName ;
+    ] ;
+.
+visual:Box
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf visual:Polygon ;
+.
+visual:CenterAlignment
+  rdf:type visual:Alignment ;
+.
+visual:CenterRowLayout
+  rdf:type visual:RowLayout ;
+  visual:alignment visual:CenterAlignment ;
+.
+visual:CenterVerticalLayout
+  rdf:type visual:VerticalLayout ;
+  visual:alignment visual:CenterAlignment ;
+  rdfs:label "Center vertical layout"^^xsd:string ;
+.
+visual:Color
+  rdf:type rdfs:Class ;
+.
+visual:ColorBlack
+  rdf:type visual:Color ;
+  visual:rgbBlue 0 ;
+  visual:rgbGreen 0 ;
+  visual:rgbRed 0 ;
+.
+visual:ColorBlue
+  rdf:type visual:Color ;
+  visual:rgbBlue 255 ;
+  visual:rgbGreen 0 ;
+  visual:rgbRed 0 ;
+.
+visual:ColorCyan
+  rdf:type visual:Color ;
+  visual:rgbBlue 255 ;
+  visual:rgbGreen 255 ;
+  visual:rgbRed 0 ;
+.
+visual:ColorDarkBlue
+  rdf:type visual:Color ;
+  visual:rgbBlue 128 ;
+  visual:rgbGreen 0 ;
+  visual:rgbRed 0 ;
+.
+visual:ColorDarkCyan
+  rdf:type visual:Color ;
+  visual:rgbBlue 128 ;
+  visual:rgbGreen 128 ;
+  visual:rgbRed 0 ;
+.
+visual:ColorDarkGray
+  rdf:type visual:Color ;
+  visual:rgbBlue 128 ;
+  visual:rgbGreen 128 ;
+  visual:rgbRed 128 ;
+.
+visual:ColorDarkGreen
+  rdf:type visual:Color ;
+  visual:rgbBlue 0 ;
+  visual:rgbGreen 128 ;
+  visual:rgbRed 0 ;
+.
+visual:ColorDarkMagenta
+  rdf:type visual:Color ;
+  visual:rgbBlue 128 ;
+  visual:rgbGreen 0 ;
+  visual:rgbRed 128 ;
+.
+visual:ColorDarkRed
+  rdf:type visual:Color ;
+  visual:rgbBlue 0 ;
+  visual:rgbGreen 0 ;
+  visual:rgbRed 128 ;
+.
+visual:ColorDarkYellow
+  rdf:type visual:Color ;
+  visual:rgbBlue 0 ;
+  visual:rgbGreen 128 ;
+  visual:rgbRed 128 ;
+.
+visual:ColorEclipseGray
+  rdf:type visual:Color ;
+  visual:rgbBlue 216 ;
+  visual:rgbGreen 233 ;
+  visual:rgbRed 236 ;
+  rdfs:comment "The color used on Eclipse/Windows as forms background."^^xsd:string ;
+.
+visual:ColorGray
+  rdf:type visual:Color ;
+  visual:rgbBlue 192 ;
+  visual:rgbGreen 192 ;
+  visual:rgbRed 192 ;
+.
+visual:ColorGreen
+  rdf:type visual:Color ;
+  visual:rgbBlue 0 ;
+  visual:rgbGreen 255 ;
+  visual:rgbRed 0 ;
+.
+visual:ColorMagenta
+  rdf:type visual:Color ;
+  visual:rgbBlue 255 ;
+  visual:rgbGreen 0 ;
+  visual:rgbRed 255 ;
+.
+visual:ColorRed
+  rdf:type visual:Color ;
+  visual:rgbBlue 0 ;
+  visual:rgbGreen 0 ;
+  visual:rgbRed 255 ;
+.
+visual:ColorWhite
+  rdf:type visual:Color ;
+  visual:rgbBlue 255 ;
+  visual:rgbGreen 255 ;
+  visual:rgbRed 255 ;
+.
+visual:ColorYellow
+  rdf:type visual:Color ;
+  visual:rgbBlue 0 ;
+  visual:rgbGreen 255 ;
+  visual:rgbRed 255 ;
+.
+visual:Composite
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf visual:Box ;
+.
+visual:CourierFont
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf visual:Font ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "Courier"^^xsd:string ;
+      owl:onProperty visual:fontName ;
+    ] ;
+.
+visual:DefaultVerticalLayout
+  rdf:type visual:VerticalLayout ;
+.
+visual:Edge
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf visual:PolyLine ;
+.
+visual:EdgeDecoration
+  rdf:type rdfs:Class ;
+  rdfs:comment "The superclass of all Shapes that can appear as decoration of an edge." ;
+  rdfs:label "Edge decoration"^^xsd:string ;
+  rdfs:subClassOf visual:Shape ;
+.
+visual:Font
+  rdf:type rdfs:Class ;
+.
+visual:Graph
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf visual:Composite ;
+.
+visual:GraphLayout
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf visual:Layout ;
+.
+visual:Image
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf visual:Box ;
+.
+visual:Layout
+  rdf:type rdfs:Class ;
+.
+visual:LeftAlignment
+  rdf:type visual:Alignment ;
+.
+visual:LeftRowLayout
+  rdf:type visual:RowLayout ;
+  visual:alignment visual:LeftAlignment ;
+.
+visual:Line
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf visual:PolyLine ;
+.
+visual:Oval
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf visual:Box ;
+.
+visual:Point
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf visual:Shape ;
+.
+visual:PolyLine
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf visual:Shape ;
+.
+visual:PolyLineDecoration
+  rdf:type rdfs:Class ;
+  rdfs:label "Poly line decoration"^^xsd:string ;
+  rdfs:subClassOf visual:EdgeDecoration ;
+  rdfs:subClassOf visual:PolyLine ;
+.
+visual:Polygon
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf visual:Shape ;
+.
+visual:PolygonDecoration
+  rdf:type rdfs:Class ;
+  rdfs:label "Polygon decoration"^^xsd:string ;
+  rdfs:subClassOf visual:EdgeDecoration ;
+  rdfs:subClassOf visual:Polygon ;
+.
+visual:Rectangle
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf visual:Box ;
+.
+visual:RightAlignment
+  rdf:type visual:Alignment ;
+.
+visual:RightRowLayout
+  rdf:type visual:RowLayout ;
+  visual:alignment visual:RightAlignment ;
+.
+visual:RowLayout
+  rdf:type rdfs:Class ;
+  rdfs:comment "Layout that aligns all child components horizontally, from left to right. May have alignment." ;
+  rdfs:subClassOf visual:Layout ;
+.
+visual:Shape
+  rdf:type rdfs:Class ;
+.
+visual:Text
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf visual:Box ;
+.
+visual:TimesFont
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf visual:Font ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "Times New Roman"^^xsd:string ;
+      owl:onProperty visual:fontName ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "Times"^^xsd:string ;
+      owl:onProperty visual:fontName ;
+    ] ;
+.
+visual:VerticalLayout
+  rdf:type rdfs:Class ;
+  rdfs:comment "Lays out its child components from top to bottom. visual:alignment can indicate to center or right-align these children relative to each other." ;
+  rdfs:subClassOf visual:Layout ;
+.
+visual:alignment
+  rdf:type rdf:Property ;
+  rdfs:range visual:Alignment ;
+.
+visual:bendPoint
+  rdf:type rdf:Property ;
+  rdfs:domain visual:PolyLine ;
+  rdfs:range visual:Point ;
+  rdfs:subPropertyOf visual:dependent ;
+.
+visual:boldFace
+  rdf:type rdf:Property ;
+  rdfs:comment "Indicates that a font should be printed in bold face." ;
+  rdfs:domain visual:Font ;
+  rdfs:range xsd:boolean ;
+.
+visual:child
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Composite ;
+  rdfs:subPropertyOf visual:dependent ;
+.
+visual:childIndex
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Shape ;
+  rdfs:range xsd:integer ;
+.
+visual:color
+  rdf:type rdf:Property ;
+  rdfs:comment "A Shape's main drawing color"^^xsd:string ;
+  rdfs:domain visual:Shape ;
+  rdfs:range visual:Color ;
+.
+visual:corner
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Polygon ;
+  rdfs:range visual:Point ;
+  rdfs:subPropertyOf visual:dependent ;
+.
+visual:dependent
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Shape ;
+  rdfs:range visual:Shape ;
+.
+visual:depicts
+  rdf:type rdf:Property ;
+  rdfs:comment "Can be used to link a Shape with the resource from the domain model that it represents." ;
+  rdfs:domain visual:Shape ;
+  rdfs:range rdfs:Resource ;
+.
+visual:edge
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Graph ;
+  rdfs:range visual:Edge ;
+  rdfs:subPropertyOf visual:child ;
+.
+visual:endDecoration
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Edge ;
+  rdfs:label "end decoration"^^xsd:string ;
+  rdfs:range visual:EdgeDecoration ;
+  rdfs:subPropertyOf visual:dependent ;
+.
+visual:endPoint
+  rdf:type rdf:Property ;
+  rdfs:domain visual:PolyLine ;
+  rdfs:range visual:Point ;
+  rdfs:subPropertyOf visual:dependent ;
+.
+visual:endShape
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Edge ;
+  rdfs:range visual:Shape ;
+.
+visual:fillColor
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Polygon ;
+  rdfs:range visual:Color ;
+.
+visual:font
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Text ;
+  rdfs:range visual:Font ;
+.
+visual:fontName
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Font ;
+  rdfs:range xsd:string ;
+.
+visual:fontSize
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Font ;
+  rdfs:range xsd:integer ;
+.
+visual:height
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Box ;
+  rdfs:range xsd:integer ;
+.
+visual:image
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Image ;
+  rdfs:range rdfs:Resource ;
+.
+visual:italics
+  rdf:type rdf:Property ;
+  rdfs:comment "Indicates that characters should be printed in italics." ;
+  rdfs:domain visual:Font ;
+  rdfs:label "italics"^^xsd:string ;
+  rdfs:range xsd:boolean ;
+.
+visual:label
+  rdf:type rdf:Property ;
+  rdfs:comment "Can be used to attach a label to an Edge." ;
+  rdfs:domain visual:Edge ;
+  rdfs:label "label"^^xsd:string ;
+  rdfs:range visual:Shape ;
+  rdfs:subPropertyOf visual:dependent ;
+.
+visual:layout
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Shape ;
+  rdfs:range visual:Layout ;
+.
+visual:maxHeight
+  rdf:type rdf:Property ;
+  rdfs:comment "The maximum height of a Box used by layout engines." ;
+  rdfs:domain visual:Box ;
+  rdfs:label "max height"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+visual:maxWidth
+  rdf:type rdf:Property ;
+  rdfs:comment "The maximum width of a Box used by layout engines." ;
+  rdfs:domain visual:Box ;
+  rdfs:label "max width"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+visual:minHeight
+  rdf:type rdf:Property ;
+  rdfs:comment "The minimum height of a Box used by layout engines." ;
+  rdfs:domain visual:Box ;
+  rdfs:label "min height"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+visual:minWidth
+  rdf:type rdf:Property ;
+  rdfs:comment "The minimum width of a Box used by layout engines." ;
+  rdfs:domain visual:Box ;
+  rdfs:label "min width"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+visual:node
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Graph ;
+  rdfs:subPropertyOf visual:child ;
+.
+visual:rgbBlue
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Color ;
+  rdfs:range xsd:integer ;
+.
+visual:rgbGreen
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Color ;
+  rdfs:range xsd:integer ;
+.
+visual:rgbRed
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Color ;
+  rdfs:range xsd:integer ;
+.
+visual:shape
+  rdf:type rdf:Property ;
+  rdfs:label "shape"^^xsd:string ;
+  rdfs:subPropertyOf visual:dependent ;
+.
+visual:startDecoration
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Edge ;
+  rdfs:label "start decoration"^^xsd:string ;
+  rdfs:range visual:EdgeDecoration ;
+  rdfs:subPropertyOf visual:dependent ;
+.
+visual:startPoint
+  rdf:type rdf:Property ;
+  rdfs:domain visual:PolyLine ;
+  rdfs:range visual:Point ;
+  rdfs:subPropertyOf visual:dependent ;
+.
+visual:startShape
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Edge ;
+  rdfs:range visual:Shape ;
+.
+visual:string
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Text ;
+  rdfs:range xsd:string ;
+.
+visual:textAlignment
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Text ;
+  rdfs:range visual:Alignment ;
+.
+visual:toolTipText
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Shape ;
+  rdfs:range xsd:string ;
+.
+visual:width
+  rdf:type rdf:Property ;
+  rdfs:domain visual:Box ;
+  rdfs:range xsd:integer ;
+.
+visual:x
+  rdf:type rdf:Property ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          visual:Box
+          visual:Point
+        ) ;
+    ] ;
+  rdfs:range xsd:integer ;
+.
+visual:y
+  rdf:type rdf:Property ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          visual:Box
+          visual:Point
+        ) ;
+    ] ;
+  rdfs:range xsd:integer ;
+.

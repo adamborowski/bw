@@ -1,0 +1,97 @@
+# baseURI: http://topbraid.org/swa/facetsapp
+# imports: http://topbraid.org/swafacets
+
+# c14n-version: 3
+@prefix afn: <http://jena.hpl.hp.com/ARQ/function#> .
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix composite: <http://www.topbraid.org/2007/05/composite.owl#> .
+@prefix css: <http://uispin.org/css#> .
+@prefix daml: <http://www.daml.org/2001/03/daml+oil#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix default: <http://uispin.org/default#> .
+@prefix email: <http://topbraid.org/email#> .
+@prefix facetsapp: <http://topbraid.org/swa/facetsapp#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix html: <http://uispin.org/html#> .
+@prefix let: <http://uispin.org/let#> .
+@prefix letrs: <http://uispin.org/letrs#> .
+@prefix list: <http://jena.hpl.hp.com/ARQ/list#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix search: <http://topbraid.org/search#> .
+@prefix search.spin: <http://topbraid.org/search.spin#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sm: <http://topbraid.org/sparqlmotion#> .
+@prefix smf: <http://topbraid.org/sparqlmotionfunctions#> .
+@prefix sml: <http://topbraid.org/sparqlmotionlib#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix sparqlmotionlib-swp: <http://topbraid.org/sparqlmotionlib-swp#> .
+@prefix spif: <http://spinrdf.org/spif#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix spr: <http://spinrdf.org/spr#> .
+@prefix spra: <http://spinrdf.org/spra#> .
+@prefix style: <http://uispin.org/style#> .
+@prefix swa: <http://topbraid.org/swa#> .
+@prefix swon: <http://uispin.org/swon#> .
+@prefix ui: <http://uispin.org/ui#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+arg:rootClass
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+<http://topbraid.org/swa/facetsapp>
+  rdf:type owl:Ontology ;
+  rdfs:comment "A simple faceted search application based on SWA and Solr."^^xsd:string ;
+  owl:imports <http://topbraid.org/swafacets> ;
+  owl:versionInfo "0.1.0"^^xsd:string ;
+.
+facetsapp:Application
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:rootClass ;
+      spl:valueType rdfs:Class ;
+      rdfs:comment "The (optional) root class of the tree. If left empty, the tree will start with owl:Thing."^^xsd:string ;
+    ] ;
+  ui:headIncludes """
+<ui:group>
+    <title>TopBraid Faceted Search Application</title>
+    <link href=\"{= ui:lib() }/facetsapp/css/facetsapp.css\" rel=\"stylesheet\" type=\"text/css\"/>
+    <script src=\"{= ui:lib() }/facetsapp/js/facetsapp.js\" type=\"text/javascript\"/>
+</ui:group>
+"""^^ui:Literal ;
+  ui:prototype """
+<swa:FullScreenBorderLayout arg:eastSize=\"{= 450 }\" arg:northFixed=\"{= true }\" arg:westSize=\"{= 350 }\" let:resourceSelectedEvent=\"org.facetsapp.instanceSelected\" let:rootClass=\"{= COALESCE(?rootClass, owl:Thing) }\" let:searchEvent=\"org.facetsapp.search\">
+    <facetsapp:ApplicationHeader/>
+    <swa:Window arg:id=\"facetsappFacetsWindow\" arg:layoutPanel=\"west\" arg:title=\"Faceted Search\">
+        <swa:FacetedSearchGadget arg:resourceType=\"{= ?rootClass }\" ui:args=\"*\"/>
+    </swa:Window>
+    <swa:Window arg:id=\"facetsappResultsWindow\" arg:layoutPanel=\"center\" arg:title=\"Search Results\">
+        <swa:SummarySearchResultsGadget ui:args=\"*\"/>
+    </swa:Window>
+    <swa:Window arg:id=\"facetsappFormWindow\" arg:layoutPanel=\"east\" arg:title=\"Selected Resource\">
+        <swa:ViewFormGadget ui:args=\"*\"/>
+    </swa:Window>
+</swa:FullScreenBorderLayout>
+"""^^ui:Literal ;
+  rdfs:label "Faceted Search Application"^^xsd:string ;
+  rdfs:subClassOf swa:Applications ;
+.
+facetsapp:ApplicationHeader
+  rdf:type ui:NodeClass ;
+  ui:prototype """
+<ui:loadable class=\"ui-layout-north facetsapp-header\" ui:loadId=\"facetsappHeader\">
+    <div class=\"facetsapp-header-name\">TopBraid Faceted Search Application - {= ui:label(ui:graphWithoutImports(ui:currentQueryGraph())) }</div>
+</ui:loadable>
+"""^^ui:Literal ;
+  rdfs:comment "The main header, in the northern part of the application's layout. A place to display logos and drive the navigation."^^xsd:string ;
+  rdfs:label "Application header"^^xsd:string ;
+  rdfs:subClassOf swa:Elements ;
+.
+rdfs:Class
+  ui:instanceView """
+<facetsapp:Application arg:rootClass=\"{= ?this }\" ui:id=\"app\"/>
+"""^^ui:Literal ;
+.

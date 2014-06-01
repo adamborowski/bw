@@ -1,0 +1,428 @@
+# baseURI: http://topbraid.org/search.spin
+# imports: http://spinrdf.org/spin
+# imports: http://topbraid.org/search
+# imports: http://topbraid.org/swa.spin
+
+# c14n-version: 3
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix search.spin: <http://topbraid.org/search.spin#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix ui: <http://uispin.org/ui#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+<http://spinrdf.org/arg#search>
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+<http://topbraid.org/search#columnPropertiesFromTheSearch>
+  rdf:type spin:MagicProperty ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:orderBy (
+          [
+            rdf:type ui:label ;
+            sp:arg1 [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:resultVariables (
+          [
+            sp:varName "property"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:NamedGraph ;
+            sp:elements (
+                [
+                  sp:object [
+                      sp:varName "column"^^xsd:string ;
+                    ] ;
+                  sp:predicate spin:column ;
+                  sp:subject [
+                      sp:varName "search"^^xsd:string ;
+                    ] ;
+                ]
+                [
+                  sp:object <http://topbraid.org/search#PropertyColumn> ;
+                  sp:predicate rdf:type ;
+                  sp:subject [
+                      sp:varName "column"^^xsd:string ;
+                    ] ;
+                ]
+                [
+                  sp:object [
+                      sp:varName "property"^^xsd:string ;
+                    ] ;
+                  sp:predicate <http://topbraid.org/search#columnProperty> ;
+                  sp:subject [
+                      sp:varName "column"^^xsd:string ;
+                    ] ;
+                ]
+              ) ;
+            sp:graphNameNode spin:_arg1 ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The search graph containing the search:Search."^^xsd:string ;
+    ] ;
+  rdfs:label "column properties from the search"^^xsd:string ;
+  rdfs:subClassOf spin:MagicProperties ;
+.
+<http://topbraid.org/search#hasInverseKeyProperty>
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            rdf:type sp:Union ;
+            sp:elements (
+                (
+                  [
+                    sp:object [
+                        sp:varName "property"^^xsd:string ;
+                      ] ;
+                    sp:predicate <http://topbraid.org/search#inverseKeyProperty> ;
+                    sp:subject [
+                        sp:varName "search"^^xsd:string ;
+                      ] ;
+                  ]
+                )
+                (
+                  [
+                    sp:object [
+                        sp:varName "column"^^xsd:string ;
+                      ] ;
+                    sp:predicate spin:column ;
+                    sp:subject [
+                        sp:varName "search"^^xsd:string ;
+                      ] ;
+                  ]
+                  [
+                    sp:object [
+                        sp:varName "property"^^xsd:string ;
+                      ] ;
+                    sp:predicate <http://topbraid.org/search#columnProperty> ;
+                    sp:subject [
+                        sp:varName "column"^^xsd:string ;
+                      ] ;
+                  ]
+                  [
+                    sp:object <http://topbraid.org/search#InversePropertyColumn> ;
+                    sp:predicate rdf:type ;
+                    sp:subject [
+                        sp:varName "column"^^xsd:string ;
+                      ] ;
+                  ]
+                )
+              ) ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate <http://spinrdf.org/arg#property> ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The property to search for."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate <http://spinrdf.org/arg#search> ;
+      spl:valueType <http://topbraid.org/search#Search> ;
+      rdfs:comment "The search:Search to check."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Checks whether a given Search has a given property as \"inverse key property\", i.e. whether it is a column property. Also supports legacy data using search:inverseKeyProperty."^^xsd:string ;
+  rdfs:label "has inverse key property"^^xsd:string ;
+  rdfs:subClassOf spin:Functions ;
+.
+<http://topbraid.org/search#hasKeyProperty>
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            rdf:type sp:Union ;
+            sp:elements (
+                (
+                  [
+                    sp:object [
+                        sp:varName "property"^^xsd:string ;
+                      ] ;
+                    sp:predicate <http://topbraid.org/search#keyProperty> ;
+                    sp:subject [
+                        sp:varName "search"^^xsd:string ;
+                      ] ;
+                  ]
+                )
+                (
+                  [
+                    sp:object [
+                        sp:varName "column"^^xsd:string ;
+                      ] ;
+                    sp:predicate spin:column ;
+                    sp:subject [
+                        sp:varName "search"^^xsd:string ;
+                      ] ;
+                  ]
+                  [
+                    sp:object [
+                        sp:varName "property"^^xsd:string ;
+                      ] ;
+                    sp:predicate <http://topbraid.org/search#columnProperty> ;
+                    sp:subject [
+                        sp:varName "column"^^xsd:string ;
+                      ] ;
+                  ]
+                  [
+                    sp:object <http://topbraid.org/search#PropertyColumn> ;
+                    sp:predicate rdf:type ;
+                    sp:subject [
+                        sp:varName "column"^^xsd:string ;
+                      ] ;
+                  ]
+                )
+              ) ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate <http://spinrdf.org/arg#property> ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The property to search for."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate <http://spinrdf.org/arg#search> ;
+      spl:valueType <http://topbraid.org/search#Search> ;
+      rdfs:comment "The search:Search to check."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Checks whether a given Search has a given property as \"key property\", i.e. whether it is a column property. Also supports legacy data using search:keyProperty."^^xsd:string ;
+  rdfs:label "has key property"^^xsd:string ;
+  rdfs:subClassOf spin:Functions ;
+.
+<http://topbraid.org/search#potentialFacetProperty>
+  rdf:type spin:MagicProperty ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:distinct "true"^^xsd:boolean ;
+      sp:resultVariables (
+          [
+            sp:varName "property"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          (
+            [
+              rdf:type sp:Filter ;
+              sp:expression [
+                  rdf:type sp:notExists ;
+                  sp:elements (
+                      [
+                        sp:object "true"^^xsd:boolean ;
+                        sp:predicate <http://topbraid.org/search#closed> ;
+                        sp:subject spin:_arg1 ;
+                      ]
+                    ) ;
+                ] ;
+            ]
+            [
+              sp:object [
+                  sp:varName "queryGraph"^^xsd:string ;
+                ] ;
+              sp:predicate <http://topbraid.org/search#queryGraph> ;
+              sp:subject spin:_arg1 ;
+            ]
+            [
+              sp:object [
+                  sp:varName "rootType"^^xsd:string ;
+                ] ;
+              sp:predicate <http://topbraid.org/search#rootType> ;
+              sp:subject spin:_arg1 ;
+            ]
+          )
+          [
+            rdf:type sp:NamedGraph ;
+            sp:elements (
+                [
+                  rdf:type sp:TriplePath ;
+                  sp:object [
+                      sp:varName "class"^^xsd:string ;
+                    ] ;
+                  sp:path [
+                      rdf:type sp:ModPath ;
+                      sp:modMax -2 ;
+                      sp:modMin 0 ;
+                      sp:subPath rdfs:subClassOf ;
+                    ] ;
+                  sp:subject [
+                      sp:varName "rootType"^^xsd:string ;
+                    ] ;
+                ]
+                [
+                  rdf:type sp:Filter ;
+                  sp:expression [
+                      rdf:type sp:and ;
+                      sp:arg1 [
+                          rdf:type sp:ne ;
+                          sp:arg1 [
+sp:varName "class"^^xsd:string ;
+                            ] ;
+                          sp:arg2 rdfs:Resource ;
+                        ] ;
+                      sp:arg2 [
+                          rdf:type sp:ne ;
+                          sp:arg1 [
+sp:varName "class"^^xsd:string ;
+                            ] ;
+                          sp:arg2 owl:Thing ;
+                        ] ;
+                    ] ;
+                ]
+                [
+                  sp:object [
+                      sp:varName "property"^^xsd:string ;
+                    ] ;
+                  sp:predicate <http://topbraid.org/swa#directRelevantClassOfProperty> ;
+                  sp:subject [
+                      sp:varName "class"^^xsd:string ;
+                    ] ;
+                ]
+              ) ;
+            sp:graphNameNode [
+                sp:varName "queryGraph"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:notExists ;
+                sp:elements (
+                    [
+                      rdf:type sp:TriplePath ;
+                      sp:object [
+                          sp:varName "property"^^xsd:string ;
+                        ] ;
+                      sp:path [
+                          rdf:type sp:SeqPath ;
+                          sp:path1 <http://topbraid.org/search#facet> ;
+                          sp:path2 <http://topbraid.org/search#property> ;
+                        ] ;
+                      sp:subject spin:_arg1 ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:notExists ;
+                sp:elements (
+                    [
+                      sp:object [
+                          sp:varName "property"^^xsd:string ;
+                        ] ;
+                      sp:predicate <http://topbraid.org/search#excludedFacetProperty> ;
+                      sp:subject spin:_arg1 ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType <http://topbraid.org/search#Search> ;
+      rdfs:comment "The search:Search to get the potential facet properties for."^^xsd:string ;
+    ] ;
+  spin:returnType rdf:Property ;
+  rdfs:comment "Takes a search:Search (?arg1, left hand side) and returns all properties that the user could potentially add to the search."^^xsd:string ;
+  rdfs:label "potential facet property"^^xsd:string ;
+  rdfs:subClassOf spin:MagicProperties ;
+.
+<http://topbraid.org/search#result>
+  rdf:type spin:MagicProperty ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sp:arg2 ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "The start index, beginning with 0. Can be used to implement paging."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sp:arg3 ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "The number of results to return, e.g. 10."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sp:arg4 ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The sort property (may be unbound)."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sp:arg5 ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "true to apply descending order."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType <http://topbraid.org/search#Search> ;
+      rdfs:comment "The search:Search to execute."^^xsd:string ;
+    ] ;
+  rdfs:comment """Executes a search:Search (?arg1) with a given start index (?arg2), result count (?arg3), an optional sort property (?arg4) and sort direction (?arg5) and produces two result variables (on the right hand side): the first result variable will contain all matching resources - the search results and the second variable will be the total number of matches. Example call:
+
+    (?search 0 10 ?sortProperty ?descending) search:result (?result ?totalCount)
+
+Note that this magic property must be called from within the graph containing the search:Search object, which needs to point to the query graph using search:queryGraph."""^^xsd:string ;
+  rdfs:label "result"^^xsd:string ;
+  rdfs:subClassOf spin:MagicProperties ;
+.
+<http://topbraid.org/search#theSearch>
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "search"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object <http://topbraid.org/search#Search> ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "search"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:comment "Gets the first instance of search:Search in the current query graph."^^xsd:string ;
+  rdfs:label "the search"^^xsd:string ;
+  rdfs:subClassOf spin:Functions ;
+.
+<http://topbraid.org/search.spin>
+  rdf:type owl:Ontology ;
+  rdfs:comment "SPIN functions for the search namespace."^^xsd:string ;
+  owl:imports <http://spinrdf.org/spin> ;
+  owl:imports <http://topbraid.org/search> ;
+  owl:imports <http://topbraid.org/swa.spin> ;
+  owl:versionInfo "0.1.0"^^xsd:string ;
+.

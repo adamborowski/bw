@@ -1,0 +1,319 @@
+# baseURI: http://km.pg.gda.pl/rdf/
+
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf1: <http://km.pg.gda.pl/rdf/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://dbpedia.org/resource/Abarth_205>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> "1.1"^^xsd:double ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Abarth> ;
+  <http://dbpedia.org/property/production> 1950 ;
+  rdf1:name "Abarth 205"@en ;
+.
+<http://dbpedia.org/resource/Alfa_Romeo_GTA>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> "1.3"^^xsd:double ;
+  <http://dbpedia.org/property/engine> "1.6"^^xsd:double ;
+  <http://dbpedia.org/property/engine> 2 ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Alfa_Romeo> ;
+  <http://dbpedia.org/property/production> 1965 ;
+  <http://dbpedia.org/property/production> 1967 ;
+  <http://dbpedia.org/property/production> 1968 ;
+  <http://dbpedia.org/property/production> 1970 ;
+  rdf1:name "Alfa Romeo GTA"@en ;
+  rdf1:name "Giulia Sprint 1600 GTA"@en ;
+.
+<http://dbpedia.org/resource/Alfa_Romeo_Giulia_TZ>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> "1.6"^^xsd:double ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Alfa_Romeo> ;
+  <http://dbpedia.org/property/production> 1963 ;
+  rdf1:name "Alfa Romeo Giulia TZ"@en ;
+  rdf1:name "Alfa Romeo TZ"@en ;
+.
+<http://dbpedia.org/resource/Bandini-Maserati_1500>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Bandini_1000>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Bandini_1000_GT>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Bandini_1000_P>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Bandini_1000_turbo>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Bandini_750_sport_internazionale>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Bandini_GT>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Bandini_Saloncino>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Bill_Thomas_Cheetah>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Bizzarrini_P538>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Bristol_450>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Caterham_7>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Caterham_Cars> ;
+  <http://dbpedia.org/property/production> 1973 ;
+  rdf1:name "Caterham 7"@en ;
+.
+<http://dbpedia.org/resource/Caterham_7_CSR>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> "2.3"^^xsd:double ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Caterham_Cars> ;
+  rdf1:name "CSR 200/260"@en ;
+.
+<http://dbpedia.org/resource/Elfin_MS7>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Elfin_Mallala>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> "110.4"^^<http://dbpedia.org/datatype/kilowatt> ;
+  <http://dbpedia.org/property/engine> "1600.0"^^<http://dbpedia.org/datatype/cubicCentimetre> ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Elfin_Sports_Cars> ;
+  <http://dbpedia.org/property/production> 1963 ;
+  <http://dbpedia.org/property/production> 5 ;
+  rdf1:name "Elfin Mallala"@en ;
+.
+<http://dbpedia.org/resource/Ferrari_340>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Ferrari_F430_Challenge>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> "4.3"^^xsd:double ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Ferrari> ;
+  <http://dbpedia.org/property/production> 2007 ;
+  rdf1:name "Ferrari F430 Challenge"@en ;
+.
+<http://dbpedia.org/resource/Ferrari_FXX>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> "6.3"^^xsd:double ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Ferrari> ;
+  <http://dbpedia.org/property/production> 2005 ;
+  rdf1:name "Ferrari FXX"@en ;
+.
+<http://dbpedia.org/resource/Ford_GT40>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> 4181 ;
+  <http://dbpedia.org/property/engine> 4737 ;
+  <http://dbpedia.org/property/engine> 4942 ;
+  <http://dbpedia.org/property/engine> 6997 ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Carroll_Shelby_International> ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Ford_Advanced_Vehicles> ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/John_Wyer> ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Kar_Kraft> ;
+  <http://dbpedia.org/property/production> 107 ;
+  <http://dbpedia.org/property/production> 1964 ;
+  rdf1:name "Ford GT40"@en ;
+.
+<http://dbpedia.org/resource/Jaguar_C-Type>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Jaguar_Cars> ;
+  <http://dbpedia.org/property/production> 1951 ;
+  rdf1:name "Jaguar C-Type"@en ;
+.
+<http://dbpedia.org/resource/Jaguar_D-Type>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Jaguar_Cars> ;
+  <http://dbpedia.org/property/production> 1954 ;
+  rdf1:name "Jaguar D-Type"@en ;
+.
+<http://dbpedia.org/resource/Lotus_15>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Lotus_23>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Lotus_Cars> ;
+  <http://dbpedia.org/property/production> 1962 ;
+  rdf1:name "Lotus 23"@en ;
+.
+<http://dbpedia.org/resource/Lotus_30>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Lotus_40>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Lotus_53>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Maserati_150S>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> 4 ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Maserati> ;
+  <http://dbpedia.org/property/production> 1955 ;
+  rdf1:name "Maserati 150S"@en ;
+  rdf1:name "Tipo 53"@en ;
+.
+<http://dbpedia.org/resource/Maserati_200S>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Maserati> ;
+  rdf1:name "Maserati 200S"@en ;
+.
+<http://dbpedia.org/resource/Maserati_300S>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Maserati> ;
+  rdf1:name "Maserati 300S"@en ;
+.
+<http://dbpedia.org/resource/Maserati_350S>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Maserati> ;
+  rdf1:name "Maserati 350S"@en ;
+.
+<http://dbpedia.org/resource/Maserati_450S>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Maserati> ;
+  rdf1:name "Maserati 450S"@en ;
+.
+<http://dbpedia.org/resource/Maserati_Barchetta>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> 90 ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Maserati> ;
+  <http://dbpedia.org/property/production> 1991 ;
+  rdf1:name "Barchetta Corsa (racing)"@en ;
+  rdf1:name "Barchetta Stradale (road) one unit only"@en ;
+  rdf1:name "Maserati Barchetta"@en ;
+.
+<http://dbpedia.org/resource/Maserati_Tipo_61>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> 187 ;
+  <http://dbpedia.org/property/engine> "2890.3"^^xsd:double ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Maserati> ;
+  <http://dbpedia.org/property/production> 16 ;
+  <http://dbpedia.org/property/production> 1959 ;
+  rdf1:name "Birdcage"@en ;
+  rdf1:name "Maserati Tipo 61"@en ;
+.
+<http://dbpedia.org/resource/Matich_SR3>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Matich_SR4>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Matich_SR5>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Mercedes-Benz_300SL>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> 212 ;
+  <http://dbpedia.org/property/engine> 2996 ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Mercedes-Benz> ;
+  <http://dbpedia.org/property/production> 1952 ;
+  <http://dbpedia.org/property/production> 1954 ;
+  <http://dbpedia.org/property/production> 3258 ;
+  <http://dbpedia.org/property/production> "Coupé: 1,400"@en ;
+  <http://dbpedia.org/property/production> "Roadster: 1,858"@en ;
+  rdf1:name "Mercedes-Benz 300SL"@en ;
+.
+<http://dbpedia.org/resource/Mercedes-Benz_300_SLR>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Mirage_(race_car)>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Nissan_R381>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> "5.5"^^xsd:double ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Nissan_Motor_Company> ;
+  <http://dbpedia.org/property/production> 1968 ;
+  rdf1:name "Nissan R381"@en ;
+.
+<http://dbpedia.org/resource/Nissan_R382>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> 6 ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Nissan_Motor_Company> ;
+  <http://dbpedia.org/property/production> 1969 ;
+  rdf1:name "Nissan R382"@en ;
+.
+<http://dbpedia.org/resource/Nissan_R383>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> 6 ;
+  <http://dbpedia.org/property/engine> "700.0"^^<http://dbpedia.org/datatype/horsepower> ;
+  <http://dbpedia.org/property/engine> "900.0"^^<http://dbpedia.org/datatype/horsepower> ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Nissan_Motor_Company> ;
+  <http://dbpedia.org/property/production> 1970 ;
+  rdf1:name "Nissan R383"@en ;
+.
+<http://dbpedia.org/resource/Porsche_904>
+  rdf:type rdf1:Automobile ;
+  rdf1:name "Porsche 904"@en ;
+.
+<http://dbpedia.org/resource/Porsche_906>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/manufacturer> "Porsche"@en ;
+  rdf1:name "Porsche 906 Carrera 6"@en ;
+.
+<http://dbpedia.org/resource/Porsche_910>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/manufacturer> "Porsche"@en ;
+  rdf1:name "Porsche 910 Carrera 10"@en ;
+.
+<http://dbpedia.org/resource/Porsche_934>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Porsche> ;
+  rdf1:name "Porsche 934"@en ;
+.
+<http://dbpedia.org/resource/Porsche_935>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> "Flat 6 turbo"@en ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Porsche> ;
+  rdf1:name "Porsche 935"@en ;
+.
+<http://dbpedia.org/resource/Porsche_961>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Prince_R380>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> 2 ;
+  <http://dbpedia.org/property/engine> "200.0"^^<http://dbpedia.org/datatype/horsepower> ;
+  <http://dbpedia.org/property/engine> "220.0"^^<http://dbpedia.org/datatype/horsepower> ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Nissan_Motor_Company> ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Prince_Motor_Company> ;
+  <http://dbpedia.org/property/production> 1965 ;
+  rdf1:name "Prince R380"@en ;
+.
+<http://dbpedia.org/resource/Renault_Sport_Spider>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> 1998 ;
+  <http://dbpedia.org/property/manufacturer> "Renault"@en ;
+  <http://dbpedia.org/property/production> 1996 ;
+  rdf1:name "Renault Spider"@en ;
+  rdf1:name "Renault Sport Spider"@en ;
+.
+<http://dbpedia.org/resource/Toyota_Supra_in_motorsport>
+  rdf:type rdf1:Automobile ;
+.
+<http://dbpedia.org/resource/Triumph_TR3>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> 1991 ;
+  <http://dbpedia.org/property/engine> 2138 ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Standard_Motor_Company> ;
+  <http://dbpedia.org/property/production> 1955 ;
+  rdf1:name "Triumph TR3"@en ;
+.
+<http://dbpedia.org/resource/Westfield_XTR2>
+  rdf:type rdf1:Automobile ;
+  <http://dbpedia.org/property/engine> "GSXR1300R Suzuki Hayabusa"@en ;
+  <http://dbpedia.org/property/manufacturer> <http://dbpedia.org/resource/Westfield_Sportscars> ;
+  <http://dbpedia.org/property/production> 2001 ;
+  rdf1:name "Westfield XTR2"@en ;
+.
+rdf1:
+  rdf:type owl:Ontology ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.

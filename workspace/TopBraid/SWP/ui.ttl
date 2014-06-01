@@ -1,0 +1,2122 @@
+# baseURI: http://uispin.org/ui
+# imports: http://spinrdf.org/spra
+
+# c14n-version: 3
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix default: <http://uispin.org/default#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix let: <http://uispin.org/let#> .
+@prefix letrs: <http://uispin.org/letrs#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix smf: <http://topbraid.org/sparqlmotionfunctions#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix spr: <http://spinrdf.org/spr#> .
+@prefix ui: <http://uispin.org/ui#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+arg:baseGraph
+  rdf:type rdf:Property ;
+  rdfs:label "base graph"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:condition
+  rdf:type rdf:Property ;
+  rdfs:label "condition"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:dataProvider
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:node
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:resource
+  rdf:type rdf:Property ;
+  rdfs:label "resource"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:resultSet
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:rule
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:sessionGraph
+  rdf:type rdf:Property ;
+  rdfs:label "session graph"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:this
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:thisValue
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:type
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:value
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+<http://uispin.org/ui>
+  rdf:type owl:Ontology ;
+  rdfs:comment "The core model of SPARQL Web Pages (aka UISPIN), a SPARQL-based user interface description framework. SWP can be used to describe how RDF resources should be rendered on the screen. More generally, SWP can be used to generate just about any textual output, including XML or JSON."^^xsd:string ;
+  rdfs:seeAlso <http://uispin.org> ;
+  owl:imports <http://spinrdf.org/spra> ;
+  owl:versionInfo "1.4.0"^^xsd:string ;
+.
+ui:ChildProperty
+  rdf:type rdfs:Class ;
+  rdfs:comment "Metaclass for properties that represent a parent-child relationship between UI nodes. This can be used as marker so that editing tools can display child relationships in an ordered fashion."^^xsd:string ;
+  rdfs:label "Child property"^^xsd:string ;
+  rdfs:subClassOf rdf:Property ;
+.
+ui:CommaSeparatedLabelList
+  rdf:type spr:Aggregator ;
+  spr:startValue ""^^xsd:string ;
+  spr:stepFunction ui:CommaSeparatedLabelListAggregatorStepFunction ;
+  rdfs:label "Comma separated label list"^^xsd:string ;
+.
+ui:CommaSeparatedLabelListAggregatorStepFunction
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type ui:label ;
+                sp:arg1 spin:_arg2 ;
+              ] ;
+            sp:variable [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:if ;
+                sp:arg1 [
+                    rdf:type sp:gt ;
+                    sp:arg1 [
+                        rdf:type fn:string-length ;
+                        sp:arg1 spin:_arg1 ;
+                      ] ;
+                    sp:arg2 0 ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type fn:concat ;
+                    sp:arg1 spin:_arg1 ;
+                    sp:arg2 "," ;
+                    sp:arg3 [
+                        sp:varName "label"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg3 [
+                    sp:varName "label"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "result"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:label "Comma separated label list aggregator step function"^^xsd:string ;
+  rdfs:subClassOf spr:AggregatorStepFunctions ;
+.
+ui:CommentNode
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate rdfs:comment ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The text of this comment."^^xsd:string ;
+    ] ;
+  rdfs:comment "A node representing a comment. Comments are ignored by the display engine, but are useful for documenting code or (temporarily) disabling certain sections without deleting them."^^xsd:string ;
+  rdfs:label "Comment node"^^xsd:string ;
+  rdfs:subClassOf ui:Node ;
+.
+ui:ControlElement
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract base class for SWP control elements such as ui:forEach and ui:if."^^xsd:string ;
+  rdfs:label "Control element"^^xsd:string ;
+  rdfs:subClassOf ui:Element ;
+.
+ui:DataViews
+  rdf:type ui:ViewElement ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:condition ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "A SPARQL expression that is evaluated with ?this prebound to the current context resource. Must return true to tell the surrounding system that this view is suitable for the current resource."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:dataProvider ;
+      spl:valueType spin:TableDataProvider ;
+      rdfs:comment "The object providing the data to display."^^xsd:string ;
+    ] ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract base class of views that can display tabular data based on a spin:TableDataProvider (e.g. spin:SelectTemplate)."^^xsd:string ;
+  rdfs:label "Data views"^^xsd:string ;
+  rdfs:subClassOf ui:ViewElements ;
+.
+ui:Element
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Attribute ;
+      spl:predicate ui:child ;
+      spl:valueType ui:Node ;
+      rdfs:comment "The children of this panel."^^xsd:string ;
+    ] ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract base class for all UISPIN elements, which are nodes that can contain other nodes. The child nodes are represented using ui:child. Children can be ordered using ui:childIndex."^^xsd:string ;
+  rdfs:label "Element"^^xsd:string ;
+  rdfs:subClassOf ui:Node ;
+.
+ui:FindViewByName
+  rdf:type spin:SelectTemplate ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "view"^^xsd:string ;
+          ]
+          [
+            sp:varName "class"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "name"^^xsd:string ;
+              ] ;
+            sp:predicate ui:name ;
+            sp:subject [
+                sp:varName "view"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "class"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "view"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate ui:name ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the view to find."^^xsd:string ;
+    ] ;
+  rdfs:comment "Can be used to find a view by its name (ui:name), e.g. to support quick navigation."^^xsd:string ;
+  rdfs:label "Find view by name"^^xsd:string ;
+  rdfs:subClassOf spin:SelectTemplates ;
+.
+ui:Function
+  rdf:type rdfs:Class ;
+  rdfs:comment """A SPIN function that has a UISPIN expression as its body. The body must be defined as ui:prototype. Each execution of the function's prototype should terminate with a ui:return, which should specify the return value ui:result (which may be unbound).
+
+Like all SPARQL functions, ui:Functions must not have side effects to the RDF data, i.e. no ui:update etc allowed. However, control elements such as ui:if and ui:forEach can readily be used.
+
+Deprecated semantics: The result of the function is based on the string rendering of the evaluated prototype. The string will be cast into the declared spin:returnType (default: xsd:string). The result can be a URI resource of the spin:returnType is a (non-datatype) class such as rdfs:Resource."""^^xsd:string ;
+  rdfs:label "Function"^^xsd:string ;
+  rdfs:subClassOf spin:Function ;
+  rdfs:subClassOf ui:NodeClass ;
+.
+ui:Functions
+  rdf:type ui:Function ;
+  spin:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract base class to group all instances of the ui:Function metaclass."^^xsd:string ;
+  rdfs:label "Functions"^^xsd:string ;
+  rdfs:subClassOf spin:Functions ;
+  rdfs:subClassOf ui:Methods ;
+.
+ui:HTML
+  rdf:type ui:ResponseType ;
+  ui:mimeType "text/html"^^xsd:string ;
+  rdfs:comment "The HTML response type."^^xsd:string ;
+  rdfs:label "HTML"^^xsd:string ;
+.
+ui:JSON
+  rdf:type ui:ResponseType ;
+  ui:mimeType "application/json"^^xsd:string ;
+  rdfs:comment "The JSON response type."^^xsd:string ;
+  rdfs:label "JSON"^^xsd:string ;
+.
+ui:JSONService
+  rdf:type rdfs:Class ;
+  spin:constructor [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object ui:JSONServices ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject spin:_this ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:notExists ;
+                sp:elements (
+                    [
+                      sp:object [
+                          sp:varName "any"^^xsd:string ;
+                        ] ;
+                      sp:predicate rdfs:subClassOf ;
+                      sp:subject spin:_this ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "JSON service"^^xsd:string ;
+  rdfs:subClassOf ui:Service ;
+.
+ui:JSONServices
+  rdf:type ui:Service ;
+  ui:abstract "true"^^xsd:boolean ;
+  ui:responseType ui:JSON ;
+  rdfs:comment "Abstract superclass of services that return JSON."^^xsd:string ;
+  rdfs:label "JSON services"^^xsd:string ;
+  rdfs:subClassOf ui:Services ;
+.
+ui:Method
+  rdf:type rdfs:Class ;
+  spin:constructor [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object ui:Methods ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject spin:_this ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:notExists ;
+                sp:elements (
+                    [
+                      sp:object [
+                          sp:varName "any"^^xsd:string ;
+                        ] ;
+                      sp:predicate rdfs:subClassOf ;
+                      sp:subject spin:_this ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:comment "Metaclass of ui:Methods. Instances of this metaclass (i.e. the element classes) should start with a lower-case letter."^^xsd:string ;
+  rdfs:label "Method"^^xsd:string ;
+  rdfs:subClassOf ui:Operation ;
+.
+ui:Methods
+  rdf:type ui:Method ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract superclass of operations that can be called to execute side effects such as ui:updates."^^xsd:string ;
+  rdfs:label "Methods"^^xsd:string ;
+  rdfs:subClassOf ui:Operations ;
+.
+ui:Node
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "The base class of all user interface objects, i.e. objects that represent a visual area on the screen or represent scripts, events or any other part of a DOM-like model."^^xsd:string ;
+  rdfs:label "Node"^^xsd:string ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+ui:NodeClass
+  rdf:type rdfs:Class ;
+  rdfs:comment "Metaclass of ui:Node classes."^^xsd:string ;
+  rdfs:label "Node class"^^xsd:string ;
+  rdfs:subClassOf rdfs:Class ;
+.
+ui:Operation
+  rdf:type rdfs:Class ;
+  rdfs:comment "Metaclass of operations that can be attached to classes. See ui:Operations."^^xsd:string ;
+  rdfs:label "Operation"^^xsd:string ;
+  rdfs:subClassOf ui:NodeClass ;
+.
+ui:Operations
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract superclass of SWP elements that have only side effects and do not produce output. Operations can be attached to classes to clarify that they are meant to be called for instances of that class (or its subclasses) only. In those cases, the argument ui:this (?this) needs to point to the context instance, similar to how SPIN rules work. In order to attach an operation to a class, the property ui:method or ui:rule can be used."^^xsd:string ;
+  rdfs:label "Operations"^^xsd:string ;
+  rdfs:subClassOf ui:Element ;
+.
+ui:ResourceViewClass
+  rdf:type rdfs:Class ;
+  rdfs:comment "Metaclass to distinguish resource views from others."^^xsd:string ;
+  rdfs:label "Resource view class"^^xsd:string ;
+  rdfs:subClassOf ui:ViewElement ;
+.
+ui:ResourceViews
+  rdf:type ui:ResourceViewClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resource ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The resource to display."^^xsd:string ;
+    ] ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "A base class for elements that display a single resource, specified via the argument arg:resource. It is a good practice to subclass this and to instantiate those user-defined classes in ui:instanceViews etc."^^xsd:string ;
+  rdfs:label "Resource views"^^xsd:string ;
+  rdfs:subClassOf ui:ViewElements ;
+.
+ui:ResponseType
+  rdf:type rdfs:Class ;
+  rdfs:comment "Instances of this class can be associated with ui:NodeClasses to declare that they can be called as web services, and what mime type should be returned in those cases. Notable instances are ui:HTML and ui:JSON. The property ui:responseType is used to link the view classes with ui:ResponseTypes."^^xsd:string ;
+  rdfs:label "Response type"^^xsd:string ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+ui:Rule
+  rdf:type rdfs:Class ;
+  spin:constructor [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object ui:Rules ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject spin:_this ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:notExists ;
+                sp:elements (
+                    [
+                      sp:object [
+                          sp:varName "any"^^xsd:string ;
+                        ] ;
+                      sp:predicate rdfs:subClassOf ;
+                      sp:subject spin:_this ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:comment "An Event-Condition-Action rule based on SWP expressions. A rule is defined by its ui:prototype which can perform queries (e.g. using ui:forEach) and then perform changes (ui:update), call SPARQLMotion modules etc. If the rules have been triggered by edits, then inside of the prototype the special named graphs ui:addedGraph and ui:deletedGraph contain the changes that have triggered the rule."^^xsd:string ;
+  rdfs:label "Rule"^^xsd:string ;
+  rdfs:subClassOf ui:Operation ;
+.
+ui:Rules
+  rdf:type ui:Rule ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract base class of all ui:Rule instances."^^xsd:string ;
+  rdfs:label "Rules"^^xsd:string ;
+  rdfs:subClassOf ui:Operations ;
+.
+ui:Service
+  rdf:type rdfs:Class ;
+  rdfs:comment "Metaclass for SWP elements that act as services - \"Ajax\" callbacks that are used during the execution of other views or services. All ui:Services need to declare or inherit a ui:responseType, typically ui:JSON."^^xsd:string ;
+  rdfs:label "Service"^^xsd:string ;
+  rdfs:subClassOf ui:NodeClass ;
+.
+ui:Services
+  rdf:type ui:Service ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract superclass of SWP elements that provide web services that are callable via GET or POST requests. Services must have or inherit a response type."^^xsd:string ;
+  rdfs:label "Services"^^xsd:string ;
+  rdfs:subClassOf ui:Element ;
+.
+ui:StyleProperty
+  rdf:type rdfs:Class ;
+  rdfs:comment "Metaclass of properties that represent a (CSS) style."^^xsd:string ;
+  rdfs:label "Style property"^^xsd:string ;
+  rdfs:subClassOf rdf:Property ;
+.
+ui:TEXT
+  rdf:type ui:ResponseType ;
+  ui:mimeType "text/plain"^^xsd:string ;
+  rdfs:comment "The plain text response type."^^xsd:string ;
+  rdfs:label "TEXT"^^xsd:string ;
+.
+ui:Test-functionCall-1
+  rdf:type spl:TestCase ;
+  spl:testExpression [
+      rdf:type ui:functionCall ;
+      sp:arg1 "test" ;
+      sp:arg2 "Hello \"" ;
+      sp:arg3 42 ;
+      sp:arg4 "false"^^xsd:boolean ;
+      sp:arg5 owl:Thing ;
+    ] ;
+  spl:testResult "test(\"Hello \\\"\", 42, false, \"http:\\/\\/www.w3.org\\/2002\\/07\\/owl#Thing\")"^^xsd:string ;
+  rdfs:label "Test-function call-1"^^xsd:string ;
+.
+ui:TextNode
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate ui:text ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The text of this TextNode."^^xsd:string ;
+    ] ;
+  rdfs:comment "A text node in a UISPIN document. Will be mapped to XML text nodes."^^xsd:string ;
+  rdfs:label "Text node"^^xsd:string ;
+  rdfs:subClassOf ui:Node ;
+.
+ui:Turtle
+  rdf:type ui:ResponseType ;
+  ui:mimeType "text/turtle"^^xsd:string ;
+  rdfs:comment "The Turtle response type, to be used in conjunction with ui:return."^^xsd:string ;
+  rdfs:label "Turtle"^^xsd:string ;
+.
+ui:TurtleServices
+  rdf:type ui:Service ;
+  ui:abstract "true"^^xsd:boolean ;
+  ui:responseType ui:Turtle ;
+  rdfs:comment "Abstract superclass of services that return RDF triples in Turtle format, using ui:return."^^xsd:string ;
+  rdfs:label "Turtle services"^^xsd:string ;
+  rdfs:subClassOf ui:Services ;
+.
+ui:ViewElement
+  rdf:type rdfs:Class ;
+  spin:constructor [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object ui:ViewElements ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject spin:_this ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:notExists ;
+                sp:elements (
+                    [
+                      sp:object [
+                          sp:varName "any"^^xsd:string ;
+                        ] ;
+                      sp:predicate rdfs:subClassOf ;
+                      sp:subject spin:_this ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:comment "Recommended metaclass of ui:ViewElements - SWP views that produce HTML/SVG output."^^xsd:string ;
+  rdfs:label "View element"^^xsd:string ;
+  rdfs:subClassOf ui:NodeClass ;
+.
+ui:ViewElements
+  rdf:type ui:ViewElement ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "The recommended base class of ui:Elements that produce HTML output."^^xsd:string ;
+  rdfs:label "View elements"^^xsd:string ;
+  rdfs:subClassOf ui:Element ;
+.
+ui:ViewProperty
+  rdf:type rdfs:Class ;
+  rdfs:comment "Metaclass of properties that link a class with a view, e.g. ui:view. Can be used by user interface engines to distinguish views from other properties."^^xsd:string ;
+  rdfs:label "View property"^^xsd:string ;
+  rdfs:subClassOf rdf:Property ;
+.
+ui:XML
+  rdf:type ui:ResponseType ;
+  ui:mimeType "text/xml"^^xsd:string ;
+  rdfs:comment "The XML response type."^^xsd:string ;
+  rdfs:label "XML"^^xsd:string ;
+.
+ui:abstract
+  rdf:type rdf:Property ;
+  rdfs:comment "Indicates that elements of this type should not be instantiated directly. This is comparable to the notion of abstract classes in object-oriented languages like UML."^^xsd:string ;
+  rdfs:domain ui:NodeClass ;
+  rdfs:label "abstract"^^xsd:string ;
+  rdfs:range xsd:boolean ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:addNamespace
+  rdf:type rdf:Property ;
+  rdfs:comment "Adds a global namespace declaration for the given resource to the root element. Has no other side effects, i.e. it will not become an attribute in the target document."^^xsd:string ;
+  rdfs:label "add namespace"^^xsd:string ;
+  rdfs:range rdfs:Resource ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:addPropertyValue
+  rdf:type ui:Method ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:value ;
+      rdfs:comment "The value to add to the property."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:property ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The property to add a value for."^^xsd:string ;
+    ] ;
+  ui:prototype [
+      rdf:type ui:transaction ;
+      ui:child [
+          rdf:type ui:if ;
+          ui:child [
+              rdf:type ui:update ;
+              ui:childIndex 0 ;
+              ui:updateQuery [
+                  rdf:type sp:Modify ;
+                  sp:insertPattern (
+                      [
+                        sp:object [
+                            sp:varName "value"^^xsd:string ;
+                          ] ;
+                        sp:predicate [
+                            sp:varName "property"^^xsd:string ;
+                          ] ;
+                        sp:subject spin:_this ;
+                      ]
+                    ) ;
+                  sp:where () ;
+                ] ;
+            ] ;
+          ui:childIndex 0 ;
+          ui:condition [
+              rdf:type sp:bound ;
+              sp:arg1 [
+                  sp:varName "value"^^xsd:string ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  rdfs:comment "A generic operation that adds a certain value (arg:value) to a given property (arg:property) at a subject (ui:this)."^^xsd:string ;
+  rdfs:label "add property value"^^xsd:string ;
+  rdfs:subClassOf ui:Methods ;
+.
+ui:addedGraph
+  rdf:type rdfs:Resource ;
+  rdfs:comment "A special named graph available during the execution of a ui:Rule, containing the triples that were added before the rule was triggered."^^xsd:string ;
+  rdfs:label "added graph"^^xsd:string ;
+.
+ui:arg
+  rdf:type spin:MagicProperty ;
+  spin:returnType ui:Node ;
+  rdfs:comment "Makes it possible to query for the arguments of the current UISPIN element of a user-defined class. The argument on the left side must be an rdf:Property or a variable. The right side must be an unbound variable, that will contain the value of the argument at the current context node."^^xsd:string ;
+  rdfs:label "arg"^^xsd:string ;
+  rdfs:subClassOf spin:MagicProperties ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:args
+  rdf:type rdf:Property ;
+  rdfs:comment """Can be used on elements that represent calls of user-defined elements that have a ui:prototype and declared spl:Arguments. If set to \"*\", this will pass all matching variable bindings from the surrounding scope into the element call. For example if my:Element declares an spl:Argument arg:subject and you have
+
+<ui:group let:subject=\"owl:Thing\">
+    <ex:MyElement ui:args=\"*\" />
+</ui:group>
+
+then the outcome will be equivalent with
+
+<ui:group let:subject=\"owl:Thing\">
+    <ex:MyElement arg:subject=\"{= ?subject }\" />
+</ui:group>
+
+The names of the outer variable must be the local names of the spl:predicate of the spl:Argument, e.g. ?subject matches arg:subject."""^^xsd:string ;
+  rdfs:label "args"^^xsd:string ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:bindVars
+  rdf:type rdf:Property ;
+  rdfs:label "bind vars"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:cache
+  rdf:type rdf:Property ;
+  rdfs:label "cache"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:call
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "rs"^^xsd:string ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:varName ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the variable to hold the result set. Defaults to \"rs\"."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate ui:template ;
+      spl:valueType spin:Template ;
+      rdfs:comment "The template to call."^^xsd:string ;
+    ] ;
+  rdfs:comment """Invokes a SPIN template (ui:template) that has a SELECT query or an UPDATE command as its body. For SELECT queries, it binds the result set to the result variable (ui:varName, default: \"rs\"). All other arguments of this element will be used as arguments of the template. UPDATE commands will be treated like ui:update, i.e. execute a change directly.
+
+If the ui:call has the argument ui:args=\"template\" then the system will try to pass variables values from the current scope into the template."""^^xsd:string ;
+  rdfs:label "call"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:canParse
+  rdf:type spin:Function ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:node ;
+      rdfs:comment "The RDF node to test. Must be a literal with a well-formed HTML lexical form."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Checks whether a given literal can be parsed using ui:parse. Returns false if the given literal is malformed HTML."^^xsd:string ;
+  rdfs:label "can parse"^^xsd:string ;
+  rdfs:subClassOf spl:StringFunctions ;
+.
+ui:catch
+  rdf:type ui:NodeClass ;
+  rdfs:comment "Not executed by default, but will be executed if the associated <ui:try> block failed with an exception. The variable ?exception will contain the exception string."^^xsd:string ;
+  rdfs:label "catch"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:child
+  rdf:type ui:ChildProperty ;
+  rdfs:comment "Points from a parent element to a child node."^^xsd:string ;
+  rdfs:label "child"^^xsd:string ;
+  rdfs:range ui:Node ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:childIndex
+  rdf:type rdf:Property ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:comment "The index of a child among its siblings, starting at 0."^^xsd:string ;
+  rdfs:domain ui:Node ;
+  rdfs:label "child index"^^xsd:string ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:class
+  rdf:type rdf:Property ;
+  rdfs:domain ui:dynamicView ;
+  rdfs:label "class"^^xsd:string ;
+  rdfs:range ui:NodeClass ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:classView
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:matchIds ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The match ids."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:resource ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The value that shall be bound to ?this."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate ui:class ;
+      spl:valueType rdfs:Class ;
+      rdfs:comment "The class to insert the view for."^^xsd:string ;
+    ] ;
+  rdfs:comment "Inserts the most suitable view associated with a given class, using ui:instanceView. ?this will be unbound unless the ui:resource argument is bound."^^xsd:string ;
+  rdfs:label "class view"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:concat
+  rdf:type spin:Function ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Creates a string by concatenating the string representation of its arguments from left to right. This is basically identical to the SPARQL built-in CONCAT, with the important difference that unbound variables will be ignored without failure. The function is also used by the SWP parser if a user enters mixed attribute values such as arg=\"Hello, {= ?name }\" which is mapped to ui:concat('Hello, ', ?name)."^^xsd:string ;
+  rdfs:label "concat"^^xsd:string ;
+  rdfs:subClassOf spl:StringFunctions ;
+.
+ui:condition
+  rdf:type rdf:Property ;
+  rdfs:comment "The condition of an ui:If element. Must evaluate to a literal with the lexical form \"true\"."^^xsd:string ;
+  rdfs:label "condition"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:contextValue
+  rdf:type spin:Function ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the variable to get."^^xsd:string ;
+    ] ;
+  rdfs:comment "Gets the value of a given context variable that was set before using ui:setContext. For example, <ui:setContext ui:varName=\"test\" ui:value=\"Hello\">...</ui:setContext> makes the name-value-pair test=\"Hello\" visible for all children of the setContext element."^^xsd:string ;
+  rdfs:label "context value"^^xsd:string ;
+  rdfs:subClassOf spl:MiscFunctions ;
+.
+ui:createLink
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "link"^^xsd:string ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:varName ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the link variable."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "uispin"^^xsd:string ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:servlet ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The servlet part of the link (before ?). Can be set to \"none\" to suppress the servlet part."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:format ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The format instruction to the servlet."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:queryGraph ;
+      spl:valueType owl:Ontology ;
+      rdfs:comment "See ui:setContext. Specifying a value will be similar to ui:sendQueryGraph, but with the specific query graph."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:sendEditGraphs ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "True to also include the currently editable graphs."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:sendQueryGraph ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "True to encode the current query graph so that the resulting page will use it as a starting point."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:server ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The base URL of the servlet server."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:snippet ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The snippet instruction to the servlet."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:viewClass ;
+      spl:valueType ui:NodeClass ;
+      rdfs:comment "Must points to a view class that has a prototype, creates a link that will return a view based on this prototype and the other arguments."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:viewName ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the target page."^^xsd:string ;
+    ] ;
+  rdfs:comment "Creates a hyperlink to a named page on the UISPIN server. This element can take any number of arguments: they will be passed by their local name to the server. The resulting link will be bound to a variable with the name of the provided variable (ui:varName) in the child scope of this module."^^xsd:string ;
+  rdfs:label "create link"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:createSessionGraph
+  rdf:type spin:Function ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:baseGraph ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "An optional graph that should be included as subgraph into the session graph."^^xsd:string ;
+    ] ;
+  spin:returnType rdfs:Resource ;
+  rdfs:comment "Creates a (temporary) graph that can be accessed across multiple server call-backs, as long as a client session is active. The new graph is initially empty but can be populated using ui:update. Optionally, you can specify a base graph that will be a sub-graph of the new graph. The life cycle of a session graph ends if ui:deleteSessionGraph is called or a time out happens (after idle time)."^^xsd:string ;
+  rdfs:label "create session graph"^^xsd:string ;
+  rdfs:subClassOf spl:OntologyFunctions ;
+.
+ui:currentQueryGraph
+  rdf:type spin:Function ;
+  spin:returnType owl:Ontology ;
+  rdfs:comment "Gets the URI resource of the currently active query graph."^^xsd:string ;
+  rdfs:label "current query graph"^^xsd:string ;
+  rdfs:subClassOf spl:OntologyFunctions ;
+.
+ui:dataView
+  rdf:type ui:ViewProperty ;
+  rdfs:comment "Links a class with elements that can be used to display data taken from spin:TableDataProviders with instances of that class. In those elements, the variable ?this points to the instance being displayed. The values of this property should be blank nodes with no further children, i.e. exactly an instance of a subclass of ui:DataViews with its arguments filled in, especially arg:dataProvider."^^xsd:string ;
+  rdfs:domain rdfs:Class ;
+  rdfs:label "data view"^^xsd:string ;
+  rdfs:range ui:DataViews ;
+.
+ui:decodeNode
+  rdf:type spin:Function ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The id of the RDF node to decode."^^xsd:string ;
+    ] ;
+  rdfs:comment "Creates an RDF node from a string representation created with ui:encodeNode. This basically turns a qname back into a URI etc."^^xsd:string ;
+  rdfs:label "decode node"^^xsd:string ;
+  rdfs:subClassOf spl:StringFunctions ;
+.
+ui:defaultBaseURI
+  rdf:type rdf:Property ;
+  rdfs:comment "Can be used in conjunction with ui:name to specify a base URI that shall be used for a global page unless a different one has been specific in the servlet request."^^xsd:string ;
+  rdfs:label "default base URI"^^xsd:string ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:deleteSessionGraph
+  rdf:type spin:Function ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:sessionGraph ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The graph to delete."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Deletes a session graph that was previously created using ui:createSessionGraph. The function has side effects to the state of the SWP engine, but returns a dummy boolean (true) if the operation is succesful."^^xsd:string ;
+  rdfs:label "delete session graph"^^xsd:string ;
+  rdfs:subClassOf spl:OntologyFunctions ;
+.
+ui:deletedGraph
+  rdf:type rdfs:Resource ;
+  rdfs:comment "A special named graph available during the execution of a ui:Rule, containing the triples that were deleted before the rule was triggered."^^xsd:string ;
+  rdfs:label "deleted graph"^^xsd:string ;
+.
+ui:dynamicView
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:class ;
+      spl:valueType ui:NodeClass ;
+      rdfs:comment "The view class to use."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:instance ;
+      spl:valueType ui:Element ;
+      rdfs:comment "The view instance to insert."^^xsd:string ;
+    ] ;
+  rdfs:comment "Makes it possible to insert a element that has a flexible type, i.e. the element name does not need to be known at compile time. If ui:class is provided, then the element will instantiate that class of the ui:Element. For example, if you have a ui:Element class ex:Widget, with subclasses ex:StringWidget and ex:DateWidget, then you can bind ?uiClass in a previous step before using <ui:dynamicView ui:class=\"{= ?uiClass }\" arg:subject=\"{= ?subject }\" ... /> to insert the right instance. All other arguments will be passed into the view. The other use case is to provide the argument ui:instance which must point to an actual instance of a view, e.g. a value of the ui:dataView property."^^xsd:string ;
+  rdfs:label "dynamic view"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:element
+  rdf:type rdf:Property ;
+  rdfs:comment "Super-property of ui:operation and ui:viewElement."^^xsd:string ;
+  rdfs:label "element"^^xsd:string ;
+  rdfs:range ui:NodeClass ;
+.
+ui:else
+  rdf:type ui:NodeClass ;
+  rdfs:comment "Defines an else statement. Must have a matching ui:if element as previous sibling. If the if was false, then the children of this element will be inserted."^^xsd:string ;
+  rdfs:label "else"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:elseif
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate ui:condition ;
+      rdfs:comment "The value that must be true."^^xsd:string ;
+    ] ;
+  rdfs:comment "Defines an else-if statement. Must have a matching ui:if or ui:elseif element as previous sibling. If the previous step was false, then the children of this element will be inserted."^^xsd:string ;
+  rdfs:label "elseif"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:encodeNode
+  rdf:type spin:Function ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sp:arg2 ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "True to have round-trippable blank nodes. Will encode them as <@ID>."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      rdfs:comment "The node to encode."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Creates a string representation of a given RDF node (?arg1), using qnames where possible."^^xsd:string ;
+  rdfs:label "encode node"^^xsd:string ;
+  rdfs:subClassOf spl:StringFunctions ;
+.
+ui:encodeURL
+  rdf:type spin:Function ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      rdfs:comment "The string or URI resource to encode."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Encodes a given string so that it can be made part of a well-formed URL, e.g. in server callbacks."^^xsd:string ;
+  rdfs:label "encode URL"^^xsd:string ;
+  rdfs:subClassOf spl:StringFunctions ;
+.
+ui:errorMessage
+  rdf:type rdf:Property ;
+  rdfs:label "error message"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:errorPrototype
+  rdf:type rdf:Property ;
+  rdfs:comment """Can be used to link a ui:NodeClass with one or more views that can be used to check pre-conditions. If a view class is instantiated, then the engine will check for any defined ui:errorPrototypes for the types of the view, including the superclasses. If any of them returns a non-empty node, then that node will be inserted instead of the prototype.
+
+A typical use case of this is security, so that certain pages are only visible if the current user has certain privileges. You can define an abstract base class that all your view classes inherit from. On that base class, define an error prototype that checks the pre-conditions. The error prototype might use ui:if and other control elements for its operational logic."""^^xsd:string ;
+  rdfs:domain ui:NodeClass ;
+  rdfs:label "error prototype"^^xsd:string ;
+  rdfs:range ui:Node ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:escapeJSON
+  rdf:type spin:Function ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The string to escape."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Converts a given string to a JSON-friendly string that can be sent across the wire. In particular, this replaces \" with \\\" so that string literals can be put between matching \" braces."^^xsd:string ;
+  rdfs:label "escape JSON"^^xsd:string ;
+  rdfs:subClassOf spl:StringFunctions ;
+.
+ui:event
+  rdf:type rdf:Property ;
+  rdfs:label "event"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:forEach
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "index"^^xsd:string ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:indexVar ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of an (optional) index variable that will be assigned with the current iteration index as an xsd:integer, starting at 0."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:bindVars ;
+      spl:valueType xsd:string ;
+      rdfs:comment """An optional comma-separated list of variable names that can be used to specify which variables shall be used from the given resultSet. If the resultSet is a variable (e.g. computed by a ui:call) then this has the side effect that the source code makes the expected variables visible. Example:
+
+<ui:call ui:template=\"ex:GetNames\">
+    <ui:forEach ui:resultSet=\"{= ?rs }\" ui:bindVars=\"?firstName, ?lastName\">
+        ...
+    </ui:forEach>
+</ui:call>
+
+If no value for ui:bindVars is present then all columns/variables from the result set will be used."""^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:limit ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "An optional maximum number of rows to iterate overs, similar to LIMIT in SPARQL."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:offset ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "An optional starting row for the iteration, similar to OFFSET in SPARQL."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:separator ;
+      spl:valueType xsd:string ;
+      rdfs:comment "An optional string to place as text node between the nested elements."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate ui:resultSet ;
+      spl:valueType sp:Select ;
+      rdfs:comment "The result set to iterate over, typically defined by a SELECT query (or SPIN template)."^^xsd:string ;
+    ] ;
+  rdfs:comment "A control element representing a \"for\" loop that iterates over all results of a given SPARQL SELECT query (or SPIN template) and repeatedly inserts the child element(s) for each iteration. The result variables will be visible to the child elements in the scope, e.g. in nested SPARQL expressions."^^xsd:string ;
+  rdfs:label "forEach"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:format
+  rdf:type rdf:Property ;
+  rdfs:label "format"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:functionCall
+  rdf:type spin:Function ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The function name without the round brackets, e.g. \"$('#input').val\"."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Creates the source code of a JavaScript function call. The first argument is the function name, all others are rendered into comma-separated arguments. The function takes care of correct escaping. URI resources are turned into strings of their URI."^^xsd:string ;
+  rdfs:label "function call"^^xsd:string ;
+  rdfs:subClassOf spl:StringFunctions ;
+.
+ui:getSessionAttribute
+  rdf:type spin:Function ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the attribute to get."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Gets an attribute of the currently active client session."^^xsd:string ;
+  rdfs:label "get session attribute"^^xsd:string ;
+  rdfs:subClassOf spl:MiscFunctions ;
+.
+ui:graph
+  rdf:type rdfs:Resource ;
+  rdfs:comment """The URI of the named graph containing the triples of the UI view definitions. This named graph can be accessed in SWP queries using GRAPH ui:graph { ... }, for example to query metadata associated with the current SWP node (?thisNode). It can also be used to query global metadata such as markers attached to properties.
+
+Note that this graph does not include the current query graph. See also ui:unionGraph."""^^xsd:string ;
+  rdfs:label "graph"^^xsd:string ;
+.
+ui:graphWithImports
+  rdf:type spin:Function ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The graph resource to cast."^^xsd:string ;
+    ] ;
+  spin:returnType rdfs:Resource ;
+  rdfs:comment "Casts a given named graph resource to an encoded resource that instructs the engine to also include the owl:imports closure (and the system graph). Details of how to encode such resources are left to the engine but need to be consistent with the sibling function ui:graphWithoutImports. Returns the original graph unchanged if it already has the additional encoding."^^xsd:string ;
+  rdfs:label "graph with imports"^^xsd:string ;
+  rdfs:subClassOf spl:OntologyFunctions ;
+.
+ui:graphWithoutImports
+  rdf:type spin:Function ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The graph resource to cast."^^xsd:string ;
+    ] ;
+  spin:returnType rdfs:Resource ;
+  rdfs:comment "Opposite of ui:graphWithImports."^^xsd:string ;
+  rdfs:label "graph without imports"^^xsd:string ;
+  rdfs:subClassOf spl:OntologyFunctions ;
+.
+ui:group
+  rdf:type ui:NodeClass ;
+  rdfs:comment "A basically \"empty\" element that simply inserts its children. Can be used to host let: assignments, or to otherwise group multiple children. In previous beta versions of UISPIN, this was called ui:let."^^xsd:string ;
+  rdfs:label "group"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:handle
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:script ;
+      spl:valueType xsd:string ;
+      rdfs:comment "A client-side JS snippet that shall be executed before the server callback."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:thenLoadId ;
+      spl:valueType xsd:string ;
+      rdfs:comment "An optional id of a ui:loadable then shall be loaded when the callback has been completed."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate ui:event ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the event, e.g. \"onclick\"."^^xsd:string ;
+    ] ;
+  ui:responseType ui:HTML ;
+  rdfs:comment """Inserts an event handler into the surrounding DOM element, e.g. onclick if the parent is an <a ...> tag. The event handler will be executed via a separate server call, i.e. the children of ui:event will only be executed when the event happened. Behaves similar to ui:loadable in that all variables from the context will be visible. However, the content elements of the ui:handle should not create any (HTML) output, apart from possibly <script> tags. Instead the context may be a call of a ui:Method that has side effects such as updating a value.
+
+The optional argument ui:script can be used to execute client-side JavaScript code immediately, and before the server call is made.
+
+The optional argument ui:thenLoadId will load the ui:loadable with the given id after the server callback has finished.
+
+Any other argument of this element will be passed into the children SWP elements as name-value pairs based on JavaScript expressions. The values of those other arguments must be parsable RDF values, e.g. xsd:string values need to be escaped with \"...\" and URI resources surronded with <...>. This makes is possible to execute client-side code (e.g. to query the state of a widget) and send it to the server as a pre-bound variable. Example: arg:expanded=\"$('#{= ?id }-body').css('display') != 'none'\" will execute the given JQuery expression and pass its result (here: true) to the server, as a pre-bound variable ?expanded."""^^xsd:string ;
+  rdfs:label "handle"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:headIncludes
+  rdf:type rdf:Property ;
+  rdfs:comment "Can point to one or more elements that will be inserted into the head section of the target document."^^xsd:string ;
+  rdfs:domain ui:NodeClass ;
+  rdfs:label "head includes"^^xsd:string ;
+  rdfs:range ui:Element ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:id
+  rdf:type rdf:Property ;
+  rdfs:comment "An identifier of ui:Nodes. Can be attached to ui:views and ui:instanceViews to mark them as specific types (see ui:matchIds)."^^xsd:string ;
+  rdfs:label "id"^^xsd:string ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:if
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:condition ;
+      rdfs:comment "The value that must be true. This argument is optional because unbound is treated like false."^^xsd:string ;
+    ] ;
+  rdfs:comment "Defines an if statement. If the ui:condition is \"true\", then the children of this element will be inserted."^^xsd:string ;
+  rdfs:label "if"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:indexVar
+  rdf:type rdf:Property ;
+  rdfs:label "index var"^^xsd:string ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:insert
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate ui:into ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The id of the extension point to insert into."^^xsd:string ;
+    ] ;
+  rdfs:comment "A control element that will insert its children into a given insertion point."^^xsd:string ;
+  rdfs:label "insert"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:insertionPoint
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate ui:pointId ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the extension point. Must be a unique string within the current context."^^xsd:string ;
+    ] ;
+  rdfs:comment "A marker that may be substituted by children that declare themselves to be extensions using ui:insert."^^xsd:string ;
+  rdfs:label "insertion point"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:instance
+  rdf:type rdf:Property ;
+  rdfs:label "instance"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:instanceView
+  rdf:type ui:ViewProperty ;
+  rdfs:comment "Links a class with elements that can be used to display instances of that class. In those elements, the variable ?this points to the instance being displayed."^^xsd:string ;
+  rdfs:domain rdfs:Class ;
+  rdfs:label "instance view"^^xsd:string ;
+  rdfs:range ui:Element ;
+.
+ui:into
+  rdf:type rdf:Property ;
+  rdfs:label "into"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:isOpenSocial
+  rdf:type spin:Function ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Checks if the current request has been against the OpenSocial servlet. Gadgets can use this information to behave differently compared to normal SWP usage."^^xsd:string ;
+  rdfs:label "is OpenSocial"^^xsd:string ;
+  rdfs:subClassOf spl:MiscFunctions ;
+.
+ui:label
+  rdf:type spin:Function ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sp:arg2 ;
+      spl:valueType xsd:string ;
+      rdfs:comment "An optional style that is used by the date/time literal types. Currently supported values are: \"short\", \"medium\", \"long\" and \"full\"."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      rdfs:comment "The node to get the label of."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment """Computes the display label for a given RDF node (literal or resource).
+
+For resources, this typically uses the rdfs:label (or sub-property thereof). However, this behavior can be customized with a global setting to redirect ui:label to a different string-producing function.
+
+For some literal types such as xsd:date and xsd:float, this uses localization settings based on ui:lang(), e.g. \"4.2\"^^xsd:float is rendered as 4,2 when the current language is \"de\". For all other literal datatypes, the plain lexical form of the literal is put out."""^^xsd:string ;
+  rdfs:label "label"^^xsd:string ;
+  rdfs:subClassOf spl:StringFunctions ;
+.
+ui:lang
+  rdf:type spin:Function ;
+  rdf:type rdf:Property ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Gets the language that shall be used in the current request. The language is in the same format as the RDF language tags. It is usually specified by the system as part of the incoming client request. It is also possible to explicitly set the language for child element using ui:setContext."^^xsd:string ;
+  rdfs:label "lang"^^xsd:string ;
+  rdfs:subClassOf spl:StringFunctions ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:let
+  rdf:type ui:NodeClass ;
+  rdf:type owl:DeprecatedClass ;
+  rdfs:comment "Deprecated for UISPIN 1.0: Use ui:group instead."^^xsd:string ;
+  rdfs:label "let"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:lib
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Bind ;
+            sp:expression "lib" ;
+            sp:variable [
+                sp:varName "result"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Creates the start of the \"lib\" servlet that is used to access static files within the SWP servlet. Instead of hard-coding this (e.g. \"lib/swa/js/swa.js\") you should always use this function to resolve the first segment, e.g. \"{= ui:lib() }/swa/js/swa.js\". This allows the engine to inject additional info such as the version number into the path."^^xsd:string ;
+  rdfs:label "lib"^^xsd:string ;
+  rdfs:subClassOf spl:StringFunctions ;
+.
+ui:limit
+  rdf:type rdf:Property ;
+  rdfs:label "limit"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:loadId
+  rdf:type rdf:Property ;
+  rdfs:label "load id"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:loadLater
+  rdf:type rdf:Property ;
+  rdfs:label "load later"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:loadOnDemand
+  rdf:type rdf:Property ;
+  rdfs:label "load on demand"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:loadable
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:cache ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "True to activate caching for this snippet, sending the _cache=true directive to the server."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:loadId ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The unique id of the loadable. Will become the HTML id of the created div. Optional if ui:loadLater=\"true\"."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:loadLater ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "True to have the content loaded when the surrounding page has been loaded. The children will not be directly inserted, but only after the subsequent Ajax callback."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:loadOnDemand ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "True to indicate that the content shall not be loaded initially, but only if a manual load request has been issued (via Ajax)."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:progressId ;
+      spl:valueType xsd:string ;
+      rdfs:comment "An optional value for the _progressId servlet argument, linking the loadable with a progress dialog."^^xsd:string ;
+    ] ;
+  ui:responseType ui:HTML ;
+  rdfs:comment "Defines a part of a view that can be dynamically re-loaded at run-time, using Ajax callbacks. The element creates a div that has an attribute 'uistate' that contains the parameter part of the callback URL that would reload the snippet. Clients can take these parameters and add other parameters, depending on the surrounding state. The children of the ui:loadable will be inserted into the div."^^xsd:string ;
+  rdfs:label "loadable"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:logMessage
+  rdf:type rdf:Property ;
+  rdfs:label "log message"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:matchIds
+  rdf:type rdf:Property ;
+  rdfs:comment "A comma-separated list of ids. Used by ui:ResourceView."^^xsd:string ;
+  rdfs:label "match ids"^^xsd:string ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:message
+  rdf:type rdf:Property ;
+  rdfs:label "message"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:metadata
+  rdf:type rdf:Property ;
+  rdfs:label "metadata"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:method
+  rdf:type rdf:Property ;
+  rdfs:domain rdfs:Class ;
+  rdfs:label "method"^^xsd:string ;
+  rdfs:range ui:Method ;
+  rdfs:subPropertyOf ui:operation ;
+.
+ui:mimeType
+  rdf:type rdf:Property ;
+  rdfs:domain ui:ResponseType ;
+  rdfs:label "mime type"^^xsd:string ;
+  rdfs:range xsd:string ;
+.
+ui:name
+  rdf:type rdf:Property ;
+  rdfs:comment "A globally unique name to identify a view on a server. This is often used for global application pages, and may be used in conjunction with ui:defaultBaseURI."^^xsd:string ;
+  rdfs:label "name"^^xsd:string ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:nearestViewWithType
+  rdf:type spin:Function ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:type ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The type of the parent."^^xsd:string ;
+    ] ;
+  spin:returnType rdfs:Resource ;
+  rdfs:comment "Walks up the hierarchy of parent views starting with the current view, and finds the first parent that has a given rdf:type."^^xsd:string ;
+  rdfs:label "nearest view with type"^^xsd:string ;
+  rdfs:subClassOf spl:MiscFunctions ;
+.
+ui:node
+  rdf:type rdf:Property ;
+  rdfs:comment "Can be used to point to a ui:Node. For example, ui:MoveNode uses this property."^^xsd:string ;
+  rdfs:label "node"^^xsd:string ;
+  rdfs:range ui:Node ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:offset
+  rdf:type rdf:Property ;
+  rdfs:label "offset"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:operation
+  rdf:type rdf:Property ;
+  rdfs:comment "Links a class with a ui:Operation that applies to the instances of that class. In those operations, the variable ?this (arg:this) would point to the instances. This property is \"abstract\" in a sense that developers should use sub-properties such as ui:rule or ui:method instead. In order to make sure the property doesn't show up on forms, the rdfs:domain has been left blank - it should be rdfs:Class."^^xsd:string ;
+  rdfs:label "operation"^^xsd:string ;
+  rdfs:range ui:Rule ;
+  rdfs:subPropertyOf ui:element ;
+.
+ui:overrides
+  rdf:type rdf:Property ;
+  rdfs:comment "Can be used to change the behavior of a user-defined element in a different class. For example, if you have a standard library with an element lib:Element and you would like to locally override the ui:prototype, then you can define an element class my:Element that ui:overrides lib:Element. Whenever lib:Element is used, the system will in fact use the prototype attached to my:Element. Overrides work for ui:prototype and ui:errorPrototype."^^xsd:string ;
+  rdfs:domain ui:NodeClass ;
+  rdfs:label "overrides"^^xsd:string ;
+  rdfs:range ui:NodeClass ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:params
+  rdf:type spin:MagicProperty ;
+  spin:returnType xsd:string ;
+  rdfs:comment """Gets the names of all parameters to the current servlet request. See ui:param to access the actual value of each parameter. Usage:
+
+SELECT ?key ?value
+WHERE {
+    () ui:params ?key .
+    BIND (ui:param(?key) AS ?value) .
+}"""^^xsd:string ;
+  rdfs:label "params"^^xsd:string ;
+  rdfs:subClassOf spin:MagicProperties ;
+.
+ui:parse
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate ui:str ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The source code of the XML snippet to insert."^^xsd:string ;
+    ] ;
+  rdfs:comment """Inserts an XML snippet by taking a string (ui:str) and inserting it verbatim into the DOM tree. The string may contain markup such as <br />. The engine will parse this string into a new XML document and then insert the resulting nodes into the current position. If the string cannot be parsed into a well-formed DOM tree, the original string will be inserted unaltered (and no error given).
+
+A typical use case of this module is to compute strings with SPARQL functions, and then pass the resulting string as a bound variable into this module, using ui:str=\"{= ?text }\"."""^^xsd:string ;
+  rdfs:label "parse"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:pointId
+  rdf:type rdf:Property ;
+  rdfs:label "point id"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:preCondition
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate ui:errorMessage ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The error message to return to the user. In a typical scenario this is computed with an expression (e.g. IF([condition], 'This edit is invalid', ?none)) or with a SELECT query."^^xsd:string ;
+    ] ;
+  rdfs:comment """Can be used inside of ui:transactions to validate pre-conditions that need to be met if the transaction is to be performed. For example this can be used to check that a given resource that is being updated has not been deleted in the meantime. The actual check is implemented through the argument ui:errorMessage: if this has a value then the transaction will report back the value as an error. If ui:errorMessage does not have a value, then the children of this element will be executed.
+
+Note that once a ui:update has been performed within a transaction, then no pre-condition can be evaluated."""^^xsd:string ;
+  rdfs:label "pre-condition"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:priority
+  rdf:type rdf:Property ;
+  rdfs:comment "A priority value that can be assigned to ui:instanceViews and ui:views to fine tune the selection of views if multiple choices are present for a given class. A typical use case is the SWA library, which defines some default instanceViews for rdfs:Resource. Those default ones have a low priority (-10) so that they are only used if no other views are defined. By default, if no value is specified then the value is assumed to be 0. The ui:priority may also be an expression such as in ui:priority=\"{= IF(ui:contextValue(...) = \"...\", 0, ?none) }\" which means that the priority will be 0 if the IF clause is met and the view will not be used otherwise. Formally, if an expression returns unbound then the view will not be used at all."^^xsd:string ;
+  rdfs:label "priority"^^xsd:string ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:private
+  rdf:type rdf:Property ;
+  rdfs:comment "Can be set to true for user-defined elements to indicate that they are not meant to be used outside of the library, comparable to a private class in an object-oriented system."^^xsd:string ;
+  rdfs:domain ui:NodeClass ;
+  rdfs:label "private"^^xsd:string ;
+  rdfs:range xsd:boolean ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:progressId
+  rdf:type rdf:Property ;
+  rdfs:label "progress id"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:prototype
+  rdf:type rdf:Property ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:comment "Links a UI class with a prototype instance of itself. This instance will be taken as template for any instance being created of the class."^^xsd:string ;
+  rdfs:domain ui:NodeClass ;
+  rdfs:label "prototype"^^xsd:string ;
+  rdfs:range ui:Node ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:query
+  rdf:type rdf:Property ;
+  rdfs:comment "Represents a SPARQL SELECT query. Arguments of this property (or sub-properties thereof) are not evaluated immediately, but rather represent the query itself. These queries can be inserted into ui:resultSet properties for execution, e.g. ui:resultSet=\"{= ?query }\"."^^xsd:string ;
+  rdfs:label "query"^^xsd:string ;
+  rdfs:range sp:Select ;
+  rdfs:subPropertyOf spin:query ;
+.
+ui:queryGraph
+  rdf:type rdf:Property ;
+  rdfs:label "query graph"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:queryLimit
+  rdf:type rdf:Property ;
+  rdfs:comment "If present, any SPARQL SELECT query executed as part of the surrounding element will be executed with a LIMIT. This is typically paired with ui:queryOffset to implement paging through a larger result set."^^xsd:string ;
+  rdfs:label "query limit"^^xsd:string ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:queryOffset
+  rdf:type rdf:Property ;
+  rdfs:comment "Must be used in conjunction with ui:queryLimit. If present, then any SELECT queries in the surrounding element will be executed with an extra OFFSET qualifier."^^xsd:string ;
+  rdfs:label "query offset"^^xsd:string ;
+  rdfs:range xsd:integer ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:queryOrderBy
+  rdf:type rdf:Property ;
+  rdfs:comment "The name of a variable to use as ORDER BY in the SELECT queries of the surrounding element."^^xsd:string ;
+  rdfs:label "query order by"^^xsd:string ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:queryOrderByDir
+  rdf:type rdf:Property ;
+  rdfs:comment "Can be used to specify DESC or ASC to be used in conjunction with ui:queryOrderBy."^^xsd:string ;
+  rdfs:label "query order by dir"^^xsd:string ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:removePropertyValue
+  rdf:type ui:Method ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:value ;
+      rdfs:comment "The value to remove from the property."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:property ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The property to remove a value for."^^xsd:string ;
+    ] ;
+  ui:prototype [
+      rdf:type ui:transaction ;
+      ui:child [
+          rdf:type ui:if ;
+          ui:child [
+              rdf:type ui:update ;
+              ui:childIndex 0 ;
+              ui:updateQuery [
+                  rdf:type sp:Modify ;
+                  sp:deletePattern (
+                      [
+                        sp:object [
+                            sp:varName "value"^^xsd:string ;
+                          ] ;
+                        sp:predicate [
+                            sp:varName "property"^^xsd:string ;
+                          ] ;
+                        sp:subject spin:_this ;
+                      ]
+                    ) ;
+                  sp:where () ;
+                ] ;
+            ] ;
+          ui:childIndex 0 ;
+          ui:condition [
+              rdf:type sp:bound ;
+              sp:arg1 [
+                  sp:varName "value"^^xsd:string ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+  rdfs:comment "A generic operation that removes a certain value (arg:value) from a given property (arg:property) at a subject (ui:this)."^^xsd:string ;
+  rdfs:label "remove property value"^^xsd:string ;
+  rdfs:subClassOf ui:Methods ;
+.
+ui:removePropertyValues
+  rdf:type ui:Method ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:property ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The property to set."^^xsd:string ;
+    ] ;
+  ui:prototype [
+      rdf:type ui:transaction ;
+      ui:child [
+          rdf:type ui:update ;
+          ui:childIndex 0 ;
+          ui:updateQuery [
+              rdf:type sp:DeleteWhere ;
+              sp:where (
+                  [
+                    sp:object [
+                        sp:varName "any"^^xsd:string ;
+                      ] ;
+                    sp:predicate [
+                        sp:varName "property"^^xsd:string ;
+                      ] ;
+                    sp:subject spin:_this ;
+                  ]
+                ) ;
+            ] ;
+        ] ;
+    ] ;
+  rdfs:comment "A generic operation that removes any value for a given property (arg:property) at a subject (ui:this)."^^xsd:string ;
+  rdfs:label "remove property values"^^xsd:string ;
+  rdfs:subClassOf ui:Methods ;
+.
+ui:resource
+  rdf:type rdf:Property ;
+  rdfs:comment "Used by ui:ResourceView."^^xsd:string ;
+  rdfs:label "resource"^^xsd:string ;
+  rdfs:range rdfs:Resource ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:resourceView
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:matchIds ;
+      spl:valueType xsd:string ;
+      rdfs:comment "Can be used to specify a preference of what kinds of views to render, if multiple are present. Will be compared against the ui:id of each view. Typical values are: \"summary\" (a short but informative display of about 1-5 rows) and \"label\" (a compact display occupying not more than 1 row). If left empty then it will be matched against views that have no id or the id \"full\"."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate ui:resource ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The resource to insert a view for."^^xsd:string ;
+    ] ;
+  rdfs:comment "Placeholder for the best suitable element to display a given resource. This will be inserted based on the link properties such as ui:view and ui:instanceView."^^xsd:string ;
+  rdfs:label "resourceView"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:responseType
+  rdf:type rdf:Property ;
+  rdfs:comment "The ui:ResponseType that shall be used if the associated view is called as web service. As of SWP 1.3, only those view classes that have a response type can be called from the outside. The response type can be inherited from superclasses, i.e. the SWP engine will walk up the class hierarchy to find the closest declared ui:responseType."^^xsd:string ;
+  rdfs:domain ui:NodeClass ;
+  rdfs:label "response type"^^xsd:string ;
+  rdfs:range ui:ResponseType ;
+.
+ui:result
+  rdf:type rdf:Property ;
+  rdfs:label "result"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:resultSet
+  rdf:type rdf:Property ;
+  rdfs:comment "Represents a SPARQL result set - typically derived from a SELECT query. Arguments of this property (or sub-property thereof) are executed in the context where they are declared."^^xsd:string ;
+  rdfs:label "result set"^^xsd:string ;
+  rdfs:range sp:Select ;
+  rdfs:subPropertyOf spin:query ;
+.
+ui:return
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:result ;
+      rdfs:comment "The (optional) value to return."^^xsd:string ;
+    ] ;
+  rdfs:comment "Stops the execution of the current view (ui:prototype etc) and may return a result if used within the ui:prototype of a ui:Function. If this is called from a web service that returns ui:Turtle, then the current query graph will be returned to the client."^^xsd:string ;
+  rdfs:label "return"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:rule
+  rdf:type rdf:Property ;
+  rdfs:comment "Links a class with a ui:Rule that applies to the instances of that class. In those rules, the variable ?this (arg:this) would point to the instances. Rule engines can execute rules using <ui:dynamicView ui:class=\"[rule]\" arg:this=\"{= ?instance }\" />. Rules should be executed in ascending order of ui:ruleIndexes."^^xsd:string ;
+  rdfs:domain rdfs:Class ;
+  rdfs:label "rule"^^xsd:string ;
+  rdfs:range ui:Rule ;
+  rdfs:subPropertyOf ui:operation ;
+.
+ui:ruleIndex
+  rdf:type rdf:Property ;
+  rdfs:comment "The relative index of a rule. The SWP rule engine will sort all applicable rules by their index and execute them in ascending order. Default value is 0. The recommended value space of those indexes is -100 to 100."^^xsd:string ;
+  rdfs:domain ui:Rule ;
+  rdfs:label "rule index"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+ui:script
+  rdf:type rdf:Property ;
+  rdfs:label "script"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:sendEditGraphs
+  rdf:type rdf:Property ;
+  rdfs:label "send edit graphs"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:sendQueryGraph
+  rdf:type rdf:Property ;
+  rdfs:label "send query graph"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:separator
+  rdf:type rdf:Property ;
+  rdfs:label "separator"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:server
+  rdf:type rdf:Property ;
+  rdfs:label "server"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:servlet
+  rdf:type rdf:Property ;
+  rdfs:label "servlet"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:setContext
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:lang ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The language to use in the children of this, via ui:lang()."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:queryGraph ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The new graph to run queries against. Any SPARQL queries in the children of this will have the new graph as their default graph."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:varName ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of a context variable that can be made visible for all children of this context, including calls into prototypes. Use ui:contextValue(?varName) to query that value later."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:varValue ;
+      rdfs:comment "The new value for the context variable specified by the ui:varName argument. Can be unbound to overwrite any existing context variable."^^xsd:string ;
+    ] ;
+  rdfs:comment "Changes the execution context of the children."^^xsd:string ;
+  rdfs:label "set context"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:setPropertyValue
+  rdf:type ui:Method ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:value ;
+      rdfs:comment "The new value of the property."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:property ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The property to set."^^xsd:string ;
+    ] ;
+  ui:prototype [
+      rdf:type ui:transaction ;
+      ui:child [
+          rdf:type ui:addPropertyValue ;
+          arg:property [
+              sp:varName "property"^^xsd:string ;
+            ] ;
+          arg:value [
+              sp:varName "value"^^xsd:string ;
+            ] ;
+          ui:childIndex 1 ;
+        ] ;
+      ui:child [
+          rdf:type ui:removePropertyValues ;
+          arg:property [
+              sp:varName "property"^^xsd:string ;
+            ] ;
+          ui:childIndex 0 ;
+        ] ;
+    ] ;
+  rdfs:comment "A generic operation that \"sets\" a property (arg:property) at a subject (ui:this) to a certain value (arg:value). Any previous value of the property will be overwritten. This is basically a combination of ui:addPropertyValue and ui:removePropertyValues."^^xsd:string ;
+  rdfs:label "set property value"^^xsd:string ;
+  rdfs:subClassOf ui:Methods ;
+.
+ui:setSessionAttribute
+  rdf:type spin:Function ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the attribute to set."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg2 ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The new value of the attribute."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Sets an attribute of the currently active client session. This makes it possible to maintain state while the user is clicking between multiple SWP pages in the browser. The result of the function itself is the empty string."^^xsd:string ;
+  rdfs:label "set session attribute"^^xsd:string ;
+  rdfs:subClassOf spl:MiscFunctions ;
+.
+ui:snippet
+  rdf:type rdf:Property ;
+  rdfs:label "snippet"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:str
+  rdf:type rdf:Property ;
+  rdfs:label "str"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:subTask
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:subTaskName ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The display label of the subtask, set when the task starts."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:work ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "The amount of progress."^^xsd:string ;
+    ] ;
+  rdfs:comment "Can be used inside of ui:task elements to mark progress in the task. For example, if the surrounding ui:task has declared to have a total work of 100, then ui:subTask elements can be placed inside of the task to increase by 1 if there are 100 steps. This element can also be used to change the label of the subtask to inform the user of what's currently being executed."^^xsd:string ;
+  rdfs:label "sub task"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:subTaskName
+  rdf:type rdf:Property ;
+  rdfs:label "sub task name"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:systemPreference
+  rdf:type spin:Function ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the preference to get."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Gets a system preference set by the UISPIN execution environment. These are typically server-specific settings such as how to redirect hyperlinks, or Google API keys, that can be queried by UISPIN elements to adjust the page generation."^^xsd:string ;
+  rdfs:label "system preference"^^xsd:string ;
+  rdfs:subClassOf spl:StringFunctions ;
+.
+ui:systemProperty
+  rdf:type rdf:Property ;
+  rdfs:label "system property"^^xsd:string ;
+.
+ui:task
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:taskName ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The display label of the task."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:totalWork ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "The total amount of steps needed to complete the task. Can be used to display a progress bar. Use ui:progressWorked to move progress further."^^xsd:string ;
+    ] ;
+  rdfs:comment "Executes the child elements as a task that can be treated as a unit of work in progress monitors. This should be used for long-running operations such as complex report generation procedures, to allow the environment to provide intermediate feedback to the user."^^xsd:string ;
+  rdfs:label "task"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:taskName
+  rdf:type rdf:Property ;
+  rdfs:label "task name"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:tempGraph
+  rdf:type rdfs:Resource ;
+  rdfs:comment "The URI of a named graph that is accessible at run time as a place to write temporary triples to. This can be used during the execution of a UISPIN document to keep track of status changes. Use ui:update, e.g. with INSERT INTO ui:tempGraph, to modify those triples. Use GRAPH ui:tempGraph { ... } in WHERE clauses to query this graph."^^xsd:string ;
+  rdfs:label "temp graph"^^xsd:string ;
+.
+ui:template
+  rdf:type rdf:Property ;
+  rdfs:label "template"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:text
+  rdf:type rdf:Property ;
+  rdfs:comment "The actual text in a ui:TextNode."^^xsd:string ;
+  rdfs:label "text"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:thenLoadId
+  rdf:type rdf:Property ;
+  rdfs:label "then load id"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:this
+  rdf:type rdf:Property ;
+  rdfs:comment "Can be used as an argument to change the value of ?this."^^xsd:string ;
+  rdfs:label "this"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:throw
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:message ;
+      spl:valueType xsd:string ;
+      rdfs:comment "A message to explain the error."^^xsd:string ;
+    ] ;
+  rdfs:comment """Throws an error that will (by default) be reported back as a failure to the client. This can be used to implement pre-condition checking in services such as Ajax call-backs.
+
+Future versions of UISPIN will likely introduce ui:try and ui:catch as well."""^^xsd:string ;
+  rdfs:label "throw"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:totalWork
+  rdf:type rdf:Property ;
+  rdfs:label "total work"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:transaction
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:logMessage ;
+      spl:valueType xsd:string ;
+      rdfs:comment "An optional log message that serves as label for the transaction. This should describe the overall purpose of the encosed updates."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:metadata ;
+      spl:valueType xsd:string ;
+      rdfs:comment "An optional metadata string that can be included in the JSON object describing the change."^^xsd:string ;
+    ] ;
+  rdfs:comment "Can be used to group together multiple updates, so that they are treated as a single atomic operation. The details of this element are platform and application specific. Some platforms may support ACID like transactions, but others may not."^^xsd:string ;
+  rdfs:label "transaction"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:try
+  rdf:type ui:NodeClass ;
+  rdfs:comment """Executes its children, catching any exceptions that may happen. If an exception happens, the associated <ui:catch> block will be executed. Syntax:
+
+<ui:group>
+	<ui:try>
+		<do:something />
+	</ui:try>
+	<ui:catch>
+		<handle:error arg:exception=\"{= ?exception }\" />
+	</ui:catch>
+</ui:group>"""^^xsd:string ;
+  rdfs:label "try"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:unionGraph
+  rdf:type rdfs:Resource ;
+  rdfs:comment "The URI of the union of the current query graph plus the ui:graph. This can be used to ask queries across both graphs at the same time."^^xsd:string ;
+  rdfs:label "union graph"^^xsd:string ;
+.
+ui:unionOfGraphs
+  rdf:type spin:Function ;
+  spin:returnType rdfs:Resource ;
+  rdfs:comment "Takes one or more URI resources of named graphs and produces a new URI resource describing a graph that will be recognized by the engine as the union of the named graphs. This can be used to construct temporary query graphs and pass them around with a well-defined URI. All arguments must be URI resources - there can be any number of them."^^xsd:string ;
+  rdfs:label "union of graphs"^^xsd:string ;
+  rdfs:subClassOf spl:OntologyFunctions ;
+.
+ui:unionOfGraphsFromResultSet
+  rdf:type spin:Function ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resultSet ;
+      spl:valueType spr:Table ;
+      rdfs:comment "The SPR result set to walk through."^^xsd:string ;
+    ] ;
+  spin:returnType rdfs:Resource ;
+  rdfs:comment "Takes a result set listing a collection of graph nodes (URI resources) and produces a new URI resource describing a graph that will be recognized by the engine as the union of those named graphs. This can be used to construct temporary query graphs and pass them around with a well-defined URI. This function can only be used inside of an executing SWP engine, because it needs to access the result set object."^^xsd:string ;
+  rdfs:label "union of graphs from result set"^^xsd:string ;
+  rdfs:subClassOf spl:OntologyFunctions ;
+.
+ui:uniqueId
+  rdf:type spin:Function ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Generates a string identifier that is unique for the life time of the UISPIN execution engine."^^xsd:string ;
+  rdfs:label "unique id"^^xsd:string ;
+  rdfs:subClassOf spl:StringFunctions ;
+.
+ui:update
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate ui:updateQuery ;
+      spl:valueType sp:Update ;
+      rdfs:comment "The UPDATE query to execute. May access the variables of the current scope using <urn:x-var:varName>."^^xsd:string ;
+    ] ;
+  rdfs:comment "Executes a SPARQL UPDATE query on the server."^^xsd:string ;
+  rdfs:label "update"^^xsd:string ;
+  rdfs:subClassOf ui:ControlElement ;
+.
+ui:updateQuery
+  rdf:type rdf:Property ;
+  rdfs:label "update query"^^xsd:string ;
+  rdfs:range sp:Update ;
+  rdfs:subPropertyOf spin:query ;
+.
+ui:varName
+  rdf:type rdf:Property ;
+  rdfs:label "var name"^^xsd:string ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:varValue
+  rdf:type rdf:Property ;
+  rdfs:label "value"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:view
+  rdf:type rdf:Property ;
+  rdfs:comment "Links a resource (instance) with an element that can be used to render the resource on the screen. Queries associated with the element can access the resource with the variable ?this."^^xsd:string ;
+  rdfs:domain rdfs:Resource ;
+  rdfs:label "view"^^xsd:string ;
+  rdfs:range ui:Element ;
+.
+ui:viewClass
+  rdf:type rdf:Property ;
+  rdfs:label "view class"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:viewElement
+  rdf:type rdf:Property ;
+  rdfs:comment "Can be used to link a class with ui:ViewElements that render instances of that class. In those elements, the variable ?this (ui:this) would point to the current instance to display. Together with ui:method and ui:rule, the property ui:viewElement can be used to organize views in an object-oriented manner."^^xsd:string ;
+  rdfs:domain rdfs:Class ;
+  rdfs:label "view element"^^xsd:string ;
+  rdfs:range ui:ViewElement ;
+  rdfs:subPropertyOf ui:element ;
+.
+ui:viewName
+  rdf:type rdf:Property ;
+  rdfs:label "view name"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:work
+  rdf:type rdf:Property ;
+  rdfs:label "work"^^xsd:string ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.
+ui:xmlns
+  rdf:type rdf:Property ;
+  rdfs:comment "Adds a local namespace declaration to the current XML element for the given resource. Assumes that a prefix for the namespace of the resource exists, and will result in an xmlns:... attribute."^^xsd:string ;
+  rdfs:label "xmlns"^^xsd:string ;
+  rdfs:range rdfs:Resource ;
+  rdfs:subPropertyOf ui:systemProperty ;
+.

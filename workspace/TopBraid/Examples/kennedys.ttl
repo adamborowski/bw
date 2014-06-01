@@ -1,0 +1,1471 @@
+# baseURI: http://topbraid.org/examples/kennedys
+
+# c14n-version: 3
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix kennedys: <http://topbraid.org/examples/kennedys#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+<http://topbraid.org/examples/kennedys>
+  rdf:type owl:Ontology ;
+  owl:versionInfo "1.0.1"^^xsd:string ;
+.
+kennedys:AlfredTucker
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1967 ;
+  kennedys:firstName "Alfred"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Tucker"^^xsd:string ;
+  kennedys:name "Alfred Tucker"^^xsd:string ;
+  kennedys:spouse kennedys:KymSmith ;
+.
+kennedys:AlinaMojica
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1965 ;
+  kennedys:firstName "Alina"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Mojica"^^xsd:string ;
+  kennedys:name "Alina Mojica"^^xsd:string ;
+  kennedys:spouse kennedys:AnthonyShriver ;
+.
+kennedys:AmandaSmith
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1967 ;
+  kennedys:firstName "Amanda"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Smith"^^xsd:string ;
+  kennedys:middleInitial "M"^^xsd:string ;
+  kennedys:middleName "Mary"^^xsd:string ;
+  kennedys:name "Amanda Smith"^^xsd:string ;
+  kennedys:parent kennedys:JeanKennedy ;
+  kennedys:parent kennedys:StephenSmith ;
+  kennedys:spouse kennedys:CartHood ;
+.
+kennedys:AndrewCuomo
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1957 ;
+  kennedys:firstName "Andrew"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Cuomo"^^xsd:string ;
+  kennedys:middleInitial "M"^^xsd:string ;
+  kennedys:middleName "Mark"^^xsd:string ;
+  kennedys:name "Andrew Cuomo"^^xsd:string ;
+  kennedys:profession kennedys:cabinet-secretary ;
+  kennedys:spouse kennedys:MaryKKennedy ;
+.
+kennedys:AnneKelly
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1957 ;
+  kennedys:firstName "Anne"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Kelly"^^xsd:string ;
+  kennedys:middleInitial "E"^^xsd:string ;
+  kennedys:middleName "Elizabeth"^^xsd:string ;
+  kennedys:name "Anne Kelly"^^xsd:string ;
+  kennedys:spouse kennedys:JosephKennedyII ;
+.
+kennedys:AnthonyShriver
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1965 ;
+  kennedys:firstName "Anthony"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Shriver"^^xsd:string ;
+  kennedys:middleInitial "K"^^xsd:string ;
+  kennedys:middleName "Kennedy"^^xsd:string ;
+  kennedys:name "Anthony Shriver"^^xsd:string ;
+  kennedys:parent kennedys:EuniceKennedy ;
+  kennedys:parent kennedys:RobertShriver ;
+  kennedys:spouse kennedys:AlinaMojica ;
+.
+kennedys:AristotleOnassis
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1906 ;
+  kennedys:deathYear 1975 ;
+  kennedys:firstName "Aristotle"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Onassis"^^xsd:string ;
+  kennedys:name "Aristotle Onassis"^^xsd:string ;
+  kennedys:photo <http://www.topbraidcomposer.org/demos/kennedys/images/AristotleOnassis.jpg> ;
+  kennedys:profession kennedys:shipping ;
+  kennedys:spouse kennedys:JacquelineBouvier ;
+.
+kennedys:ArnoldSchwarzenegger
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:UniversityOfWisconsin ;
+  kennedys:birthYear 1947 ;
+  kennedys:firstName "Arnold"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Schwarzenegger"^^xsd:string ;
+  kennedys:middleInitial "A"^^xsd:string ;
+  kennedys:middleName "Alois"^^xsd:string ;
+  kennedys:name "Arnold Schwarzenegger"^^xsd:string ;
+  kennedys:photo <http://www.topbraidcomposer.org/demos/kennedys/images/Arnold_Schwarzenegger_2004-01-30.jpg> ;
+  kennedys:profession kennedys:actor ;
+  kennedys:profession kennedys:body-builder ;
+  kennedys:profession kennedys:governor ;
+  kennedys:spouse kennedys:MariaShriver ;
+.
+kennedys:BostonUniversity
+  rdf:type kennedys:College ;
+  kennedys:ivyLeague "false"^^xsd:boolean ;
+  rdfs:label "Boston University" ;
+.
+kennedys:Brown
+  rdf:type kennedys:College ;
+  kennedys:ivyLeague "true"^^xsd:boolean ;
+  rdfs:label "Brown University" ;
+.
+kennedys:CarolineKennedy
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:Columbia ;
+  kennedys:almaMater kennedys:Harvard ;
+  kennedys:birthYear 1957 ;
+  kennedys:firstName "Caroline"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "B"^^xsd:string ;
+  kennedys:middleName "Bouvier"^^xsd:string ;
+  kennedys:name "Caroline Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:JacquelineBouvier ;
+  kennedys:parent kennedys:JohnKennedy ;
+  kennedys:profession kennedys:non-profit ;
+  kennedys:spouse kennedys:EdwinSchlossberg ;
+.
+kennedys:CarolynBessette
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:BostonUniversity ;
+  kennedys:birthYear 1966 ;
+  kennedys:deathYear 1999 ;
+  kennedys:firstName "Carolyn"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Bessette"^^xsd:string ;
+  kennedys:name "Carolyn Bessette"^^xsd:string ;
+  kennedys:profession kennedys:PR ;
+  kennedys:profession kennedys:model ;
+  kennedys:spouse kennedys:JohnKennedyJr ;
+.
+kennedys:CartHood
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1966 ;
+  kennedys:firstName "Cart"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Hood"^^xsd:string ;
+  kennedys:middleInitial "H"^^xsd:string ;
+  kennedys:middleName "Harmon"^^xsd:string ;
+  kennedys:name "Cart Hood"^^xsd:string ;
+  kennedys:spouse kennedys:AmandaSmith ;
+.
+kennedys:CatholicUniversity
+  rdf:type kennedys:College ;
+  kennedys:ivyLeague "false"^^xsd:boolean ;
+  rdfs:label "Catholic University" ;
+.
+kennedys:ChristopherKennedy
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1963 ;
+  kennedys:firstName "Christopher"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "G"^^xsd:string ;
+  kennedys:middleName "George"^^xsd:string ;
+  kennedys:name "Christopher Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:EthelSkakel ;
+  kennedys:parent kennedys:RobertKennedy ;
+  kennedys:spouse kennedys:SheilaBerner ;
+.
+kennedys:ChristopherLawford
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1955 ;
+  kennedys:firstName "Christopher"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Lawford"^^xsd:string ;
+  kennedys:middleInitial "K"^^xsd:string ;
+  kennedys:middleName "Kennedy"^^xsd:string ;
+  kennedys:name "Christopher Lawford"^^xsd:string ;
+  kennedys:parent kennedys:PatriciaKennedy ;
+  kennedys:parent kennedys:PeterLawford ;
+  kennedys:photo <http://www.topbraidcomposer.org/demos/kennedys/images/ChristopherLawford.jpg> ;
+  kennedys:profession kennedys:actor ;
+  kennedys:spouse kennedys:JeanOlsson ;
+.
+kennedys:College
+  rdf:type owl:Class ;
+  rdfs:label "College" ;
+  rdfs:subClassOf owl:Thing ;
+.
+kennedys:Columbia
+  rdf:type kennedys:College ;
+  kennedys:ivyLeague "true"^^xsd:boolean ;
+  rdfs:label "Columbia University" ;
+.
+kennedys:DavidKennedy
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1955 ;
+  kennedys:deathYear 1984 ;
+  kennedys:firstName "David"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "A"^^xsd:string ;
+  kennedys:middleName "Anthony"^^xsd:string ;
+  kennedys:name "David Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:EthelSkakel ;
+  kennedys:parent kennedys:RobertKennedy ;
+  kennedys:profession kennedys:writer ;
+.
+kennedys:DavidTownsend
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1947 ;
+  kennedys:firstName "David"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Townsend"^^xsd:string ;
+  kennedys:middleInitial "L"^^xsd:string ;
+  kennedys:middleName "Lee"^^xsd:string ;
+  kennedys:name "David Townsend"^^xsd:string ;
+  kennedys:spouse kennedys:KathleenHKennedy ;
+.
+kennedys:DouglasKennedy
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:Brown ;
+  kennedys:birthYear 1967 ;
+  kennedys:firstName "Douglas"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "H"^^xsd:string ;
+  kennedys:middleName "Harriman"^^xsd:string ;
+  kennedys:name "Douglas Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:EthelSkakel ;
+  kennedys:parent kennedys:RobertKennedy ;
+  kennedys:profession kennedys:reporter ;
+  kennedys:spouse kennedys:MollyStark ;
+.
+kennedys:EdwardKennedy
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:Harvard ;
+  kennedys:almaMater kennedys:UniversityOfVirginia ;
+  kennedys:birthYear 1932 ;
+  kennedys:deathYear 2009 ;
+  kennedys:child kennedys:EdwardKennedyJr ;
+  kennedys:child kennedys:KaraKennedy ;
+  kennedys:child kennedys:PatrickJKennedy ;
+  kennedys:firstName "Edward"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "M"^^xsd:string ;
+  kennedys:middleName "Moore"^^xsd:string ;
+  kennedys:name "Edward Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:JosephKennedy ;
+  kennedys:parent kennedys:RoseFitzgerald ;
+  kennedys:photo <http://www.topbraidcomposer.org/demos/kennedys/images/Ted_Kennedy.jpg> ;
+  kennedys:profession kennedys:army ;
+  kennedys:profession kennedys:senator ;
+  kennedys:spouse kennedys:VictoriaReggie ;
+  kennedys:spouse kennedys:VirginiaBennett ;
+.
+kennedys:EdwardKennedyJr
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:UniversityOfConnecticut ;
+  kennedys:almaMater kennedys:WesleyanUniversity ;
+  kennedys:almaMater kennedys:Yale ;
+  kennedys:birthYear 1961 ;
+  kennedys:firstName "Edward"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:name "Edward Kennedy Jr"^^xsd:string ;
+  kennedys:parent kennedys:EdwardKennedy ;
+  kennedys:parent kennedys:VirginiaBennett ;
+  kennedys:profession kennedys:attorney ;
+  kennedys:profession kennedys:business ;
+  kennedys:spouse kennedys:KatherineGershman ;
+  kennedys:suffix "Jr"^^xsd:string ;
+.
+kennedys:EdwinSchlossberg
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1945 ;
+  kennedys:firstName "Edwin"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Schlossberg"^^xsd:string ;
+  kennedys:middleInitial "A"^^xsd:string ;
+  kennedys:middleName "Arthur"^^xsd:string ;
+  kennedys:name "Edwin Schlossberg"^^xsd:string ;
+  kennedys:spouse kennedys:CarolineKennedy ;
+.
+kennedys:EmilyBlack
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1957 ;
+  kennedys:firstName "Emily"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Black"^^xsd:string ;
+  kennedys:middleInitial "R"^^xsd:string ;
+  kennedys:middleName "Ruth"^^xsd:string ;
+  kennedys:name "Emily Black"^^xsd:string ;
+  kennedys:spouse kennedys:RobertKennedyJr ;
+.
+kennedys:EthelSkakel
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:ManhattanvilleCollege ;
+  kennedys:birthYear 1928 ;
+  kennedys:child kennedys:ChristopherKennedy ;
+  kennedys:child kennedys:DavidKennedy ;
+  kennedys:child kennedys:DouglasKennedy ;
+  kennedys:child kennedys:JosephKennedyII ;
+  kennedys:child kennedys:KathleenHKennedy ;
+  kennedys:child kennedys:MaryCKennedy ;
+  kennedys:child kennedys:MaryKKennedy ;
+  kennedys:child kennedys:MatthewKennedy ;
+  kennedys:child kennedys:MichaelKennedy ;
+  kennedys:child kennedys:RobertKennedyJr ;
+  kennedys:child kennedys:RoryKennedy ;
+  kennedys:firstName "Ethel"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Skakel"^^xsd:string ;
+  kennedys:name "Ethel Skakel"^^xsd:string ;
+  kennedys:profession kennedys:home-maker ;
+  kennedys:profession kennedys:non-profit ;
+  kennedys:spouse kennedys:RobertKennedy ;
+.
+kennedys:EuniceKennedy
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1921 ;
+  kennedys:deathYear 2009 ;
+  kennedys:child kennedys:AnthonyShriver ;
+  kennedys:child kennedys:MariaShriver ;
+  kennedys:child kennedys:MarkShriver ;
+  kennedys:child kennedys:RobertShriverIII ;
+  kennedys:child kennedys:TimothyShriver ;
+  kennedys:firstName "Eunice"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "M"^^xsd:string ;
+  kennedys:middleName "Mary"^^xsd:string ;
+  kennedys:name "Eunice Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:JosephKennedy ;
+  kennedys:parent kennedys:RoseFitzgerald ;
+  kennedys:photo <http://www.topbraidcomposer.org/demos/kennedys/images/180px-Eunice-zurab.jpg> ;
+  kennedys:profession kennedys:volunteer ;
+  kennedys:spouse kennedys:RobertShriver ;
+.
+kennedys:Gender
+  rdf:type owl:Class ;
+  rdfs:label "Gender"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+kennedys:GeorgeWashingtonU
+  rdf:type kennedys:College ;
+  kennedys:ivyLeague "false"^^xsd:boolean ;
+  rdfs:label "George Washington University" ;
+.
+kennedys:GeorgetownUniversity
+  rdf:type kennedys:College ;
+  kennedys:ivyLeague "false"^^xsd:boolean ;
+  rdfs:label "Georgetown University" ;
+.
+kennedys:Harvard
+  rdf:type kennedys:College ;
+  kennedys:ivyLeague "true"^^xsd:boolean ;
+  rdfs:label "Harvard University" ;
+.
+kennedys:JacquelineBouvier
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:GeorgeWashingtonU ;
+  kennedys:birthYear 1929 ;
+  kennedys:child kennedys:CarolineKennedy ;
+  kennedys:child kennedys:JohnKennedyJr ;
+  kennedys:child kennedys:PatrickBKennedy ;
+  kennedys:deathYear 1994 ;
+  kennedys:firstName "Jacqueline"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Bouvier"^^xsd:string ;
+  kennedys:middleInitial "L"^^xsd:string ;
+  kennedys:middleName "Lee"^^xsd:string ;
+  kennedys:name "Jacqueline Bouvier"^^xsd:string ;
+  kennedys:photo <http://www.topbraidcomposer.org/demos/kennedys/images/175px-Whitehouseportraitjackie_curvecorrected.jpg> ;
+  kennedys:profession kennedys:editor ;
+  kennedys:profession kennedys:home-maker ;
+  kennedys:profession kennedys:photographer ;
+  kennedys:spouse kennedys:AristotleOnassis ;
+  kennedys:spouse kennedys:JohnKennedy ;
+.
+kennedys:JamesMcKelvy
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1955 ;
+  kennedys:firstName "James"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "McKelvy"^^xsd:string ;
+  kennedys:middleInitial "P"^^xsd:string ;
+  kennedys:middleName "Peter"^^xsd:string ;
+  kennedys:name "James McKelvy"^^xsd:string ;
+  kennedys:spouse kennedys:SydneyLawford ;
+.
+kennedys:JeanKennedy
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:ManhattanvilleCollege ;
+  kennedys:birthYear 1928 ;
+  kennedys:child kennedys:AmandaSmith ;
+  kennedys:child kennedys:KymSmith ;
+  kennedys:child kennedys:StephenSmithJr ;
+  kennedys:child kennedys:WilliamSmith ;
+  kennedys:firstName "Jean"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "A"^^xsd:string ;
+  kennedys:middleName "Ann"^^xsd:string ;
+  kennedys:name "Jean Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:JosephKennedy ;
+  kennedys:parent kennedys:RoseFitzgerald ;
+  kennedys:profession kennedys:ambassador ;
+  kennedys:profession kennedys:non-profit ;
+  kennedys:profession kennedys:writer ;
+  kennedys:spouse kennedys:StephenSmith ;
+.
+kennedys:JeanOlsson
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1955 ;
+  kennedys:firstName "Jean"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Olsson"^^xsd:string ;
+  kennedys:name "Jean Olsson"^^xsd:string ;
+  kennedys:spouse kennedys:ChristopherLawford ;
+.
+kennedys:JeannieRipp
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1965 ;
+  kennedys:firstName "Jeannie"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Ripp"^^xsd:string ;
+  kennedys:name "Jeannie Ripp"^^xsd:string ;
+  kennedys:spouse kennedys:MarkShriver ;
+.
+kennedys:JeffreyRuhe
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1952 ;
+  kennedys:firstName "Jeffrey"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Ruhe"^^xsd:string ;
+  kennedys:middleInitial "R"^^xsd:string ;
+  kennedys:middleName "Robert"^^xsd:string ;
+  kennedys:name "Jeffrey Ruhe"^^xsd:string ;
+  kennedys:spouse kennedys:MaryCKennedy ;
+.
+kennedys:JohnKennedy
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:Harvard ;
+  kennedys:almaMater kennedys:Princeton ;
+  kennedys:birthYear 1917 ;
+  kennedys:child kennedys:CarolineKennedy ;
+  kennedys:child kennedys:JohnKennedyJr ;
+  kennedys:child kennedys:PatrickBKennedy ;
+  kennedys:deathYear 1963 ;
+  kennedys:firstName "John"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "F"^^xsd:string ;
+  kennedys:middleName "Fitzgerald"^^xsd:string ;
+  kennedys:name "John Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:JosephKennedy ;
+  kennedys:parent kennedys:RoseFitzgerald ;
+  kennedys:photo <http://www.topbraidcomposer.org/demos/kennedys/images/204px-John_F._Kennedy,_White_House_color_photo_portrait.jpg> ;
+  kennedys:profession kennedys:congressman ;
+  kennedys:profession kennedys:navy ;
+  kennedys:profession kennedys:president ;
+  kennedys:profession kennedys:senator ;
+  kennedys:spouse kennedys:JacquelineBouvier ;
+.
+kennedys:JohnKennedyJr
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:Brown ;
+  kennedys:almaMater kennedys:NYU ;
+  kennedys:birthYear 1960 ;
+  kennedys:deathYear 1999 ;
+  kennedys:firstName "John"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:name "John Kennedy Jr"^^xsd:string ;
+  kennedys:parent kennedys:JacquelineBouvier ;
+  kennedys:parent kennedys:JohnKennedy ;
+  kennedys:photo <http://www.topbraidcomposer.org/demos/kennedys/images/180px-JFKJr2.jpg> ;
+  kennedys:profession kennedys:district-attorney ;
+  kennedys:profession kennedys:publisher ;
+  kennedys:spouse kennedys:CarolynBessette ;
+  kennedys:suffix "Jr"^^xsd:string ;
+.
+kennedys:JosephKennedy
+  rdf:type kennedys:Patriarch ;
+  kennedys:almaMater kennedys:Harvard ;
+  kennedys:birthYear 1888 ;
+  kennedys:child kennedys:EdwardKennedy ;
+  kennedys:child kennedys:EuniceKennedy ;
+  kennedys:child kennedys:JeanKennedy ;
+  kennedys:child kennedys:JohnKennedy ;
+  kennedys:child kennedys:JosephKennedyJr ;
+  kennedys:child kennedys:KathleenAKennedy ;
+  kennedys:child kennedys:PatriciaKennedy ;
+  kennedys:child kennedys:RobertKennedy ;
+  kennedys:child kennedys:RoseKennedy ;
+  kennedys:deathYear 1969 ;
+  kennedys:firstName "Joseph"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "P"^^xsd:string ;
+  kennedys:middleName "Patrick"^^xsd:string ;
+  kennedys:name "Joseph Kennedy"^^xsd:string ;
+  kennedys:photo <http://www.topbraidcomposer.org/demos/kennedys/images/Joseph_Kennedy.jpg> ;
+  kennedys:profession kennedys:ambassador ;
+  kennedys:profession kennedys:banker ;
+  kennedys:profession kennedys:producer ;
+  kennedys:spouse kennedys:RoseFitzgerald ;
+.
+kennedys:JosephKennedyII
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1952 ;
+  kennedys:firstName "Joseph"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:name "Joseph Kennedy II"^^xsd:string ;
+  kennedys:parent kennedys:EthelSkakel ;
+  kennedys:parent kennedys:RobertKennedy ;
+  kennedys:photo <http://www.topbraidcomposer.org/demos/kennedys/images/160px-Joe_Kennedy.jpg> ;
+  kennedys:profession kennedys:congressman ;
+  kennedys:spouse kennedys:AnneKelly ;
+  kennedys:spouse kennedys:SheilaRauch ;
+  kennedys:suffix "II"^^xsd:string ;
+.
+kennedys:JosephKennedyJr
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:Harvard ;
+  kennedys:birthYear 1915 ;
+  kennedys:deathYear 1944 ;
+  kennedys:firstName "Joseph"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:name "Joseph Kennedy Jr"^^xsd:string ;
+  kennedys:parent kennedys:JosephKennedy ;
+  kennedys:parent kennedys:RoseFitzgerald ;
+  kennedys:profession kennedys:navy ;
+  kennedys:suffix "Jr"^^xsd:string ;
+.
+kennedys:KaraKennedy
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1960 ;
+  kennedys:firstName "Kara"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "A"^^xsd:string ;
+  kennedys:middleName "Anne"^^xsd:string ;
+  kennedys:name "Kara Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:EdwardKennedy ;
+  kennedys:parent kennedys:VirginiaBennett ;
+  kennedys:spouse kennedys:MichaelAllen ;
+.
+kennedys:KatherineGershman
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1959 ;
+  kennedys:firstName "Katherine"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Gershman"^^xsd:string ;
+  kennedys:middleInitial "A"^^xsd:string ;
+  kennedys:middleName "Anne"^^xsd:string ;
+  kennedys:name "Katherine Gershman"^^xsd:string ;
+  kennedys:profession kennedys:professor ;
+  kennedys:spouse kennedys:EdwardKennedyJr ;
+.
+kennedys:KathleenAKennedy
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1920 ;
+  kennedys:deathYear 1948 ;
+  kennedys:firstName "Kathleen"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "A"^^xsd:string ;
+  kennedys:middleName "Agnes"^^xsd:string ;
+  kennedys:name "Kathleen A. Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:JosephKennedy ;
+  kennedys:parent kennedys:RoseFitzgerald ;
+  kennedys:profession kennedys:volunteer ;
+  kennedys:spouse kennedys:WilliamCavendish ;
+.
+kennedys:KathleenHKennedy
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:Harvard ;
+  kennedys:almaMater kennedys:UniversityOfNewMexico ;
+  kennedys:birthYear 1951 ;
+  kennedys:firstName "Kathleen"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "H"^^xsd:string ;
+  kennedys:middleName "Hartington"^^xsd:string ;
+  kennedys:name "Kathleen H. Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:EthelSkakel ;
+  kennedys:parent kennedys:RobertKennedy ;
+  kennedys:photo <http://www.topbraidcomposer.org/demos/kennedys/images/Kathleen_Kennedy_Townsend.jpg> ;
+  kennedys:profession kennedys:Lt-governor ;
+  kennedys:profession kennedys:attorney ;
+  kennedys:spouse kennedys:DavidTownsend ;
+.
+kennedys:KymSmith
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1972 ;
+  kennedys:firstName "Kym"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Smith"^^xsd:string ;
+  kennedys:middleInitial "M"^^xsd:string ;
+  kennedys:middleName "Maria"^^xsd:string ;
+  kennedys:name "Kym Smith"^^xsd:string ;
+  kennedys:parent kennedys:JeanKennedy ;
+  kennedys:parent kennedys:StephenSmith ;
+  kennedys:spouse kennedys:AlfredTucker ;
+.
+kennedys:LindaPotter
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1956 ;
+  kennedys:firstName "Linda"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Potter"^^xsd:string ;
+  kennedys:middleInitial "S"^^xsd:string ;
+  kennedys:middleName "Sophia"^^xsd:string ;
+  kennedys:name "Linda Potter"^^xsd:string ;
+  kennedys:spouse kennedys:TimothyShriver ;
+.
+kennedys:Lt-governor
+  rdf:type kennedys:Profession ;
+.
+kennedys:ManhattanvilleCollege
+  rdf:type kennedys:College ;
+  kennedys:ivyLeague "false"^^xsd:boolean ;
+  rdfs:label "Manhattanville College" ;
+.
+kennedys:MariaShriver
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:GeorgetownUniversity ;
+  kennedys:birthYear 1955 ;
+  kennedys:firstName "Maria"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Shriver"^^xsd:string ;
+  kennedys:middleInitial "O"^^xsd:string ;
+  kennedys:middleName "Owings"^^xsd:string ;
+  kennedys:name "Maria Shriver"^^xsd:string ;
+  kennedys:parent kennedys:EuniceKennedy ;
+  kennedys:parent kennedys:RobertShriver ;
+  kennedys:profession kennedys:reporter ;
+  kennedys:spouse kennedys:ArnoldSchwarzenegger ;
+  rdfs:label "Maria Shriver" ;
+.
+kennedys:MarkBailey
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1967 ;
+  kennedys:firstName "Mark"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Bailey"^^xsd:string ;
+  kennedys:name "Mark Bailey"^^xsd:string ;
+  kennedys:spouse kennedys:RoryKennedy ;
+.
+kennedys:MarkShriver
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1964 ;
+  kennedys:firstName "Mark"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Shriver"^^xsd:string ;
+  kennedys:middleInitial "K"^^xsd:string ;
+  kennedys:middleName "Kennedy"^^xsd:string ;
+  kennedys:name "Mark Shriver"^^xsd:string ;
+  kennedys:parent kennedys:EuniceKennedy ;
+  kennedys:parent kennedys:RobertShriver ;
+  kennedys:spouse kennedys:JeannieRipp ;
+.
+kennedys:MaryCKennedy
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1956 ;
+  kennedys:firstName "Mary"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "C"^^xsd:string ;
+  kennedys:middleName "Courtney"^^xsd:string ;
+  kennedys:name "Mary Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:EthelSkakel ;
+  kennedys:parent kennedys:RobertKennedy ;
+  kennedys:spouse kennedys:JeffreyRuhe ;
+  kennedys:spouse kennedys:PaulHill ;
+.
+kennedys:MaryKKennedy
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1959 ;
+  kennedys:firstName "Mary"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "K"^^xsd:string ;
+  kennedys:middleName "Kerry"^^xsd:string ;
+  kennedys:name "Mary Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:EthelSkakel ;
+  kennedys:parent kennedys:RobertKennedy ;
+  kennedys:profession kennedys:non-profit ;
+  kennedys:spouse kennedys:AndrewCuomo ;
+.
+kennedys:MaryRichardson
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1960 ;
+  kennedys:firstName "Mary"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Richardson"^^xsd:string ;
+  kennedys:name "Mary Richardson"^^xsd:string ;
+  kennedys:spouse kennedys:RobertKennedyJr ;
+.
+kennedys:Matriarch
+  rdf:type owl:Class ;
+  rdfs:label "Matriarch"^^xsd:string ;
+  rdfs:subClassOf kennedys:Person ;
+.
+kennedys:MatthewKennedy
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1965 ;
+  kennedys:firstName "Matthew"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "M"^^xsd:string ;
+  kennedys:middleName "Maxwell"^^xsd:string ;
+  kennedys:name "Matthew Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:EthelSkakel ;
+  kennedys:parent kennedys:RobertKennedy ;
+  kennedys:spouse kennedys:VictoriaStauss ;
+.
+kennedys:MichaelAllen
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1958 ;
+  kennedys:firstName "Michael"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Allen"^^xsd:string ;
+  kennedys:name "Michael Allen"^^xsd:string ;
+  kennedys:spouse kennedys:KaraKennedy ;
+.
+kennedys:MichaelKennedy
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1958 ;
+  kennedys:deathYear 1997 ;
+  kennedys:firstName "Michael"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "L"^^xsd:string ;
+  kennedys:middleName "LeMoyne"^^xsd:string ;
+  kennedys:name "Michael Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:EthelSkakel ;
+  kennedys:parent kennedys:RobertKennedy ;
+  kennedys:spouse kennedys:VictoriaGifford ;
+.
+kennedys:MollyStark
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1968 ;
+  kennedys:firstName "Molly"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Stark"^^xsd:string ;
+  kennedys:middleInitial "E"^^xsd:string ;
+  kennedys:middleName "Elizabeth"^^xsd:string ;
+  kennedys:name "Molly Stark"^^xsd:string ;
+  kennedys:spouse kennedys:DouglasKennedy ;
+.
+kennedys:NYU
+  rdf:type kennedys:College ;
+  kennedys:ivyLeague "false"^^xsd:boolean ;
+  rdfs:label "New York University" ;
+.
+kennedys:PR
+  rdf:type kennedys:Profession ;
+.
+kennedys:Patriarch
+  rdf:type owl:Class ;
+  rdfs:label "Patriarch"^^xsd:string ;
+  rdfs:subClassOf kennedys:Person ;
+.
+kennedys:PatriciaKennedy
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:RosemontCollege ;
+  kennedys:birthYear 1924 ;
+  kennedys:deathYear 2006 ;
+  kennedys:child kennedys:ChristopherLawford ;
+  kennedys:child kennedys:RobinLawford ;
+  kennedys:child kennedys:SydneyLawford ;
+  kennedys:child kennedys:VictoriaLawford ;
+  kennedys:firstName "Patricia"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:name "Patricia Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:JosephKennedy ;
+  kennedys:parent kennedys:RoseFitzgerald ;
+  kennedys:photo <http://www.topbraidcomposer.org/demos/kennedys/images/Patriciakennedylawford.jpg> ;
+  kennedys:profession kennedys:home-maker ;
+  kennedys:profession kennedys:producer ;
+  kennedys:spouse kennedys:PeterLawford ;
+.
+kennedys:PatrickBKennedy
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1963 ;
+  kennedys:deathYear 1963 ;
+  kennedys:firstName "Patrick"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "B"^^xsd:string ;
+  kennedys:middleName "Bouvier"^^xsd:string ;
+  kennedys:name "Patrick B. Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:JacquelineBouvier ;
+  kennedys:parent kennedys:JohnKennedy ;
+.
+kennedys:PatrickJKennedy
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1967 ;
+  kennedys:firstName "Patrick"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "J"^^xsd:string ;
+  kennedys:middleName "Joseph"^^xsd:string ;
+  kennedys:name "Patrick J. Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:EdwardKennedy ;
+  kennedys:parent kennedys:VirginiaBennett ;
+  kennedys:photo <http://www.topbraidcomposer.org/demos/kennedys/images/160px-Patrick_J._Kennedy,.JPG> ;
+  kennedys:profession kennedys:congressman ;
+.
+kennedys:PaulHill
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1954 ;
+  kennedys:firstName "Paul"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Hill"^^xsd:string ;
+  kennedys:middleInitial "M"^^xsd:string ;
+  kennedys:middleName "Michael"^^xsd:string ;
+  kennedys:name "Paul Hill"^^xsd:string ;
+  kennedys:spouse kennedys:MaryCKennedy ;
+.
+kennedys:Person
+  rdf:type owl:Class ;
+  rdfs:label "Person" ;
+  rdfs:subClassOf owl:Thing ;
+.
+kennedys:PeterLawford
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:Columbia ;
+  kennedys:birthYear 1923 ;
+  kennedys:child kennedys:ChristopherLawford ;
+  kennedys:child kennedys:RobinLawford ;
+  kennedys:child kennedys:SydneyLawford ;
+  kennedys:child kennedys:VictoriaLawford ;
+  kennedys:deathYear 1984 ;
+  kennedys:firstName "Peter"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Lawford"^^xsd:string ;
+  kennedys:name "Peter Lawford"^^xsd:string ;
+  kennedys:photo <http://www.topbraidcomposer.org/demos/kennedys/images/220px-Peter_Lawford_in_Royal_Wedding_(2).jpg> ;
+  kennedys:profession kennedys:actor ;
+  kennedys:spouse kennedys:PatriciaKennedy ;
+.
+kennedys:Princeton
+  rdf:type kennedys:College ;
+  kennedys:ivyLeague "true"^^xsd:boolean ;
+  rdfs:label "Princeton" ;
+.
+kennedys:Profession
+  rdf:type owl:Class ;
+  rdfs:label "Profession"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+kennedys:RobertKennedy
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:UniversityOfVirginia ;
+  kennedys:birthYear 1925 ;
+  kennedys:child kennedys:ChristopherKennedy ;
+  kennedys:child kennedys:DavidKennedy ;
+  kennedys:child kennedys:DouglasKennedy ;
+  kennedys:child kennedys:JosephKennedyII ;
+  kennedys:child kennedys:KathleenHKennedy ;
+  kennedys:child kennedys:MaryCKennedy ;
+  kennedys:child kennedys:MaryKKennedy ;
+  kennedys:child kennedys:MatthewKennedy ;
+  kennedys:child kennedys:MichaelKennedy ;
+  kennedys:child kennedys:RobertKennedyJr ;
+  kennedys:child kennedys:RoryKennedy ;
+  kennedys:deathYear 1968 ;
+  kennedys:firstName "Robert"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "F"^^xsd:string ;
+  kennedys:middleName "Francis"^^xsd:string ;
+  kennedys:name "Robert Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:JosephKennedy ;
+  kennedys:parent kennedys:RoseFitzgerald ;
+  kennedys:photo <http://www.topbraidcomposer.org/demos/kennedys/images/196px-Robertkennedy.jpg> ;
+  kennedys:profession kennedys:attorney-general ;
+  kennedys:profession kennedys:navy ;
+  kennedys:profession kennedys:senator ;
+  kennedys:spouse kennedys:EthelSkakel ;
+.
+kennedys:RobertKennedyJr
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:Harvard ;
+  kennedys:almaMater kennedys:UniversityOfVirginia ;
+  kennedys:birthYear 1954 ;
+  kennedys:firstName "Robert"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:name "Robert Kennedy Jr"^^xsd:string ;
+  kennedys:parent kennedys:EthelSkakel ;
+  kennedys:parent kennedys:RobertKennedy ;
+  kennedys:photo <http://www.topbraidcomposer.org/demos/kennedys/images/250px-RobertFKennedyJr.jpg> ;
+  kennedys:profession kennedys:attorney ;
+  kennedys:profession kennedys:broadcaster ;
+  kennedys:profession kennedys:professor ;
+  kennedys:spouse kennedys:EmilyBlack ;
+  kennedys:spouse kennedys:MaryRichardson ;
+  kennedys:suffix "Jr"^^xsd:string ;
+.
+kennedys:RobertPenderJr
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1953 ;
+  kennedys:firstName "Robert"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Pender"^^xsd:string ;
+  kennedys:name "Robert Pender Jr"^^xsd:string ;
+  kennedys:spouse kennedys:VictoriaLawford ;
+  kennedys:suffix "Jr"^^xsd:string ;
+.
+kennedys:RobertShriver
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:Yale ;
+  kennedys:birthYear 1915 ;
+  kennedys:deathYear 2011 ;
+  kennedys:child kennedys:AnthonyShriver ;
+  kennedys:child kennedys:MariaShriver ;
+  kennedys:child kennedys:MarkShriver ;
+  kennedys:child kennedys:RobertShriverIII ;
+  kennedys:child kennedys:TimothyShriver ;
+  kennedys:firstName "Robert"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Shriver"^^xsd:string ;
+  kennedys:middleInitial "S"^^xsd:string ;
+  kennedys:middleName "Sargent"^^xsd:string ;
+  kennedys:name "Robert Shriver"^^xsd:string ;
+  kennedys:photo <http://www.topbraidcomposer.org/demos/kennedys/images/2002F_Shriver12.jpg> ;
+  kennedys:profession kennedys:ambassador ;
+  kennedys:profession kennedys:navy ;
+  kennedys:profession kennedys:peace-corp ;
+  kennedys:spouse kennedys:EuniceKennedy ;
+.
+kennedys:RobertShriverIII
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:Yale ;
+  kennedys:birthYear 1954 ;
+  kennedys:firstName "Robert"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Shriver"^^xsd:string ;
+  kennedys:name "Robert Shriver III"^^xsd:string ;
+  kennedys:parent kennedys:EuniceKennedy ;
+  kennedys:parent kennedys:RobertShriver ;
+  kennedys:profession kennedys:attorney ;
+  kennedys:profession kennedys:goverment ;
+  kennedys:profession kennedys:producer ;
+  kennedys:suffix "III"^^xsd:string ;
+.
+kennedys:RobinLawford
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1961 ;
+  kennedys:firstName "Robin"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Lawford"^^xsd:string ;
+  kennedys:middleInitial "E"^^xsd:string ;
+  kennedys:middleName "Elizabeth"^^xsd:string ;
+  kennedys:name "Robin Lawford"^^xsd:string ;
+  kennedys:parent kennedys:PatriciaKennedy ;
+  kennedys:parent kennedys:PeterLawford ;
+.
+kennedys:RoryKennedy
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:Brown ;
+  kennedys:birthYear 1968 ;
+  kennedys:firstName "Rory"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "E"^^xsd:string ;
+  kennedys:middleName "Elizabeth"^^xsd:string ;
+  kennedys:name "Rory Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:EthelSkakel ;
+  kennedys:parent kennedys:RobertKennedy ;
+  kennedys:profession kennedys:producer ;
+  kennedys:spouse kennedys:MarkBailey ;
+.
+kennedys:RoseFitzgerald
+  rdf:type kennedys:Matriarch ;
+  kennedys:almaMater kennedys:SacredHeartConvent ;
+  kennedys:birthYear 1890 ;
+  kennedys:child kennedys:EdwardKennedy ;
+  kennedys:child kennedys:EuniceKennedy ;
+  kennedys:child kennedys:JeanKennedy ;
+  kennedys:child kennedys:JohnKennedy ;
+  kennedys:child kennedys:JosephKennedyJr ;
+  kennedys:child kennedys:KathleenAKennedy ;
+  kennedys:child kennedys:PatriciaKennedy ;
+  kennedys:child kennedys:RobertKennedy ;
+  kennedys:child kennedys:RoseKennedy ;
+  kennedys:deathYear 1995 ;
+  kennedys:firstName "Rose"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Fitzgerald"^^xsd:string ;
+  kennedys:middleInitial "E"^^xsd:string ;
+  kennedys:middleName "Elizabeth"^^xsd:string ;
+  kennedys:name "Rose Fitzgerald"^^xsd:string ;
+  kennedys:photo <http://www.topbraidcomposer.org/demos/kennedys/images/Rose_kennedy.JPG> ;
+  kennedys:profession kennedys:home-maker ;
+  kennedys:spouse kennedys:JosephKennedy ;
+.
+kennedys:RoseKennedy
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1918 ;
+  kennedys:deathYear 2005 ;
+  kennedys:firstName "Rose"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Kennedy"^^xsd:string ;
+  kennedys:middleInitial "M"^^xsd:string ;
+  kennedys:middleName "Marie"^^xsd:string ;
+  kennedys:name "Rose Kennedy"^^xsd:string ;
+  kennedys:parent kennedys:JosephKennedy ;
+  kennedys:parent kennedys:RoseFitzgerald ;
+.
+kennedys:RosemontCollege
+  rdf:type kennedys:College ;
+  kennedys:ivyLeague "false"^^xsd:boolean ;
+  rdfs:label "Rosemont College" ;
+.
+kennedys:SacredHeartConvent
+  rdf:type kennedys:College ;
+  kennedys:ivyLeague "false"^^xsd:boolean ;
+  rdfs:label "Sacred Heart Convent" ;
+.
+kennedys:SheilaBerner
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1962 ;
+  kennedys:firstName "Sheila"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Berner"^^xsd:string ;
+  kennedys:middleInitial "S"^^xsd:string ;
+  kennedys:middleName "Sinclair"^^xsd:string ;
+  kennedys:name "Sheila Berner"^^xsd:string ;
+  kennedys:spouse kennedys:ChristopherKennedy ;
+.
+kennedys:SheilaRauch
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1949 ;
+  kennedys:firstName "Sheila"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Rauch"^^xsd:string ;
+  kennedys:middleInitial "B"^^xsd:string ;
+  kennedys:middleName "Brewster"^^xsd:string ;
+  kennedys:name "Sheila Rauch"^^xsd:string ;
+  kennedys:spouse kennedys:JosephKennedyII ;
+.
+kennedys:StephenSmith
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1927 ;
+  kennedys:child kennedys:AmandaSmith ;
+  kennedys:child kennedys:KymSmith ;
+  kennedys:child kennedys:StephenSmithJr ;
+  kennedys:child kennedys:WilliamSmith ;
+  kennedys:deathYear 1990 ;
+  kennedys:firstName "Stephen"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Smith"^^xsd:string ;
+  kennedys:middleInitial "E"^^xsd:string ;
+  kennedys:middleName "Edward"^^xsd:string ;
+  kennedys:name "Stephen Smith"^^xsd:string ;
+  kennedys:profession kennedys:campaign-organizer ;
+  kennedys:spouse kennedys:JeanKennedy ;
+.
+kennedys:StephenSmithJr
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1957 ;
+  kennedys:firstName "Stephen"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Smith"^^xsd:string ;
+  kennedys:name "Stephen Smith Jr"^^xsd:string ;
+  kennedys:parent kennedys:JeanKennedy ;
+  kennedys:parent kennedys:StephenSmith ;
+  kennedys:suffix "Jr"^^xsd:string ;
+.
+kennedys:SydneyLawford
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1956 ;
+  kennedys:firstName "Sydney"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Lawford"^^xsd:string ;
+  kennedys:middleInitial "M"^^xsd:string ;
+  kennedys:middleName "Maleia"^^xsd:string ;
+  kennedys:name "Sydney Lawford"^^xsd:string ;
+  kennedys:parent kennedys:PatriciaKennedy ;
+  kennedys:parent kennedys:PeterLawford ;
+  kennedys:spouse kennedys:JamesMcKelvy ;
+.
+kennedys:TimothyShriver
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:CatholicUniversity ;
+  kennedys:almaMater kennedys:UniversityOfConnecticut ;
+  kennedys:almaMater kennedys:Yale ;
+  kennedys:birthYear 1959 ;
+  kennedys:firstName "Timothy"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Shriver"^^xsd:string ;
+  kennedys:middleInitial "P"^^xsd:string ;
+  kennedys:middleName "Perry"^^xsd:string ;
+  kennedys:name "Timothy Shriver"^^xsd:string ;
+  kennedys:parent kennedys:EuniceKennedy ;
+  kennedys:parent kennedys:RobertShriver ;
+  kennedys:profession kennedys:non-profit ;
+  kennedys:profession kennedys:teacher ;
+  kennedys:spouse kennedys:LindaPotter ;
+.
+kennedys:UniversityOfConnecticut
+  rdf:type kennedys:College ;
+  kennedys:ivyLeague "false"^^xsd:boolean ;
+  rdfs:label "University of Connecticut" ;
+.
+kennedys:UniversityOfNewMexico
+  rdf:type kennedys:College ;
+  rdfs:label "University of New Mexico" ;
+.
+kennedys:UniversityOfVirginia
+  rdf:type kennedys:College ;
+  rdfs:label "University of Virginia"^^xsd:string ;
+.
+kennedys:UniversityOfWisconsin
+  rdf:type kennedys:College ;
+  kennedys:ivyLeague "false"^^xsd:boolean ;
+  rdfs:label "University of Wisconsin" ;
+.
+kennedys:VictoriaGifford
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1957 ;
+  kennedys:firstName "Victoria"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Gifford"^^xsd:string ;
+  kennedys:middleInitial "D"^^xsd:string ;
+  kennedys:middleName "Denise"^^xsd:string ;
+  kennedys:name "Victoria Gifford"^^xsd:string ;
+  kennedys:spouse kennedys:MichaelKennedy ;
+.
+kennedys:VictoriaLawford
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1958 ;
+  kennedys:firstName "Victoria"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Lawford"^^xsd:string ;
+  kennedys:name "Victoria Lawford"^^xsd:string ;
+  kennedys:parent kennedys:PatriciaKennedy ;
+  kennedys:parent kennedys:PeterLawford ;
+  kennedys:spouse kennedys:RobertPenderJr ;
+.
+kennedys:VictoriaReggie
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1954 ;
+  kennedys:firstName "Victoria"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Reggie"^^xsd:string ;
+  kennedys:middleInitial "A"^^xsd:string ;
+  kennedys:middleName "Anne"^^xsd:string ;
+  kennedys:name "Victoria Reggie"^^xsd:string ;
+  kennedys:profession kennedys:attorney ;
+  kennedys:spouse kennedys:EdwardKennedy ;
+.
+kennedys:VictoriaStauss
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1964 ;
+  kennedys:firstName "Victoria"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Stauss"^^xsd:string ;
+  kennedys:middleInitial "A"^^xsd:string ;
+  kennedys:middleName "Anne"^^xsd:string ;
+  kennedys:name "Victoria Stauss"^^xsd:string ;
+  kennedys:spouse kennedys:MatthewKennedy ;
+.
+kennedys:VirginiaBennett
+  rdf:type kennedys:Person ;
+  kennedys:almaMater kennedys:ManhattanvilleCollege ;
+  kennedys:birthYear 1936 ;
+  kennedys:child kennedys:EdwardKennedyJr ;
+  kennedys:child kennedys:KaraKennedy ;
+  kennedys:child kennedys:PatrickJKennedy ;
+  kennedys:firstName "Virginia"^^xsd:string ;
+  kennedys:gender kennedys:female ;
+  kennedys:lastName "Bennett"^^xsd:string ;
+  kennedys:middleInitial "J"^^xsd:string ;
+  kennedys:middleName "Joan"^^xsd:string ;
+  kennedys:name "Virginia Bennett"^^xsd:string ;
+  kennedys:profession kennedys:home-maker ;
+  kennedys:profession kennedys:model ;
+  kennedys:spouse kennedys:EdwardKennedy ;
+.
+kennedys:WesleyanUniversity
+  rdf:type kennedys:College ;
+  kennedys:ivyLeague "false"^^xsd:boolean ;
+  rdfs:label "Wesleyan University" ;
+.
+kennedys:WilliamCavendish
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1917 ;
+  kennedys:deathYear 1944 ;
+  kennedys:firstName "William"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Cavendish"^^xsd:string ;
+  kennedys:middleInitial "JR"^^xsd:string ;
+  kennedys:middleName "John Robert"^^xsd:string ;
+  kennedys:name "William Cavendish"^^xsd:string ;
+  kennedys:profession kennedys:army ;
+  kennedys:spouse kennedys:KathleenAKennedy ;
+.
+kennedys:WilliamSmith
+  rdf:type kennedys:Person ;
+  kennedys:birthYear 1960 ;
+  kennedys:firstName "William"^^xsd:string ;
+  kennedys:gender kennedys:male ;
+  kennedys:lastName "Smith"^^xsd:string ;
+  kennedys:middleInitial "K"^^xsd:string ;
+  kennedys:middleName "Kennedy"^^xsd:string ;
+  kennedys:name "William Smith"^^xsd:string ;
+  kennedys:parent kennedys:JeanKennedy ;
+  kennedys:parent kennedys:StephenSmith ;
+  kennedys:profession kennedys:doctor ;
+.
+kennedys:Yale
+  rdf:type kennedys:College ;
+  kennedys:ivyLeague "true"^^xsd:boolean ;
+  rdfs:label "Yale" ;
+.
+kennedys:actor
+  rdf:type kennedys:Profession ;
+  rdfs:label "actor"^^xsd:string ;
+.
+kennedys:almaMater
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain kennedys:Person ;
+  rdfs:label "alma mater" ;
+  rdfs:range kennedys:College ;
+.
+kennedys:ambassador
+  rdf:type kennedys:Profession ;
+  rdfs:label "ambassador"^^xsd:string ;
+.
+kennedys:army
+  rdf:type kennedys:Profession ;
+  rdfs:label "army"^^xsd:string ;
+.
+kennedys:attorney
+  rdf:type kennedys:Profession ;
+  rdfs:label "attorney"^^xsd:string ;
+.
+kennedys:attorney-general
+  rdf:type kennedys:Profession ;
+  rdfs:label "attorney-general"^^xsd:string ;
+.
+kennedys:banker
+  rdf:type kennedys:Profession ;
+  rdfs:label "banker"^^xsd:string ;
+.
+kennedys:birthYear
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain kennedys:Person ;
+  rdfs:label "year of birth" ;
+  rdfs:range xsd:int ;
+.
+kennedys:body-builder
+  rdf:type kennedys:Profession ;
+  rdfs:label "body-builder"^^xsd:string ;
+.
+kennedys:broadcaster
+  rdf:type kennedys:Profession ;
+  rdfs:label "broadcaster"^^xsd:string ;
+.
+kennedys:business
+  rdf:type kennedys:Profession ;
+  rdfs:label "business"^^xsd:string ;
+.
+kennedys:cabinet-secretary
+  rdf:type kennedys:Profession ;
+  rdfs:label "cabinet-secretary"^^xsd:string ;
+.
+kennedys:campaign-organizer
+  rdf:type kennedys:Profession ;
+  rdfs:label "campaign-organizer"^^xsd:string ;
+.
+kennedys:child
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain kennedys:Person ;
+  rdfs:label "child" ;
+  rdfs:range kennedys:Person ;
+.
+kennedys:congressman
+  rdf:type kennedys:Profession ;
+  rdfs:label "congressman"^^xsd:string ;
+.
+kennedys:deathYear
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain kennedys:Person ;
+  rdfs:label "year of death" ;
+  rdfs:range xsd:int ;
+.
+kennedys:district-attorney
+  rdf:type kennedys:Profession ;
+  rdfs:label "district-attorney"^^xsd:string ;
+.
+kennedys:doctor
+  rdf:type kennedys:Profession ;
+  rdfs:label "doctor"^^xsd:string ;
+.
+kennedys:editor
+  rdf:type kennedys:Profession ;
+  rdfs:label "editor"^^xsd:string ;
+.
+kennedys:female
+  rdf:type kennedys:Gender ;
+  rdfs:label "female"^^xsd:string ;
+.
+kennedys:firstName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain kennedys:Person ;
+  rdfs:label "first name" ;
+  rdfs:range xsd:string ;
+.
+kennedys:gender
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain kennedys:Person ;
+  rdfs:label "has gender" ;
+  rdfs:range kennedys:Gender ;
+.
+kennedys:goverment
+  rdf:type kennedys:Profession ;
+  rdfs:label "goverment"^^xsd:string ;
+.
+kennedys:governor
+  rdf:type kennedys:Profession ;
+  rdfs:label "governor"^^xsd:string ;
+.
+kennedys:home-maker
+  rdf:type kennedys:Profession ;
+  rdfs:label "home-maker"^^xsd:string ;
+.
+kennedys:ivyLeague
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain kennedys:College ;
+  rdfs:label "is ivy league"^^xsd:string ;
+  rdfs:range xsd:boolean ;
+.
+kennedys:lastName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain kennedys:Person ;
+  rdfs:label "last name" ;
+  rdfs:range xsd:string ;
+.
+kennedys:male
+  rdf:type kennedys:Gender ;
+  rdfs:label "male"^^xsd:string ;
+.
+kennedys:middleInitial
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain kennedys:Person ;
+  rdfs:label "MI" ;
+  rdfs:range xsd:string ;
+.
+kennedys:middleName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain kennedys:Person ;
+  rdfs:label "middle name" ;
+  rdfs:range xsd:string ;
+.
+kennedys:model
+  rdf:type kennedys:Profession ;
+  rdfs:label "model"^^xsd:string ;
+.
+kennedys:name
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "name"^^xsd:string ;
+  rdfs:subPropertyOf rdfs:label ;
+.
+kennedys:navy
+  rdf:type kennedys:Profession ;
+  rdfs:label "navy"^^xsd:string ;
+.
+kennedys:non-profit
+  rdf:type kennedys:Profession ;
+  rdfs:label "non-profit"^^xsd:string ;
+.
+kennedys:parent
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain kennedys:Person ;
+  rdfs:label "parent" ;
+  rdfs:range kennedys:Person ;
+.
+kennedys:peace-corp
+  rdf:type kennedys:Profession ;
+  rdfs:label "peace-corp"^^xsd:string ;
+.
+kennedys:photo
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          kennedys:Person
+          kennedys:College
+        ) ;
+    ] ;
+  rdfs:label "photo"^^xsd:string ;
+.
+kennedys:photographer
+  rdf:type kennedys:Profession ;
+  rdfs:label "photographer"^^xsd:string ;
+.
+kennedys:president
+  rdf:type kennedys:Profession ;
+  rdfs:label "president"^^xsd:string ;
+.
+kennedys:producer
+  rdf:type kennedys:Profession ;
+  rdfs:label "producer"^^xsd:string ;
+.
+kennedys:profession
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain kennedys:Person ;
+  rdfs:label "has profession" ;
+  rdfs:range kennedys:Profession ;
+.
+kennedys:professor
+  rdf:type kennedys:Profession ;
+  rdfs:label "professor"^^xsd:string ;
+.
+kennedys:publisher
+  rdf:type kennedys:Profession ;
+  rdfs:label "publisher"^^xsd:string ;
+.
+kennedys:reporter
+  rdf:type kennedys:Profession ;
+  rdfs:label "reporter"^^xsd:string ;
+.
+kennedys:senator
+  rdf:type kennedys:Profession ;
+  rdfs:label "senator"^^xsd:string ;
+.
+kennedys:shipping
+  rdf:type kennedys:Profession ;
+  rdfs:label "shipping"^^xsd:string ;
+.
+kennedys:spouse
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "has spouse" ;
+.
+kennedys:suffix
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain kennedys:Person ;
+  rdfs:label "suffix" ;
+  rdfs:range xsd:string ;
+.
+kennedys:teacher
+  rdf:type kennedys:Profession ;
+  rdfs:label "teacher"^^xsd:string ;
+.
+kennedys:volunteer
+  rdf:type kennedys:Profession ;
+  rdfs:label "volunteer"^^xsd:string ;
+.
+kennedys:writer
+  rdf:type kennedys:Profession ;
+  rdfs:label "writer"^^xsd:string ;
+.

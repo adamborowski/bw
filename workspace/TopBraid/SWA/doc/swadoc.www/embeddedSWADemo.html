@@ -1,0 +1,82 @@
+<!--
+
+	A stand-alone HTML file that has embeds an SWP component from the TopBraid server launched as
+	part of TopBraid Composer Maestro Edition.
+	Replace http://localhost:8083/tbl with other installations if needed.
+	
+	The SWP components are defined in the file embeddedSWADemo.ui.ttlx
+	
+	For simplicity, this HTML file is self-contained, i.e. has all styles and scripts inlined.
+	
+	This file is placed in a .www folder so that it can be conveniently tested from
+	
+		http://localhost:8083/tbl/lib/swadoc/embeddedSWADemo.html
+	
+	However, the demo should work from any domain as long as the localhost address is redirected accordingly.
+	 
+ -->
+<html>
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+		
+		<!-- CSS files and JavaScripts used by the SWP components (includes jQuery) -->
+		<link type="text/css" rel="stylesheet" href="http://localhost:8083/tbl/lib/jquery/css/smoothness/jquery-ui.css">
+		<link type="text/css" rel="stylesheet" href="http://localhost:8083/tbl/lib/jquery/css/jquery.contextmenu.css">
+		<link type="text/css" rel="stylesheet" href="http://localhost:8083/tbl/lib/jquery/css/ui.jqgrid.css">
+		<link type="text/css" rel="stylesheet" href="http://localhost:8083/tbl/lib/swa/css/swa.css">
+		<link type="text/css" rel="stylesheet" href="http://localhost:8083/tbl/lib/swa/css/swaspin.css">
+		<script type="text/javascript" src="http://localhost:8083/tbl/lib/jquery/js/jquery.js"></script>
+		<script type="text/javascript" src="http://localhost:8083/tbl/lib/jquery/js/jquery-ui.js"></script>
+		<script type="text/javascript" src="http://localhost:8083/tbl/lib/jquery/js/i18n/grid.locale-en.js"></script>
+		<script type="text/javascript" src="http://localhost:8083/tbl/lib/jquery/js/jquery.jqGrid.min.js"></script>
+		<script type="text/javascript" src="http://localhost:8083/tbl/lib/jquery/js/jquery.contextmenu.js"></script>
+		<script type="text/javascript" src="http://localhost:8083/tbl/lib/jquery/js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="http://localhost:8083/tbl/lib/jquery/js/jquery.hotkeys.js"></script>
+		<script type="text/javascript" src="http://localhost:8083/tbl/lib/jquery/js/jquery.layout.js"></script>
+		<script type="text/javascript" src="http://localhost:8083/tbl/lib/jquery/js/jquery.jstree.js"></script>
+		<script type="text/javascript" src="http://localhost:8083/tbl/lib/openajax/js/OpenAjax.js"></script>
+		<script type="text/javascript" src="http://localhost:8083/tbl/lib/swa/js/swa.js"></script>
+		<script type="text/javascript" src="http://localhost:8083/tbl/lib/swa/js/swaspin.js"></script>
+		<script type="text/javascript" src="http://localhost:8083/tbl/lib/swa/js/swawindows.js"></script>
+		
+		<title>Embedding SWA Components with jQuery Demo</title>
+		
+		<script>$(document).ready(function() {
+			
+			// Tell SWA about location of servlet
+			// That location is the relative "swp" servlet by default, so an implementor could also
+			// implement the swp servlet as a proxy to the implementation from the TopBraid server.
+			swa.servlet = "http://localhost:8083/tbl/swp";
+			
+			// Tell SWA about the default query graph for callbacks
+			swa.queryGraphURI = "http://rdfex.org/withImports?uri=http://topbraid.org/schema/";
+
+			// Load class tree component
+			$("#tree").load("http://localhost:8083/tbl/swp?_viewClass=embeddedSWADemo:Tree&_snippet=true&_base=" + escape(swa.queryGraphURI));
+
+			// Load search component
+			$("#search").load("http://localhost:8083/tbl/swp?_viewClass=embeddedSWADemo:SearchForm&_snippet=true&_base=" + escape(swa.queryGraphURI));
+
+			// Load resource form component
+			$("#form").load("http://localhost:8083/tbl/swp?_viewClass=embeddedSWADemo:ResourceForm&_snippet=true&_base=" + escape(swa.queryGraphURI));
+			
+			// Subscribe to class selection event to print selected URI
+			gadgets.Hub.subscribe("org.example.resourceSelected", function(event, data) {
+				$("#selectedResource").html(data);
+			});
+			
+		});</script>
+		
+	</head>
+	<body>
+		<h1>Embedding SWA Components with jQuery Demo</h1>
+		<p>
+			This static HTML page contains various SWP components delivered by a TopBraid server via Ajax.
+			Events published by the components are used by other parts of the application, outside of SWP.
+		</p>
+		<div id="tree"   style="position: absolute; left:  20px; top: 130px"></div>
+		<div id="search" style="position: absolute; left: 340px; top: 130px"></div>
+		<div id="form"   style="position: absolute; left: 760px; top: 130px"></div>
+		<div style="position: absolute; left: 20px; top: 535px">Selected resource: <span id="selectedResource"></span></div>
+	</body>
+</html>

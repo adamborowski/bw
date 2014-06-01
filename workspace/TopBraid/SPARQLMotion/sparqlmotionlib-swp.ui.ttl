@@ -1,0 +1,284 @@
+# baseURI: http://topbraid.org/sparqlmotionlib-swp
+# imports: http://topbraid.org/sparqlmotionlib-tb
+
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sml: <http://topbraid.org/sparqlmotionlib#> .
+@prefix sparqlmotionlib-swp: <http://topbraid.org/sparqlmotionlib-swp#> .
+@prefix ui: <http://uispin.org/ui#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://topbraid.org/sparqlmotion#Module>
+  rdfs:subClassOf ui:NodeClass ;
+.
+sml:AddGraph
+  rdfs:subClassOf sml:Elements ;
+.
+sml:AppendText
+  sml:swpNote "Not supported as SWP module because variable scoping rules make this impractical."^^xsd:string ;
+.
+sml:ApplyConstruct
+  sml:swpNote "Not supported as SWP module because there is no syntax for CONSTRUCTs: use swp:update instead, with ui:tempGraph as target GRAPH."^^xsd:string ;
+.
+sml:ApplyJenaInferencing
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ApplyJenaRules
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ApplyOWLIM
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ApplyResourceConstructors
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ApplyTopSPIN
+  rdfs:subClassOf sml:Elements ;
+.
+sml:AssertTrue
+  sml:swpNote "Not supported as SWP module. Use ui:if combined with ui:throw instead."^^xsd:string ;
+.
+sml:BindBySelect
+  sml:swpNote "Not supported as SWP module. Use ui:forEach instead."^^xsd:string ;
+.
+sml:BindByXPath
+  rdfs:subClassOf sml:Elements ;
+.
+sml:BindLiteralVariable
+  sml:swpNote "Not supported as SWP module. Use let:xy=\"...\" instead."^^xsd:string ;
+.
+sml:BindWithConstant
+  sml:swpNote "Not supported as SWP module. Use let:xy=\"...\" instead."^^xsd:string ;
+.
+sml:BranchByAsk
+  sml:swpNote "Not supported as SWP module. Use ui:if/ui:else instead."^^xsd:string ;
+.
+sml:CallCalais
+  rdfs:subClassOf sml:Elements ;
+.
+sml:CatchExceptions
+  sml:swpNote "Not supported as SWP module."^^xsd:string ;
+.
+sml:CheckConstraints
+  rdfs:subClassOf sml:Elements ;
+.
+sml:CheckSpelling
+  rdfs:subClassOf sml:Elements ;
+.
+sml:CloneVariable
+  sml:swpNote "Not supported as SWP module. Use let:out=\"{= ?in }\" instead."^^xsd:string ;
+.
+sml:CollectGarbage
+  sml:swpNote "Not supported as SWP module. Feature at risk and hardly ever needed anyway."^^xsd:string ;
+.
+sml:CommitChanges
+  sml:swpNote "Not supported as SWP module. SWP does not support TBE sessions."^^xsd:string ;
+.
+sml:ConcatenateText
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ConvertDatatype
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ConvertJSONToRDF
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ConvertJavaObjectsToRDF
+  sml:swpNote "Not supported as SWP module. There is no mechanism in SWP to pass references to Java objects between modules."^^xsd:string ;
+.
+sml:ConvertRDFToXML
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ConvertSpreadsheetToRDF
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ConvertStringToSPINRDF
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ConvertTextToRDF
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ConvertTextToRDFList
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ConvertXMLByXSLT
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ConvertXMLToRDF
+  rdfs:subClassOf sml:Elements ;
+.
+sml:CreateMatrix
+  sml:swpNote "Not supported as SWP module. Relatively easy to re-create a similar output using ui:forEach."^^xsd:string ;
+.
+sml:CreateSPINResultSet
+  sml:swpNote "Not supported as SWP module. Unlikely to be needed as SWP already has built-in support for walking SPIN Result Sets, e.g. after letrs:"^^xsd:string ;
+.
+sml:CreateSpreadsheet
+  rdfs:subClassOf sml:Elements ;
+.
+sml:CreateUISPINDocument
+  sml:swpNote "Not supported as SWP module. The whole SWP document surrounding the SM modules does this."^^xsd:string ;
+.
+sml:Diff
+  sml:swpNote "Not supported as SWP module. Would require a mechanism of taking two input graphs."^^xsd:string ;
+.
+sml:Elements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract superclass to group together all SPARQLMotion modules that can be used in SWP scripts."^^xsd:string ;
+  rdfs:label "Elements"^^xsd:string ;
+  rdfs:subClassOf ui:Element ;
+.
+sml:ExportToJMS
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ExportToRDFFile
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ExportToSolrFields
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ExportToTextFile
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ExportToXMLFile
+  rdfs:subClassOf sml:Elements ;
+.
+sml:FilterByConstruct
+  sml:swpNote "Not supported as SWP module. There is no syntax for CONSTRUCT queries in SWP."^^xsd:string ;
+.
+sml:FilterByFilterGraph
+  sml:swpNote "Not supported as SWP module. Would require multiple input graphs."^^xsd:string ;
+.
+sml:ImportCurrentRDF
+  sml:swpNote "Not supported as SWP module. There is no notion of TopBraid Composer or Ensemble sessions in SWP."^^xsd:string ;
+.
+sml:ImportEMails
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ImportExcelCellInstances
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ImportJavaObjectsFromEMFFile
+  sml:swpNote "Not supported as SWP module. There is no mechanism of passing Java objects between modules in SWP."^^xsd:string ;
+.
+sml:ImportMicrodata
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ImportNewsFeed
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ImportRDFFromURL
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ImportRDFFromWorkspace
+  sml:swpNote "Not supported as SWP module. Use ui:setContext ui:queryGraph=\"{= ui:graphWithImports(?baseURI) }\" instead."^^xsd:string ;
+.
+sml:ImportRDFa
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ImportSystemTriples
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ImportTextFile
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ImportTextFromURL
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ImportXHTML
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ImportXMLFile
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ImportXMLFromURL
+  rdfs:subClassOf sml:Elements ;
+.
+sml:IterateOverArguments
+  sml:swpNote "Not supported as SWP module."^^xsd:string ;
+.
+sml:IterateOverSQL
+  sml:swpNote "Not supported as SWP module (yet). The mechanism of executing nested scripts would require adjustments."^^xsd:string ;
+.
+sml:IterateOverSelect
+  sml:swpNote "Not supported as SWP module. Use ui:forEach instead."^^xsd:string ;
+.
+sml:IterateOverXPath
+  sml:swpNote "Not supported as SWP module (yet). The mechanism to execute nested sub-scripts would require adjustments."^^xsd:string ;
+.
+sml:IterateWhile
+  sml:swpNote "Not supported as SWP module. Use ui:forEach instead."^^xsd:string ;
+.
+sml:Merge
+  sml:swpNote "Not supported as SWP module. SWP does not have a notion of multiple input graphs that could be merged."^^xsd:string ;
+.
+sml:ModifyPrefixes
+  sml:swpNote "Not supported as SWP module. Unlikely to be needed in typical SWP scripts."^^xsd:string ;
+.
+sml:PerformFacetedSearch
+  rdfs:subClassOf sml:Elements ;
+.
+sml:PerformUpdate
+  sml:swpNote "Not supported as SWP module. Use ui:update instead."^^xsd:string ;
+.
+sml:PostRequest
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ReleaseLock
+  rdfs:subClassOf sml:Elements ;
+.
+sml:RenameResources
+  rdfs:subClassOf sml:Elements ;
+.
+sml:RequestLock
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ResetSPINCaches
+  rdfs:subClassOf sml:Elements ;
+.
+sml:ReturnNode
+  sml:swpNote "Not supported as SWP module. This module is part of the SM web service infrastructure and not needed in SWP."^^xsd:string ;
+.
+sml:ReturnRDF
+  sml:swpNote "Not supported as SWP module. SWP documents cannot return RDF but instead produce text documents."^^xsd:string ;
+.
+sml:ReturnSPARQLResults
+  sml:swpNote "Not supported as SWP module. This module is part of the SM web service infrastructure and not needed in SWP."^^xsd:string ;
+.
+sml:ReturnText
+  sml:swpNote "Not supported as SWP module. This module is part of the SM web service infrastructure and not needed in SWP."^^xsd:string ;
+.
+sml:ReturnUISPINDocument
+  sml:swpNote "Not supported as SWP module. This module is part of the SM web service infrastructure and not needed in SWP."^^xsd:string ;
+.
+sml:ReturnXML
+  sml:swpNote "Not supported as SWP module. This module is part of the SM web service infrastructure and not needed in SWP."^^xsd:string ;
+.
+sml:SendEMails
+  rdfs:subClassOf sml:Elements ;
+.
+sml:SerializeSPARQLResults
+  rdfs:subClassOf sml:Elements ;
+.
+sml:TrackChanges
+  sml:swpNote "Not supported as SWP module. This module is part of the SM web service infrastructure and not needed in SWP."^^xsd:string ;
+.
+sml:UpdateUserWordDictionary
+  sml:swpNote "Not supported as SWP module. SWP does not support TBE sessions or dictionaries."^^xsd:string ;
+.
+sml:selectQuery
+  rdfs:subPropertyOf ui:resultSet ;
+.
+sml:swpNote
+  rdf:type owl:AnnotationProperty ;
+  rdfs:label "swp note"^^xsd:string ;
+  rdfs:subPropertyOf rdfs:comment ;
+.
+<http://topbraid.org/sparqlmotionlib-swp>
+  rdf:type owl:Ontology ;
+  rdfs:comment "This file adds triples to the SPARQLMotion library to make some of the SML modules available as SWP elements. As a result, SWP components can use SML modules inline using normal SWP tags."^^xsd:string ;
+  owl:imports <http://topbraid.org/sparqlmotionlib-tb> ;
+  owl:versionInfo "0.8.0"^^xsd:string ;
+.

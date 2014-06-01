@@ -1,0 +1,4123 @@
+# baseURI: http://topbraid.org/swa.spin
+# imports: http://spinrdf.org/spl
+# imports: http://uispin.org/ui
+
+@prefix afn: <http://jena.hpl.hp.com/ARQ/function#> .
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spif: <http://spinrdf.org/spif#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix swa: <http://topbraid.org/swa#> .
+@prefix ui: <http://uispin.org/ui#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+arg:appName
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:class
+  rdf:type rdf:Property ;
+  rdfs:label "class"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:index
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:lang
+  rdf:type rdf:Property ;
+  rdfs:label "lang"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:letter
+  rdf:type rdf:Property ;
+  rdfs:label "letter"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:module
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:node
+  rdf:type rdf:Property ;
+  rdfs:label "node"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:object
+  rdf:type rdf:Property ;
+  rdfs:label "object"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:predicate
+  rdf:type rdf:Property ;
+  rdfs:label "predicate"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:property
+  rdf:type rdf:Property ;
+  rdfs:label "property"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:range
+  rdf:type rdf:Property ;
+  rdfs:label "range"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:regex
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:resource
+  rdf:type rdf:Property ;
+  rdfs:label "resource"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:resourceGraph
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:resourceType
+  rdf:type rdf:Property ;
+  rdfs:label "resource type"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:subject
+  rdf:type rdf:Property ;
+  rdfs:label "subject"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:url
+  rdf:type rdf:Property ;
+  rdfs:label "url"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:valueType
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:valueTypeGraph
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+swa:ClassAxiomProperty
+  rdf:type rdfs:Class ;
+  rdfs:comment "A marker type to distinguish class axiom properties from others."^^xsd:string ;
+  rdfs:label "Class axiom property"^^xsd:string ;
+  rdfs:subClassOf rdf:Property ;
+.
+swa:ClassFunctorFunctions
+  rdf:type spin:Function ;
+  spin:abstract "true"^^xsd:boolean ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:class ;
+      spl:valueType rdfs:Class ;
+      rdfs:comment "The class to start traversal at."^^xsd:string ;
+    ] ;
+  rdfs:comment "Abstract superclass that groups together various functors on classes."^^xsd:string ;
+  rdfs:label "Class functor functions"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:Country
+  rdf:type rdfs:Class ;
+  rdfs:comment "A class that is used to link languages with locales (countries). The library contains instances for the most frequently needed countries."^^xsd:string ;
+  rdfs:label "Country"^^xsd:string ;
+.
+swa:Country-al
+  rdf:type swa:Country ;
+  swa:countryCode "al"^^xsd:string ;
+  swa:languageCode "sq"^^xsd:string ;
+.
+swa:Country-bg
+  rdf:type swa:Country ;
+  swa:countryCode "bg"^^xsd:string ;
+  swa:languageCode "bg"^^xsd:string ;
+.
+swa:Country-by
+  rdf:type swa:Country ;
+  swa:countryCode "by"^^xsd:string ;
+  swa:languageCode "be"^^xsd:string ;
+.
+swa:Country-cn
+  rdf:type swa:Country ;
+  swa:countryCode "cn"^^xsd:string ;
+  swa:languageCode "zh"^^xsd:string ;
+.
+swa:Country-cz
+  rdf:type swa:Country ;
+  swa:countryCode "cz"^^xsd:string ;
+  swa:languageCode "cs"^^xsd:string ;
+.
+swa:Country-de
+  rdf:type swa:Country ;
+  swa:countryCode "de"^^xsd:string ;
+  swa:languageCode "de"^^xsd:string ;
+.
+swa:Country-dk
+  rdf:type swa:Country ;
+  swa:countryCode "dk"^^xsd:string ;
+  swa:languageCode "da"^^xsd:string ;
+.
+swa:Country-ee
+  rdf:type swa:Country ;
+  swa:countryCode "ee"^^xsd:string ;
+  swa:languageCode "et"^^xsd:string ;
+.
+swa:Country-es
+  rdf:type swa:Country ;
+  swa:countryCode "es"^^xsd:string ;
+  swa:languageCode "ca"^^xsd:string ;
+  swa:languageCode "es"^^xsd:string ;
+.
+swa:Country-fi
+  rdf:type swa:Country ;
+  swa:countryCode "fi"^^xsd:string ;
+  swa:languageCode "fi"^^xsd:string ;
+.
+swa:Country-fr
+  rdf:type swa:Country ;
+  swa:countryCode "fr"^^xsd:string ;
+  swa:languageCode "fr"^^xsd:string ;
+.
+swa:Country-gb
+  rdf:type swa:Country ;
+  swa:countryCode "gb"^^xsd:string ;
+  swa:languageCode "en"^^xsd:string ;
+.
+swa:Country-gr
+  rdf:type swa:Country ;
+  swa:countryCode "gr"^^xsd:string ;
+  swa:languageCode "el"^^xsd:string ;
+.
+swa:Country-hr
+  rdf:type swa:Country ;
+  swa:countryCode "hr"^^xsd:string ;
+  swa:languageCode "hr"^^xsd:string ;
+.
+swa:Country-hu
+  rdf:type swa:Country ;
+  swa:countryCode "hu"^^xsd:string ;
+  swa:languageCode "hu"^^xsd:string ;
+.
+swa:Country-id
+  rdf:type swa:Country ;
+  swa:countryCode "id"^^xsd:string ;
+  swa:languageCode "in"^^xsd:string ;
+.
+swa:Country-ie
+  rdf:type swa:Country ;
+  swa:countryCode "ie"^^xsd:string ;
+  swa:languageCode "ga"^^xsd:string ;
+.
+swa:Country-il
+  rdf:type swa:Country ;
+  swa:countryCode "il"^^xsd:string ;
+  swa:languageCode "iw"^^xsd:string ;
+.
+swa:Country-in
+  rdf:type swa:Country ;
+  swa:countryCode "in"^^xsd:string ;
+  swa:languageCode "hi"^^xsd:string ;
+.
+swa:Country-is
+  rdf:type swa:Country ;
+  swa:countryCode "is"^^xsd:string ;
+  swa:languageCode "is"^^xsd:string ;
+.
+swa:Country-it
+  rdf:type swa:Country ;
+  swa:countryCode "it"^^xsd:string ;
+  swa:languageCode "it"^^xsd:string ;
+.
+swa:Country-jp
+  rdf:type swa:Country ;
+  swa:countryCode "jp"^^xsd:string ;
+  swa:languageCode "ja"^^xsd:string ;
+.
+swa:Country-kr
+  rdf:type swa:Country ;
+  swa:countryCode "kr"^^xsd:string ;
+  swa:languageCode "ko"^^xsd:string ;
+.
+swa:Country-lt
+  rdf:type swa:Country ;
+  swa:countryCode "lt"^^xsd:string ;
+  swa:languageCode "lt"^^xsd:string ;
+.
+swa:Country-lv
+  rdf:type swa:Country ;
+  swa:countryCode "lv"^^xsd:string ;
+  swa:languageCode "lv"^^xsd:string ;
+.
+swa:Country-me
+  rdf:type swa:Country ;
+  swa:countryCode "me"^^xsd:string ;
+  swa:languageCode "sr"^^xsd:string ;
+.
+swa:Country-mk
+  rdf:type swa:Country ;
+  swa:countryCode "mk"^^xsd:string ;
+  swa:languageCode "mk"^^xsd:string ;
+.
+swa:Country-mt
+  rdf:type swa:Country ;
+  swa:countryCode "mt"^^xsd:string ;
+  swa:languageCode "mt"^^xsd:string ;
+.
+swa:Country-my
+  rdf:type swa:Country ;
+  swa:countryCode "my"^^xsd:string ;
+  swa:languageCode "ms"^^xsd:string ;
+.
+swa:Country-nl
+  rdf:type swa:Country ;
+  swa:countryCode "nl"^^xsd:string ;
+  swa:languageCode "nl"^^xsd:string ;
+.
+swa:Country-no
+  rdf:type swa:Country ;
+  swa:countryCode "no"^^xsd:string ;
+  swa:languageCode "no"^^xsd:string ;
+.
+swa:Country-pl
+  rdf:type swa:Country ;
+  swa:countryCode "pl"^^xsd:string ;
+  swa:languageCode "pl"^^xsd:string ;
+.
+swa:Country-pt
+  rdf:type swa:Country ;
+  swa:countryCode "pt"^^xsd:string ;
+  swa:languageCode "pt"^^xsd:string ;
+.
+swa:Country-ro
+  rdf:type swa:Country ;
+  swa:countryCode "ro"^^xsd:string ;
+  swa:languageCode "ro"^^xsd:string ;
+.
+swa:Country-ru
+  rdf:type swa:Country ;
+  swa:countryCode "ru"^^xsd:string ;
+  swa:languageCode "ru"^^xsd:string ;
+.
+swa:Country-sa
+  rdf:type swa:Country ;
+  swa:countryCode "sa"^^xsd:string ;
+  swa:languageCode "ar"^^xsd:string ;
+.
+swa:Country-se
+  rdf:type swa:Country ;
+  swa:countryCode "se"^^xsd:string ;
+  swa:languageCode "sv"^^xsd:string ;
+.
+swa:Country-si
+  rdf:type swa:Country ;
+  swa:countryCode "si"^^xsd:string ;
+  swa:languageCode "sl"^^xsd:string ;
+.
+swa:Country-sk
+  rdf:type swa:Country ;
+  swa:countryCode "sk"^^xsd:string ;
+  swa:languageCode "sk"^^xsd:string ;
+.
+swa:Country-th
+  rdf:type swa:Country ;
+  swa:countryCode "th"^^xsd:string ;
+  swa:languageCode "th"^^xsd:string ;
+.
+swa:Country-tr
+  rdf:type swa:Country ;
+  swa:countryCode "tr"^^xsd:string ;
+  swa:languageCode "tr"^^xsd:string ;
+.
+swa:Country-ua
+  rdf:type swa:Country ;
+  swa:countryCode "ua"^^xsd:string ;
+  swa:languageCode "uk"^^xsd:string ;
+.
+swa:Country-va
+  rdf:type swa:Country ;
+  swa:countryCode "va"^^xsd:string ;
+  swa:languageCode "la"^^xsd:string ;
+.
+swa:Country-vn
+  rdf:type swa:Country ;
+  swa:countryCode "vn"^^xsd:string ;
+  swa:languageCode "vi"^^xsd:string ;
+.
+swa:Functions
+  rdf:type spin:Function ;
+  spin:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Just an abstract superclass to group together the various functions from this namespace in tree viewers."^^xsd:string ;
+  rdfs:label "Functions"^^xsd:string ;
+  rdfs:subClassOf spin:Functions ;
+.
+swa:GetRelevantPropertiesOfClass
+  rdf:type spin:SelectTemplate ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:orderBy (
+          [
+            sp:varName "propertyLabel"^^xsd:string ;
+          ]
+        ) ;
+      sp:resultVariables (
+          [
+            sp:varName "propertyURI"^^xsd:string ;
+          ]
+          [
+            sp:varName "propertyLabel"^^xsd:string ;
+          ]
+          [
+            sp:varName "rangeURI"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          (
+            [
+              sp:object [
+                  sp:varName "class"^^xsd:string ;
+                ] ;
+              sp:predicate spl:relevantPropertyAtClass ;
+              sp:subject [
+                  sp:varName "property"^^xsd:string ;
+                ] ;
+            ]
+          )
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type xsd:string ;
+                sp:arg1 [
+                    sp:varName "property"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "propertyURI"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type ui:label ;
+                sp:arg1 [
+                    sp:varName "property"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "propertyLabel"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type xsd:string ;
+                sp:arg1 [
+                    rdf:type swa:localRangeAtClass ;
+                    arg:class [
+                        sp:varName "class"^^xsd:string ;
+                      ] ;
+                    arg:property [
+                        sp:varName "property"^^xsd:string ;
+                      ] ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "rangeURI"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:class ;
+      spl:valueType rdfs:Class ;
+      rdfs:comment "The class to get the relevant properties of."^^xsd:string ;
+    ] ;
+  rdfs:comment """Gets all relevant properties for a given class. This template can be used as a web service by arbitrary web components, ideally with json-simple mime type.
+
+Result values:
+
+- propertyURI: the URI of the property
+- propertyLabel: the display label of the property
+- rangeURI: the URI of the range of the property"""^^xsd:string ;
+  rdfs:label "Get relevant properties of class"^^xsd:string ;
+  rdfs:subClassOf spin:SelectTemplates ;
+.
+swa:GetResourceValues
+  rdf:type spin:SelectTemplate ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:orderBy (
+          [
+            sp:varName "property"^^xsd:string ;
+          ]
+          [
+            sp:varName "objectLabel"^^xsd:string ;
+          ]
+        ) ;
+      sp:resultVariables (
+          [
+            sp:varName "propertyURI"^^xsd:string ;
+          ]
+          [
+            sp:varName "propertyLabel"^^xsd:string ;
+          ]
+          [
+            sp:varName "objectLabel"^^xsd:string ;
+          ]
+          [
+            sp:varName "objectURI"^^xsd:string ;
+          ]
+          [
+            sp:varName "objectDatatypeURI"^^xsd:string ;
+          ]
+          [
+            sp:varName "objectLang"^^xsd:string ;
+          ]
+          [
+            sp:varName "objectEncoded"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "object"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "resource"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type xsd:string ;
+                sp:arg1 [
+                    sp:varName "property"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "propertyURI"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type ui:label ;
+                sp:arg1 [
+                    sp:varName "property"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "propertyLabel"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type ui:label ;
+                sp:arg1 [
+                    sp:varName "object"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "objectLabel"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:if ;
+                sp:arg1 [
+                    rdf:type sp:isIRI ;
+                    sp:arg1 [
+                        sp:varName "object"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type xsd:string ;
+                    sp:arg1 [
+                        sp:varName "object"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg3 [
+                    sp:varName "none"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "objectURI"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:if ;
+                sp:arg1 [
+                    rdf:type sp:isLiteral ;
+                    sp:arg1 [
+                        sp:varName "object"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type xsd:string ;
+                    sp:arg1 [
+                        rdf:type sp:datatype ;
+                        sp:arg1 [
+                            sp:varName "object"^^xsd:string ;
+                          ] ;
+                      ] ;
+                  ] ;
+                sp:arg3 [
+                    sp:varName "none"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "objectDatatypeURI"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:lang ;
+                sp:arg1 [
+                    sp:varName "object"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "objectLang"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type ui:encodeNode ;
+                sp:arg1 [
+                    sp:varName "object"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "objectEncoded"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:property ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The property to get - leave empty for all properties."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resource ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The resource to get the values of."^^xsd:string ;
+    ] ;
+  rdfs:comment """Gets all property values (objects) for a given resource (subject). For each value, it returns information about the property and the datatype. This template can be used as a web service by arbitrary web components, ideally with json-simple mime type.
+
+The property argument is optional: leave empty to return all properties.
+
+Result values:
+
+- propertyURI: the URI of the property
+- propertyLabel: the display label of the property
+- objectLabel: the display label of the value
+- objectURI: the URI of the value, if it is a URI resource
+- objectDatatypeURI: the URI of the datatype if the value is a literal
+- objectLang: the language code of the datatype if the value is a string
+- objectEncoded: the SPARQL-encoded serialization of the value"""^^xsd:string ;
+  rdfs:label "Get resource values"^^xsd:string ;
+  rdfs:subClassOf spin:SelectTemplates ;
+.
+swa:NumericDatatype
+  rdf:type rdfs:Class ;
+  rdfs:comment "A marker class for all numeric datatypes."^^xsd:string ;
+  rdfs:label "Numeric datatype"^^xsd:string ;
+  rdfs:subClassOf rdfs:Datatype ;
+.
+swa:PropertyAxiomProperty
+  rdf:type rdfs:Class ;
+  rdfs:comment "A marker type to distinguish property axiom properties from others."^^xsd:string ;
+  rdfs:label "Property axiom property"^^xsd:string ;
+  rdfs:subClassOf rdf:Property ;
+.
+swa:PropertyWidgetGroupFilterFunctions
+  rdf:type spin:Function ;
+  spin:abstract "true"^^xsd:boolean ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:subject ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The subject resource (optional)."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:predicate ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The predicate to check."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Abstract superclass for the various kinds of filter functions that can be used to select properties for widget groups."^^xsd:string ;
+  rdfs:label "Property widget group filter functions"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:ResourcesWithLetter
+  rdf:type spin:SelectTemplate ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:distinct "true"^^xsd:boolean ;
+      sp:orderBy (
+          [
+            rdf:type fn:lower-case ;
+            sp:arg1 [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:resultVariables (
+          [
+            sp:varName "resource"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:TriplePath ;
+            sp:object [
+                sp:varName "resourceType"^^xsd:string ;
+              ] ;
+            sp:path [
+                rdf:type sp:ModPath ;
+                sp:modMax -2 ;
+                sp:modMin 0 ;
+                sp:subPath rdfs:subClassOf ;
+              ] ;
+            sp:subject [
+                sp:varName "type"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "type"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "resource"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:isIRI ;
+                sp:arg1 [
+                    sp:varName "resource"^^xsd:string ;
+                  ] ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type ui:label ;
+                sp:arg1 [
+                    sp:varName "resource"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type fn:starts-with ;
+                sp:arg1 [
+                    rdf:type fn:upper-case ;
+                    sp:arg1 [
+                        sp:varName "label"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg2 [
+                    sp:varName "letter"^^xsd:string ;
+                  ] ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:letter ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The (uppercase) letter to match."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resourceType ;
+      spl:valueType rdfs:Class ;
+      rdfs:comment "The resource type."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  rdfs:comment "Gets an ordered list of all instances of a given class that start with a given letter."^^xsd:string ;
+  rdfs:label "Resources with letter"^^xsd:string ;
+  rdfs:subClassOf spin:SelectTemplates ;
+.
+swa:ResourcesWithNonLetter
+  rdf:type spin:SelectTemplate ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:distinct "true"^^xsd:boolean ;
+      sp:orderBy (
+          [
+            rdf:type fn:lower-case ;
+            sp:arg1 [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:resultVariables (
+          [
+            sp:varName "resource"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:TriplePath ;
+            sp:object [
+                sp:varName "resourceType"^^xsd:string ;
+              ] ;
+            sp:path [
+                rdf:type sp:ModPath ;
+                sp:modMax -2 ;
+                sp:modMin 0 ;
+                sp:subPath rdfs:subClassOf ;
+              ] ;
+            sp:subject [
+                sp:varName "type"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "type"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "resource"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:isIRI ;
+                sp:arg1 [
+                    sp:varName "resource"^^xsd:string ;
+                  ] ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type ui:label ;
+                sp:arg1 [
+                    sp:varName "resource"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type fn:upper-case ;
+                sp:arg1 [
+                    rdf:type fn:substring ;
+                    sp:arg1 [
+                        sp:varName "label"^^xsd:string ;
+                      ] ;
+                    sp:arg2 1 ;
+                    sp:arg3 1 ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "first"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:not ;
+                sp:arg1 [
+                    rdf:type fn:contains ;
+                    sp:arg1 "ABCDEFGHIJKLMNOPQRSTUVWXYZ" ;
+                    sp:arg2 [
+                        sp:varName "first"^^xsd:string ;
+                      ] ;
+                  ] ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resourceType ;
+      spl:valueType rdfs:Class ;
+      rdfs:comment "The type of resources to match (will include subclasses of the type)."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  rdfs:comment "Gets an ordered list of all instances of a given type that do not start with a letter from A-Z."^^xsd:string ;
+  rdfs:label "Resources with non letter"^^xsd:string ;
+  rdfs:subClassOf spin:SelectTemplates ;
+.
+swa:TypesHaveSuperClass
+  rdf:type spin:AskTemplate ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+            sp:predicate spif:split ;
+            sp:subject [
+                sp:varName "uri"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "typesList"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object " " ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object () ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:iri ;
+                sp:arg1 [
+                    sp:varName "uri"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "type"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:TriplePath ;
+            sp:object [
+                sp:varName "resourceType"^^xsd:string ;
+              ] ;
+            sp:path [
+                rdf:type sp:ModPath ;
+                sp:modMax -2 ;
+                sp:modMin 0 ;
+                sp:subPath rdfs:subClassOf ;
+              ] ;
+            sp:subject [
+                sp:varName "type"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resourceType ;
+      spl:valueType rdfs:Class ;
+      rdfs:comment "The type to match against."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:typesList ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The list of URIs separated by spaces containing the types to check."^^xsd:string ;
+    ] ;
+  rdfs:comment "Checks whether any of the types defined in a space-separated list of URIs has a given type as its superclass."^^xsd:string ;
+  rdfs:label "Types have super class"^^xsd:string ;
+  rdfs:subClassOf spin:AskTemplates ;
+.
+swa:ViewsContainingText
+  rdf:type spin:SelectTemplate ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "rootView"^^xsd:string ;
+          ]
+          [
+            sp:varName "element"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          (
+            [
+              sp:object [
+                  sp:varName "o"^^xsd:string ;
+                ] ;
+              sp:predicate [
+                  sp:varName "p"^^xsd:string ;
+                ] ;
+              sp:subject [
+                  sp:varName "s"^^xsd:string ;
+                ] ;
+            ]
+            [
+              rdf:type sp:Filter ;
+              sp:expression [
+                  rdf:type sp:regex ;
+                  sp:arg1 [
+                      sp:varName "o"^^xsd:string ;
+                    ] ;
+                  sp:arg2 [
+                      sp:varName "regex"^^xsd:string ;
+                    ] ;
+                ] ;
+            ]
+            [
+              rdf:type sp:Filter ;
+              sp:expression [
+                  rdf:type spl:instanceOf ;
+                  sp:arg1 [
+                      sp:varName "s"^^xsd:string ;
+                    ] ;
+                  sp:arg2 ui:Element ;
+                ] ;
+            ]
+          )
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type swa:rootView ;
+                arg:view [
+                    sp:varName "s"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "rootView"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Optional ;
+            sp:elements (
+                [
+                  sp:object [
+                      sp:varName "rootView"^^xsd:string ;
+                    ] ;
+                  sp:predicate ui:prototype ;
+                  sp:subject [
+                      sp:varName "element"^^xsd:string ;
+                    ] ;
+                ]
+              ) ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:regex ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The regular expression to search for."^^xsd:string ;
+    ] ;
+  rdfs:comment "Finds all SWP views that contain a given regular expression. Returns the root SWP element and, if available, the named element that has this root element as its ui:prototype."^^xsd:string ;
+  rdfs:label "Views containing text"^^xsd:string ;
+  rdfs:subClassOf spin:SelectTemplates ;
+.
+swa:allValuesFromFunctor
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "allValuesFrom"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "allValuesFrom"^^xsd:string ;
+              ] ;
+            sp:predicate owl:allValuesFrom ;
+            sp:subject [
+                sp:varName "class"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "class"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:property ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The property to look for."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType rdfs:Class ;
+  rdfs:comment "Can be used in conjunction with spif:walkObjects to get the \"first\" declared owl:allValuesFrom restriction of a given property (?property) at a given class (?class)."^^xsd:string ;
+  rdfs:label "all values from functor"^^xsd:string ;
+  rdfs:subClassOf swa:ClassFunctorFunctions ;
+.
+swa:appName
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:expression [
+                rdf:type ui:contextValue ;
+                sp:arg1 "swaAppName" ;
+              ] ;
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where () ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Gets the current SWA application name. This can be set in as context variable \"swaAppName\"."^^xsd:string ;
+  rdfs:label "app name"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:canEditResource
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type spl:object ;
+                sp:arg1 [
+                    sp:varName "resource"^^xsd:string ;
+                  ] ;
+                sp:arg2 rdf:type ;
+              ] ;
+            sp:variable [
+                sp:varName "type"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:if ;
+                sp:arg1 [
+                    rdf:type sp:bound ;
+                    sp:arg1 [
+                        sp:varName "type"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type sp:not ;
+                    sp:arg1 [
+                        rdf:type swa:isReadOnlyTriple ;
+                        sp:arg1 [
+                            sp:varName "resource"^^xsd:string ;
+                          ] ;
+                        sp:arg2 rdf:type ;
+                        sp:arg3 [
+                            sp:varName "type"^^xsd:string ;
+                          ] ;
+                      ] ;
+                  ] ;
+                sp:arg3 "true"^^xsd:boolean ;
+              ] ;
+            sp:variable [
+                sp:varName "result"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resource ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The resource to edit."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Checks whether the currently logged in user has the privilege to edit a given resource. The default implementation of this always returns true unless the rdf:type of the resource is a read-only triple, but this behavior can be overloaded for specific platforms."^^xsd:string ;
+  rdfs:label "can edit resource"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:columnLabel
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "label"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          (
+            [
+              rdf:type sp:Filter ;
+              sp:expression [
+                  rdf:type sp:bound ;
+                  sp:arg1 [
+                      sp:varName "dataProvider"^^xsd:string ;
+                    ] ;
+                ] ;
+            ]
+          )
+          [
+            rdf:type sp:NamedGraph ;
+            sp:elements (
+                [
+                  sp:object [
+                      sp:varName "column"^^xsd:string ;
+                    ] ;
+                  sp:predicate spin:column ;
+                  sp:subject [
+                      sp:varName "dataProvider"^^xsd:string ;
+                    ] ;
+                ]
+                [
+                  sp:object [
+                      sp:varName "index"^^xsd:string ;
+                    ] ;
+                  sp:predicate spin:columnIndex ;
+                  sp:subject [
+                      sp:varName "column"^^xsd:string ;
+                    ] ;
+                ]
+                [
+                  sp:object [
+                      sp:varName "label"^^xsd:string ;
+                    ] ;
+                  sp:predicate rdfs:label ;
+                  sp:subject [
+                      sp:varName "column"^^xsd:string ;
+                    ] ;
+                ]
+              ) ;
+            sp:graphNameNode ui:unionGraph ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:dataProvider ;
+      spl:valueType spin:TableDataProvider ;
+      rdfs:comment "The data provider - may be null in which case the function returns unbound too."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:index ;
+      spl:valueType xsd:integer ;
+    ] ;
+  rdfs:comment "Gets a column label based on a given spin:TableDataProvider. Tries to find the rdfs:label of a spin:Column with the provided index."^^xsd:string ;
+  rdfs:label "column label"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:countryCode
+  rdf:type rdf:Property ;
+  rdfs:comment "The two-letter country code for a Country."^^xsd:string ;
+  rdfs:domain swa:Country ;
+  rdfs:label "country code"^^xsd:string ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf swa:systemProperty ;
+.
+swa:countryCodeForLang
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "code"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:if ;
+                sp:arg1 [
+                    rdf:type sp:eq ;
+                    sp:arg1 [
+                        rdf:type fn:string-length ;
+                        sp:arg1 [
+                            sp:varName "lang"^^xsd:string ;
+                          ] ;
+                      ] ;
+                    sp:arg2 2 ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type swa:defaultCountryCodeForLanguageCode ;
+                    arg:lang [
+                        sp:varName "lang"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg3 [
+                    rdf:type spif:lowerCase ;
+                    sp:arg1 [
+                        rdf:type fn:substring ;
+                        sp:arg1 [
+                            sp:varName "lang"^^xsd:string ;
+                          ] ;
+                        sp:arg2 4 ;
+                      ] ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "code"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:lang ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The lang code, either with 2 or 5 letters."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Takes the lang of a given literal and picks a suitable country code for it. If it's a two-letter code then it tries to find the default one associated with the language using swa:defaultCountryCodeForLanguageCode. For 5-letter codes such as en-UK it simply returns the second part lower-cased."^^xsd:string ;
+  rdfs:label "country code for lang"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:dataGraph
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:expression [
+                rdf:type sp:coalesce ;
+                sp:arg1 [
+                    rdf:type ui:contextValue ;
+                    sp:arg1 "dataGraph" ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type ui:currentQueryGraph ;
+                  ] ;
+              ] ;
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where () ;
+    ] ;
+  spin:returnType rdfs:Resource ;
+  rdfs:comment "Gets the current data graph. By default this is simply the current query graph. Can be set to some other value using the context variable \"dataGraph\". This is used by the SWA form mechanism: a form may switch to a different query graph to collect schema information (properties, ranges etc), but some widgets need to return to the domain/instances model in call-backs (such as auto-complete)."^^xsd:string ;
+  rdfs:label "data graph"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:defaultCountryCodeForLanguageCode
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "countryCode"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:NamedGraph ;
+            sp:elements (
+                [
+                  sp:object [
+                      sp:varName "lang"^^xsd:string ;
+                    ] ;
+                  sp:predicate swa:languageCode ;
+                  sp:subject [
+                      sp:varName "country"^^xsd:string ;
+                    ] ;
+                ]
+                [
+                  sp:object [
+                      sp:varName "countryCode"^^xsd:string ;
+                    ] ;
+                  sp:predicate swa:countryCode ;
+                  sp:subject [
+                      sp:varName "country"^^xsd:string ;
+                    ] ;
+                ]
+              ) ;
+            sp:graphNameNode <http://topbraid.org/swa.spin> ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:lang ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The language code."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Looks up a country code for a given two-letter language code, based on the instances of swa:Country."^^xsd:string ;
+  rdfs:label "default country code for language code"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:defaultNamespace
+  rdf:type rdf:Property ;
+  rdfs:comment "Can be used to specify a default namespace for new resources."^^xsd:string ;
+  rdfs:domain owl:Ontology ;
+  rdfs:label "default namespace"^^xsd:string ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf swa:systemProperty ;
+.
+swa:defaultOntology
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:expression [
+                rdf:type sp:coalesce ;
+                sp:arg1 [
+                    sp:varName "ontology"^^xsd:string ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type ui:currentQueryGraph ;
+                  ] ;
+                sp:arg3 <urn:x-error:no-ontology-found> ;
+              ] ;
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Optional ;
+            sp:elements (
+                [
+                  sp:object owl:Ontology ;
+                  sp:predicate rdf:type ;
+                  sp:subject [
+                      sp:varName "ontology"^^xsd:string ;
+                    ] ;
+                ]
+              ) ;
+          ]
+        ) ;
+    ] ;
+  spin:returnType owl:Ontology ;
+  rdfs:comment "Gets the \"default\" owl:Ontology in the current query graph. This is simply returning the first that it finds, so the context should make sure that only one exists or - at least - that the graph is a MultiUnion where the most relevant match is in the base graph that will be queried first. If no owl:Ontology is found, it uses ui:currentQueryGraph() and if that's not bound either then it's making up a URI."^^xsd:string ;
+  rdfs:label "default ontology"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:defaultRange
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:expression [
+                rdf:type sp:if ;
+                sp:arg1 [
+                    rdf:type sp:or ;
+                    sp:arg1 [
+                        rdf:type spl:instanceOf ;
+                        sp:arg1 [
+                            sp:varName "property"^^xsd:string ;
+                          ] ;
+                        sp:arg2 owl:DatatypeProperty ;
+                      ] ;
+                    sp:arg2 [
+                        rdf:type spl:instanceOf ;
+                        sp:arg1 [
+                            sp:varName "property"^^xsd:string ;
+                          ] ;
+                        sp:arg2 owl:AnnotationProperty ;
+                      ] ;
+                  ] ;
+                sp:arg2 xsd:string ;
+                sp:arg3 rdfs:Resource ;
+              ] ;
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where () ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:property ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The property to get the default range of."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType rdfs:Resource ;
+  rdfs:comment "Gets the default range for a given property. owl:DatatypeProperties and owl:AnnotationProperties get xsd:string, all others get rdfs:Resource."^^xsd:string ;
+  rdfs:label "default range"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:directRelevantClassOfProperty
+  rdf:type spin:MagicProperty ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:distinct "true"^^xsd:boolean ;
+      sp:resultVariables (
+          [
+            sp:varName "property"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Union ;
+            sp:elements (
+                (
+                  [
+                    sp:object spin:_arg1 ;
+                    sp:predicate rdfs:domain ;
+                    sp:subject [
+                        sp:varName "property"^^xsd:string ;
+                      ] ;
+                  ]
+                )
+                (
+                  [
+                    sp:object [
+                        sp:varName "restriction"^^xsd:string ;
+                      ] ;
+                    sp:predicate rdfs:subClassOf ;
+                    sp:subject spin:_arg1 ;
+                  ]
+                  [
+                    sp:object [
+                        sp:varName "property"^^xsd:string ;
+                      ] ;
+                    sp:predicate owl:onProperty ;
+                    sp:subject [
+                        sp:varName "restriction"^^xsd:string ;
+                      ] ;
+                  ]
+                )
+              ) ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:isIRI ;
+                sp:arg1 spin:_arg1 ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType rdfs:Class ;
+      rdfs:comment "The class to get the properties of."^^xsd:string ;
+    ] ;
+  spin:returnType rdf:Property ;
+  rdfs:comment "Finds the properties that are directly attached to a given class, or the class that a given property is directly attached to. In SWA this is used by the class/property tree."^^xsd:string ;
+  rdfs:label "direct relevant class of property"^^xsd:string ;
+  rdfs:subClassOf spin:MagicProperties ;
+.
+swa:falseOrUnbound
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:or ;
+                sp:arg1 [
+                    rdf:type sp:not ;
+                    sp:arg1 [
+                        rdf:type sp:bound ;
+                        sp:arg1 [
+                            sp:varName "value"^^xsd:string ;
+                          ] ;
+                      ] ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type sp:not ;
+                    sp:arg1 [
+                        sp:varName "value"^^xsd:string ;
+                      ] ;
+                  ] ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:value ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "The input value."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Checks whether the provided argument is unbound or false."^^xsd:string ;
+  rdfs:label "false or unbound"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:getDefaultNamespace
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type swa:defaultOntology ;
+              ] ;
+            sp:variable [
+                sp:varName "ontology"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type spl:object ;
+                sp:arg1 [
+                    sp:varName "ontology"^^xsd:string ;
+                  ] ;
+                sp:arg2 swa:defaultNamespace ;
+              ] ;
+            sp:variable [
+                sp:varName "default"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:coalesce ;
+                sp:arg1 [
+                    sp:varName "default"^^xsd:string ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type sp:concat ;
+                    sp:arg1 [
+                        rdf:type xsd:string ;
+                        sp:arg1 [
+                            sp:varName "ontology"^^xsd:string ;
+                          ] ;
+                      ] ;
+                    sp:arg2 "/" ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "result"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Picks a default namespace for new resources. This uses swa:defaultOntology to get hold of the default ontology. If this has a swa:defaultNamespace, then this will be used. Otherwise, the base URI + '/' of the default ontology is used."^^xsd:string ;
+  rdfs:label "get default namespace"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:globalRange
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "range"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:TriplePath ;
+            sp:object [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:path [
+                rdf:type sp:ModPath ;
+                sp:modMax -2 ;
+                sp:modMin 0 ;
+                sp:subPath rdfs:subPropertyOf ;
+              ] ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "range"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:property ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The property to get the range of."^^xsd:string ;
+    ] ;
+  spin:returnType rdfs:Class ;
+  rdfs:comment "Gets the global range (rdfs:range) of a property. If none is provided, it will walk up super-properties."^^xsd:string ;
+  rdfs:label "global range"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:googleMapsAPIKey
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            rdf:type ui:systemPreference ;
+            sp:arg1 "GoogleMapsAPIKey" ;
+          ]
+        ) ;
+      sp:where () ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Gets the currently registered Google Maps API key."^^xsd:string ;
+  rdfs:label "Google Maps API key"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:hasAppName
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          (
+            [
+              rdf:type sp:Filter ;
+              sp:expression [
+                  rdf:type sp:bound ;
+                  sp:arg1 spin:_arg1 ;
+                ] ;
+            ]
+          )
+          [
+            sp:object [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+            sp:predicate spif:split ;
+            sp:subject [
+                sp:varName "sub"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object spin:_arg1 ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object "," ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object () ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:eq ;
+                sp:arg1 [
+                    sp:varName "sub"^^xsd:string ;
+                  ] ;
+                sp:arg2 spin:_arg2 ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The string to check - may contain a comma-separated list of app names."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg2 ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name to match against, e.g. \"EVN\"."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Checks if a given string contains a given app name."^^xsd:string ;
+  rdfs:label "has app name"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:hasCurrentAppName
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type swa:hasAppName ;
+                sp:arg1 [
+                    rdf:type ui:contextValue ;
+                    sp:arg1 "swaAppName" ;
+                  ] ;
+                sp:arg2 [
+                    sp:varName "appName"^^xsd:string ;
+                  ] ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:appName ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name to match against, e.g. \"EVN\"."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Checks if the current context is in a given application, as identified by the context variable \"swaAppName\"."^^xsd:string ;
+  rdfs:label "has current app name"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:hasPrefix
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type afn:namespace ;
+                sp:arg1 [
+                    sp:varName "resource"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "namespace"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "prefix"^^xsd:string ;
+              ] ;
+            sp:predicate spif:prefix ;
+            sp:subject [
+                sp:varName "namespace"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:bound ;
+                sp:arg1 [
+                    sp:varName "prefix"^^xsd:string ;
+                  ] ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resource ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The resource to check for a prefix."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Checks if the current query model defines a prefix for a given URI resource."^^xsd:string ;
+  rdfs:label "has prefix"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:imageURLSuffix
+  rdf:type rdf:Property ;
+  rdfs:comment "Lists the registered file suffixes that are regarded to be image files."^^xsd:string ;
+  rdfs:label "image URLSuffix"^^xsd:string ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf swa:systemProperty ;
+.
+swa:isAnnotationProperty
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            rdf:type spl:instanceOf ;
+            sp:arg1 [
+                sp:varName "predicate"^^xsd:string ;
+              ] ;
+            sp:arg2 owl:AnnotationProperty ;
+          ]
+        ) ;
+      sp:where () ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  rdfs:comment "Checks whether a given property is an annotation property."^^xsd:string ;
+  rdfs:label "is annotation property"^^xsd:string ;
+  rdfs:subClassOf swa:PropertyWidgetGroupFilterFunctions ;
+.
+swa:isClassAxiomProperty
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:exists ;
+                sp:elements (
+                    [
+                      rdf:type sp:NamedGraph ;
+                      sp:elements (
+                          [
+                            sp:object swa:ClassAxiomProperty ;
+                            sp:predicate rdf:type ;
+                            sp:subject [
+                                sp:varName "predicate"^^xsd:string ;
+                              ] ;
+                          ]
+                        ) ;
+                      sp:graphNameNode ui:graph ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  rdfs:comment "Checks whether a given property has been marked as swa:ClassAxiomProperty."^^xsd:string ;
+  rdfs:label "is class axiom property"^^xsd:string ;
+  rdfs:subClassOf swa:PropertyWidgetGroupFilterFunctions ;
+.
+swa:isDatatypeEnumeration
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "list"^^xsd:string ;
+              ] ;
+            sp:predicate owl:oneOf ;
+            sp:subject [
+                sp:varName "resource"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object rdfs:Datatype ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "resource"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resource ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The node to test."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Tests if a given range is a data range with a owl:oneOf."^^xsd:string ;
+  rdfs:label "is datatype enumeration"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:isDatatypeRange
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:bound ;
+                sp:arg1 [
+                    sp:varName "range"^^xsd:string ;
+                  ] ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:or ;
+                sp:arg1 [
+                    rdf:type sp:eq ;
+                    sp:arg1 [
+                        sp:varName "range"^^xsd:string ;
+                      ] ;
+                    sp:arg2 rdfs:Literal ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type sp:exists ;
+                    sp:elements (
+                        [
+                          sp:object rdfs:Datatype ;
+                          sp:predicate rdf:type ;
+                          sp:subject [
+                              sp:varName "range"^^xsd:string ;
+                            ] ;
+                        ]
+                      ) ;
+                  ] ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:range ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The range to check."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Checks whether a given resource (typically the range of a property) is a datatype. It must either be equal to rdfs:Literal or an instance of rdfs:Datatype."^^xsd:string ;
+  rdfs:label "is datatype range"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:isImageURL
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            rdf:type sp:NamedGraph ;
+            sp:elements (
+                [
+                  rdf:type sp:Bind ;
+                  sp:expression [
+                      rdf:type spif:lastIndexOf ;
+                      sp:arg1 [
+                          sp:varName "url"^^xsd:string ;
+                        ] ;
+                      sp:arg2 "." ;
+                    ] ;
+                  sp:variable [
+                      sp:varName "lastDot"^^xsd:string ;
+                    ] ;
+                ]
+                [
+                  rdf:type sp:Filter ;
+                  sp:expression [
+                      rdf:type sp:gt ;
+                      sp:arg1 [
+                          sp:varName "lastDot"^^xsd:string ;
+                        ] ;
+                      sp:arg2 0 ;
+                    ] ;
+                ]
+                [
+                  rdf:type sp:Bind ;
+                  sp:expression [
+                      rdf:type spif:lowerCase ;
+                      sp:arg1 [
+                          rdf:type fn:substring ;
+                          sp:arg1 [
+                              sp:varName "url"^^xsd:string ;
+                            ] ;
+                          sp:arg2 [
+                              rdf:type sp:add ;
+                              sp:arg1 [
+                                  sp:varName "lastDot"^^xsd:string ;
+                                ] ;
+                              sp:arg2 1 ;
+                            ] ;
+                        ] ;
+                    ] ;
+                  sp:variable [
+                      sp:varName "suffix"^^xsd:string ;
+                    ] ;
+                ]
+                [
+                  rdf:type sp:Filter ;
+                  sp:expression [
+                      rdf:type sp:exists ;
+                      sp:elements (
+                          [
+                            sp:object [
+                                sp:varName "suffix"^^xsd:string ;
+                              ] ;
+                            sp:predicate swa:imageURLSuffix ;
+                            sp:subject [
+                                sp:varName "someSubject"^^xsd:string ;
+                              ] ;
+                          ]
+                        ) ;
+                    ] ;
+                ]
+              ) ;
+            sp:graphNameNode ui:graph ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:url ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The URL to check."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType xsd:boolean ;
+  swa:imageURLSuffix ".gif"^^xsd:string ;
+  swa:imageURLSuffix ".jpg"^^xsd:string ;
+  swa:imageURLSuffix ".png"^^xsd:string ;
+  rdfs:comment "Checks whether a given URL represents an image based on its suffix (.jpg, .gif or .png are recognized by default, but others can be added by putting an imageURLSuffix triple into a globally registered SWP file)."^^xsd:string ;
+  rdfs:label "is image URL"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:isMulti
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:notExists ;
+                sp:elements (
+                    [
+                      sp:object owl:FunctionalProperty ;
+                      sp:predicate rdf:type ;
+                      sp:subject [
+                          sp:varName "property"^^xsd:string ;
+                        ] ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type swa:resourceType ;
+                arg:resource [
+                    sp:varName "subject"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "class"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type swa:owlMaxCardinality ;
+                arg:class [
+                    sp:varName "class"^^xsd:string ;
+                  ] ;
+                arg:property [
+                    sp:varName "property"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "max"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:or ;
+                sp:arg1 [
+                    rdf:type sp:not ;
+                    sp:arg1 [
+                        rdf:type sp:bound ;
+                        sp:arg1 [
+                            sp:varName "max"^^xsd:string ;
+                          ] ;
+                      ] ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type sp:gt ;
+                    sp:arg1 [
+                        sp:varName "max"^^xsd:string ;
+                      ] ;
+                    sp:arg2 1 ;
+                  ] ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type swa:splArgumentOnProperty ;
+                arg:class [
+                    sp:varName "class"^^xsd:string ;
+                  ] ;
+                arg:property [
+                    sp:varName "property"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "arg"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:not ;
+                sp:arg1 [
+                    rdf:type sp:bound ;
+                    sp:arg1 [
+                        sp:varName "arg"^^xsd:string ;
+                      ] ;
+                  ] ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:subject ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The subject - may be unbound to fall back to the subjectType."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:property ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The property to get the local range of."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment """Checks whether a given subject/predicate combination can have multiple values, according to the ontology. This checks for owl:maxCardinality restrictions, existing spl:Argument constraints and whether the property is functional.
+
+Note that TopBraid Suite uses a native (optimized) implementation of this function, i.e. the SPIN body is never called when used inside of TopBraid Suite."""^^xsd:string ;
+  rdfs:label "is multi"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:isNonAnnotationProperty
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            rdf:type sp:not ;
+            sp:arg1 [
+                rdf:type spl:instanceOf ;
+                sp:arg1 [
+                    sp:varName "predicate"^^xsd:string ;
+                  ] ;
+                sp:arg2 owl:AnnotationProperty ;
+              ] ;
+          ]
+        ) ;
+      sp:where () ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  rdfs:comment "Checks whether a property is not an annotation property."^^xsd:string ;
+  rdfs:label "is non annotation property"^^xsd:string ;
+  rdfs:subClassOf swa:PropertyWidgetGroupFilterFunctions ;
+.
+swa:isNonClassAxiomProperty
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:and ;
+                sp:arg1 [
+                    rdf:type sp:not ;
+                    sp:arg1 [
+                        rdf:type swa:isClassAxiomProperty ;
+                        arg:predicate [
+                            sp:varName "predicate"^^xsd:string ;
+                          ] ;
+                      ] ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type sp:not ;
+                    sp:arg1 [
+                        rdf:type swa:isAnnotationProperty ;
+                        arg:predicate [
+                            sp:varName "predicate"^^xsd:string ;
+                          ] ;
+                      ] ;
+                  ] ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  rdfs:comment "Checks whether a property is neither a class axiom property nor annotation property."^^xsd:string ;
+  rdfs:label "is non class axiom property"^^xsd:string ;
+  rdfs:subClassOf swa:PropertyWidgetGroupFilterFunctions ;
+.
+swa:isNonPropertyAxiomProperty
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:and ;
+                sp:arg1 [
+                    rdf:type sp:not ;
+                    sp:arg1 [
+                        rdf:type swa:isPropertyAxiomProperty ;
+                        arg:predicate [
+                            sp:varName "predicate"^^xsd:string ;
+                          ] ;
+                      ] ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type sp:not ;
+                    sp:arg1 [
+                        rdf:type swa:isAnnotationProperty ;
+                        arg:predicate [
+                            sp:varName "predicate"^^xsd:string ;
+                          ] ;
+                      ] ;
+                  ] ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  rdfs:comment "Checks whether a property is neither a property axiom property nor annotation property."^^xsd:string ;
+  rdfs:label "is non property axiom property"^^xsd:string ;
+  rdfs:subClassOf swa:PropertyWidgetGroupFilterFunctions ;
+.
+swa:isNumericDatatype
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            rdf:type sp:NamedGraph ;
+            sp:elements (
+                [
+                  sp:object swa:NumericDatatype ;
+                  sp:predicate rdf:type ;
+                  sp:subject [
+                      sp:varName "node"^^xsd:string ;
+                    ] ;
+                ]
+              ) ;
+            sp:graphNameNode ui:graph ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:node ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The node to check."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Checks whether a given node is a numeric datatype. The numeric types are marked with the class swa:NumericDatatype in the UI graph."^^xsd:string ;
+  rdfs:label "is numeric datatype"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:isPropertyAxiomProperty
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:exists ;
+                sp:elements (
+                    [
+                      rdf:type sp:NamedGraph ;
+                      sp:elements (
+                          [
+                            sp:object swa:PropertyAxiomProperty ;
+                            sp:predicate rdf:type ;
+                            sp:subject [
+                                sp:varName "predicate"^^xsd:string ;
+                              ] ;
+                          ]
+                        ) ;
+                      sp:graphNameNode ui:graph ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  rdfs:comment "Checks whether a given property has been marked as swa:PropertyAxiomProperty."^^xsd:string ;
+  rdfs:label "is property axiom property"^^xsd:string ;
+  rdfs:subClassOf swa:PropertyWidgetGroupFilterFunctions ;
+.
+swa:isReadOnlyTriple
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:expression [
+                rdf:type spif:isReadOnlyTriple ;
+                sp:arg1 spin:_arg1 ;
+                sp:arg2 spin:_arg2 ;
+                sp:arg3 spin:_arg3 ;
+              ] ;
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where () ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The subject."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg2 ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The predicate."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg3 ;
+      rdfs:comment "The object."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Checks whether a given subject/predicate/object combination is a read-only triple. All parameters must be present, i.e. no wild-card matching is supported. For the current framework, triples are marked as read-only by the corresponding spif:isReadOnlyTriple function (that in turn may look at the local installation, workspace etc)."^^xsd:string ;
+  rdfs:label "is read only triple"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:isResourceEnumeration
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "list"^^xsd:string ;
+              ] ;
+            sp:predicate owl:oneOf ;
+            sp:subject [
+                sp:varName "resource"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object owl:Class ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "resource"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resource ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The node to test."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Tests if a given range is a class with an owl:oneOf enumeration."^^xsd:string ;
+  rdfs:label "is resource enumeration"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:isSingle
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:not ;
+                sp:arg1 [
+                    rdf:type swa:isMulti ;
+                    arg:property [
+                        sp:varName "predicate"^^xsd:string ;
+                      ] ;
+                    arg:subject [
+                        sp:varName "subject"^^xsd:string ;
+                      ] ;
+                  ] ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:subject ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The subject - may be unbound to fall back to the subjectType."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:predicate ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The predicate to get the local range of."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Checks whether a given subject/predicate combination can have at most one value, according to the ontology. If subject isn't given then this function falls back to a provided subjectType class. The function will return true if the property is owl:FunctionalProperty, or if the maxCardinality is 1 or if it has an spl:Argument."^^xsd:string ;
+  rdfs:label "is single"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:labelExistsPreCondition
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:or ;
+                sp:arg1 [
+                    rdf:type sp:not ;
+                    sp:arg1 [
+                        rdf:type sp:bound ;
+                        sp:arg1 spin:_arg1 ;
+                      ] ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type sp:eq ;
+                    sp:arg1 [
+                        rdf:type fn:string-length ;
+                        sp:arg1 spin:_arg1 ;
+                      ] ;
+                    sp:arg2 0 ;
+                  ] ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression "Missing label." ;
+            sp:variable [
+                sp:varName "result"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The input string."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Can be used in ui:preCondition to check whether a given input string exists and is not empty."^^xsd:string ;
+  rdfs:label "label exists pre condition"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:labelInGraph
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "label"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:NamedGraph ;
+            sp:elements (
+                [
+                  rdf:type sp:Bind ;
+                  sp:expression [
+                      rdf:type ui:label ;
+                      sp:arg1 [
+                          sp:varName "resource"^^xsd:string ;
+                        ] ;
+                    ] ;
+                  sp:variable [
+                      sp:varName "label"^^xsd:string ;
+                    ] ;
+                ]
+              ) ;
+            sp:graphNameNode [
+                sp:varName "resourceGraph"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resource ;
+      spl:valueType rdfs:Resource ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resourceGraph ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The graph to operate on."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Calls ui:label in the context of a given graph."^^xsd:string ;
+  rdfs:label "label in graph"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:languageCode
+  rdf:type rdf:Property ;
+  rdfs:comment "The two-letter language code for a language associated with a Country."^^xsd:string ;
+  rdfs:domain swa:Country ;
+  rdfs:label "language code"^^xsd:string ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf swa:systemProperty ;
+.
+swa:letters
+  rdf:type spin:MagicProperty ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "letter"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Bind ;
+            sp:expression "ABCDEFGHIJKLMNOPQRSTUVWXYZ" ;
+            sp:variable [
+                sp:varName "str"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type fn:string-length ;
+                sp:arg1 [
+                    sp:varName "str"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "length"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+            sp:predicate spif:for ;
+            sp:subject [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object 1 ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "length"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object () ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type fn:substring ;
+                sp:arg1 [
+                    sp:varName "str"^^xsd:string ;
+                  ] ;
+                sp:arg2 [
+                    sp:varName "x"^^xsd:string ;
+                  ] ;
+                sp:arg3 1 ;
+              ] ;
+            sp:variable [
+                sp:varName "letter"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Binds the variable on the left with all letters from A-Z."^^xsd:string ;
+  rdfs:label "letters"^^xsd:string ;
+  rdfs:subClassOf spin:MagicProperties ;
+.
+swa:localDomain
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "domain"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Union ;
+            sp:elements (
+                (
+                  [
+                    rdf:type sp:TriplePath ;
+                    sp:object [
+                        sp:varName "p"^^xsd:string ;
+                      ] ;
+                    sp:path [
+                        rdf:type sp:ModPath ;
+                        sp:modMax -2 ;
+                        sp:modMin 0 ;
+                        sp:subPath rdfs:subPropertyOf ;
+                      ] ;
+                    sp:subject [
+                        sp:varName "predicate"^^xsd:string ;
+                      ] ;
+                  ]
+                  [
+                    sp:object [
+                        sp:varName "domain"^^xsd:string ;
+                      ] ;
+                    sp:predicate rdfs:domain ;
+                    sp:subject [
+                        sp:varName "p"^^xsd:string ;
+                      ] ;
+                  ]
+                )
+                (
+                  [
+                    rdf:type sp:Bind ;
+                    sp:expression rdfs:Resource ;
+                    sp:variable [
+                        sp:varName "domain"^^xsd:string ;
+                      ] ;
+                  ]
+                )
+              ) ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:object ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The object resource."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:predicate ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The predicate to get the domain of."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType rdfs:Class ;
+  rdfs:comment "Gets the \"domain\" of a property at an object. This is used to narrow down the Subjects widgets at edit time. Currently only uses rdfs:domain of the property, but future versions should also look at restrictions and spl:Arguments."^^xsd:string ;
+  rdfs:label "local domain"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:localRange
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type swa:resourceType ;
+                arg:resource [
+                    sp:varName "subject"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "subjectType"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type swa:localRangeAtClass ;
+                arg:class [
+                    sp:varName "subjectType"^^xsd:string ;
+                  ] ;
+                arg:property [
+                    sp:varName "predicate"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "raw"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:if ;
+                sp:arg1 [
+                    rdf:type sp:or ;
+                    sp:arg1 [
+                        rdf:type sp:or ;
+                        sp:arg1 [
+                            rdf:type sp:isIRI ;
+                            sp:arg1 [
+                                sp:varName "raw"^^xsd:string ;
+                              ] ;
+                          ] ;
+                        sp:arg2 [
+                            rdf:type swa:isDatatypeEnumeration ;
+                            arg:resource [
+                                sp:varName "raw"^^xsd:string ;
+                              ] ;
+                          ] ;
+                      ] ;
+                    sp:arg2 [
+                        rdf:type swa:isResourceEnumeration ;
+                        arg:resource [
+                            sp:varName "raw"^^xsd:string ;
+                          ] ;
+                      ] ;
+                  ] ;
+                sp:arg2 [
+                    sp:varName "raw"^^xsd:string ;
+                  ] ;
+                sp:arg3 rdfs:Resource ;
+              ] ;
+            sp:variable [
+                sp:varName "result"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:subject ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The subject - may be unbound to fall back to the subjectType."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:predicate ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The predicate to get the local range of."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType rdfs:Resource ;
+  rdfs:comment "Computes the local range of a property at a given subject. This uses swa:localRangeAtClass for the actual work, but falls back to rdfs:Resource if needed. In other words, this function will always return a result. Blank node ranges are only supported if they are enumerations, but owl:unionOf ranges are mapped to rdfs:Resource."^^xsd:string ;
+  rdfs:label "local range"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:localRangeAtClass
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:expression [
+                rdf:type sp:coalesce ;
+                sp:arg1 [
+                    rdf:type spif:walkObjects ;
+                    sp:arg1 [
+                        sp:varName "class"^^xsd:string ;
+                      ] ;
+                    sp:arg2 rdfs:subClassOf ;
+                    sp:arg3 swa:allValuesFromFunctor ;
+                    sp:arg4 [
+                        sp:varName "property"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type spif:walkObjects ;
+                    sp:arg1 [
+                        sp:varName "class"^^xsd:string ;
+                      ] ;
+                    sp:arg2 rdfs:subClassOf ;
+                    sp:arg3 swa:splValueTypeFunctor ;
+                    sp:arg4 [
+                        sp:varName "property"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg3 [
+                    rdf:type swa:globalRange ;
+                    arg:property [
+                        sp:varName "property"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg4 [
+                    rdf:type swa:defaultRange ;
+                    arg:property [
+                        sp:varName "property"^^xsd:string ;
+                      ] ;
+                  ] ;
+              ] ;
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where () ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:class ;
+      spl:valueType rdfs:Class ;
+      rdfs:comment "The class to start traveral at."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:property ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The property to get the local range of."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType rdfs:Resource ;
+  rdfs:comment """Checks (in that order) for declared owl:allValuesFrom restrictions in superclasses, rdfs:range at the property and then spl:valueType in SPIN constraints (spl:Argument and spl:Attribute). It falls back to swa:defaultRange if nothing else is found.
+
+Note that TopBraid Suite uses a native (optimized) implementation of this function, i.e. the SPIN body is never called when used inside of TopBraid Suite."""^^xsd:string ;
+  rdfs:label "local range at class"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:matchingArgumentPredicate
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:orderBy (
+          [
+            sp:varName "predicate"^^xsd:string ;
+          ]
+        ) ;
+      sp:resultVariables (
+          [
+            sp:varName "predicate"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "arg"^^xsd:string ;
+              ] ;
+            sp:predicate spin:constraint ;
+            sp:subject [
+                sp:varName "module"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object spl:Argument ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "arg"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "argValueType"^^xsd:string ;
+              ] ;
+            sp:predicate spl:valueType ;
+            sp:subject [
+                sp:varName "arg"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:NamedGraph ;
+            sp:elements (
+                [
+                  rdf:type sp:TriplePath ;
+                  sp:object [
+                      sp:varName "argValueType"^^xsd:string ;
+                    ] ;
+                  sp:path [
+                      rdf:type sp:ModPath ;
+                      sp:modMax -2 ;
+                      sp:modMin 0 ;
+                      sp:subPath rdfs:subClassOf ;
+                    ] ;
+                  sp:subject [
+                      sp:varName "valueType"^^xsd:string ;
+                    ] ;
+                ]
+              ) ;
+            sp:graphNameNode [
+                sp:varName "valueTypeGraph"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "predicate"^^xsd:string ;
+              ] ;
+            sp:predicate spl:predicate ;
+            sp:subject [
+                sp:varName "arg"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:module ;
+      spl:valueType spin:Module ;
+      rdfs:comment "The SPIN module to query."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:valueType ;
+      spl:valueType rdfs:Class ;
+      rdfs:comment "The value type to match."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:valueTypeGraph ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The graph containing the type declaration of the valueType, e.g. subclasses of skos:Concept."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType rdf:Property ;
+  rdfs:comment "Walks through all declared arguments of a given SPIN module (e.g. SPIN Template or SM function) and compares the value type with a given type. The function returns the first argument where the type could be used as value."^^xsd:string ;
+  rdfs:label "matching argument predicate"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:newResource
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:expression [
+                rdf:type sp:coalesce ;
+                sp:arg1 [
+                    rdf:type swa:newResourceByIndex ;
+                    arg:resourceType [
+                        sp:varName "resourceType"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type swa:newResourceByUUID ;
+                    arg:resourceType [
+                        sp:varName "resourceType"^^xsd:string ;
+                      ] ;
+                  ] ;
+              ] ;
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where () ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resourceType ;
+      spl:valueType rdfs:Class ;
+      rdfs:comment "The type of the new resource."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType rdfs:Resource ;
+  rdfs:comment "Produces a suggestion for a URI for a new resource. This first tries to produce a unique URI by appending a number behind a base URI. If that fails, it uses a UUID."^^xsd:string ;
+  rdfs:label "new resource"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:newResourceByIndex
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type swa:getDefaultNamespace ;
+              ] ;
+            sp:variable [
+                sp:varName "base"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type afn:localname ;
+                sp:arg1 [
+                    sp:varName "resourceType"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "name"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+            sp:predicate spif:for ;
+            sp:subject [
+                sp:varName "index"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object 0 ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object 9999 ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object () ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:iri ;
+                sp:arg1 [
+                    rdf:type fn:concat ;
+                    sp:arg1 [
+                        rdf:type xsd:string ;
+                        sp:arg1 [
+                            sp:varName "base"^^xsd:string ;
+                          ] ;
+                      ] ;
+                    sp:arg2 [
+                        sp:varName "name"^^xsd:string ;
+                      ] ;
+                    sp:arg3 "_" ;
+                    sp:arg4 [
+                        sp:varName "index"^^xsd:string ;
+                      ] ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "result"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:notExists ;
+                sp:elements (
+                    [
+                      sp:object [
+                          sp:varName "anyType"^^xsd:string ;
+                        ] ;
+                      sp:predicate rdf:type ;
+                      sp:subject [
+                          sp:varName "result"^^xsd:string ;
+                        ] ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resourceType ;
+      spl:valueType rdfs:Class ;
+      rdfs:comment "The type of the new resource."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType rdfs:Resource ;
+  rdfs:comment "Produces a suggestion for a URI for a new resource. This uses the URI of the main owl:Ontology as base, and then adds the type local name and then a running number. The function makes sure that the URI is not used in the current model yet."^^xsd:string ;
+  rdfs:label "new resource by index"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:newResourceByUUID
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type swa:getDefaultNamespace ;
+              ] ;
+            sp:variable [
+                sp:varName "base"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type afn:localname ;
+                sp:arg1 [
+                    sp:varName "resourceType"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "name"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:iri ;
+                sp:arg1 [
+                    rdf:type fn:concat ;
+                    sp:arg1 [
+                        rdf:type xsd:string ;
+                        sp:arg1 [
+                            sp:varName "base"^^xsd:string ;
+                          ] ;
+                      ] ;
+                    sp:arg2 [
+                        sp:varName "name"^^xsd:string ;
+                      ] ;
+                    sp:arg3 "_" ;
+                    sp:arg4 [
+                        rdf:type ui:uniqueId ;
+                      ] ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "result"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resourceType ;
+      spl:valueType rdfs:Class ;
+      rdfs:comment "The type of the new resource."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType rdfs:Resource ;
+  rdfs:comment "Produces a suggestion for a URI for a new resource. This uses the URI of the main owl:Ontology as base, and then adds the type local name and then a UUID."^^xsd:string ;
+  rdfs:label "new resource by UUID"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:object
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            rdf:type sp:if ;
+            sp:arg1 [
+                rdf:type sp:bound ;
+                sp:arg1 spin:_arg1 ;
+              ] ;
+            sp:arg2 [
+                rdf:type spl:object ;
+                sp:arg1 spin:_arg1 ;
+                sp:arg2 [
+                    sp:varName "predicate"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:arg3 [
+                sp:varName "nothing"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where () ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate sp:arg1 ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The subject."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:predicate ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The predicate."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  rdfs:comment "Gets the best matching object for a given subject/predicate combination. Returns nothing if the subject (?arg1) is unbound."^^xsd:string ;
+  rdfs:label "object"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:objectsList
+  rdf:type spin:Function ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The subject to get the objects of."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg2 ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The predicate to get the objects of."^^xsd:string ;
+    ] ;
+  rdfs:comment "Collects all values (objects) of a given subject/predicate combination into a single string list, separated by commas. If there is just a single literal value, then return that value in the original data type. Used by SWA search forms to display optional (key) columns."^^xsd:string ;
+  rdfs:label "objects list"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+  owl:versionInfo """An approximate implementation of this is
+
+SELECT ((GROUP_CONCAT(?label; SEPARATOR=', ')) AS ?result)
+WHERE {
+    ( ?arg1 ?arg2 ) swa:orderedObjectLabels ?label .
+}
+ORDER BY (?label)
+
+but it needs to return the original datatype (not a string) if there is just a single value."""^^xsd:string ;
+.
+swa:orderedObjectLabels
+  rdf:type spin:MagicProperty ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:orderBy (
+          [
+            sp:varName "label"^^xsd:string ;
+          ]
+        ) ;
+      sp:resultVariables (
+          [
+            sp:varName "label"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "value"^^xsd:string ;
+              ] ;
+            sp:predicate spin:_arg2 ;
+            sp:subject spin:_arg1 ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type ui:label ;
+                sp:arg1 [
+                    sp:varName "value"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The subject to get the objects of."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg2 ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The predicate"^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Produces an ordered iterator over the ui:labels of the objects of a given subject/predicate combination. This is required by swa:objectsList because the GROUP_CONCAT is applied before ORDER BY (probably a Jena bug)."^^xsd:string ;
+  rdfs:label "ordered object labels"^^xsd:string ;
+  rdfs:subClassOf spin:MagicProperties ;
+.
+swa:orderedSubjectLabels
+  rdf:type spin:MagicProperty ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:orderBy (
+          [
+            sp:varName "label"^^xsd:string ;
+          ]
+        ) ;
+      sp:resultVariables (
+          [
+            sp:varName "label"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object spin:_arg1 ;
+            sp:predicate spin:_arg2 ;
+            sp:subject [
+                sp:varName "value"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type ui:label ;
+                sp:arg1 [
+                    sp:varName "value"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The object to get the subjects of."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg2 ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The predicate"^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Produces an ordered iterator over the ui:labels of the subjects of a given object/predicate combination. This is required by swa:subjectsList because the GROUP_CONCAT is applied before ORDER BY (probably a Jena bug)."^^xsd:string ;
+  rdfs:label "ordered subject labels"^^xsd:string ;
+  rdfs:subClassOf spin:MagicProperties ;
+.
+swa:owlMaxCardinality
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "c"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:TriplePath ;
+            sp:object [
+                sp:varName "superClass"^^xsd:string ;
+              ] ;
+            sp:path [
+                rdf:type sp:ModPath ;
+                sp:modMax -2 ;
+                sp:modMin 0 ;
+                sp:subPath rdfs:subClassOf ;
+              ] ;
+            sp:subject [
+                sp:varName "class"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+            sp:predicate owl:onProperty ;
+            sp:subject [
+                sp:varName "superClass"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:TriplePath ;
+            sp:object [
+                sp:varName "c"^^xsd:string ;
+              ] ;
+            sp:path [
+                rdf:type sp:AltPath ;
+                sp:path1 owl:cardinality ;
+                sp:path2 owl:maxCardinality ;
+              ] ;
+            sp:subject [
+                sp:varName "superClass"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:class ;
+      spl:valueType rdfs:Class ;
+      rdfs:comment "The class to get cardinality at."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:property ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The property to get the cardinality of."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:integer ;
+  rdfs:comment "Walks up the class tree to find the closest owl:maxCardinality or owl:cardinality restriction on a given property."^^xsd:string ;
+  rdfs:label "owl max cardinality"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:resourceType
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            rdf:type sp:if ;
+            sp:arg1 [
+                rdf:type sp:bound ;
+                sp:arg1 [
+                    sp:varName "resourceType"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:arg2 [
+                sp:varName "resourceType"^^xsd:string ;
+              ] ;
+            sp:arg3 [
+                rdf:type sp:if ;
+                sp:arg1 [
+                    rdf:type sp:bound ;
+                    sp:arg1 [
+                        sp:varName "resource"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type sp:coalesce ;
+                    sp:arg1 [
+                        rdf:type spl:object ;
+                        sp:arg1 [
+                            sp:varName "resource"^^xsd:string ;
+                          ] ;
+                        sp:arg2 rdf:type ;
+                      ] ;
+                    sp:arg2 rdfs:Resource ;
+                  ] ;
+                sp:arg3 rdfs:Resource ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type ui:contextValue ;
+                sp:arg1 "resourceType" ;
+              ] ;
+            sp:variable [
+                sp:varName "resourceType"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:resource ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The resource (may be unbound)."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType rdfs:Class ;
+  rdfs:comment "Gets a valid rdf:type for a given resource. If the context variable 'resourceType' is bound, then return that. Otherwise return the 'first' rdf:type of ?resource. As a fall-back, always use rdfs:Resource."^^xsd:string ;
+  rdfs:label "resource type"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:rootView
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "parent"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:NamedGraph ;
+            sp:elements (
+                [
+                  rdf:type sp:TriplePath ;
+                  sp:object [
+                      sp:varName "view"^^xsd:string ;
+                    ] ;
+                  sp:path [
+                      rdf:type sp:ModPath ;
+                      sp:modMax -2 ;
+                      sp:modMin 0 ;
+                      sp:subPath ui:child ;
+                    ] ;
+                  sp:subject [
+                      sp:varName "parent"^^xsd:string ;
+                    ] ;
+                ]
+                [
+                  rdf:type sp:Filter ;
+                  sp:expression [
+                      rdf:type sp:notExists ;
+                      sp:elements (
+                          [
+                            sp:object [
+                                sp:varName "parent"^^xsd:string ;
+                              ] ;
+                            sp:predicate ui:child ;
+                            sp:subject [
+                                sp:varName "another"^^xsd:string ;
+                              ] ;
+                          ]
+                        ) ;
+                    ] ;
+                ]
+              ) ;
+            sp:graphNameNode ui:graph ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:view ;
+      spl:valueType ui:Element ;
+      rdfs:comment "The view to get the root of."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType ui:Element ;
+  rdfs:comment "Walks up the child hierarchy of SWP nodes in the ui:graph until it finds no further parent for the provided view."^^xsd:string ;
+  rdfs:label "root view"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:splArgumentOnProperty
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "arg"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:TriplePath ;
+            sp:object [
+                sp:varName "superClass"^^xsd:string ;
+              ] ;
+            sp:path [
+                rdf:type sp:ModPath ;
+                sp:modMax -2 ;
+                sp:modMin 0 ;
+                sp:subPath rdfs:subClassOf ;
+              ] ;
+            sp:subject [
+                sp:varName "class"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "arg"^^xsd:string ;
+              ] ;
+            sp:predicate spin:constraint ;
+            sp:subject [
+                sp:varName "superClass"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+            sp:predicate spl:predicate ;
+            sp:subject [
+                sp:varName "arg"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object spl:Argument ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "arg"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:class ;
+      spl:valueType rdfs:Class ;
+      rdfs:comment "The class to start traversal at."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:property ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The property to look for."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType spl:Argument ;
+  rdfs:comment "Walks up the class hierarchy to look for spl:Arguments on the property."^^xsd:string ;
+  rdfs:label "spl:Argument on property"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:splValueTypeFunctor
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "valueType"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "constraint"^^xsd:string ;
+              ] ;
+            sp:predicate spin:constraint ;
+            sp:subject [
+                sp:varName "class"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+            sp:predicate spl:predicate ;
+            sp:subject [
+                sp:varName "constraint"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "valueType"^^xsd:string ;
+              ] ;
+            sp:predicate spl:valueType ;
+            sp:subject [
+                sp:varName "constraint"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:property ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The property to look for."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType rdfs:Class ;
+  rdfs:comment "Can be used in conjunction with spif:walkObjects to get the \"first\" declared spin:constraint with an spl:valueType on a given spl:predicate (?property) at a given class (?class)."^^xsd:string ;
+  rdfs:label "spl:valueType functor"^^xsd:string ;
+  rdfs:subClassOf swa:ClassFunctorFunctions ;
+.
+swa:subjectsList
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:orderBy (
+          [
+            sp:varName "label"^^xsd:string ;
+          ]
+        ) ;
+      sp:resultVariables (
+          [
+            sp:expression [
+                rdf:type sp:GroupConcat ;
+                sp:expression [
+                    sp:varName "label"^^xsd:string ;
+                  ] ;
+                sp:separator ", "^^xsd:string ;
+              ] ;
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object spin:_arg1 ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object spin:_arg2 ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object () ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+            sp:predicate swa:orderedSubjectLabels ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The object to get the subjects of."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg2 ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The predicate to get the objects of."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Collects all subjects of a given object/predicate combination into a single string list, separated by commas. Used by SWA search forms to display optional (key) columns."^^xsd:string ;
+  rdfs:label "subjects list"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:systemProperty
+  rdf:type rdf:Property ;
+  rdfs:label "system properties"^^xsd:string ;
+.
+swa:uiObject
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "object"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:NamedGraph ;
+            sp:elements (
+                [
+                  rdf:type sp:Bind ;
+                  sp:expression [
+                      rdf:type spl:object ;
+                      sp:arg1 spin:_arg1 ;
+                      sp:arg2 spin:_arg2 ;
+                    ] ;
+                  sp:variable [
+                      sp:varName "object"^^xsd:string ;
+                    ] ;
+                ]
+              ) ;
+            sp:graphNameNode ui:graph ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The subject."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg2 ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The predicate."^^xsd:string ;
+    ] ;
+  rdfs:comment "Similar to spl:object, but executed within the ui:graph."^^xsd:string ;
+  rdfs:label "ui object"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:unusedURIPreCondition
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "message"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:or ;
+                sp:arg1 [
+                    rdf:type sp:exists ;
+                    sp:elements (
+                        [
+                          sp:object [
+                              sp:varName "o"^^xsd:string ;
+                            ] ;
+                          sp:predicate [
+                              sp:varName "p"^^xsd:string ;
+                            ] ;
+                          sp:subject [
+                              sp:varName "resource"^^xsd:string ;
+                            ] ;
+                        ]
+                      ) ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type sp:exists ;
+                    sp:elements (
+                        [
+                          sp:object [
+                              sp:varName "resource"^^xsd:string ;
+                            ] ;
+                          sp:predicate [
+                              sp:varName "p"^^xsd:string ;
+                            ] ;
+                          sp:subject [
+                              sp:varName "s"^^xsd:string ;
+                            ] ;
+                        ]
+                      ) ;
+                  ] ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type fn:concat ;
+                sp:arg1 "The URI " ;
+                sp:arg2 [
+                    rdf:type xsd:string ;
+                    sp:arg1 [
+                        sp:varName "resource"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg3 " is already used." ;
+              ] ;
+            sp:variable [
+                sp:varName "message"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resource ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The resource to check."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Can be used in conjunction with ui:preCondition to check whether a given URI has already been used in the current query graph."^^xsd:string ;
+  rdfs:label "unused URIPre condition"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+swa:validURIPreCondition
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:not ;
+                sp:arg1 [
+                    rdf:type spif:isValidURI ;
+                    sp:arg1 spin:_arg1 ;
+                  ] ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type fn:concat ;
+                sp:arg1 "Not a well-formed absolute URI: " ;
+                sp:arg2 spin:_arg1 ;
+              ] ;
+            sp:variable [
+                sp:varName "result"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The argument string."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Can be used with ui:preCondition to check whether a given string is a valid URI."^^xsd:string ;
+  rdfs:label "valid URI pre-condition"^^xsd:string ;
+  rdfs:subClassOf swa:Functions ;
+.
+<http://topbraid.org/swa.spin>
+  rdf:type owl:Ontology ;
+  rdfs:comment "A collection of SPIN functions and auxiliary definitions to support building interactive web applications."^^xsd:string ;
+  owl:imports <http://spinrdf.org/spl> ;
+  owl:imports <http://uispin.org/ui> ;
+  owl:versionInfo "0.5.1"^^xsd:string ;
+.
+rdfs:domain
+  rdf:type swa:PropertyAxiomProperty ;
+.
+rdfs:range
+  rdf:type swa:PropertyAxiomProperty ;
+.
+rdfs:subClassOf
+  rdf:type swa:ClassAxiomProperty ;
+.
+rdfs:subPropertyOf
+  rdf:type swa:PropertyAxiomProperty ;
+.
+xsd:byte
+  rdf:type swa:NumericDatatype ;
+.
+xsd:decimal
+  rdf:type swa:NumericDatatype ;
+.
+xsd:double
+  rdf:type swa:NumericDatatype ;
+.
+xsd:float
+  rdf:type swa:NumericDatatype ;
+.
+xsd:int
+  rdf:type swa:NumericDatatype ;
+.
+xsd:integer
+  rdf:type swa:NumericDatatype ;
+.
+xsd:long
+  rdf:type swa:NumericDatatype ;
+.
+xsd:negativeInteger
+  rdf:type swa:NumericDatatype ;
+.
+xsd:nonNegativeInteger
+  rdf:type swa:NumericDatatype ;
+.
+xsd:nonPositiveInteger
+  rdf:type swa:NumericDatatype ;
+.
+xsd:positiveInteger
+  rdf:type swa:NumericDatatype ;
+.
+xsd:short
+  rdf:type swa:NumericDatatype ;
+.
+xsd:unsignedByte
+  rdf:type swa:NumericDatatype ;
+.
+xsd:unsignedInt
+  rdf:type swa:NumericDatatype ;
+.
+xsd:unsignedLong
+  rdf:type swa:NumericDatatype ;
+.
+xsd:unsignedShort
+  rdf:type swa:NumericDatatype ;
+.
+owl:complementOf
+  rdf:type swa:ClassAxiomProperty ;
+.
+owl:disjointUnionOf
+  rdf:type swa:ClassAxiomProperty ;
+.
+owl:disjointWith
+  rdf:type swa:ClassAxiomProperty ;
+.
+owl:equivalentClass
+  rdf:type swa:ClassAxiomProperty ;
+.
+owl:equivalentProperty
+  rdf:type swa:PropertyAxiomProperty ;
+.
+owl:hasKey
+  rdf:type swa:ClassAxiomProperty ;
+.
+owl:intersectionOf
+  rdf:type swa:ClassAxiomProperty ;
+.
+owl:inverseOf
+  rdf:type swa:PropertyAxiomProperty ;
+.
+owl:oneOf
+  rdf:type swa:ClassAxiomProperty ;
+.
+owl:propertyChainAxiom
+  rdf:type swa:PropertyAxiomProperty ;
+.
+owl:propertyDisjointWith
+  rdf:type swa:PropertyAxiomProperty ;
+.
+owl:unionOf
+  rdf:type swa:ClassAxiomProperty ;
+.

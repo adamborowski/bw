@@ -1,0 +1,74 @@
+# baseURI: null
+
+# c14n-version: 3
+@prefix composite: <http://www.topbraid.org/2007/05/composite.owl#> .
+@prefix daml: <http://www.daml.org/2001/03/daml+oil#> .
+@prefix forms: <http://www.topbraid.org/2007/01/forms.owl#> .
+@prefix inference: <http://www.topbraid.org/2007/06/inference.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix visual: <http://topbraid.org/visual#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+<http://xmlns.com/foaf/0.1/Person>
+  forms:keyProperties (
+      <http://xmlns.com/foaf/0.1/mbox>
+      <http://xmlns.com/foaf/0.1/name>
+    ) ;
+.
+[
+  rdf:type forms:Form ;
+  forms:parentOf [
+      rdf:type forms:Panel ;
+      forms:childIndex "0"^^xsd:int ;
+      forms:numColumns "2"^^xsd:int ;
+      forms:parentOf [
+          rdf:type forms:Panel ;
+          forms:childIndex "0"^^xsd:int ;
+          forms:parentOf [
+              rdf:type forms:PropertyWidget ;
+              forms:childIndex "0"^^xsd:int ;
+              forms:predicate <http://xmlns.com/foaf/0.1/name> ;
+            ] ;
+          forms:parentOf [
+              rdf:type forms:PropertyWidget ;
+              forms:childIndex "1"^^xsd:int ;
+              forms:predicate <http://xmlns.com/foaf/0.1/mbox> ;
+            ] ;
+          forms:parentOf [
+              rdf:type forms:PropertyWidget ;
+              forms:childIndex "2"^^xsd:int ;
+              forms:predicate <http://xmlns.com/foaf/0.1/birthday> ;
+            ] ;
+          forms:parentOf [
+              rdf:type forms:PropertyWidget ;
+              forms:childIndex "3"^^xsd:int ;
+              forms:predicate <http://xmlns.com/foaf/0.1/gender> ;
+            ] ;
+        ] ;
+      forms:parentOf [
+          rdf:type forms:Panel ;
+          forms:childIndex "1"^^xsd:int ;
+          forms:parentOf [
+              rdf:type forms:PropertyWidget ;
+              forms:autoExpand "false"^^xsd:string ;
+              forms:childIndex "0"^^xsd:int ;
+              forms:predicate <http://xmlns.com/foaf/0.1/img> ;
+            ] ;
+        ] ;
+    ] ;
+  forms:parentOf [
+      rdf:type forms:Section ;
+      forms:childIndex "1"^^xsd:int ;
+      forms:parentOf [
+          rdf:type forms:PropertyWidgetGroup ;
+          forms:childIndex "0" ;
+          forms:predicateType rdf:Property ;
+        ] ;
+      rdfs:label "Properties" ;
+    ] ;
+  forms:subjectType <http://xmlns.com/foaf/0.1/Person> ;
+  forms:useDomain "true"^^xsd:boolean ;
+  forms:useLabels "true"^^xsd:boolean ;
+  rdfs:label "Resource Form" ;
+].

@@ -1,0 +1,1348 @@
+# baseURI: http://uispin.org/charts
+# imports: http://uispin.org/html
+
+# c14n-version: 3
+@prefix afn: <http://jena.hpl.hp.com/ARQ/function#> .
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix charts: <http://uispin.org/charts#> .
+@prefix css: <http://uispin.org/css#> .
+@prefix default: <http://uispin.org/default#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix html: <http://uispin.org/html#> .
+@prefix let: <http://uispin.org/let#> .
+@prefix letrs: <http://uispin.org/letrs#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix smf: <http://topbraid.org/sparqlmotionfunctions#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spif: <http://spinrdf.org/spif#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix spr: <http://spinrdf.org/spr#> .
+@prefix spra: <http://spinrdf.org/spra#> .
+@prefix style: <http://uispin.org/style#> .
+@prefix ui: <http://uispin.org/ui#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+<http://uispin.org/charts>
+  rdf:type owl:Ontology ;
+  owl:imports <http://uispin.org/html> ;
+  owl:versionInfo "0.4.0"^^xsd:string ;
+.
+charts:AmpSeparatedList
+  rdf:type spr:Aggregator ;
+  spr:startValue ""^^xsd:string ;
+  spr:stepFunction charts:AmpSeparatedListAggregatorStepFunction ;
+  rdfs:label "Amp separated list"^^xsd:string ;
+.
+charts:AmpSeparatedListAggregatorStepFunction
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            rdf:type smf:if ;
+            sp:arg1 [
+                rdf:type sp:gt ;
+                sp:arg1 [
+                    rdf:type fn:string-length ;
+                    sp:arg1 spin:_arg1 ;
+                  ] ;
+                sp:arg2 0 ;
+              ] ;
+            sp:arg2 [
+                rdf:type fn:concat ;
+                sp:arg1 spin:_arg1 ;
+                sp:arg2 "&" ;
+                sp:arg3 spin:_arg2 ;
+              ] ;
+            sp:arg3 spin:_arg2 ;
+          ]
+        ) ;
+      sp:where () ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:label "Amp separated list aggregator step function"^^xsd:string ;
+  rdfs:subClassOf spr:AggregatorStepFunctions ;
+.
+charts:BarChart
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "0"^^xsd:float ;
+      spl:predicate charts:minRange ;
+      spl:valueType xsd:float ;
+      rdfs:comment "The minimum range on the axis."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "100"^^xsd:float ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate charts:maxRange ;
+      spl:valueType xsd:float ;
+      rdfs:comment "The maximum range of the axis."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "false"^^xsd:boolean ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate charts:horizontal ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "Specifies whether the bars shall be laid out horizontal or vertical (default)."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:label ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The (optional) label of the chart."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate ui:resultSet ;
+      spl:valueType sp:Select ;
+      rdfs:comment "The SELECT query delivering the values (first result variable) and the labels (second result variable). The values must be normalized to the range of 0-100."^^xsd:string ;
+    ] ;
+  ui:prototype """
+<charts:GoogleChartImg charts:chd=\"{= charts:dataList(?resultSet, 0) }\" charts:chs=\"{= charts:wxh(?width, ?height) }\" charts:cht=\"{= smf:if(?horizontal, &quot;bhs&quot;, &quot;bvs&quot;) }\" charts:chtt=\"{= ?label }\" charts:chxl='{#
+        SELECT ?result
+        WHERE {
+            FILTER (spr:colCount(?resultSet) &gt; 1) .
+            BIND (smf:if(?horizontal, charts:InvLineSeparatedLabelList, charts:LineSeparatedLabelList) AS ?aggr) .
+            BIND (spr:aggregateCol(?aggr, ?resultSet, 1) AS ?labels) .
+            BIND (smf:if(?horizontal, 1, 0) AS ?index) .
+            BIND (fn:concat(?index, \":|\", ?labels) AS ?result) .
+        } }' charts:chxr='{#
+        SELECT ?result
+        WHERE {
+            BIND (smf:if(bound(?minRange), ?minRange, 0) AS ?min) .
+            BIND (smf:if(bound(?maxRange), ?maxRange, 100) AS ?max) .
+            BIND (smf:if(?horizontal, 0, 1) AS ?index) .
+            BIND (fn:concat(?index, \",\", ?min, \",\", ?max) AS ?result) .
+        } }' charts:chxt=\"x,y\"/>
+"""^^ui:Literal ;
+  rdfs:comment "A horizontal or vertical bar chart, displaying data derived from a SPARQL SELECT query."^^xsd:string ;
+  rdfs:label "Bar chart"^^xsd:string ;
+  rdfs:subClassOf charts:ChartElements ;
+  rdfs:subClassOf html:Img ;
+.
+charts:ChartElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract base class to group together the various kinds of officially supported charts elements. There are other element classes here but these are meant for internal use only."^^xsd:string ;
+  rdfs:label "Chart elements"^^xsd:string ;
+  rdfs:subClassOf ui:Element ;
+.
+charts:GoogleChartImg
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate charts:chbh ;
+      spl:valueType xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate charts:chp ;
+      spl:valueType xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate charts:chts ;
+      spl:valueType xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate charts:chxl ;
+      spl:valueType xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate charts:chxr ;
+      spl:valueType xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate charts:chxt ;
+      spl:valueType xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:chco ;
+      spl:valueType xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:chd ;
+      spl:valueType xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:chl ;
+      spl:valueType xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:chld ;
+      spl:valueType xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:chs ;
+      spl:valueType xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:cht ;
+      spl:valueType xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:chtm ;
+      spl:valueType xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:chtt ;
+      spl:valueType xsd:string ;
+    ] ;
+  ui:prototype """
+<charts:URLParameterImg charts:baseURL=\"http://chart.apis.google.com/chart?\"/>
+"""^^ui:Literal ;
+  rdfs:comment "Implementation class for the various chart types that are mapped to Google Charts API by default. The arguments will be automatically translated into URL parameter lists using the delegate charts:URLParameterImg."^^xsd:string ;
+  rdfs:label "Google Chart img"^^xsd:string ;
+  rdfs:subClassOf html:Img ;
+.
+charts:GoogleStaticMapImg
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:center ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:format ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:maptype ;
+      spl:valueType xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:markers ;
+      spl:valueType xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:sensor ;
+      spl:valueType xsd:boolean ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:size ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The size of the map."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:zoom ;
+    ] ;
+  ui:prototype """
+<charts:URLParameterImg charts:baseURL=\"http://maps.google.com/maps/api/staticmap?\"/>
+"""^^ui:Literal ;
+  rdfs:label "Google static map img"^^xsd:string ;
+  rdfs:subClassOf html:Img ;
+.
+charts:InvLineSeparatedLabelList
+  rdf:type spr:Aggregator ;
+  spr:startValue ""^^xsd:string ;
+  spr:stepFunction charts:InvLineSeparatedLabelListAggregatorStepFunction ;
+  rdfs:label "Inv line separated label list"^^xsd:string ;
+.
+charts:InvLineSeparatedLabelListAggregatorStepFunction
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type ui:label ;
+                sp:arg1 spin:_arg2 ;
+              ] ;
+            sp:variable [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type smf:if ;
+                sp:arg1 [
+                    rdf:type sp:gt ;
+                    sp:arg1 [
+                        rdf:type fn:string-length ;
+                        sp:arg1 spin:_arg1 ;
+                      ] ;
+                    sp:arg2 0 ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type fn:concat ;
+                    sp:arg1 [
+                        sp:varName "label"^^xsd:string ;
+                      ] ;
+                    sp:arg2 "|" ;
+                    sp:arg3 spin:_arg1 ;
+                  ] ;
+                sp:arg3 [
+                    sp:varName "label"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "result"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:label "Inv line separated label list aggregator step function"^^xsd:string ;
+  rdfs:subClassOf spr:AggregatorStepFunctions ;
+.
+charts:LineSeparatedLabelList
+  rdf:type spr:Aggregator ;
+  spr:startValue ""^^xsd:string ;
+  spr:stepFunction charts:LineSeparatedLabelListAggregatorStepFunction ;
+  rdfs:label "Line separated label list"^^xsd:string ;
+.
+charts:LineSeparatedLabelListAggregatorStepFunction
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type ui:label ;
+                sp:arg1 spin:_arg2 ;
+              ] ;
+            sp:variable [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type smf:if ;
+                sp:arg1 [
+                    rdf:type sp:gt ;
+                    sp:arg1 [
+                        rdf:type fn:string-length ;
+                        sp:arg1 spin:_arg1 ;
+                      ] ;
+                    sp:arg2 0 ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type fn:concat ;
+                    sp:arg1 spin:_arg1 ;
+                    sp:arg2 "|" ;
+                    sp:arg3 [
+                        sp:varName "label"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg3 [
+                    sp:varName "label"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "result"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:label "Line separated label list aggregator step function"^^xsd:string ;
+  rdfs:subClassOf spr:AggregatorStepFunctions ;
+.
+charts:Map
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "12"^^xsd:string ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate charts:iconWidth ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "The width of the icon"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue 13 ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate charts:zoom ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "The zoom level of the map."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "20"^^xsd:string ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate charts:iconHeight ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "The width of the icon."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate ui:resultSet ;
+      spl:valueType sp:Select ;
+      rdfs:comment "A SELECT query that defines the position and behavior of the markers on the map. The query must return the variables ?lat and ?long to contain the coordinate of the marker. Optionally, the variable ?link can point to a resource. If ?link is provided, the map will display a summary resource view for the resources. Finally, the variable ?icon can be returned to specify the icon to be used for the markers."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:center ;
+      spl:valueType xsd:string ;
+      rdfs:comment "A string of the format \"lat,long\" defining the center of the map."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:height ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "The height of the map in pixels."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:width ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "The width of the map in pixels."^^xsd:string ;
+    ] ;
+  ui:prototype """
+<div let:id=\"{= ui:uniqueId() }\">
+    <div id=\"{= ?id }\" let:cent=\"{= IF(bound(?center), ?center, charts:findCenter(?resultSet)) }\" style=\"{= fn:concat(&quot;width: &quot;, ?width, &quot;px; height: &quot;, ?height, &quot;px&quot;) }\">
+        <script type=\"text/javascript\">var map = new GMap2(document.getElementById(\"{= ?id }\"));
+map.setCenter(new GLatLng({= ?cent }), {= IF(bound(?zoom), ?zoom, 13) });
+map.setUIToDefault();<ui:forEach ui:indexVar=\"i\" ui:resultSet=\"{= ?resultSet }\">var pos = new GLatLng({= ?lat }, {= ?long });<ui:if ui:condition=\"{= bound(?icon) }\">var customIcon = new GIcon(G_DEFAULT_ICON);
+  customIcon.image = \"{= xsd:string(?icon) }\";<ui:if ui:condition=\"{= bound(?iconWidth) &amp;&amp; bound(?iconHeight) }\">customIcon.iconSize = new GSize({= ?iconWidth }, {= ?iconHeight });</ui:if>var options = {icon:customIcon,title: \"{= ?label }\"};</ui:if>
+                <ui:else>var options = {title:\"{= ?label }\"};</ui:else>var marker{= ?i } = new GMarker(pos, options);<ui:if ui:condition=\"{= bound(?link) }\">GEvent.addListener(marker{= ?i }, \"click\", function() {
+  var dom = document.getElementById(\"{= charts:idForResource(?link) }\");
+  var copy = dom.childNodes[1].cloneNode(true);
+  marker{= ?i }.openInfoWindow(copy);
+  });</ui:if>map.addOverlay(marker{= ?i });</ui:forEach>
+        </script>
+    </div>
+    <!-- Prepare child nodes so that they can be cloned into pop-ups -->
+    <ui:forEach ui:resultSet=\"{= ?resultSet }\">
+        <ui:if ui:condition=\"{= isIRI(?link) }\">
+            <div id=\"{= charts:idForResource(?link) }\" style=\"display: none\">
+                <div style=\"max-width:400px; max-height:150px; overflow:hidden\">
+                    <ui:resourceView ui:matchIds=\"summary\" ui:resource=\"{= ?link }\"/>
+                </div>
+            </div>
+        </ui:if>
+    </ui:forEach>
+</div>
+"""^^ui:Literal ;
+  rdfs:comment """A (dynamic) Map, usually implements as Google Map. The map is driven by a SPARQL SELECT query delivering lat and long values, and (optionally) icons and links to resources. If links are provided then the summary resource view of the target resource will be shown in the popup windows.  The following variable names are used from the SPARQL result set:
+  ?lat: latitude in decimal degrees
+  ?long: longitude in decimal degrees
+  ?link (optional): a URI representing the map object
+  ?label (optional): a label that appears in a tooltip when mousing over an icon
+  ?icon (optional): the icon usesd as a marker on the map"""^^xsd:string ;
+  rdfs:label "Map"^^xsd:string ;
+  rdfs:subClassOf charts:MapElements ;
+.
+charts:MapChart
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "0000FF"^^xsd:string ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate charts:gradientEnd ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The end gradient encoded as hexadecimal number, e.g. FF0000 for red."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue "FF0000"^^xsd:string ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate charts:gradientStart ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The start gradient encoded as hexadecimal number, e.g. FF0000 for red."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate charts:label ;
+      spl:valueType xsd:string ;
+      rdfs:comment "An optional label of the Map chart."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate ui:resultSet ;
+      spl:valueType sp:Select ;
+      ui:clientSideData "true"^^xsd:boolean ;
+      rdfs:comment "The query delivering the value for each country. This must be a SELECT query that has two result variables: the first is the country code (e.g. \"de\" for Germany\" and the second is the numeric value."^^xsd:string ;
+    ] ;
+  ui:prototype """
+<charts:GoogleChartImg charts:chco=\"{= fn:concat(&quot;BEBEBE,&quot;, ?gradientStart, &quot;,&quot;, ?gradientEnd) }\" charts:chd=\"{= charts:dataList(?resultSet, 1) }\" charts:chld=\"{= spr:aggregateCol(charts:UppercaseStringList, ?resultSet, 0) }\" charts:chs=\"{= charts:wxh(?width, ?height) }\" charts:cht=\"t\" charts:chtm=\"world\" charts:chtt=\"{= ?label }\"/>
+"""^^ui:Literal ;
+  rdfs:comment "Displays a world map with selected countries colored to reflect individual values. The map is driven by a SPARQL query that has the country codes as first column and the values as second column."^^xsd:string ;
+  rdfs:label "Map chart"^^xsd:string ;
+  rdfs:subClassOf charts:ChartElements ;
+  rdfs:subClassOf html:Img ;
+.
+charts:MapElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  ui:headIncludes """
+<ui:group let:key=\"{= charts:googleMapsAPIKey() }\">
+    <script src=\"{= fn:concat(&quot;http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=&quot;, ?key) }\"/>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:comment "Base class for those elements that require to import the Google Maps JS library as ui:headIncludes."^^xsd:string ;
+  rdfs:label "Map elements"^^xsd:string ;
+  rdfs:subClassOf charts:ChartElements ;
+.
+charts:ParameterProperty
+  rdf:type rdfs:Class ;
+  rdfs:label "Parameter property"^^xsd:string ;
+  rdfs:subClassOf rdf:Property ;
+.
+charts:PieChart
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:label ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The (optional) label of the chart."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate ui:resultSet ;
+      spl:valueType sp:Select ;
+      rdfs:comment "The SELECT query delivering the values (first result variable) and the labels (second result variable)."^^xsd:string ;
+    ] ;
+  ui:prototype """
+<ui:group let:sum=\"{#
+        SELECT SUM(?v)
+        WHERE {
+            ( ?resultSet 0 ) spr:colCells ?v .
+        } }\">
+    <ui:group letrs:normalized=\"{#
+            SELECT ?norm
+            WHERE {
+                ( ?resultSet 0 ) spr:colCells ?v .
+                BIND (((xsd:float(?v) / ?sum) * 100) AS ?norm) .
+            } }\">
+        <charts:GoogleChartImg charts:chd=\"{#
+                SELECT ?r
+                WHERE {
+                    GRAPH ui:graph {
+                        BIND (charts:dataList(?normalized, 0) AS ?r) .
+                    } .
+                } }\" charts:chl=\"{#
+                SELECT ?result
+                WHERE {
+                    GRAPH ui:graph {
+                        BIND (spr:aggregateCol(charts:LineSeparatedLabelList, ?resultSet, 1) AS ?result) .
+                    } .
+                } }\" charts:chs=\"{= charts:wxh(?width, ?height) }\" charts:cht=\"p3\" charts:chtt=\"{= ?label }\"/>
+    </ui:group>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:comment "A pie chart based on the Google Image Charts API, driven by a SPARQL SELECT result set."^^xsd:string ;
+  rdfs:label "Pie chart"^^xsd:string ;
+  rdfs:subClassOf charts:ChartElements ;
+  rdfs:subClassOf html:Img ;
+.
+charts:StaticMap
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate charts:center ;
+      spl:valueType xsd:string ;
+      rdfs:comment "(required if markers not present) defines the center of the map, equidistant from all edges of the map. This parameter takes a location as either a comma-separated {latitude,longitude} pair (e.g. \"40.714728,-73.998672\") or a string address (e.g. \"city hall, new york, ny\") identifying a unique location on the face of the earth."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate charts:zoom ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "(required if markers not present) defines the zoom level of the map, which determines the magnification level of the map. This parameter takes a numerical value corresponding to the zoom level of the region desired."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate ui:resultSet ;
+      spl:valueType sp:Select ;
+      rdfs:comment "A SPARQL SELECT query that delivers lat (column 0), long (column 1) to be used as markers on the map. Currently only the first row of this will be used for display, i.e. only one marker is supported."^^xsd:string ;
+    ] ;
+  ui:prototype """
+<charts:GoogleStaticMapImg charts:markers=\"{= fn:concat(&quot;|&quot;^^xsd:string, spr:cell(?resultSet, 0, 0), &quot;,&quot;^^xsd:string, spr:cell(?resultSet, 0, 1)) }\" charts:sensor=\"{= false }\" charts:size=\"{= charts:wxh(?width, ?height) }\"/>
+"""^^ui:Literal ;
+  rdfs:comment "A map that is rendered into a static image (for easier printing)."^^xsd:string ;
+  rdfs:label "Static map"^^xsd:string ;
+  rdfs:subClassOf charts:ChartElements ;
+  rdfs:subClassOf html:Img ;
+.
+charts:URLParameterImg
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate charts:baseURL ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The base URL including the ? at the end."^^xsd:string ;
+    ] ;
+  ui:prototype """
+<ui:group letrs:args='{#
+        SELECT ?a
+        WHERE {
+            ?arg ui:arg ?object .
+            GRAPH ui:graph {
+                ?arg charts:parameterName ?argName .
+                BIND (fn:concat(?argName, \"=\", ?object) AS ?a) .
+            } .
+        }
+        ORDER BY (?argName) }'>
+    <ui:let let:argString=\"{#
+            SELECT ?result
+            WHERE {
+                GRAPH ui:graph {
+                    BIND (spr:aggregateCol(charts:AmpSeparatedList, ?args, 0) AS ?result) .
+                } .
+            } }\">
+        <img src=\"{= fn:concat(?baseURL, ?argString) }\"/>
+    </ui:let>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:comment "This class provides an infrastructure to set REST-style parameters from the arguments that have a charts:parameterName. Users just need to set the values for those arguments, e.g. as done by charts:PieChart."^^xsd:string ;
+  rdfs:label "URL parameter image"^^xsd:string ;
+  rdfs:subClassOf html:Img ;
+.
+charts:UppercaseStringList
+  rdf:type spr:Aggregator ;
+  spr:startValue ""^^xsd:string ;
+  spr:stepFunction charts:UppercaseStringListAggregatorStepFunction ;
+  rdfs:comment "Creates a list of uppercase strings with no separator."^^xsd:string ;
+  rdfs:label "Uppercase string list"^^xsd:string ;
+.
+charts:UppercaseStringListAggregatorStepFunction
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            rdf:type smf:if ;
+            sp:arg1 [
+                rdf:type sp:gt ;
+                sp:arg1 [
+                    rdf:type fn:string-length ;
+                    sp:arg1 spin:_arg1 ;
+                  ] ;
+                sp:arg2 0 ;
+              ] ;
+            sp:arg2 [
+                rdf:type fn:concat ;
+                sp:arg1 spin:_arg1 ;
+                sp:arg2 [
+                    rdf:type fn:upper-case ;
+                    sp:arg1 spin:_arg2 ;
+                  ] ;
+              ] ;
+            sp:arg3 [
+                rdf:type fn:upper-case ;
+                sp:arg1 spin:_arg2 ;
+              ] ;
+          ]
+        ) ;
+      sp:where () ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:label "Uppercase string list aggregator step function"^^xsd:string ;
+  rdfs:subClassOf spr:AggregatorStepFunctions ;
+.
+charts:argsResultSet
+  rdf:type rdf:Property ;
+  rdfs:label "args result set"^^xsd:string ;
+  rdfs:subPropertyOf ui:resultSet ;
+.
+charts:baseURL
+  rdf:type rdf:Property ;
+  rdfs:label "base URL"^^xsd:string ;
+  rdfs:subPropertyOf charts:properties ;
+.
+charts:center
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "center"^^xsd:string ;
+  rdfs:label "center"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:chbh
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "chbh"^^xsd:string ;
+  rdfs:label "chbh"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:chco
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "chco"^^xsd:string ;
+  rdfs:label "chco"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:chd
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "chd"^^xsd:string ;
+  rdfs:label "chd"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:chl
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "chl"^^xsd:string ;
+  rdfs:comment "Chart labels (for Google Charts)."^^xsd:string ;
+  rdfs:label "chl"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:chld
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "chld"^^xsd:string ;
+  rdfs:label "chld"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:chp
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "chp"^^xsd:string ;
+  rdfs:label "chp"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:chs
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "chs"^^xsd:string ;
+  rdfs:comment "Chart size (for Google Charts)."^^xsd:string ;
+  rdfs:label "chs"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:cht
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "cht"^^xsd:string ;
+  rdfs:label "cht"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:chtm
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "chtm"^^xsd:string ;
+  rdfs:label "chtm"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:chts
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "chts"^^xsd:string ;
+  rdfs:label "chts"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:chtt
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "chtt"^^xsd:string ;
+  rdfs:comment "Chart title of Google Charts."^^xsd:string ;
+  rdfs:label "chtt"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:chxl
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "chxl"^^xsd:string ;
+  rdfs:label "chxl"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:chxr
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "chxr"^^xsd:string ;
+  rdfs:label "chxr"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:chxt
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "chxt"^^xsd:string ;
+  rdfs:label "chxt"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:dataList
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            rdf:type fn:concat ;
+            sp:arg1 "t:" ;
+            sp:arg2 [
+                rdf:type spr:aggregateCol ;
+                sp:arg1 ui:CommaSeparatedLabelList ;
+                sp:arg2 spin:_arg1 ;
+                sp:arg3 spin:_arg2 ;
+              ] ;
+          ]
+        ) ;
+      sp:where () ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:defaultValue 0 ;
+      spl:predicate sp:arg2 ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "The column to iterate over."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType spr:Table ;
+      rdfs:comment "The SPR result set to iterate over."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Creates a list of data items in the Google Charts format."^^xsd:string ;
+  rdfs:label "data list"^^xsd:string ;
+  rdfs:subClassOf spl:StringFunctions ;
+.
+charts:findCenter
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "r"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type charts:findCol ;
+                sp:arg1 spin:_arg1 ;
+                sp:arg2 "lat" ;
+              ] ;
+            sp:variable [
+                sp:varName "latCol"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type charts:findCol ;
+                sp:arg1 spin:_arg1 ;
+                sp:arg2 "long" ;
+              ] ;
+            sp:variable [
+                sp:varName "longCol"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type charts:minColValue ;
+                sp:arg1 spin:_arg1 ;
+                sp:arg2 [
+                    sp:varName "latCol"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "minLat"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type charts:maxColValue ;
+                sp:arg1 spin:_arg1 ;
+                sp:arg2 [
+                    sp:varName "latCol"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "maxLat"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type charts:minColValue ;
+                sp:arg1 spin:_arg1 ;
+                sp:arg2 [
+                    sp:varName "longCol"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "minLong"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type charts:maxColValue ;
+                sp:arg1 spin:_arg1 ;
+                sp:arg2 [
+                    sp:varName "longCol"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "maxLong"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:divide ;
+                sp:arg1 [
+                    rdf:type sp:add ;
+                    sp:arg1 [
+                        rdf:type xsd:float ;
+                        sp:arg1 [
+                            sp:varName "maxLat"^^xsd:string ;
+                          ] ;
+                      ] ;
+                    sp:arg2 [
+                        rdf:type xsd:float ;
+                        sp:arg1 [
+                            sp:varName "minLat"^^xsd:string ;
+                          ] ;
+                      ] ;
+                  ] ;
+                sp:arg2 2 ;
+              ] ;
+            sp:variable [
+                sp:varName "lat"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:divide ;
+                sp:arg1 [
+                    rdf:type sp:add ;
+                    sp:arg1 [
+                        rdf:type xsd:float ;
+                        sp:arg1 [
+                            sp:varName "maxLong"^^xsd:string ;
+                          ] ;
+                      ] ;
+                    sp:arg2 [
+                        rdf:type xsd:float ;
+                        sp:arg1 [
+                            sp:varName "minLong"^^xsd:string ;
+                          ] ;
+                      ] ;
+                  ] ;
+                sp:arg2 2 ;
+              ] ;
+            sp:variable [
+                sp:varName "long"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type fn:concat ;
+                sp:arg1 [
+                    sp:varName "lat"^^xsd:string ;
+                  ] ;
+                sp:arg2 "," ;
+                sp:arg3 [
+                    sp:varName "long"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "r"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType spr:Table ;
+      rdfs:comment "The spr:Table to operate on. Must declare result variables ?lat and ?long."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Takes a Google Maps result set as argument and gets min and max values of lat and long properties."^^xsd:string ;
+  rdfs:label "find center"^^xsd:string ;
+  rdfs:subClassOf spl:StringFunctions ;
+.
+charts:findCol
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "index"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "index"^^xsd:string ;
+              ] ;
+            sp:predicate spr:colIndices ;
+            sp:subject spin:_arg1 ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:eq ;
+                sp:arg1 [
+                    rdf:type spr:colName ;
+                    sp:arg1 spin:_arg1 ;
+                    sp:arg2 [
+                        sp:varName "index"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg2 spin:_arg2 ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType spr:Table ;
+      rdfs:comment "The spr:Table to get a column index of."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg2 ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the result variable to get."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:integer ;
+  rdfs:comment "Finds a column with a given name."^^xsd:string ;
+  rdfs:label "find col"^^xsd:string ;
+  rdfs:subClassOf spr:Functions ;
+.
+charts:format
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "format"^^xsd:string ;
+  rdfs:label "format"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:googleMapsAPIKey
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            rdf:type ui:systemPreference ;
+            sp:arg1 "GoogleMapsAPIKey" ;
+          ]
+        ) ;
+      sp:where () ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:label "Google Maps API key"^^xsd:string ;
+  rdfs:subClassOf spl:MiscFunctions ;
+.
+charts:gradientEnd
+  rdf:type rdf:Property ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:label "gradient end"^^xsd:string ;
+  rdfs:subPropertyOf charts:properties ;
+.
+charts:gradientStart
+  rdf:type rdf:Property ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:label "gradient start"^^xsd:string ;
+  rdfs:subPropertyOf charts:properties ;
+.
+charts:height
+  rdf:type rdf:Property ;
+  rdfs:label "height"^^xsd:string ;
+  rdfs:subPropertyOf charts:properties ;
+.
+charts:horizontal
+  rdf:type rdf:Property ;
+  rdfs:label "horizontal"^^xsd:string ;
+  rdfs:subPropertyOf charts:properties ;
+.
+charts:iconHeight
+  rdf:type rdf:Property ;
+  rdfs:label "icon height"^^xsd:string ;
+  rdfs:subPropertyOf charts:properties ;
+.
+charts:iconWidth
+  rdf:type rdf:Property ;
+  rdfs:label "icon width"^^xsd:string ;
+  rdfs:subPropertyOf charts:properties ;
+.
+charts:idForResource
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            rdf:type fn:concat ;
+            sp:arg1 "id-" ;
+            sp:arg2 [
+                rdf:type xsd:string ;
+                sp:arg1 spin:_arg1 ;
+              ] ;
+          ]
+        ) ;
+      sp:where () ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The resource to get the id for."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Generates a (unique) ID that can be used to identify nodes in a DOM tree from a given resource (?arg1)."^^xsd:string ;
+  rdfs:label "id for resource"^^xsd:string ;
+  rdfs:subClassOf spl:StringFunctions ;
+.
+charts:label
+  rdf:type rdf:Property ;
+  rdfs:label "label"^^xsd:string ;
+  rdfs:subPropertyOf charts:properties ;
+.
+charts:maptype
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "maptype"^^xsd:string ;
+  rdfs:label "maptype"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:markers
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "markers"^^xsd:string ;
+  rdfs:label "markers"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:maxColValue
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            rdf:type sp:Max ;
+            sp:expression [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object spin:_arg1 ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object spin:_arg2 ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object () ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate spr:colCells ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType spr:Table ;
+      rdfs:comment "The result set to operate on."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg2 ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "The index of the column."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:float ;
+  rdfs:comment "Iterates over an SPR result set to find the maximum value of a given column."^^xsd:string ;
+  rdfs:label "max col value"^^xsd:string ;
+  rdfs:subClassOf spr:Functions ;
+.
+charts:maxRange
+  rdf:type rdf:Property ;
+  rdfs:label "max range"^^xsd:string ;
+  rdfs:subPropertyOf charts:properties ;
+.
+charts:minColValue
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            rdf:type sp:Min ;
+            sp:expression [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object spin:_arg1 ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object spin:_arg2 ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object () ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "?1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "x"^^xsd:string ;
+              ] ;
+            sp:predicate spr:colCells ;
+            sp:subject [
+                sp:varName "?0"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType spr:Table ;
+      rdfs:comment "The result set to operate on."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg2 ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "The index of the column."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:float ;
+  rdfs:comment "Iterates over an SPR result set to find the minimum value of a given column."^^xsd:string ;
+  rdfs:label "min col value"^^xsd:string ;
+  rdfs:subClassOf spr:Functions ;
+.
+charts:minRange
+  rdf:type rdf:Property ;
+  rdfs:label "min range"^^xsd:string ;
+  rdfs:subPropertyOf charts:properties ;
+.
+charts:parameterName
+  rdf:type rdf:Property ;
+  rdfs:comment "Can be used to mark UISPIN argument properties so that they are mapped against URL arguments."^^xsd:string ;
+  rdfs:domain charts:ParameterProperty ;
+  rdfs:label "parameter name"^^xsd:string ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf charts:properties ;
+.
+charts:parameterProperties
+  rdf:type charts:ParameterProperty ;
+  rdfs:label "parameter properties"^^xsd:string ;
+  rdfs:subPropertyOf charts:properties ;
+.
+charts:properties
+  rdf:type rdf:Property ;
+  rdfs:label "charts properties"^^xsd:string ;
+.
+charts:sensor
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "sensor"^^xsd:string ;
+  rdfs:label "sensor"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:size
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "size"^^xsd:string ;
+  rdfs:label "size"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.
+charts:width
+  rdf:type rdf:Property ;
+  rdfs:label "width"^^xsd:string ;
+  rdfs:subPropertyOf charts:properties ;
+.
+charts:wxh
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            rdf:type fn:concat ;
+            sp:arg1 spin:_arg1 ;
+            sp:arg2 "x" ;
+            sp:arg3 spin:_arg2 ;
+          ]
+        ) ;
+      sp:where () ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg1 ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The width"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate sp:arg2 ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The height"^^xsd:string ;
+    ] ;
+  rdfs:comment "Creates a string to encode width by height for various Google APIs, e.g. 440x220."^^xsd:string ;
+  rdfs:label "wxh"^^xsd:string ;
+  rdfs:subClassOf spl:StringFunctions ;
+.
+charts:zoom
+  rdf:type charts:ParameterProperty ;
+  charts:parameterName "zoom"^^xsd:string ;
+  rdfs:label "zoom"^^xsd:string ;
+  rdfs:subPropertyOf charts:parameterProperties ;
+.

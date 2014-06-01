@@ -1,0 +1,296 @@
+# baseURI: http://topbraid.org/sxsd
+# imports: http://topbraid.org/sxml
+
+# c14n-version: 3
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sxml: <http://topbraid.org/sxml#> .
+@prefix sxsd: <http://topbraid.org/sxsd#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+<http://topbraid.org/sxsd>
+  rdf:type owl:Ontology ;
+  owl:imports <http://topbraid.org/sxml> ;
+.
+sxsd:Annotation
+  rdf:type owl:Class ;
+  sxml:element "annotation" ;
+  sxml:element "xs:annotation"^^rdfs:Literal ;
+  sxml:element "xsd:annotation" ;
+  rdfs:label "xsd:annotation" ;
+.
+sxsd:Attribute
+  rdf:type owl:Class ;
+  sxml:element "attribute" ;
+  sxml:element "xs:attribute" ;
+  sxml:element "xsd:attribute" ;
+  rdfs:label "xsd:attribute" ;
+  rdfs:subClassOf sxsd:CardinalityQualifer ;
+  rdfs:subClassOf sxsd:NamedConstruct ;
+.
+sxsd:AttributeGroup
+  rdf:type owl:Class ;
+  sxml:element "attributeGroup" ;
+  sxml:element "xs:attributeGroup" ;
+  sxml:element "xsd:attributeGroup" ;
+  rdfs:label "Attribute group"^^xsd:string ;
+  rdfs:subClassOf sxsd:GroupConstruct ;
+.
+sxsd:CardinalityQualifer
+  rdf:type owl:Class ;
+  rdfs:label "Cardinality qualifer"^^xsd:string ;
+  rdfs:subClassOf sxsd:Qualifier ;
+.
+sxsd:Choice
+  rdf:type owl:Class ;
+  sxml:element "choice" ;
+  sxml:element "xs:choice" ;
+  sxml:element "xsd:choice" ;
+  rdfs:label "xsd:choice" ;
+  rdfs:subClassOf sxsd:CardinalityQualifer ;
+  rdfs:subClassOf sxsd:ModelConstruct ;
+.
+sxsd:ComplexContent
+  rdf:type owl:Class ;
+  sxml:element "complexContent" ;
+  sxml:element "xs:complexContent" ;
+  sxml:element "xsd:complexContent" ;
+  rdfs:label "Complex content"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+sxsd:ComplexType
+  rdf:type owl:Class ;
+  sxml:element "complexType" ;
+  sxml:element "xs:complexType" ;
+  sxml:element "xsd:complexType" ;
+  rdfs:label "xsd:complexType" ;
+  rdfs:subClassOf sxsd:TypeConstruct ;
+.
+sxsd:Documentation
+  rdf:type owl:Class ;
+  sxml:element "documentation" ;
+  sxml:element "xs:documentation" ;
+  sxml:element "xsd:documentation" ;
+  rdfs:label "xsd:documentation" ;
+.
+sxsd:Element
+  rdf:type owl:Class ;
+  sxml:element "element" ;
+  sxml:element "xs:element" ;
+  sxml:element "xsd:element" ;
+  rdfs:label "xsd:element" ;
+  rdfs:subClassOf sxsd:CardinalityQualifer ;
+  rdfs:subClassOf sxsd:NamedConstruct ;
+.
+sxsd:ElementGroup
+  rdf:type owl:Class ;
+  sxml:element "group" ;
+  sxml:element "xs:group" ;
+  sxml:element "xsd:group" ;
+  rdfs:label "Element group"^^xsd:string ;
+  rdfs:subClassOf sxsd:CardinalityQualifer ;
+  rdfs:subClassOf sxsd:GroupConstruct ;
+.
+sxsd:Enumeration
+  rdf:type owl:Class ;
+  sxml:element "enumeration" ;
+  sxml:element "xs:enumeration" ;
+  sxml:element "xsd:enumeration" ;
+  rdfs:label "Enumeration"^^xsd:string ;
+  rdfs:subClassOf sxsd:ModelConstruct ;
+.
+sxsd:Extension
+  rdf:type owl:Class ;
+  sxml:element "extension" ;
+  sxml:element "xs:extension" ;
+  sxml:element "xsd:extension" ;
+  rdfs:label "Extension"^^xsd:string ;
+  rdfs:subClassOf sxsd:InheritanceQualifier ;
+.
+sxsd:GroupConstruct
+  rdf:type owl:Class ;
+  rdfs:label "Group Construct"^^xsd:string ;
+  rdfs:subClassOf sxsd:NamedConstruct ;
+.
+sxsd:Import
+  rdf:type owl:Class ;
+  sxml:element "import" ;
+  sxml:element "xs:import" ;
+  sxml:element "xsd:import" ;
+  rdfs:label "xsd:import" ;
+.
+sxsd:InheritanceQualifier
+  rdf:type owl:Class ;
+  rdfs:label "Inheritance Qualifier"^^xsd:string ;
+  rdfs:subClassOf sxsd:Qualifier ;
+.
+sxsd:List
+  rdf:type owl:Class ;
+  sxml:element "list" ;
+  sxml:element "xs:list" ;
+  sxml:element "xsd:list" ;
+  rdfs:label "List"^^xsd:string ;
+  rdfs:subClassOf sxsd:InheritanceQualifier ;
+.
+sxsd:ModelConstruct
+  rdf:type owl:Class ;
+  rdfs:label "Model Construct"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+sxsd:NamedConstruct
+  rdf:type owl:Class ;
+  rdfs:label "Named construct"^^xsd:string ;
+  rdfs:subClassOf sxsd:ModelConstruct ;
+.
+sxsd:Qualifier
+  rdf:type owl:Class ;
+  rdfs:label "Qualifier"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+sxsd:Restriction
+  rdf:type owl:Class ;
+  sxml:element "restriction" ;
+  sxml:element "xs:restriction" ;
+  sxml:element "xsd:restriction" ;
+  rdfs:label "Restriction"^^xsd:string ;
+  rdfs:subClassOf sxsd:InheritanceQualifier ;
+.
+sxsd:Schema
+  rdf:type owl:Class ;
+  sxml:element "schema" ;
+  sxml:element "xs:schema" ;
+  sxml:element "xsd:schema" ;
+  rdfs:label "xsd:schema" ;
+.
+sxsd:Sequence
+  rdf:type owl:Class ;
+  sxml:element "sequence" ;
+  sxml:element "xs:sequence" ;
+  sxml:element "xsd:sequence" ;
+  rdfs:label "Sequence"^^xsd:string ;
+  rdfs:subClassOf sxsd:ModelConstruct ;
+.
+sxsd:SimpleContent
+  rdf:type owl:Class ;
+  sxml:element "simpleContent" ;
+  sxml:element "xs:simpleContent" ;
+  sxml:element "xsd:simpleContent" ;
+  rdfs:label "Simple Content"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+sxsd:SimpleType
+  rdf:type owl:Class ;
+  sxml:element "simpleType" ;
+  sxml:element "xs:simpleType" ;
+  sxml:element "xsd:simpleType" ;
+  rdfs:label "Simple type"^^xsd:string ;
+  rdfs:subClassOf sxsd:TypeConstruct ;
+.
+sxsd:TypeConstruct
+  rdf:type owl:Class ;
+  rdfs:label "Type construct"^^xsd:string ;
+  rdfs:subClassOf sxsd:NamedConstruct ;
+.
+sxsd:attributeFormDefault
+  rdf:type owl:DatatypeProperty ;
+  sxml:attribute "attributeFormDefault" ;
+  rdfs:domain sxsd:Schema ;
+  rdfs:label "attributeFormDefault" ;
+.
+sxsd:base
+  rdf:type owl:DatatypeProperty ;
+  sxml:attribute "base" ;
+  rdfs:label "base"^^xsd:string ;
+.
+sxsd:default
+  rdf:type owl:DatatypeProperty ;
+  sxml:attribute "default"^^xsd:string ;
+  rdfs:label "default"^^xsd:string ;
+.
+sxsd:elementFormDefault
+  rdf:type owl:DatatypeProperty ;
+  sxml:attribute "elementFormDefault" ;
+  rdfs:domain sxsd:Schema ;
+  rdfs:label "elementFormDefault" ;
+.
+sxsd:fixed
+  rdf:type owl:DatatypeProperty ;
+  sxml:attribute "fixed"^^xsd:string ;
+  rdfs:label "fixed"^^xsd:string ;
+.
+sxsd:form
+  rdf:type owl:DatatypeProperty ;
+  sxml:attribute "form"^^xsd:string ;
+  rdfs:label "form"^^xsd:string ;
+.
+sxsd:maxOccurs
+  rdf:type owl:DatatypeProperty ;
+  sxml:attribute "maxOccurs" ;
+  rdfs:domain sxsd:CardinalityQualifer ;
+  rdfs:label "maxOccurs" ;
+.
+sxsd:minOccurs
+  rdf:type owl:DatatypeProperty ;
+  sxml:attribute "minOccurs" ;
+  rdfs:domain sxsd:CardinalityQualifer ;
+  rdfs:label "minOccurs" ;
+.
+sxsd:name
+  rdf:type owl:DatatypeProperty ;
+  sxml:attribute "name" ;
+  rdfs:domain sxsd:NamedConstruct ;
+  rdfs:label "name" ;
+.
+sxsd:namespace
+  rdf:type owl:DatatypeProperty ;
+  sxml:attribute "namespace" ;
+  rdfs:domain sxsd:Import ;
+  rdfs:label "namespace" ;
+.
+sxsd:ref
+  rdf:type owl:DatatypeProperty ;
+  sxml:attribute "ref" ;
+  rdfs:domain sxsd:ModelConstruct ;
+  rdfs:label "ref" ;
+.
+sxsd:schemaLocation
+  rdf:type owl:DatatypeProperty ;
+  sxml:attribute "schemaLocation" ;
+  rdfs:domain sxsd:Import ;
+  rdfs:label "schemaLocation" ;
+.
+sxsd:substitutionGroup
+  rdf:type owl:DatatypeProperty ;
+  sxml:attribute "substitutionGroup"^^xsd:string ;
+  rdfs:domain sxsd:Element ;
+  rdfs:label "substitutionGroup"^^xsd:string ;
+.
+sxsd:targetNamespace
+  rdf:type owl:DatatypeProperty ;
+  sxml:attribute "targetNamespace" ;
+  rdfs:domain sxsd:Schema ;
+  rdfs:label "targetNamespace" ;
+.
+sxsd:type
+  rdf:type owl:DatatypeProperty ;
+  sxml:attribute "type" ;
+  rdfs:domain sxsd:NamedConstruct ;
+  rdfs:label "type" ;
+.
+sxsd:use
+  rdf:type owl:DatatypeProperty ;
+  sxml:attribute "use" ;
+  rdfs:domain sxsd:Attribute ;
+  rdfs:label "use" ;
+.
+sxsd:value
+  rdf:type owl:DatatypeProperty ;
+  sxml:attribute "value" ;
+  rdfs:label "value"^^xsd:string ;
+.
+sxsd:xml-lang
+  rdf:type owl:DatatypeProperty ;
+  sxml:attribute "xml:lang" ;
+  rdfs:domain sxsd:Documentation ;
+  rdfs:label "xml:lang" ;
+.

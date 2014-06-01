@@ -1,0 +1,926 @@
+# baseURI: http://topbraid.org/swafacets
+# imports: http://topbraid.org/search.spin
+# imports: http://topbraid.org/sparqlmotionlib-swp
+# imports: http://topbraid.org/swa
+
+# c14n-version: 3
+@prefix afn: <http://jena.hpl.hp.com/ARQ/function#> .
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix composite: <http://www.topbraid.org/2007/05/composite.owl#> .
+@prefix css: <http://uispin.org/css#> .
+@prefix daml: <http://www.daml.org/2001/03/daml+oil#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix default: <http://uispin.org/default#> .
+@prefix email: <http://topbraid.org/email#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix html: <http://uispin.org/html#> .
+@prefix let: <http://uispin.org/let#> .
+@prefix letrs: <http://uispin.org/letrs#> .
+@prefix list: <http://jena.hpl.hp.com/ARQ/list#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix search: <http://topbraid.org/search#> .
+@prefix search.spin: <http://topbraid.org/search.spin#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sm: <http://topbraid.org/sparqlmotion#> .
+@prefix smf: <http://topbraid.org/sparqlmotionfunctions#> .
+@prefix sml: <http://topbraid.org/sparqlmotionlib#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix sparqlmotionlib-swp: <http://topbraid.org/sparqlmotionlib-swp#> .
+@prefix spif: <http://spinrdf.org/spif#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix spr: <http://spinrdf.org/spr#> .
+@prefix spra: <http://spinrdf.org/spra#> .
+@prefix style: <http://uispin.org/style#> .
+@prefix swa: <http://topbraid.org/swa#> .
+@prefix swon: <http://uispin.org/swon#> .
+@prefix ui: <http://uispin.org/ui#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+arg:baseSearchGraph
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:expanded
+  rdf:type rdf:Property ;
+  rdfs:label "expanded"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:facet
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:offset
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:password
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:searchEvent
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:serverURL
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:targetGraph
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:userName
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+search:Facet
+  ui:method swa:addObjectToFacet ;
+  ui:method swa:removeObjectFromFacet ;
+.
+search:PropertyFacet
+  ui:viewElement swa:PropertyFacetView ;
+  ui:viewElement swa:PropertyFacetViewPart ;
+.
+search:Search
+  ui:method swa:deriveSearch ;
+  ui:viewElement swa:AddPropertyFacetToSearchView ;
+  ui:viewElement swa:FacetedTextSearchView ;
+  ui:viewElement swa:FacetsList ;
+.
+swa:AddPropertyFacetToSearchView
+  rdf:type ui:ViewElement ;
+  ui:prototype """
+<ui:group let:queryGraph=\"{= spl:object(?this, search:queryGraph) }\">
+    <ui:group letrs:properties=\"{#
+            SELECT ?property
+            WHERE {
+                ?this search:potentialFacetProperty ?property .
+            }
+            ORDER BY (swa:labelInGraph(?property, ?queryGraph)) }\">
+        <ui:if ui:condition=\"{= !spr:isEmpty(?properties) }\">
+            <div class=\"swa-facets-add-property-div\" let:id=\"{= ui:uniqueId() }\">
+                <span>Add property: </span>
+                <select autocomplete=\"off\" id=\"{= ?id }\" style=\"max-width: 200px\">
+                    <option selected=\"selected\"/>
+                    <ui:forEach ui:resultSet=\"{= ?properties }\">
+                        <option value=\"{= ?property }\">{= swa:labelInGraph(?property, ?queryGraph) }</option>
+                    </ui:forEach>
+                    <ui:handle arg:property=\"'&lt;' + $('#{= ?id }').val() + '&gt;'\" ui:event=\"onchange\" ui:thenLoadId=\"{= spl:object(?this, swa:loadId) }\">
+                        <ui:transaction>
+                            <ui:update ui:updateQuery=\"{!
+                                    INSERT {
+                                        ?facet a search:PropertyFacet .
+                                        ?facet search:property ?property .
+                                        ?facet search:facetIndex ?facetIndex .
+                                        ?this search:facet ?facet .
+                                    }
+                                    WHERE {
+                                        BIND ((COALESCE(spl:objectCount(?this, search:facet), 0) + 1) AS ?facetIndex) .
+                                        BIND (BNODE() AS ?facet) .
+                                    } }\"/>
+                        </ui:transaction>
+                    </ui:handle>
+                </select>
+            </div>
+        </ui:if>
+    </ui:group>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:label "Add property facet to search view"^^xsd:string ;
+  rdfs:subClassOf swa:FacetElements ;
+.
+swa:DerivedFacetedSearchDialog
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:title ;
+      spl:valueType xsd:string ;
+      rdfs:comment "An optional title"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:baseSearchGraph ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The graph containing the original search:Search that is the base of the faceted search."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:loadId ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The loadId"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resourceSelectedEvent ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The event to send out when a resource has been selected (amongst the results)."^^xsd:string ;
+    ] ;
+  ui:prototype """
+<ui:group let:id=\"{= ui:uniqueId() }\" let:queryGraph=\"{= ui:currentQueryGraph() }\" let:searchGraph=\"{= ui:createSessionGraph() }\">
+    <ui:setContext ui:queryGraph=\"{= ?baseSearchGraph }\">
+        <ui:group let:search=\"{= search:theSearch() }\">
+            <div id=\"div-{= ?loadId }\" let:searchEvent=\"org.topbraid.swa.facetedSearchDialog.search\" style=\"padding: 0\" title=\"{= COALESCE(?title, CONCAT(&quot;Faceted Search: &quot;, swa:labelInGraph(spl:object(?search, search:rootType), spl:object(?search, search:queryGraph)))) }\">
+                <ui:update ui:updateQuery=\"{!
+                        INSERT {
+                            GRAPH ?searchGraph {
+                                ?search a search:Search .
+                                ?search search:rootType ?rootType .
+                                ?search search:queryGraph ?queryGraph .
+                                ?search swa:loadId ?id .
+                            } .
+                        }
+                        WHERE {
+                            ?search search:rootType ?rootType .
+                        } }\"/>
+                <ui:update ui:updateQuery=\"{!
+                        INSERT {
+                            GRAPH ?searchGraph {
+                                ?search spin:column ?column .
+                                ?column ?p ?o .
+                            } .
+                        }
+                        WHERE {
+                            ?search spin:column ?column .
+                            ?column ?p ?o .
+                        } }\"/>
+                <ui:update ui:updateQuery=\"{!
+                        INSERT {
+                            GRAPH ?searchGraph {
+                                ?search search:facet ?facet .
+                                ?facet a search:PropertyFacet .
+                                ?facet search:property ?property .
+                            } .
+                        }
+                        WHERE {
+                            ?search search:facet ?facet .
+                            ?facet a search:PropertyFacet .
+                            ?facet search:property ?property .
+                            ?facet search:facetValue ?value .
+                        } }\"/>
+                <ui:setContext ui:queryGraph=\"{= ?searchGraph }\">
+                    <table class=\"swa-layout-table\" style=\"width:100%; height: 100%\">
+                        <tr>
+                            <td class=\"swa-layout-td\" style=\"min-width: 300px; max-width: 300px; overflow: auto\">
+                                <swa:FacetedTextSearchView arg:loadId=\"{= ?id }\" ui:this=\"{= ?search }\"/>
+                                <ui:loadable class=\"ui-layout-content\" ui:loadId=\"{= ?id }\">
+                                    <script>{= swa:publishEvent(swa:searchEvent(?searchEvent), CONCAT(\"'\", xsd:string(?searchGraph), \"'\")) }</script>
+                                    <swa:FacetsList ui:this=\"{= ?search }\"/>
+                                </ui:loadable>
+                            </td>
+                            <td class=\"swa-layout-td\" style=\"min-width: 4px; height: 100%; background-color: #F5F5F5\"/>
+                            <td class=\"swa-layout-td\" style=\"width: 100%\">
+                                <swa:SummarySearchResultsGadget ui:args=\"*\"/>
+                            </td>
+                        </tr>
+                    </table>
+                </ui:setContext>
+                <swa:SessionGraphDeleter arg:ownerId=\"div-{= ?loadId }\" arg:sessionGraph=\"{= ?searchGraph }\"/>
+            </div>
+        </ui:group>
+    </ui:setContext>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:comment "A dialog that can be laid over an application to allow users to select an instance using faceted search. The dialog displays a swa:FacetedSearchGadget on the left and a swa:SummarySearchResultsGadget on the center/right. The initial search is derived from a given base search graph."^^xsd:string ;
+  rdfs:label "Derived faceted search dialog"^^xsd:string ;
+  rdfs:subClassOf swa:DialogElements ;
+.
+swa:FacetElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Facet elements"^^xsd:string ;
+  rdfs:subClassOf swa:Elements ;
+.
+swa:FacetedSearchDialogAutoCompleteSelectAction
+  rdf:type swa:AutoCompleteSelectAction ;
+  arg:condition "true"^^xsd:boolean ;
+  arg:onSelect "swa.openAutoCompleteFacetedSearchDialog"^^xsd:string ;
+  rdfs:label "Select using faceted search..."^^xsd:string ;
+.
+swa:FacetedSearchGadget
+  rdf:type swa:Gadget ;
+  ui:prototype """
+<ui:group>
+    <ui:if ui:condition=\"{= bound(?resourceType) }\">
+        <swa:WindowTitleSetter arg:title=\"Search for {= ui:label(?resourceType) }\"/>
+        <ui:group let:loadId=\"{= ui:uniqueId() }\" let:queryGraph=\"{= ui:currentQueryGraph() }\" let:search=\"{= swa:facetedSearchForClass(?resourceType) }\" let:searchGraph=\"{= ui:createSessionGraph() }\">
+            <swa:deriveSearch ui:args=\"*\" ui:this=\"{= ?search }\"/>
+            <ui:setContext ui:queryGraph=\"{= ?searchGraph }\">
+                <swa:FacetedTextSearchView arg:loadId=\"{= ?loadId }\" ui:this=\"{= ?search }\"/>
+                <ui:loadable class=\"ui-layout-content\" ui:loadId=\"{= ?loadId }\">
+                    <script>{= swa:publishEvent(swa:searchEvent(?searchEvent), CONCAT(\"'\", xsd:string(?searchGraph), \"'\")) }</script>
+                    <swa:FacetsList ui:this=\"{= ?search }\"/>
+                </ui:loadable>
+            </ui:setContext>
+        </ui:group>
+    </ui:if>
+    <swa:SubscribeArgument arg:argumentName=\"resourceType\" arg:event=\"{= ?classSelectedEvent }\"/>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:comment "Presents a free-text search field as well as a list of properties that can be used to drive faceted search."^^xsd:string ;
+  rdfs:label "Faceted search gadget"^^xsd:string ;
+  rdfs:subClassOf swa:SearchGadgets ;
+.
+swa:FacetedTextSearchView
+  rdf:type ui:ViewElement ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:loadId ;
+      spl:valueType xsd:string ;
+    ] ;
+  ui:prototype """
+<div class=\"swa-facets-search-div\">
+    <div class=\"swa-float-left\" let:id=\"{= ui:uniqueId() }\">
+        <input autocomplete=\"off\" class=\"swa-facets-search\" id=\"{= ?id }\" placeholder=\"Search...\" type=\"text\" value=\"\"/>
+        <button class=\"swa-facets-search-button\" id=\"{= ?id }-button\" type=\"submit\">
+            <i class=\"swa-facets-icon-search swa-facets-icon-white\"/>
+            <ui:handle arg:string=\"'&quot;' + $('#{= ?id }').val().replace(/&quot;/g, '\\\\\\&quot;') + '&quot;'\" ui:event=\"onclick\" ui:thenLoadId=\"{= ?loadId }\">
+                <ui:setPropertyValue arg:property=\"{= search:string }\" arg:value=\"{= IF((?string = &quot;&quot;), ?none, ?string) }\"/>
+            </ui:handle>
+        </button>
+        <script>$('#{= ?id }').keydown(function(e) { if(e.keyCode == 13) { $('#{= ?id }-button').click(); } })</script>
+    </div>
+    <div style=\"clear: both\"/>
+</div>
+"""^^ui:Literal ;
+  rdfs:label "Faceted text search view"^^xsd:string ;
+  rdfs:subClassOf swa:FacetElements ;
+.
+swa:FacetsList
+  rdf:type ui:NodeClass ;
+  ui:prototype """
+<div class=\"swa-facets-facets-div\">
+    <div class=\"swa-facets-facets-sidenav\">
+        <h4 class=\"swa-facets-header\">
+            <a class=\"btn btn-navbar\">
+                <span class=\"icon-bar\"/>
+                <span class=\"icon-bar\"/>
+            </a>
+            <span>Limit your search</span>
+        </h4>
+        <sml:PerformFacetedSearch sml:search=\"{= ?this }\"/>
+        <div class=\"swa-facets-collapse\">
+            <ui:forEach ui:resultSet=\"{#
+                    SELECT ?facet
+                    WHERE {
+                        ?this search:queryGraph ?queryGraph .
+                        ?this search:facet ?facet .
+                        ?facet a search:PropertyFacet .
+                        ?facet search:property ?property .
+                        BIND (COALESCE(spl:object(?facet, search:facetIndex), 0) AS ?index) .
+                        BIND (swa:labelInGraph(?property, ?queryGraph) AS ?label) .
+                    }
+                    ORDER BY (?index) (?label) }\">
+                <swa:PropertyFacetView ui:this=\"{= ?facet }\"/>
+            </ui:forEach>
+            <swa:AddPropertyFacetToSearchView/>
+        </div>
+    </div>
+</div>
+"""^^ui:Literal ;
+  rdfs:label "Facets list"^^xsd:string ;
+  rdfs:subClassOf swa:FacetElements ;
+.
+swa:PropertyFacetView
+  rdf:type ui:ViewElement ;
+  ui:prototype """
+<div let:expanded=\"{= COALESCE(spl:object(?this, search:expanded), false) }\" let:id=\"{= ui:uniqueId() }\" let:property=\"{= spl:object(?this, search:property) }\" let:search=\"{= spl:subject(search:facet, ?this) }\">
+    <h5 class=\"swa-facets-facet-header\" id=\"{= ?id }\">
+        <span>{= swa:labelInGraph(?property, spl:object(?search, search:queryGraph)) }</span>
+        <i class=\"swa-facets-icon-chevron-{= IF(?expanded, &quot;down&quot;, &quot;up&quot;) } swa-facets-icon-chevron\" id=\"{= ?id }-twiddle-icon\"/>
+        <ui:handle arg:expanded=\"$('#{= ?id }-body').css('display') != 'none'\" ui:event=\"onclick\" ui:script=\"swa.toggleTwiddle('{= ?id }')\">
+            <ui:setPropertyValue arg:property=\"{= search:expanded }\" arg:value=\"{= ?expanded }\"/>
+        </ui:handle>
+    </h5>
+    <div class=\"swa-facets-ul\" id=\"{= ?id }-body\" style=\"{= IF((!?expanded), &quot;display: none&quot;, ?none) }\">
+        <swa:PropertyFacetViewPart arg:offset=\"{= 0 }\" arg:search=\"{= ?search }\"/>
+    </div>
+</div>
+"""^^ui:Literal ;
+  rdfs:comment "Represents a portion of the facets list, a collapsable section for a single property facet."^^xsd:string ;
+  rdfs:label "Property facet view"^^xsd:string ;
+  rdfs:subClassOf swa:FacetElements ;
+.
+swa:PropertyFacetViewPart
+  rdf:type ui:ViewElement ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:offset ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "The current offset (starting at 0)."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:search ;
+      spl:valueType search:Search ;
+      rdfs:comment "The search:Search to work with."^^xsd:string ;
+    ] ;
+  ui:prototype """
+<ui:group let:limit=\"{= 10 }\" let:loadId=\"{= spl:object(?search, swa:loadId) }\" let:queryGraph=\"{= spl:object(?search, search:queryGraph) }\">
+    <ui:group letrs:values=\"{#
+            SELECT ?value ?count ?label
+            WHERE {
+                ?this search:facetCount ?facetCount .
+                ?facetCount search:count ?count .
+                ?facetCount search:countValue ?value .
+                BIND (swa:labelInGraph(?value, ?queryGraph) AS ?label) .
+            }
+            ORDER BY DESC (?count) (?label) }\">
+        <ui:forEach ui:limit=\"{= ?limit }\" ui:offset=\"{= ?offset }\" ui:resultSet=\"{= ?values }\">
+            <div class=\"swa-facets-item\">
+                <ui:if ui:condition=\"{= swa:isObjectFacetValue(?this, ?value) }\">
+                    <span class=\"swa-facets-selected\">
+                        <span>{= ?label }</span>
+                        <span class=\"swa-facets-count\">{= ?count }</span>
+                    </span>
+                    <a class=\"swa-facets-remove\">
+                        <i class=\"swa-facets-icon-remove swa-facets-icon-black\"/>
+                        <ui:handle ui:event=\"onclick\" ui:thenLoadId=\"{= ?loadId }\">
+                            <swa:removeObjectFromFacet arg:object=\"{= ?value }\" ui:this=\"{= ?this }\"/>
+                        </ui:handle>
+                    </a>
+                </ui:if>
+                <ui:else>
+                    <a class=\"swa-facets-selectable\">
+                        <span>{= ?label }</span>
+                        <ui:handle ui:event=\"onclick\" ui:thenLoadId=\"{= ?loadId }\">
+                            <swa:addObjectToFacet arg:object=\"{= ?value }\" ui:this=\"{= ?this }\"/>
+                        </ui:handle>
+                    </a>
+                    <span class=\"swa-facets-count\">{= ?count }</span>
+                </ui:else>
+            </div>
+        </ui:forEach>
+        <ui:group let:id=\"{= ui:uniqueId() }\" let:rowCount=\"{= spr:rowCount(?values) }\">
+            <ui:loadable ui:loadId=\"{= ?id }\">
+                <ui:if ui:condition=\"{= ?rowCount &gt; (?offset + ?limit) }\">
+                    <ui:if ui:condition=\"{= bound(?newOffset) }\">
+                        <swa:PropertyFacetViewPart arg:offset=\"{= ?newOffset }\" arg:search=\"{= ?search }\"/>
+                    </ui:if>
+                    <ui:else>
+                        <div class=\"swa-facets-show-more\">
+                            <a href=\"javascript:void(0)\" onclick=\"swa.load('{= ?id }', { newOffset: {= ?offset + ?limit } })\">Show entries {= (?offset + ?limit) + 1 } to {= spl:min(?rowCount, ((?offset + ?limit) + ?limit)) } of {= ?rowCount }</a>
+                        </div>
+                    </ui:else>
+                </ui:if>
+            </ui:loadable>
+        </ui:group>
+    </ui:group>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:label "Property facet view part"^^xsd:string ;
+  rdfs:subClassOf swa:FacetElements ;
+.
+swa:SelectionFacetedSearchDialog
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:title ;
+      spl:valueType xsd:string ;
+      rdfs:comment "An optional title"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:callback ;
+      spl:valueType xsd:string ;
+      rdfs:comment "A JavaScript expression that will be called when the user selects an instance."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:loadId ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The loadId"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:type ;
+      spl:valueType rdfs:Class ;
+      rdfs:comment "The type of resources to search for."^^xsd:string ;
+    ] ;
+  ui:private "true"^^xsd:boolean ;
+  ui:prototype """
+<ui:group let:id=\"{= ui:uniqueId() }\" let:queryGraph=\"{= ui:currentQueryGraph() }\" let:search=\"{= swa:facetedSearchForClass(?type) }\" let:searchGraph=\"{= ui:createSessionGraph() }\">
+    <swa:deriveSearch arg:loadId=\"{= ?id }\" arg:resourceType=\"{= ?type }\" ui:args=\"*\" ui:this=\"{= ?search }\"/>
+    <div id=\"div-{= ?loadId }\" let:resourceSelectedEvent=\"org.topbraid.swa.faceted.resourceSelected\" let:searchEvent=\"org.topbraid.swa.facetedSearchDialog.search\" style=\"padding: 0\" title=\"{= COALESCE(?title, CONCAT(&quot;Faceted Search: &quot;, ui:label(?type))) }\">
+        <ui:setContext ui:queryGraph=\"{= ?searchGraph }\">
+            <table class=\"swa-layout-table\" style=\"width:100%; height: 100%\">
+                <tr>
+                    <td class=\"swa-layout-td\" style=\"min-width: 300px; max-width: 300px; overflow: auto\">
+                        <swa:FacetedTextSearchView arg:loadId=\"{= ?id }\" ui:this=\"{= ?search }\"/>
+                        <ui:loadable class=\"ui-layout-content\" ui:loadId=\"{= ?id }\">
+                            <script>{= swa:publishEvent(swa:searchEvent(?searchEvent), CONCAT(\"'\", xsd:string(?searchGraph), \"'\")) }</script>
+                            <swa:FacetsList ui:this=\"{= ?search }\"/>
+                        </ui:loadable>
+                    </td>
+                    <td class=\"swa-layout-td\" style=\"min-width: 4px; height: 100%; background-color: #F5F5F5\"/>
+                    <td class=\"swa-layout-td\" style=\"width: 100%\">
+                        <swa:SummarySearchResultsGadget ui:args=\"*\"/>
+                    </td>
+                </tr>
+            </table>
+        </ui:setContext>
+        <swa:Subscribe arg:code=\"swa.closeDialog('{= ?loadId }');var resource = data; eval(&quot;{= ?callback }&quot;)\" arg:event=\"{= ?resourceSelectedEvent }\" arg:ownerId=\"div-{= ?loadId }\"/>
+        <swa:SessionGraphDeleter arg:ownerId=\"div-{= ?loadId }\" arg:sessionGraph=\"{= ?searchGraph }\"/>
+    </div>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:comment "A dialog that can be laid over an application to allow users to select an instance using faceted search. The dialog displays a swa:FacetedSearchGadget on the left and a swa:SummarySearchResultsGadget on the center/right. The initial search is for a given type."^^xsd:string ;
+  rdfs:label "Selection faceted search dialog"^^xsd:string ;
+  rdfs:subClassOf swa:DialogElements ;
+.
+swa:SummarySearchResultsGadget
+  rdf:type swa:Gadget ;
+  ui:prototype """
+<ui:setContext let:id=\"{= ui:uniqueId() }\" ui:varName=\"createLinkFunction\" ui:varValue=\"{= swa:createEventLink }\">
+    <ui:setContext ui:varName=\"createEventLinkEvent\" ui:varValue=\"{= ?resourceSelectedEvent }\">
+        <div class=\"swa-facets-results-bar\">
+            <div class=\"swa-facets-results-bar-pages\">
+                <a id=\"{= ?id }-previousPage\">&laquo; Previous</a>
+                <span> | </span>
+                <strong id=\"{= ?id }-startIndex\">0</strong>
+                <span> - </span>
+                <strong id=\"{= ?id }-endIndex\">0</strong>
+                <span> of </span>
+                <strong id=\"{= ?id }-count\">0</strong>
+                <span> | </span>
+                <a id=\"{= ?id }-nextPage\">Next &raquo;</a>
+            </div>
+            <div class=\"swa-float-right\" style=\"padding-left: 8px\">
+                <select autocomplete=\"false\" class=\"swa-facets-search-field\" id=\"{= ?id }-sortField\" style=\"width: 120px\" title=\"Sorting options\">
+                    <option selected=\"selected\" value=\"\">By label</option>
+                </select>
+            </div>
+            <div class=\"swa-float-right\" style=\"padding-left: 8px\">
+                <select autocomplete=\"false\" class=\"swa-facets-search-field\" id=\"{= ?id }-pageSize\" style=\"width: 120px\" title=\"Sorting options\">
+                    <option selected=\"selected\" value=\"10\">10 per page</option>
+                    <option value=\"20\">20 per page</option>
+                    <option value=\"50\">50 per page</option>
+                </select>
+            </div>
+            <div style=\"clear: both\"/>
+        </div>
+        <div class=\"ui-layout-content\" id=\"{= ?id }-owner\">
+            <ui:loadable class=\"swa-facets-results-gadget\" ui:loadId=\"{= ?id }\">
+                <ui:if ui:condition=\"{= bound(?searchGraph) }\">
+                    <ui:setContext let:startIndex=\"{= COALESCE(?startIndex, 0) }\" ui:queryGraph=\"{= ?searchGraph }\" ui:varName=\"searchGraph\" ui:varValue=\"{= ?searchGraph }\">
+                        <ui:group let:pageSize=\"{= COALESCE(?pageSize, 10) }\" let:search=\"{= search:theSearch() }\">
+                            <ui:group let:queryGraph=\"{= spl:object(?search, search:queryGraph) }\" letrs:results=\"{#
+                                    SELECT ?result ?totalCount
+                                    WHERE {
+                                        ( ?search ?startIndex ?pageSize ?sortProperty ) search:result ( ?result ?totalCount ) .
+                                    } }\">
+                                <div class=\"swa-facets-results-list\">
+                                    <ui:if ui:condition=\"{= spr:cell(?results, 0, 1) &gt; 0 }\">
+                                        <ui:forEach ui:resultSet=\"{= ?results }\">
+                                            <div class=\"swa-facets-result-summary\" onclick=\"{= swa:createEventLink(?result) }\">
+                                                <ui:setContext ui:queryGraph=\"{= ?queryGraph }\">
+                                                    <ui:resourceView ui:matchIds=\"summary\" ui:resource=\"{= ?result }\"/>
+                                                </ui:setContext>
+                                            </div>
+                                        </ui:forEach>
+                                    </ui:if>
+                                </div>
+                                <ui:group let:rowCount=\"{= spr:cell(?results, 0, 1) }\">
+                                    <script>$(\"#{= ?id }-count\").text(\"{= ?rowCount }\");</script>
+                                    <script>$(\"#{= ?id }-startIndex\").text(\"{= IF((?rowCount = 0), 0, (?startIndex + 1)) }\");</script>
+                                    <script>$(\"#{= ?id }-endIndex\").text(\"{= IF((?rowCount &lt; (?startIndex + ?pageSize)), ?rowCount, (?startIndex + ?pageSize)) }\");</script>
+                                    <ui:if ui:condition=\"{= ?startIndex &gt; 0 }\">
+                                        <script>$(\"#{= ?id }-previousPage\").attr(\"onclick\", \"swa.reloadSummarySearchResults('{= ?id }', Math.max(0, {= ?startIndex } - swa.getSummarySearchPageSize('{= ?id }')), '{= ?searchGraph }')\");$(\"#{= ?id }-previousPage\").attr(\"href\", \"javascript:void(0)\");</script>
+                                    </ui:if>
+                                    <ui:else>
+                                        <script>$(\"#{= ?id }-previousPage\").attr(\"onclick\", null);$(\"#{= ?id }-previousPage\").attr(\"href\", null);</script>
+                                    </ui:else>
+                                    <ui:if ui:condition=\"{= (?startIndex + ?pageSize) &lt; ?rowCount }\">
+                                        <script>$(\"#{= ?id }-nextPage\").attr(\"onclick\", \"swa.reloadSummarySearchResults('{= ?id }', {= ?startIndex } + swa.getSummarySearchPageSize('{= ?id }'), '{= ?searchGraph }')\");$(\"#{= ?id }-nextPage\").attr(\"href\", \"javascript:void(0)\");</script>
+                                    </ui:if>
+                                    <ui:else>
+                                        <script>$(\"#{= ?id }-nextPage\").attr(\"onclick\", null);$(\"#{= ?id }-nextPage\").attr(\"href\", null);</script>
+                                    </ui:else>
+                                </ui:group>
+                                <script>$(\"#{= ?id }-pageSize\").attr(\"onchange\", \"swa.reloadSummarySearchResults('{= ?id }', {= ?startIndex }, '{= ?searchGraph }')\");</script>
+                                <script>$(\"#{= ?id }-sortField\").attr(\"onchange\", \"swa.reloadSummarySearchResults('{= ?id }', {= ?startIndex }, '{= ?searchGraph }')\");</script>
+                                <script>$(\".swa-sort-field\").remove();</script>
+                                <ui:group>
+                                    <ui:forEach ui:resultSet=\"{#
+                                            SELECT ?columnProperty
+                                            WHERE {
+                                                GRAPH ui:graph {
+                                                    ?searchGraph search:columnPropertiesFromTheSearch ?columnProperty .
+                                                } .
+                                            } }\">
+                                        <script>$(\"#{= ?id }-sortField\").append('&lt;option class=\"swa-sort-field\" value=\"{= ?columnProperty }\"&gt;By {= swa:labelInGraph(?columnProperty, ?queryGraph) }&lt;/option&gt;');</script>
+                                    </ui:forEach>
+                                    <ui:if ui:condition=\"{= bound(?sortProperty) }\">
+                                        <script>$(\"#{= ?id }-sortField\").val(\"{= ?sortProperty }\");</script>
+                                    </ui:if>
+                                </ui:group>
+                            </ui:group>
+                        </ui:group>
+                    </ui:setContext>
+                </ui:if>
+            </ui:loadable>
+            <swa:Subscribe arg:code=\"swa.reloadSummarySearchResults('{= ?id }', 0, data)\" arg:event=\"{= swa:searchEvent(?searchEvent) }\" arg:ownerId=\"{= ?id }-owner\"/>
+        </div>
+    </ui:setContext>
+</ui:setContext>
+"""^^ui:Literal ;
+  rdfs:comment "Displays the search results in a vertical arrangement of up to 10-50 resource, using their summary view."^^xsd:string ;
+  rdfs:label "Summary search results gadget"^^xsd:string ;
+  rdfs:subClassOf swa:SearchResultsGadgets ;
+.
+swa:addObjectToFacet
+  rdf:type ui:Method ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:object ;
+      rdfs:comment "The object to add."^^xsd:string ;
+    ] ;
+  ui:prototype """
+<ui:transaction>
+    <ui:if ui:condition=\"{= !spl:hasValue(?this, search:facetValue) }\">
+        <ui:update ui:updateQuery=\"{!
+                INSERT {
+                    ?this search:facetValue ?facetValue .
+                    ?facetValue a search:ObjectFacetValue .
+                    ?facetValue search:object ?object .
+                }
+                WHERE {
+                    BIND (BNODE() AS ?facetValue) .
+                } }\"/>
+    </ui:if>
+    <ui:elseif ui:condition=\"{= spl:hasValueOfType(?this, search:facetValue, search:ObjectFacetValue) }\">
+        <ui:update ui:updateQuery=\"{!
+                INSERT {
+                    ?this search:facetValue ?intersection .
+                    ?intersection a search:IntersectionSetFacetValue .
+                    ?intersection search:setObject ?oldObject .
+                    ?intersection search:setObject ?object .
+                }
+                WHERE {
+                    ?this search:facetValue/search:object ?oldObject .
+                    BIND (BNODE() AS ?intersection) .
+                } }\"/>
+        <ui:update ui:updateQuery=\"{!
+                DELETE WHERE {
+                    ?this search:facetValue ?old .
+                    ?old a search:ObjectFacetValue .
+                    ?old search:object ?oldObject .
+                } }\"/>
+    </ui:elseif>
+    <ui:else>
+        <ui:update ui:updateQuery=\"{!
+                INSERT {
+                    ?intersection search:setObject ?object .
+                }
+                WHERE {
+                    ?this search:facetValue ?intersection .
+                } }\"/>
+    </ui:else>
+</ui:transaction>
+"""^^ui:Literal ;
+  rdfs:comment "Adds an object value to the current search:Facet (?this). If the Facet has no facetValue then it will create a new search:ObjectFacetValue, otherwise it will create a search:IntersectionSetFacetValue including previous values. This method is called when the user clicks on a facet value and should be followed by a re-run of the search."^^xsd:string ;
+  rdfs:label "add object to facet"^^xsd:string ;
+  rdfs:subClassOf ui:Methods ;
+.
+swa:copyResourceTree
+  rdf:type ui:Method ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:targetGraph ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The target graph to copy into."^^xsd:string ;
+    ] ;
+  ui:private "true"^^xsd:boolean ;
+  ui:prototype """
+<ui:group>
+    <ui:update ui:updateQuery=\"{!
+            INSERT {
+                GRAPH ?targetGraph {
+                    ?this ?p ?o .
+                } .
+            }
+            WHERE {
+                ?this ?p ?o .
+            } }\"/>
+    <ui:forEach ui:resultSet=\"{#
+            SELECT ?bnode
+            WHERE {
+                ?this ?p ?bnode .
+                FILTER isBlank(?bnode) .
+            } }\">
+        <swa:copyResourceTree arg:targetGraph=\"{= ?targetGraph }\" ui:this=\"{= ?bnode }\"/>
+    </ui:forEach>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:comment "Creates a deep copy of a given resource, including depending bnodes, into a given graph. Used to create a copy of the base search:Search in a session graph before faceted search starts."^^xsd:string ;
+  rdfs:label "copy resource tree"^^xsd:string ;
+  rdfs:subClassOf ui:Methods ;
+.
+swa:deriveSearch
+  rdf:type ui:Method ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:loadId ;
+      spl:valueType xsd:string ;
+      rdfs:comment "A unique id."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resourceType ;
+      spl:valueType rdfs:Class ;
+      rdfs:comment "The type of resources to search over."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:searchGraph ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "A session graph to populate."^^xsd:string ;
+    ] ;
+  ui:private "true"^^xsd:boolean ;
+  ui:prototype """
+<ui:group let:keyProperties=\"{= swa:getKeyProperties(?resourceType) }\" let:queryGraph=\"{= ui:currentQueryGraph() }\">
+    <ui:setContext ui:queryGraph=\"{= ui:unionGraph }\">
+        <swa:copyResourceTree arg:targetGraph=\"{= ?searchGraph }\"/>
+    </ui:setContext>
+    <ui:setContext ui:queryGraph=\"{= ?searchGraph }\">
+        <ui:update ui:updateQuery=\"{!
+                INSERT {
+                    ?this search:queryGraph ?queryGraph .
+                    ?this swa:loadId ?loadId .
+                }
+                WHERE {
+                } }\"/>
+        <ui:if ui:condition=\"{= bound(?keyProperties) }\">
+            <ui:forEach ui:indexVar=\"index\" ui:resultSet=\"{#
+                    SELECT ?keyProperty
+                    WHERE {
+                        GRAPH ui:graph {
+                            ?keyProperties (rdf:rest)*/rdf:first ?keyProperty .
+                        } .
+                    } }\">
+                <ui:update ui:updateQuery=\"{!
+                        INSERT {
+                            ?this spin:column ?column .
+                            ?column a search:PropertyColumn .
+                            ?column search:columnProperty ?keyProperty .
+                            ?column spin:columnIndex ?index .
+                        }
+                        WHERE {
+                            BIND (BNODE() AS ?column) .
+                        } }\"/>
+            </ui:forEach>
+        </ui:if>
+        <ui:setPropertyValue arg:property=\"{= search:rootType }\" arg:value=\"{= ?resourceType }\"/>
+    </ui:setContext>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:comment "Creates a copy of ?this (a search:Search) in a given search graph."^^xsd:string ;
+  rdfs:label "derive search"^^xsd:string ;
+  rdfs:subClassOf ui:Methods ;
+.
+swa:facetedSearchForClass
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "search"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:NamedGraph ;
+            sp:elements (
+                [
+                  rdf:type sp:Bind ;
+                  sp:expression [
+                      rdf:type spif:walkObjects ;
+                      sp:arg1 [
+                          sp:varName "resourceType"^^xsd:string ;
+                        ] ;
+                      sp:arg2 rdfs:subClassOf ;
+                      sp:arg3 swa:facetedSearchFunctor ;
+                    ] ;
+                  sp:variable [
+                      sp:varName "search"^^xsd:string ;
+                    ] ;
+                ]
+              ) ;
+            sp:graphNameNode ui:unionGraph ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resourceType ;
+      spl:valueType rdfs:Class ;
+      rdfs:comment "The class to get the search for."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  spin:returnType search:Search ;
+  rdfs:comment "Finds a suitable search:Search from the ui:unionGraph that is about a given class. Will fall back to the default search attached to rdfs:Resource."^^xsd:string ;
+  rdfs:label "faceted search for class"^^xsd:string ;
+  rdfs:subClassOf spin:Functions ;
+.
+swa:facetedSearchFunctor
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "search"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "search"^^xsd:string ;
+              ] ;
+            sp:predicate search:facetedSearch ;
+            sp:subject [
+                sp:varName "class"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "faceted search functor"^^xsd:string ;
+  rdfs:subClassOf swa:ClassFunctorFunctions ;
+.
+swa:isObjectFacetValue
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "facetValue"^^xsd:string ;
+              ] ;
+            sp:predicate search:facetValue ;
+            sp:subject [
+                sp:varName "facet"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Union ;
+            sp:elements (
+                (
+                  [
+                    sp:object search:ObjectFacetValue ;
+                    sp:predicate rdf:type ;
+                    sp:subject [
+                        sp:varName "facetValue"^^xsd:string ;
+                      ] ;
+                  ]
+                  [
+                    sp:object [
+                        sp:varName "object"^^xsd:string ;
+                      ] ;
+                    sp:predicate search:object ;
+                    sp:subject [
+                        sp:varName "facetValue"^^xsd:string ;
+                      ] ;
+                  ]
+                )
+                (
+                  [
+                    sp:object search:IntersectionSetFacetValue ;
+                    sp:predicate rdf:type ;
+                    sp:subject [
+                        sp:varName "facetValue"^^xsd:string ;
+                      ] ;
+                  ]
+                  [
+                    sp:object [
+                        sp:varName "object"^^xsd:string ;
+                      ] ;
+                    sp:predicate search:setObject ;
+                    sp:subject [
+                        sp:varName "facetValue"^^xsd:string ;
+                      ] ;
+                  ]
+                )
+              ) ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:facet ;
+      spl:valueType search:Facet ;
+      rdfs:comment "The search:Facet that is supposed to have the object as value."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:object ;
+      rdfs:comment "The object to test."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:boolean ;
+  rdfs:comment "Checks if a given object is a facet value of a given search:Facet."^^xsd:string ;
+  rdfs:label "is object facet value"^^xsd:string ;
+  rdfs:subClassOf spin:Functions ;
+.
+swa:loadId
+  rdf:type rdf:Property ;
+  rdfs:domain search:Search ;
+  rdfs:label "load id"^^xsd:string ;
+  rdfs:range xsd:string ;
+.
+swa:removeObjectFromFacet
+  rdf:type ui:Method ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:object ;
+      rdfs:comment "The object to add."^^xsd:string ;
+    ] ;
+  ui:prototype """
+<ui:transaction let:facetValue=\"{= spl:object(?this, search:facetValue) }\">
+    <ui:if ui:condition=\"{= spl:instanceOf(?facetValue, search:ObjectFacetValue) }\">
+        <ui:update ui:updateQuery=\"{!
+                DELETE WHERE {
+                    ?this search:facetValue ?facetValue .
+                    ?facetValue ?anyP ?anyO .
+                } }\"/>
+    </ui:if>
+    <ui:elseif ui:condition=\"{= spl:objectCount(?facetValue, search:setObject) = 2 }\">
+        <ui:update ui:updateQuery=\"{!
+                INSERT {
+                    ?facetValue a search:ObjectFacetValue .
+                    ?facetValue search:object ?oldObject .
+                }
+                WHERE {
+                    ?facetValue search:setObject ?oldObject .
+                    FILTER (?oldObject != ?object) .
+                } }\"/>
+        <ui:update ui:updateQuery=\"{!
+                DELETE WHERE {
+                    ?facetValue search:setObject ?anyObject .
+                    ?facetValue a search:IntersectionSetFacetValue .
+                } }\"/>
+    </ui:elseif>
+    <ui:else>
+        <ui:update ui:updateQuery=\"{!
+                DELETE WHERE {
+                    ?facetValue search:setObject ?object .
+                } }\"/>
+    </ui:else>
+</ui:transaction>
+"""^^ui:Literal ;
+  rdfs:comment "Removes an object value from the current search:Facet (?this). This method is called when the user clicks on the delete button behind a facet value and should be followed by a re-run of the search."^^xsd:string ;
+  rdfs:label "remove object from facet"^^xsd:string ;
+  rdfs:subClassOf ui:Methods ;
+.
+<http://topbraid.org/swafacets>
+  rdf:type owl:Ontology ;
+  owl:imports <http://topbraid.org/search.spin> ;
+  owl:imports <http://topbraid.org/sparqlmotionlib-swp> ;
+  owl:imports <http://topbraid.org/swa> ;
+  owl:versionInfo "0.1.0"^^xsd:string ;
+.
+rdfs:Resource
+  ui:method swa:copyResourceTree ;
+.

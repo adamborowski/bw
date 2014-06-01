@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:inference="http://www.topbraid.org/2007/06/inference.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.topbraid.org/2007/06/inference.owl">
+  <owl:Ontology rdf:about="">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1.0.0</owl:versionInfo>
+    <owl:imports rdf:resource="http://www.topbraid.org/2007/05/composite.owl"/>
+    <rdfs:comment>An ontology to represent an inferencing configuration in TopBraid.</rdfs:comment>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Configuration">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:comment>A configuration of inference engines.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="JenaEngine">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Engine"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Jena engine</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="DIGEngine">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Engine"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DIGEngine</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="SPARQLEngine">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Engine"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SPARQL Engine</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="RuleEngine">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Engine"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Rule engine</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Engine">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Engine</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="digURL">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DIG URL</rdfs:label>
+    <rdfs:domain rdf:resource="#DIGEngine"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:FunctionalProperty rdf:ID="jenaSpec">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Jena spec</rdfs:label>
+    <rdfs:domain rdf:resource="#JenaEngine"/>
+    <rdfs:comment>One of the Jena API's inferencing specs, e.g. "OWL_MEM".</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="iterativeMode">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >iterative mode</rdfs:label>
+    <rdfs:domain rdf:resource="#Configuration"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="systemMode">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >system mode</rdfs:label>
+    <rdfs:domain rdf:resource="#Configuration"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="completeMode">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >complete mode</rdfs:label>
+    <rdfs:domain rdf:resource="#Configuration"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="inferredMode">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >inferred mode</rdfs:label>
+    <rdfs:domain rdf:resource="#Configuration"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->

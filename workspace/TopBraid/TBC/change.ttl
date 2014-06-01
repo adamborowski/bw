@@ -1,0 +1,47 @@
+# baseURI: http://topbraid.org/change
+
+# c14n-version: 3
+@prefix change: <http://topbraid.org/change#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+<http://topbraid.org/change>
+  rdf:type owl:Ontology ;
+  rdfs:comment "An RDF model that can be used to represent changes to an RDF graph. The base class is change:Change which represents a group of added or deleted triples (instances of rdf:Statement)." ;
+  owl:versionInfo "1.1.0"^^xsd:string ;
+.
+change:Change
+  rdf:type rdfs:Class ;
+  rdfs:comment "A change to an RDF Graph, encapsulating lists of added and/or deleted rdf:Statements. Additional metadata such as a timeStamp (or author or whatever) can be added." ;
+  rdfs:label "Change"^^xsd:string ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+change:added
+  rdf:type rdf:Property ;
+  rdfs:comment "Links a Change with an rdf:Statement that has been added." ;
+  rdfs:domain change:Change ;
+  rdfs:label "added"^^xsd:string ;
+  rdfs:range rdf:Statement ;
+.
+change:deleted
+  rdf:type rdf:Property ;
+  rdfs:comment "Links a Change with an rdf:Statement that has been deleted." ;
+  rdfs:domain change:Change ;
+  rdfs:label "deleted"^^xsd:string ;
+  rdfs:range rdf:Statement ;
+.
+change:graph
+  rdf:type rdf:Property ;
+  rdfs:comment "The URI of the (optional) graph that this statement has been modified in."^^xsd:string ;
+  rdfs:domain rdf:Statement ;
+  rdfs:label "graph"^^xsd:string ;
+  rdfs:range rdfs:Resource ;
+.
+change:timeStamp
+  rdf:type rdf:Property ;
+  rdfs:comment "The time at which a Change was performed." ;
+  rdfs:domain change:Change ;
+  rdfs:label "time stamp"^^xsd:string ;
+  rdfs:range xsd:dateTime ;
+.

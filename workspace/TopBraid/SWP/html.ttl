@@ -1,0 +1,2636 @@
+# baseURI: http://uispin.org/html
+# imports: http://uispin.org/css
+# imports: http://uispin.org/ui
+
+# c14n-version: 3
+@prefix html: <http://uispin.org/html#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix style: <http://uispin.org/style#> .
+@prefix ui: <http://uispin.org/ui#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+<http://uispin.org/html>
+  rdf:type owl:Ontology ;
+  owl:imports <http://uispin.org/css> ;
+  owl:imports <http://uispin.org/ui> ;
+  owl:versionInfo "0.9.0"^^xsd:string ;
+.
+html:A
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:accesskey ;
+      rdfs:comment "Accessibility key character."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:charset ;
+      rdfs:comment "Char encoding of linked resource."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:coords ;
+      rdfs:comment "For use with client-side image maps."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:href ;
+      rdfs:comment "URI for linked resource."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:hreflang ;
+      rdfs:comment "Language code."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:name ;
+      rdfs:comment "Named link end."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onblur ;
+      rdfs:comment "The element lost the focus."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onfocus ;
+      rdfs:comment "The element got the focus."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:rel ;
+      rdfs:comment "Forward link types."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:rev ;
+      rdfs:comment "Reverse link types."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:shape ;
+      rdfs:comment "For use with client-side image maps."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:tabindex ;
+      rdfs:comment "Position in tabbing order."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:type ;
+      rdfs:comment "Advisory content type."^^xsd:string ;
+    ] ;
+  rdfs:comment """Each A element defines an anchor
+
+The A element's content defines the position of the anchor.
+The name attribute names the anchor so that it may be the destination of zero or more links (see also anchors with id).
+The href attribute makes this anchor the source anchor of exactly one link."""^^xsd:string ;
+  rdfs:label "A"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/struct/links.html#edef-A> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:LinkElements ;
+.
+html:Abbr
+  rdf:type ui:NodeClass ;
+  rdfs:label "Abbr"^^xsd:string ;
+  rdfs:subClassOf html:PhraseElements ;
+.
+html:Acronym
+  rdf:type ui:NodeClass ;
+  rdfs:label "Acronym"^^xsd:string ;
+  rdfs:subClassOf html:PhraseElements ;
+.
+html:Address
+  rdf:type ui:NodeClass ;
+  rdfs:label "Address"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Applet
+  rdf:type ui:NodeClass ;
+  rdf:type owl:DeprecatedClass ;
+  rdfs:label "Applet"^^xsd:string ;
+  rdfs:subClassOf html:ObjectsElements ;
+  rdfs:subClassOf owl:DeprecatedClass ;
+.
+html:Area
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:accesskey ;
+      rdfs:comment "Accessibility key character."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:alt ;
+      rdfs:comment "Short description."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:coords ;
+      rdfs:comment "Comma-separated list of lengths."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:href ;
+      rdfs:comment "URI for linked resource."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:nohref ;
+      rdfs:comment "This region has no action."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onblur ;
+      rdfs:comment "The element lost the focus."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onfocus ;
+      rdfs:comment "The element got the focus."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:shape ;
+      rdfs:comment "Controls interpretation of coords."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:tabindex ;
+      rdfs:comment "Position in tabbing order."^^xsd:string ;
+    ] ;
+  rdfs:label "Area"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/struct/objects.html#edef-AREA> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:ObjectsElements ;
+.
+html:Article
+  rdf:type ui:NodeClass ;
+  rdfs:label "Article"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Aside
+  rdf:type ui:NodeClass ;
+  rdfs:label "Aside"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Attribute
+  rdf:type rdfs:Class ;
+  rdfs:label "Attribute"^^xsd:string ;
+  rdfs:subClassOf rdf:Property ;
+.
+html:AttributeGroups
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract superclass of classes that are used to attach attributes to HTML elements. Correspond to the attribute groups in the HTML DTD."^^xsd:string ;
+  rdfs:label "Attribute Groups"^^xsd:string ;
+  rdfs:subClassOf html:Elements ;
+.
+html:AttrsAttributeGroup
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Attrs attribute group"^^xsd:string ;
+  rdfs:subClassOf html:CoreAttributeGroup ;
+  rdfs:subClassOf html:I18NAttributeGroup ;
+.
+html:Audio
+  rdf:type ui:NodeClass ;
+  rdfs:label "Audio"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:B
+  rdf:type ui:NodeClass ;
+  rdfs:label "B"^^xsd:string ;
+  rdfs:subClassOf html:FontStyleElements ;
+.
+html:Base
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:href ;
+      rdfs:comment "URI that acts as base URI."^^xsd:string ;
+    ] ;
+  rdfs:label "Base"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/struct/links.html#h-12.4> ;
+  rdfs:subClassOf html:LinkElements ;
+.
+html:Basefont
+  rdf:type ui:NodeClass ;
+  rdfs:label "Basefont"^^xsd:string ;
+  rdfs:subClassOf html:GraphicsElements ;
+.
+html:Bdi
+  rdf:type ui:NodeClass ;
+  rdfs:label "Bdi"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Bdo
+  rdf:type ui:NodeClass ;
+  rdfs:label "Bdo"^^xsd:string ;
+  rdfs:subClassOf html:CoreAttributeGroup ;
+  rdfs:subClassOf html:I18NAttributeGroup ;
+  rdfs:subClassOf html:LanguageElements ;
+.
+html:Big
+  rdf:type ui:NodeClass ;
+  rdfs:label "Big"^^xsd:string ;
+  rdfs:subClassOf html:FontStyleElements ;
+.
+html:Blockquote
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:cite ;
+    ] ;
+  rdfs:label "Blockquote"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:TextElements ;
+.
+html:Body
+  rdf:type ui:NodeClass ;
+  rdfs:label "Body"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Br
+  rdf:type ui:NodeClass ;
+  rdfs:label "Br"^^xsd:string ;
+  rdfs:subClassOf html:CoreAttributeGroup ;
+  rdfs:subClassOf html:TextElements ;
+.
+html:Button
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:accesskey ;
+      rdfs:comment "Accessibility key character."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:disabled ;
+      rdfs:comment "Unavailable in this context."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:name ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onblur ;
+      rdfs:comment "The element lost the focus."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onfocus ;
+      rdfs:comment "The element got the focus."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:tabindex ;
+      rdfs:comment "Position in tabbing order."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:type ;
+      rdfs:comment "For use as form button."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:value ;
+      rdfs:comment "Sent to server when submitted."^^xsd:string ;
+    ] ;
+  rdfs:label "Button"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/interact/forms.html#h-17.5> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:FormElements ;
+.
+html:Canvas
+  rdf:type ui:NodeClass ;
+  rdfs:label "Canvas"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Caption
+  rdf:type ui:NodeClass ;
+  rdfs:label "Caption"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:TableElements ;
+.
+html:CellHAlignAttributeGroup
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:align ;
+      rdfs:comment "(left|center|right|justify|char)"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:char ;
+      rdfs:comment "Alignment char, e.g. char=':'."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:charoff ;
+      rdfs:comment "Offset for alignment char."^^xsd:string ;
+    ] ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Cell HAlign attribute group"^^xsd:string ;
+  rdfs:subClassOf html:AttributeGroups ;
+.
+html:CellVAlignAttributeGroup
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:valign ;
+      rdfs:comment "(top|middle|bottom|baseline)"^^xsd:string ;
+    ] ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Cell VAlign attribute group"^^xsd:string ;
+  rdfs:subClassOf html:AttributeGroups ;
+.
+html:Center
+  rdf:type ui:NodeClass ;
+  rdf:type owl:DeprecatedClass ;
+  rdfs:label "Center"^^xsd:string ;
+  rdfs:subClassOf html:GraphicsElements ;
+  rdfs:subClassOf owl:DeprecatedClass ;
+.
+html:Cite
+  rdf:type ui:NodeClass ;
+  rdfs:label "Cite"^^xsd:string ;
+  rdfs:subClassOf html:PhraseElements ;
+.
+html:Code
+  rdf:type ui:NodeClass ;
+  rdfs:label "Code"^^xsd:string ;
+  rdfs:subClassOf html:PhraseElements ;
+.
+html:Col
+  rdf:type ui:NodeClass ;
+  rdfs:label "Col"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/struct/tables.html#h-11.2.4> ;
+  rdfs:subClassOf html:TableElements ;
+.
+html:Colgroup
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:span ;
+      rdfs:comment "Default number of columns in group."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:width ;
+      rdfs:comment "Default width for enclosed COLs."^^xsd:string ;
+    ] ;
+  rdfs:label "Colgroup"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/struct/tables.html#h-11.2.4> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:CellHAlignAttributeGroup ;
+  rdfs:subClassOf html:CellVAlignAttributeGroup ;
+  rdfs:subClassOf html:TableElements ;
+.
+html:Command
+  rdf:type ui:NodeClass ;
+  rdfs:label "Command"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:CoreAttributeGroup
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:class ;
+      rdfs:comment "Space-separated list of classes."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:id ;
+      rdfs:comment "Document-wide unique id."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:style ;
+      rdfs:comment "Associated style info."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:title ;
+      rdfs:comment "Advisory title."^^xsd:string ;
+    ] ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Core attribute group"^^xsd:string ;
+  rdfs:subClassOf html:AttributeGroups ;
+.
+html:Datalist
+  rdf:type ui:NodeClass ;
+  rdfs:label "Datalist"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:FormElements ;
+.
+html:Dd
+  rdf:type ui:NodeClass ;
+  rdfs:label "Dd"^^xsd:string ;
+  rdfs:subClassOf html:ListElements ;
+.
+html:Del
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:cite ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:datetime ;
+    ] ;
+  rdfs:label "Del"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:TextElements ;
+.
+html:Details
+  rdf:type ui:NodeClass ;
+  rdfs:label "Details"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Dfn
+  rdf:type ui:NodeClass ;
+  rdfs:label "Dfn"^^xsd:string ;
+  rdfs:subClassOf html:PhraseElements ;
+.
+html:Dialog
+  rdf:type ui:NodeClass ;
+  rdfs:label "Dialog"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Dir
+  rdf:type ui:NodeClass ;
+  rdfs:label "Dir"^^xsd:string ;
+  rdfs:subClassOf html:ListElements ;
+.
+html:Div
+  rdf:type ui:NodeClass ;
+  rdfs:label "Div"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Dl
+  rdf:type ui:NodeClass ;
+  rdfs:label "Dl"^^xsd:string ;
+  rdfs:subClassOf html:ListElements ;
+.
+html:Dt
+  rdf:type ui:NodeClass ;
+  rdfs:label "Dt"^^xsd:string ;
+  rdfs:subClassOf html:ListElements ;
+.
+html:Elements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract base class of the HTML element types."^^xsd:string ;
+  rdfs:label "Elements"^^xsd:string ;
+  rdfs:subClassOf ui:Element ;
+.
+html:Em
+  rdf:type ui:NodeClass ;
+  rdfs:label "Em"^^xsd:string ;
+  rdfs:subClassOf html:PhraseElements ;
+.
+html:Embed
+  rdf:type ui:NodeClass ;
+  rdfs:label "Embed"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:EventsAttributeGroup
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onclick ;
+      rdfs:comment "A pointer button was clicked."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:ondblclick ;
+      rdfs:comment "A pointer button was double clicked."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onkeydown ;
+      rdfs:comment "A key was pressed down."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onkeypress ;
+      rdfs:comment "A key was pressed and released."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onkeyup ;
+      rdfs:comment "A key was released."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onmousedown ;
+      rdfs:comment "A pointer button was pressed down."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onmousemove ;
+      rdfs:comment "A pointer was moved within."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onmouseout ;
+      rdfs:comment "A pointer was moved away."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onmouseover ;
+      rdfs:comment "A pointer was moved onto."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onmouseup ;
+      rdfs:comment "A pointer button was released."^^xsd:string ;
+    ] ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Events attribute group"^^xsd:string ;
+  rdfs:subClassOf html:AttributeGroups ;
+.
+html:Fieldset
+  rdf:type ui:NodeClass ;
+  rdfs:label "Fieldset"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/interact/forms.html#h-17.10> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:FormElements ;
+.
+html:Figcaption
+  rdf:type ui:NodeClass ;
+  rdfs:label "Figcaption"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Figure
+  rdf:type ui:NodeClass ;
+  rdfs:label "Figure"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Font
+  rdf:type ui:NodeClass ;
+  rdfs:label "Font"^^xsd:string ;
+  rdfs:subClassOf html:GraphicsElements ;
+.
+html:FontStyleElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Font style elements"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/present/graphics.html#h-15.2.1> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GraphicsElements ;
+.
+html:Footer
+  rdf:type ui:NodeClass ;
+  rdfs:label "Footer"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Form
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:accept ;
+      rdfs:comment "List of MIME types for file upload"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:accept-charset ;
+      rdfs:comment "List of supported charsets."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:action ;
+      rdfs:comment "Server-side form handler."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:enctype ;
+      rdfs:comment "This attribute specifies the content type used to submit the form to the server (when the value of method is \"post\")."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:method ;
+      rdfs:comment "HTTP method used to submit the form."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:name ;
+      rdfs:comment "Name of form for scripting."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onreset ;
+      rdfs:comment "The form was reset."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onsubmit ;
+      rdfs:comment "The form was submitted."^^xsd:string ;
+    ] ;
+  rdfs:label "Form"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/interact/forms.html#h-17.3> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:FormElements ;
+.
+html:FormElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Form elements"^^xsd:string ;
+  rdfs:subClassOf html:Elements ;
+.
+html:Frame
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:frameborder ;
+      rdfs:comment "Request frame borders?"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:longdesc ;
+      rdfs:comment "Link to long description."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:marginheight ;
+      rdfs:comment "Margin height in pixels."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:marginwidth ;
+      rdfs:comment "Margin widths in pixels."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:name ;
+      rdfs:comment "Name of frame for targetting."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:noresize ;
+      rdfs:comment "Allow users to resize frames?"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:scrolling ;
+      rdfs:comment "Scrollbar or none."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:src ;
+      rdfs:comment "Source of frame content."^^xsd:string ;
+    ] ;
+  rdfs:label "Frame"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/present/frames.html#h-16.2.2> ;
+  rdfs:subClassOf html:CoreAttributeGroup ;
+  rdfs:subClassOf html:FrameElements ;
+.
+html:FrameElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Frame elements"^^xsd:string ;
+  rdfs:subClassOf html:Elements ;
+.
+html:Frameset
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:cols ;
+      rdfs:comment "List of lengths."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onload ;
+      rdfs:comment "All the frames have been loaded."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onunload ;
+      rdfs:comment "All the frames have been removed."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:rows ;
+      rdfs:comment "List of lengths."^^xsd:string ;
+    ] ;
+  rdfs:label "Frameset"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/present/frames.html#h-16.2.1> ;
+  rdfs:subClassOf html:CoreAttributeGroup ;
+  rdfs:subClassOf html:FrameElements ;
+.
+html:GlobalElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Global elements"^^xsd:string ;
+  rdfs:subClassOf html:Elements ;
+.
+html:GraphicsElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Graphics elements"^^xsd:string ;
+  rdfs:subClassOf html:Elements ;
+.
+html:H1
+  rdf:type ui:NodeClass ;
+  rdfs:label "H1"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/struct/global.html#edef-H1> ;
+  rdfs:subClassOf html:Heading ;
+.
+html:H2
+  rdf:type ui:NodeClass ;
+  rdfs:label "H2"^^xsd:string ;
+  rdfs:subClassOf html:Heading ;
+.
+html:H3
+  rdf:type ui:NodeClass ;
+  rdfs:label "H3"^^xsd:string ;
+  rdfs:subClassOf html:Heading ;
+.
+html:H4
+  rdf:type ui:NodeClass ;
+  rdfs:label "H4"^^xsd:string ;
+  rdfs:subClassOf html:Heading ;
+.
+html:H5
+  rdf:type ui:NodeClass ;
+  rdfs:label "H5"^^xsd:string ;
+  rdfs:subClassOf html:Heading ;
+.
+html:H6
+  rdf:type ui:NodeClass ;
+  rdfs:label "H6"^^xsd:string ;
+  rdfs:subClassOf html:Heading ;
+.
+html:Head
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:profile ;
+    ] ;
+  rdfs:label "Head"^^xsd:string ;
+  rdfs:subClassOf html:GlobalElements ;
+  rdfs:subClassOf html:I18NAttributeGroup ;
+.
+html:Header
+  rdf:type ui:NodeClass ;
+  rdfs:label "Header"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Heading
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract base class of the various headings elements."^^xsd:string ;
+  rdfs:label "Heading"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Hgroup
+  rdf:type ui:NodeClass ;
+  rdfs:label "Hgroup"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Hr
+  rdf:type ui:NodeClass ;
+  rdfs:label "Hr"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/present/graphics.html#h-15.3> ;
+  rdfs:subClassOf html:GraphicsElements ;
+.
+html:Html
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:dir ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:lang ;
+    ] ;
+  rdfs:label "Html"^^xsd:string ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:I
+  rdf:type ui:NodeClass ;
+  rdfs:label "I"^^xsd:string ;
+  rdfs:subClassOf html:FontStyleElements ;
+.
+html:I18NAttributeGroup
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:dir ;
+      rdfs:comment "Direction for weak/neutral text."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:lang ;
+      rdfs:comment "Language code."^^xsd:string ;
+    ] ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "i18n attribute group"^^xsd:string ;
+  rdfs:subClassOf html:AttributeGroups ;
+.
+html:Iframe
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:align ;
+      rdfs:comment "Vertical or horizontal alignment."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:frameborder ;
+      rdfs:comment "Request frame borders?"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:height ;
+      rdfs:comment "Frame height."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:longdesc ;
+      rdfs:comment "Link to long description."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:marginheight ;
+      rdfs:comment "Margin height in pixels."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:marginwidth ;
+      rdfs:comment "Margin widths in pixels."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:name ;
+      rdfs:comment "Name of frame for targetting."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:scrolling ;
+      rdfs:comment "Scrollbar or none."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:src ;
+      rdfs:comment "Source of frame content."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:width ;
+      rdfs:comment "Frame width."^^xsd:string ;
+    ] ;
+  rdfs:label "Internal Frame"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/present/frames.html#h-16.5> ;
+  rdfs:subClassOf html:CoreAttributeGroup ;
+  rdfs:subClassOf html:FrameElements ;
+.
+html:Img
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:alt ;
+      rdfs:comment "Short description."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:height ;
+      rdfs:comment "Override height."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:ismap ;
+      rdfs:comment "Use server-side image map."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:longdesc ;
+      rdfs:comment "Link to long description."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:name ;
+      rdfs:comment "Name of image for scripting."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:src ;
+      rdfs:comment "URI of image to embed."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:usemap ;
+      rdfs:comment "Use client-side image map."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:width ;
+      rdfs:comment "Override width"^^xsd:string ;
+    ] ;
+  rdfs:label "Image"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/struct/objects.html#h-13.2> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:ObjectsElements ;
+.
+html:Input
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:accept ;
+      rdfs:comment "List of MIME types for file upload."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:accesskey ;
+      rdfs:comment "Accessibility key character."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:alt ;
+      rdfs:comment "Short description."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:checked ;
+      rdfs:comment "For radio buttons and check boxes."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:disabled ;
+      rdfs:comment "Unavailable in this context."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:ismap ;
+      rdfs:comment "Use server-side image map."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:maxlength ;
+      rdfs:comment "Max chars for text fields."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:name ;
+      rdfs:comment "Submit as part of form."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onblur ;
+      rdfs:comment "The element lost the focus."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onchange ;
+      rdfs:comment "The element value was changed."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onfocus ;
+      rdfs:comment "The element got the focus."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onselect ;
+      rdfs:comment "Some text was selected."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:readonly ;
+      rdfs:comment "For text and passwd."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:size ;
+      rdfs:comment "Specific to each type of field."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:src ;
+      rdfs:comment "For fields with images."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:tabindex ;
+      rdfs:comment "Position in tabbing order."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:type ;
+      rdfs:comment "What kind of widget is needed."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:usemap ;
+      rdfs:comment "Use client-side image map."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:value ;
+      rdfs:comment "Specify for radio buttons and checkboxes."^^xsd:string ;
+    ] ;
+  rdfs:label "Input"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/interact/forms.html#h-17.4> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:FormElements ;
+.
+html:Ins
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:cite ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:datetime ;
+    ] ;
+  rdfs:label "Ins"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:TextElements ;
+.
+html:Isindex
+  rdf:type ui:NodeClass ;
+  rdfs:label "Isindex"^^xsd:string ;
+  rdfs:subClassOf html:FormElements ;
+  rdfs:subClassOf owl:DeprecatedClass ;
+.
+html:Kbd
+  rdf:type ui:NodeClass ;
+  rdfs:label "Kbd"^^xsd:string ;
+  rdfs:subClassOf html:PhraseElements ;
+.
+html:Keygen
+  rdf:type ui:NodeClass ;
+  rdfs:label "Keygen"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:FormElements ;
+.
+html:Label
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:accesskey ;
+      rdfs:comment "Accessibility key character."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:for ;
+      rdfs:comment "Matches field ID value."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onblur ;
+      rdfs:comment "The element lost the focus"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onfocus ;
+      rdfs:comment "The element got the focus."^^xsd:string ;
+    ] ;
+  rdfs:label "Label"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/interact/forms.html#h-17.9.1> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:FormElements ;
+.
+html:LanguageElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Language elements"^^xsd:string ;
+  rdfs:subClassOf html:Elements ;
+.
+html:Legend
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:accesskey ;
+      rdfs:comment "Accessibility key character."^^xsd:string ;
+    ] ;
+  rdfs:label "Legend"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/interact/forms.html#h-17.10> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:FormElements ;
+.
+html:Li
+  rdf:type ui:NodeClass ;
+  rdfs:label "Li"^^xsd:string ;
+  rdfs:subClassOf html:ListElements ;
+.
+html:Link
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:charset ;
+      rdfs:comment "Char encoding of linked resource."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:href ;
+      rdfs:comment "URI for linked resource."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:hreflang ;
+      rdfs:comment "Language code."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:media ;
+      rdfs:comment "For rendering on these media."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:rel ;
+      rdfs:comment "Forward link types."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:rev ;
+      rdfs:comment "Reverse link types."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:type ;
+      rdfs:comment "Advisory content type."^^xsd:string ;
+    ] ;
+  rdfs:label "Link"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/struct/links.html#h-12.3> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:LinkElements ;
+.
+html:LinkElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Link elements"^^xsd:string ;
+  rdfs:subClassOf html:Elements ;
+.
+html:ListElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract base class for HTML list elements."^^xsd:string ;
+  rdfs:label "List elements"^^xsd:string ;
+  rdfs:subClassOf html:Elements ;
+.
+html:Map
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:name ;
+      rdfs:comment "For reference by usemap."^^xsd:string ;
+    ] ;
+  rdfs:label "Map"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/struct/objects.html#h-13.6.1> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:ObjectsElements ;
+.
+html:Mark
+  rdf:type ui:NodeClass ;
+  rdfs:label "Mark"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Menu
+  rdf:type ui:NodeClass ;
+  rdfs:label "Menu"^^xsd:string ;
+  rdfs:subClassOf html:ListElements ;
+.
+html:Meta
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:content ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:http-equiv ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:name ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:scheme ;
+    ] ;
+  rdfs:label "Meta"^^xsd:string ;
+  rdfs:subClassOf html:GlobalElements ;
+  rdfs:subClassOf html:I18NAttributeGroup ;
+.
+html:Meter
+  rdf:type ui:NodeClass ;
+  rdfs:label "Meter"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Nav
+  rdf:type ui:NodeClass ;
+  rdfs:label "Nav"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Noframes
+  rdf:type ui:NodeClass ;
+  rdfs:label "Noframes"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/present/frames.html#h-16.4.1> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:FrameElements ;
+.
+html:Noscript
+  rdf:type ui:NodeClass ;
+  rdfs:label "Noscript"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/interact/scripts.html#h-18.3.1> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:ScriptElements ;
+.
+html:Object
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:archive ;
+      rdfs:comment "Space-separated list of URIs."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:classid ;
+      rdfs:comment "Identifies an implementation."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:codebase ;
+      rdfs:comment "Base URI for classid, data, archive."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:codetype ;
+      rdfs:comment "Content type for code."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:data ;
+      rdfs:comment "Reference to object's data."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:declare ;
+      rdfs:comment "Declare but don't instantiate flag."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:height ;
+      rdfs:comment "Override height."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:name ;
+      rdfs:comment "Submit as part of form."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:standby ;
+      rdfs:comment "Message to show while loading."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:tabindex ;
+      rdfs:comment "Position in tabbing order."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:type ;
+      rdfs:comment "Content type for data."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:usemap ;
+      rdfs:comment "Use client-side image map."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:width ;
+      rdfs:comment "Override width."^^xsd:string ;
+    ] ;
+  rdfs:label "Object"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/struct/objects.html#h-13.3> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:ObjectsElements ;
+.
+html:ObjectsElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Objects element"^^xsd:string ;
+  rdfs:subClassOf html:Elements ;
+.
+html:Ol
+  rdf:type ui:NodeClass ;
+  rdfs:label "OL"^^xsd:string ;
+  rdfs:subClassOf html:ListElements ;
+.
+html:Optgroup
+  rdf:type ui:NodeClass ;
+  rdfs:label "Optgroup"^^xsd:string ;
+  rdfs:subClassOf html:FormElements ;
+.
+html:Option
+  rdf:type ui:NodeClass ;
+  rdfs:label "Option"^^xsd:string ;
+  rdfs:subClassOf html:FormElements ;
+.
+html:Output
+  rdf:type ui:NodeClass ;
+  rdfs:label "Output"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:FormElements ;
+.
+html:P
+  rdf:type ui:NodeClass ;
+  rdfs:label "P"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:TextElements ;
+.
+html:Param
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:id ;
+      rdfs:comment "Document-wide unique id."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:name ;
+      rdfs:comment "Property name."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:type ;
+      rdfs:comment "content type for value"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:value ;
+      rdfs:comment "Property value."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:valuetype ;
+      rdfs:comment "How to interpret value."^^xsd:string ;
+    ] ;
+  rdfs:label "Param"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/struct/objects.html#h-13.3.2> ;
+  rdfs:subClassOf html:ObjectsElements ;
+.
+html:PhraseElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Phrase elements"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:TextElements ;
+.
+html:Pre
+  rdf:type ui:NodeClass ;
+  rdfs:label "Pre"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:TextElements ;
+.
+html:Progress
+  rdf:type ui:NodeClass ;
+  rdfs:label "Progress"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Q
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:cite ;
+    ] ;
+  rdfs:label "Q"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:TextElements ;
+.
+html:Rp
+  rdf:type ui:NodeClass ;
+  rdfs:label "Rp"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Rt
+  rdf:type ui:NodeClass ;
+  rdfs:label "Rt"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Ruby
+  rdf:type ui:NodeClass ;
+  rdfs:label "Ruby"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:S
+  rdf:type ui:NodeClass ;
+  rdf:type owl:DeprecatedClass ;
+  rdfs:label "S"^^xsd:string ;
+  rdfs:subClassOf html:FontStyleElements ;
+.
+html:Samp
+  rdf:type ui:NodeClass ;
+  rdfs:label "Samp"^^xsd:string ;
+  rdfs:subClassOf html:PhraseElements ;
+.
+html:Script
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:charset ;
+      rdfs:comment "Char encoding of linked resource."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:defer ;
+      rdfs:comment "UA may defer execution of script."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:src ;
+      rdfs:comment "URI for an external script."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:type ;
+      rdfs:comment "Content type of script language."^^xsd:string ;
+    ] ;
+  rdfs:label "Script"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/interact/scripts.html#h-18.2.1> ;
+  rdfs:subClassOf html:ScriptElements ;
+.
+html:ScriptElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Script elements"^^xsd:string ;
+  rdfs:subClassOf html:Elements ;
+.
+html:Section
+  rdf:type ui:NodeClass ;
+  rdfs:label "Section"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Select
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:disabled ;
+      rdfs:comment "Unavailable in this context."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:multiple ;
+      rdfs:comment "Default is single selection."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:name ;
+      rdfs:comment "Field name."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onblur ;
+      rdfs:comment "The element lost the focus."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onchange ;
+      rdfs:comment "The element value was changed."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onfocus ;
+      rdfs:comment "The element got the focus."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:size ;
+      rdfs:comment "Rows visible."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:tabindex ;
+      rdfs:comment "Position in tabbing order."^^xsd:string ;
+    ] ;
+  rdfs:label "Select"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/interact/forms.html#h-17.6> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:FormElements ;
+.
+html:Small
+  rdf:type ui:NodeClass ;
+  rdfs:label "Small"^^xsd:string ;
+  rdfs:subClassOf html:FontStyleElements ;
+.
+html:Source
+  rdf:type ui:NodeClass ;
+  rdfs:label "Source"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Span
+  rdf:type ui:NodeClass ;
+  rdfs:label "Span"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Strike
+  rdf:type ui:NodeClass ;
+  rdf:type owl:DeprecatedClass ;
+  rdfs:label "Strike"^^xsd:string ;
+  rdfs:subClassOf html:FontStyleElements ;
+.
+html:Strong
+  rdf:type ui:NodeClass ;
+  rdfs:label "Strong"^^xsd:string ;
+  rdfs:subClassOf html:PhraseElements ;
+.
+html:Style
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:media ;
+      rdfs:comment "Designed for use with these media."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:title ;
+      rdfs:comment "Advisory title."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:type ;
+      rdfs:comment "Content type of style language."^^xsd:string ;
+    ] ;
+  rdfs:label "Style"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/present/styles.html#h-14.2.3> ;
+  rdfs:subClassOf html:I18NAttributeGroup ;
+  rdfs:subClassOf html:StyleElements ;
+.
+html:StyleElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Style elements"^^xsd:string ;
+  rdfs:subClassOf html:Elements ;
+.
+html:StyleProperty
+  rdf:type rdfs:Class ;
+  rdfs:label "Style property"^^xsd:string ;
+  rdfs:subClassOf rdf:Property ;
+.
+html:Sub
+  rdf:type ui:NodeClass ;
+  rdfs:label "Sub"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:TextElements ;
+.
+html:Summary
+  rdf:type ui:NodeClass ;
+  rdfs:label "Summary"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Sup
+  rdf:type ui:NodeClass ;
+  rdfs:label "Sup"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:TextElements ;
+.
+html:Table
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:border ;
+      rdfs:comment "Controls frame width around table."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:cellpadding ;
+      rdfs:comment "Spacing within cells."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:cellspacing ;
+      rdfs:comment "Spacing between cells."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:frame ;
+      rdfs:comment "Which parts of frame to render."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:rules ;
+      rdfs:comment "Rulings between rows and cols."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:summary ;
+      rdfs:comment "Purpose/structure for speech output."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:width ;
+      rdfs:comment "Table width."^^xsd:string ;
+    ] ;
+  rdfs:label "Table"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:TableElements ;
+.
+html:TableElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract base class for table containers."^^xsd:string ;
+  rdfs:label "Table elements"^^xsd:string ;
+  rdfs:subClassOf html:Elements ;
+.
+html:TableRowGroupElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Table row group elements"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/struct/tables.html#h-11.2.3> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:CellHAlignAttributeGroup ;
+  rdfs:subClassOf html:CellVAlignAttributeGroup ;
+  rdfs:subClassOf html:TableElements ;
+.
+html:Tbody
+  rdf:type ui:NodeClass ;
+  rdfs:label "Tbody"^^xsd:string ;
+  rdfs:subClassOf html:TableRowGroupElements ;
+.
+html:Td
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:abbr ;
+      rdfs:comment "Abbreviation for header cell."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:axis ;
+      rdfs:comment "Comma-separated list of related headers."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:colspan ;
+      rdfs:comment "Number of columns spanned by cell."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:headers ;
+      rdfs:comment "List of id's for header cells."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:rowspan ;
+      rdfs:comment "Number of rows spanned by cell."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:scope ;
+      rdfs:comment "Scope covered by header cells."^^xsd:string ;
+    ] ;
+  rdfs:label "Td"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/struct/tables.html#h-11.2.6> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:CellHAlignAttributeGroup ;
+  rdfs:subClassOf html:CellVAlignAttributeGroup ;
+  rdfs:subClassOf html:TableElements ;
+.
+html:TextElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Text elements"^^xsd:string ;
+  rdfs:subClassOf html:Elements ;
+.
+html:Textarea
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:accesskey ;
+      rdfs:comment "Accessibility key character."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:cols ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:disabled ;
+      rdfs:comment "Unavailable in this context."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:name ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onblur ;
+      rdfs:comment "The element lost the focus."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onchange ;
+      rdfs:comment "The element value was changed."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onfocus ;
+      rdfs:comment "The element got the focus."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:onselect ;
+      rdfs:comment "Some text was selected."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:readonly ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:rows ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate html:tabindex ;
+      rdfs:comment "Position in tabbing order."^^xsd:string ;
+    ] ;
+  rdfs:label "Textarea"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/interact/forms.html#h-17.7> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:FormElements ;
+.
+html:Tfoot
+  rdf:type ui:NodeClass ;
+  rdfs:label "Tfoot"^^xsd:string ;
+  rdfs:subClassOf html:TableRowGroupElements ;
+.
+html:Th
+  rdf:type ui:NodeClass ;
+  rdfs:label "Table header"^^xsd:string ;
+  rdfs:subClassOf html:Td ;
+.
+html:Thead
+  rdf:type ui:NodeClass ;
+  rdfs:label "Thead"^^xsd:string ;
+  rdfs:subClassOf html:TableRowGroupElements ;
+.
+html:Time
+  rdf:type ui:NodeClass ;
+  rdfs:label "Time"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Title
+  rdf:type ui:NodeClass ;
+  rdfs:label "Title"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:I18NAttributeGroup ;
+.
+html:Tr
+  rdf:type ui:NodeClass ;
+  rdfs:label "Table row"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/html401/struct/tables.html#h-11.2.5> ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:CellHAlignAttributeGroup ;
+  rdfs:subClassOf html:CellVAlignAttributeGroup ;
+  rdfs:subClassOf html:TableElements ;
+.
+html:Track
+  rdf:type ui:NodeClass ;
+  rdfs:label "Track"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Tt
+  rdf:type ui:NodeClass ;
+  rdfs:label "Tt"^^xsd:string ;
+  rdfs:subClassOf html:FontStyleElements ;
+.
+html:U
+  rdf:type ui:NodeClass ;
+  rdf:type owl:DeprecatedClass ;
+  rdfs:label "U"^^xsd:string ;
+  rdfs:subClassOf html:FontStyleElements ;
+.
+html:Ul
+  rdf:type ui:NodeClass ;
+  rdfs:label "UL"^^xsd:string ;
+  rdfs:subClassOf html:ListElements ;
+.
+html:Var
+  rdf:type ui:NodeClass ;
+  rdfs:label "Var"^^xsd:string ;
+  rdfs:subClassOf html:PhraseElements ;
+.
+html:Video
+  rdf:type ui:NodeClass ;
+  rdfs:label "Video"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:Wbr
+  rdf:type ui:NodeClass ;
+  rdfs:label "Wbr"^^xsd:string ;
+  rdfs:subClassOf html:AttrsAttributeGroup ;
+  rdfs:subClassOf html:GlobalElements ;
+.
+html:abbr
+  rdf:type html:Attribute ;
+  rdfs:label "abbr"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:about
+  rdf:type html:Attribute ;
+  rdfs:comment "Added for RDFa support."^^xsd:string ;
+  rdfs:label "about"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:accept
+  rdf:type html:Attribute ;
+  rdfs:label "accept"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:accept-charset
+  rdf:type html:Attribute ;
+  rdfs:label "accept-charset"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:accesskey
+  rdf:type html:Attribute ;
+  rdfs:label "accesskey"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:action
+  rdf:type html:Attribute ;
+  rdfs:label "action"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:align
+  rdf:type html:Attribute ;
+  rdfs:label "align"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:alink
+  rdf:type html:Attribute ;
+  rdfs:label "alink"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:alt
+  rdf:type html:Attribute ;
+  rdfs:label "alt"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:archive
+  rdf:type html:Attribute ;
+  rdfs:label "archive"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:attributes
+  rdf:type html:Attribute ;
+  rdfs:comment "An \"abstract\" super-property that is grouping all HTML attributes to avoid clutter in user interfaces."^^xsd:string ;
+  rdfs:label "attributes"^^xsd:string ;
+.
+html:autocomplete
+  rdf:type html:Attribute ;
+  rdfs:label "autocomplete"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:autofocus
+  rdf:type html:Attribute ;
+  rdfs:label "autofocus"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:axis
+  rdf:type html:Attribute ;
+  rdfs:label "axis"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:background
+  rdf:type html:Attribute ;
+  rdfs:label "background"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:bgcolor
+  rdf:type html:Attribute ;
+  rdfs:label "bgcolor"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:border
+  rdf:type html:Attribute ;
+  rdfs:label "border"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:cellpadding
+  rdf:type html:Attribute ;
+  rdfs:label "cellpadding"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:cellspacing
+  rdf:type html:Attribute ;
+  rdfs:label "cellspacing"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:char
+  rdf:type html:Attribute ;
+  rdfs:label "char"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:charoff
+  rdf:type html:Attribute ;
+  rdfs:label "charoff"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:charset
+  rdf:type html:Attribute ;
+  rdfs:label "charset"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:checked
+  rdf:type html:Attribute ;
+  rdfs:label "checked"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:cite
+  rdf:type html:Attribute ;
+  rdfs:label "cite"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:class
+  rdf:type html:Attribute ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:label "class"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:classid
+  rdf:type html:Attribute ;
+  rdfs:label "classid"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:clear
+  rdf:type html:Attribute ;
+  rdfs:label "clear"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:code
+  rdf:type html:Attribute ;
+  rdfs:label "code"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:codebase
+  rdf:type html:Attribute ;
+  rdfs:label "codebase"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:codetype
+  rdf:type html:Attribute ;
+  rdfs:label "codetype"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:color
+  rdf:type html:Attribute ;
+  rdfs:label "color"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:cols
+  rdf:type html:Attribute ;
+  rdfs:label "cols"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:colspan
+  rdf:type html:Attribute ;
+  rdfs:label "colspan"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:compact
+  rdf:type html:Attribute ;
+  rdfs:label "compact"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:content
+  rdf:type html:Attribute ;
+  rdfs:label "content"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:controls
+  rdf:type html:Attribute ;
+  rdfs:label "controls"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:coords
+  rdf:type html:Attribute ;
+  rdfs:label "coords"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:data
+  rdf:type html:Attribute ;
+  rdfs:label "data"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:datatype
+  rdf:type html:Attribute ;
+  rdfs:comment "Added for RDFa support."^^xsd:string ;
+  rdfs:label "datatype"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:datetime
+  rdf:type html:Attribute ;
+  rdfs:label "datetime"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:declare
+  rdf:type html:Attribute ;
+  rdfs:label "declare"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:defer
+  rdf:type html:Attribute ;
+  rdfs:label "defer"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:dir
+  rdf:type html:Attribute ;
+  rdfs:label "dir"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:disabled
+  rdf:type html:Attribute ;
+  rdfs:label "disabled"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:draggable
+  rdf:type html:Attribute ;
+  rdfs:label "draggable"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:encodeBRs
+  rdf:type spin:Function ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate <http://spinrdf.org/sp#arg1> ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The text (containing raw line breaks) that shall be converted to HTML line breaks."^^xsd:string ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:comment "Takes a string (?arg1), replaces all \\n line breaks into <br /> tags, and returns a parsable string that can be fed into ui:parse for insertion into the document. This is most useful for cases such as rdfs:comments that contain line breaks that shall be preserved in the HTML rendering."^^xsd:string ;
+  rdfs:label "encode BRs"^^xsd:string ;
+  rdfs:subClassOf spl:StringFunctions ;
+.
+html:enctype
+  rdf:type html:Attribute ;
+  rdfs:label "enctype"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:face
+  rdf:type html:Attribute ;
+  rdfs:label "face"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:for
+  rdf:type html:Attribute ;
+  rdfs:label "for"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:form
+  rdf:type html:Attribute ;
+  rdfs:label "form"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:formaction
+  rdf:type html:Attribute ;
+  rdfs:label "formaction"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:formenctype
+  rdf:type html:Attribute ;
+  rdfs:label "formenctype"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:formmethod
+  rdf:type html:Attribute ;
+  rdfs:label "formmethod"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:formnovalidate
+  rdf:type html:Attribute ;
+  rdfs:label "formnovalidate"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:formtarget
+  rdf:type html:Attribute ;
+  rdfs:label "formtarget"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:frame
+  rdf:type html:Attribute ;
+  rdfs:label "frame"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:frameborder
+  rdf:type html:Attribute ;
+  rdfs:label "frameborder"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:headers
+  rdf:type html:Attribute ;
+  rdfs:label "headers"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:height
+  rdf:type html:Attribute ;
+  rdfs:label "height"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:href
+  rdf:type html:Attribute ;
+  rdfs:label "href"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:hreflang
+  rdf:type html:Attribute ;
+  rdfs:label "hreflang"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:hspace
+  rdf:type html:Attribute ;
+  rdfs:label "hspace"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:http-equiv
+  rdf:type html:Attribute ;
+  rdfs:label "http-equiv"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:id
+  rdf:type html:Attribute ;
+  rdfs:label "id"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:ismap
+  rdf:type html:Attribute ;
+  rdfs:label "ismap"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:itemid
+  rdf:type html:Attribute ;
+  rdfs:label "itemid"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:itemprop
+  rdf:type html:Attribute ;
+  rdfs:label "itemprop"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:itemref
+  rdf:type html:Attribute ;
+  rdfs:label "itemref"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:itemscope
+  rdf:type html:Attribute ;
+  rdfs:label "itemscope"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:itemtype
+  rdf:type html:Attribute ;
+  rdfs:label "itemtype"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:label
+  rdf:type html:Attribute ;
+  rdfs:label "label"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:lang
+  rdf:type html:Attribute ;
+  rdfs:label "lang"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:language
+  rdf:type html:Attribute ;
+  rdfs:label "language"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:link
+  rdf:type html:Attribute ;
+  rdfs:label "link"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:list
+  rdf:type html:Attribute ;
+  rdfs:label "list"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:longdesc
+  rdf:type html:Attribute ;
+  rdfs:label "longdesc"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:marginheight
+  rdf:type html:Attribute ;
+  rdfs:label "marginheight"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:marginwidth
+  rdf:type html:Attribute ;
+  rdfs:label "marginwidth"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:max
+  rdf:type html:Attribute ;
+  rdfs:label "max"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:maxlength
+  rdf:type html:Attribute ;
+  rdfs:label "maxlength"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:media
+  rdf:type html:Attribute ;
+  rdfs:label "media"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:method
+  rdf:type html:Attribute ;
+  rdfs:label "method"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:min
+  rdf:type html:Attribute ;
+  rdfs:label "min"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:multiple
+  rdf:type html:Attribute ;
+  rdfs:label "multiple"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:name
+  rdf:type html:Attribute ;
+  rdfs:label "name"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:nohref
+  rdf:type html:Attribute ;
+  rdfs:label "nohref"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:noresize
+  rdf:type html:Attribute ;
+  rdfs:label "noresize"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:noshade
+  rdf:type html:Attribute ;
+  rdfs:label "noshade"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:novalidate
+  rdf:type html:Attribute ;
+  rdfs:label "novalidate"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:nowrap
+  rdf:type html:Attribute ;
+  rdfs:label "nowrap"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:object
+  rdf:type html:Attribute ;
+  rdfs:label "object"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:onblur
+  rdf:type html:Attribute ;
+  rdfs:label "onblur"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:onchange
+  rdf:type html:Attribute ;
+  rdfs:label "onchange"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:onclick
+  rdf:type html:Attribute ;
+  rdfs:label "onclick"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:ondblclick
+  rdf:type html:Attribute ;
+  rdfs:label "ondblclick"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:ondragover
+  rdf:type html:Attribute ;
+  rdfs:label "ondragover"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:ondragstart
+  rdf:type html:Attribute ;
+  rdfs:label "ondragstart"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:ondrop
+  rdf:type html:Attribute ;
+  rdfs:label "ondrop"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:onfocus
+  rdf:type html:Attribute ;
+  rdfs:label "onfocus"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:onkeydown
+  rdf:type html:Attribute ;
+  rdfs:label "onkeydown"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:onkeypress
+  rdf:type html:Attribute ;
+  rdfs:label "onkeypress"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:onkeyup
+  rdf:type html:Attribute ;
+  rdfs:label "onkeyup"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:onload
+  rdf:type html:Attribute ;
+  rdfs:label "onload"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:onmousedown
+  rdf:type html:Attribute ;
+  rdfs:label "onmousedown"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:onmousemove
+  rdf:type html:Attribute ;
+  rdfs:label "onmousemove"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:onmouseout
+  rdf:type html:Attribute ;
+  rdfs:label "onmouseout"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:onmouseover
+  rdf:type html:Attribute ;
+  rdfs:label "onmouseover"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:onmouseup
+  rdf:type html:Attribute ;
+  rdfs:label "onmouseup"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:onreset
+  rdf:type html:Attribute ;
+  rdfs:label "onreset"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:onselect
+  rdf:type html:Attribute ;
+  rdfs:label "onselect"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:onsubmit
+  rdf:type html:Attribute ;
+  rdfs:label "onsubmit"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:onunload
+  rdf:type html:Attribute ;
+  rdfs:label "onunload"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:pattern
+  rdf:type html:Attribute ;
+  rdfs:label "pattern"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:placeholder
+  rdf:type html:Attribute ;
+  rdfs:label "placeholder"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:profile
+  rdf:type html:Attribute ;
+  rdfs:label "profile"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:prompt
+  rdf:type html:Attribute ;
+  rdfs:label "prompt"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:property
+  rdf:type html:Attribute ;
+  rdfs:comment "Added for RDFa support."^^xsd:string ;
+  rdfs:label "property"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:readonly
+  rdf:type html:Attribute ;
+  rdfs:label "readonly"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:rel
+  rdf:type html:Attribute ;
+  rdfs:label "rel"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:required
+  rdf:type html:Attribute ;
+  rdfs:label "required"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:resource
+  rdf:type html:Attribute ;
+  rdfs:comment "Added for RDFa support."^^xsd:string ;
+  rdfs:label "resource"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:rev
+  rdf:type html:Attribute ;
+  rdfs:label "rev"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:rows
+  rdf:type html:Attribute ;
+  rdfs:label "rows"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:rowspan
+  rdf:type html:Attribute ;
+  rdfs:label "rowspan"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:rules
+  rdf:type html:Attribute ;
+  rdfs:label "rules"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:scheme
+  rdf:type html:Attribute ;
+  rdfs:label "scheme"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:scope
+  rdf:type html:Attribute ;
+  rdfs:label "scope"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:scrolling
+  rdf:type html:Attribute ;
+  rdfs:label "scrolling"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:selected
+  rdf:type html:Attribute ;
+  rdfs:label "selected"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:shape
+  rdf:type html:Attribute ;
+  rdfs:label "shape"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:size
+  rdf:type html:Attribute ;
+  rdfs:label "size"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:span
+  rdf:type html:Attribute ;
+  rdfs:label "span"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:src
+  rdf:type html:Attribute ;
+  rdfs:label "src"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:standby
+  rdf:type html:Attribute ;
+  rdfs:label "standby"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:start
+  rdf:type html:Attribute ;
+  rdfs:label "start"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:step
+  rdf:type html:Attribute ;
+  rdfs:label "step"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:style
+  rdf:type html:Attribute ;
+  rdfs:label "style"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:summary
+  rdf:type html:Attribute ;
+  rdfs:label "summary"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:tabindex
+  rdf:type html:Attribute ;
+  rdfs:label "tabindex"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:target
+  rdf:type html:Attribute ;
+  rdfs:label "target"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:title
+  rdf:type html:Attribute ;
+  rdfs:label "title"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:type
+  rdf:type html:Attribute ;
+  rdfs:label "type"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:typeof
+  rdf:type html:Attribute ;
+  rdfs:comment "Added for RDFa support."^^xsd:string ;
+  rdfs:label "typeof"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:usemap
+  rdf:type html:Attribute ;
+  rdfs:label "usemap"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:valign
+  rdf:type html:Attribute ;
+  rdfs:label "valign"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:value
+  rdf:type html:Attribute ;
+  rdfs:label "value"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:valuetype
+  rdf:type html:Attribute ;
+  rdfs:label "valuetype"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:version
+  rdf:type html:Attribute ;
+  rdfs:label "version"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:vlink
+  rdf:type html:Attribute ;
+  rdfs:label "vlink"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:vspace
+  rdf:type html:Attribute ;
+  rdfs:label "vspace"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.
+html:width
+  rdf:type html:Attribute ;
+  rdfs:label "width"^^xsd:string ;
+  rdfs:subPropertyOf html:attributes ;
+.

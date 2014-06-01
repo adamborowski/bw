@@ -1,0 +1,596 @@
+# baseURI: http://uispin.org/css
+# imports: http://uispin.org/ui
+
+# c14n-version: 3
+@prefix css: <http://uispin.org/css#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ui: <http://uispin.org/ui#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+<http://uispin.org/css>
+  rdf:type owl:Ontology ;
+  rdfs:comment "A collection of standard CSS style properties in RDF, so that they can be shared by other ontologies such as HTML and SVG."^^xsd:string ;
+  owl:imports <http://uispin.org/ui> ;
+  owl:versionInfo "0.1.0"^^xsd:string ;
+.
+css:azimuth
+  rdf:type ui:StyleProperty ;
+  rdfs:label "azimuth"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:background
+  rdf:type ui:StyleProperty ;
+  rdfs:label "background"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:background-attachment
+  rdf:type ui:StyleProperty ;
+  rdfs:label "background-attachment"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:background-color
+  rdf:type ui:StyleProperty ;
+  rdfs:label "background-color"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:background-image
+  rdf:type ui:StyleProperty ;
+  rdfs:label "background-image"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:background-position
+  rdf:type ui:StyleProperty ;
+  rdfs:label "background-position"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:background-repeat
+  rdf:type ui:StyleProperty ;
+  rdfs:label "background-repeat"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-bottom
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-bottom"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-bottom-color
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-bottom-color"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-bottom-style
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-bottom-style"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-bottom-width
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-bottom-width"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-collapse
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-collapse"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-color
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-color"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-left
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-left"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-left-color
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-left-color"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-left-style
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-left-style"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-right
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-right"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-right-color
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-right-color"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-right-style
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-right-style"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-right-width
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-right-width"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-spacing
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-spacing"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-style
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-style"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-top
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-top"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-top-color
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-top-color"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-top-style
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-top-style"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-top-width
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-top-width"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:border-width
+  rdf:type ui:StyleProperty ;
+  rdfs:label "border-width"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:bottom
+  rdf:type ui:StyleProperty ;
+  rdfs:label "bottom"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:bottom-left-width
+  rdf:type ui:StyleProperty ;
+  rdfs:label "bottom-left-width"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:caption-side
+  rdf:type ui:StyleProperty ;
+  rdfs:label "caption-side"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:clear
+  rdf:type ui:StyleProperty ;
+  rdfs:label "clear"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:clip
+  rdf:type ui:StyleProperty ;
+  rdfs:label "clip"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:color
+  rdf:type ui:StyleProperty ;
+  rdfs:label "color"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:content
+  rdf:type ui:StyleProperty ;
+  rdfs:label "content"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:counter-increment
+  rdf:type ui:StyleProperty ;
+  rdfs:label "counter-increment"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:counter-reset
+  rdf:type ui:StyleProperty ;
+  rdfs:label "counter-reset"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:cue
+  rdf:type ui:StyleProperty ;
+  rdfs:label "cue"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:cue-after
+  rdf:type ui:StyleProperty ;
+  rdfs:label "cue-after"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:cue-before
+  rdf:type ui:StyleProperty ;
+  rdfs:label "cue-before"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:cursor
+  rdf:type ui:StyleProperty ;
+  rdfs:label "cursor"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:direction
+  rdf:type ui:StyleProperty ;
+  rdfs:label "direction"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:display
+  rdf:type ui:StyleProperty ;
+  rdfs:label "display"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:elevation
+  rdf:type ui:StyleProperty ;
+  rdfs:label "elevation"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:empty-cells
+  rdf:type ui:StyleProperty ;
+  rdfs:label "empty-cells"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:float
+  rdf:type ui:StyleProperty ;
+  rdfs:label "float"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:font
+  rdf:type ui:StyleProperty ;
+  rdfs:label "font"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:font-family
+  rdf:type ui:StyleProperty ;
+  rdfs:label "font-family"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:font-size
+  rdf:type ui:StyleProperty ;
+  rdfs:label "font-size"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:font-style
+  rdf:type ui:StyleProperty ;
+  rdfs:label "font-style"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:font-variant
+  rdf:type ui:StyleProperty ;
+  rdfs:label "font-variant"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:font-weight
+  rdf:type ui:StyleProperty ;
+  rdfs:label "font-weight"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:height
+  rdf:type ui:StyleProperty ;
+  rdfs:label "height"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:left
+  rdf:type ui:StyleProperty ;
+  rdfs:label "left"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:letter-spacing
+  rdf:type ui:StyleProperty ;
+  rdfs:label "letter-spacing"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:line-height
+  rdf:type ui:StyleProperty ;
+  rdfs:label "line-height"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:list-style
+  rdf:type ui:StyleProperty ;
+  rdfs:label "list-style"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:list-style-image
+  rdf:type ui:StyleProperty ;
+  rdfs:label "list-style-image"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:list-style-position
+  rdf:type ui:StyleProperty ;
+  rdfs:label "list-style-position"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:list-style-type
+  rdf:type ui:StyleProperty ;
+  rdfs:label "list-style-type"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:margin
+  rdf:type ui:StyleProperty ;
+  rdfs:label "margin"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:margin-bottom
+  rdf:type ui:StyleProperty ;
+  rdfs:label "margin-bottom"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:margin-left
+  rdf:type ui:StyleProperty ;
+  rdfs:label "margin-left"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:margin-right
+  rdf:type ui:StyleProperty ;
+  rdfs:label "margin-right"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:margin-top
+  rdf:type ui:StyleProperty ;
+  rdfs:label "margin-top"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:max-height
+  rdf:type ui:StyleProperty ;
+  rdfs:label "max-height"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:max-width
+  rdf:type ui:StyleProperty ;
+  rdfs:label "max-width"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:min-height
+  rdf:type ui:StyleProperty ;
+  rdfs:label "min-height"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:min-width
+  rdf:type ui:StyleProperty ;
+  rdfs:label "min-width"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:orphans
+  rdf:type ui:StyleProperty ;
+  rdfs:label "orphans"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:outline
+  rdf:type ui:StyleProperty ;
+  rdfs:label "outline"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:outline-color
+  rdf:type ui:StyleProperty ;
+  rdfs:label "outline-color"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:outline-style
+  rdf:type ui:StyleProperty ;
+  rdfs:label "outline-style"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:outline-width
+  rdf:type ui:StyleProperty ;
+  rdfs:label "outline-width"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:overflow
+  rdf:type ui:StyleProperty ;
+  rdfs:label "overflow"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:padding
+  rdf:type ui:StyleProperty ;
+  rdfs:label "padding"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:padding-bottom
+  rdf:type ui:StyleProperty ;
+  rdfs:label "padding-bottom"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:padding-left
+  rdf:type ui:StyleProperty ;
+  rdfs:label "padding-left"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:padding-right
+  rdf:type ui:StyleProperty ;
+  rdfs:label "padding-right"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:padding-top
+  rdf:type ui:StyleProperty ;
+  rdfs:label "padding-top"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:page-break-after
+  rdf:type ui:StyleProperty ;
+  rdfs:label "page-break-after"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:page-break-before
+  rdf:type ui:StyleProperty ;
+  rdfs:label "page-break-before"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:page-break-inside
+  rdf:type ui:StyleProperty ;
+  rdfs:label "page-break-inside"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:pause
+  rdf:type ui:StyleProperty ;
+  rdfs:label "pause"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:pause-after
+  rdf:type ui:StyleProperty ;
+  rdfs:label "pause-after"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:pause-before
+  rdf:type ui:StyleProperty ;
+  rdfs:label "pause-before"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:pitch
+  rdf:type ui:StyleProperty ;
+  rdfs:label "pitch"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:pitch-range
+  rdf:type ui:StyleProperty ;
+  rdfs:label "pitch-range"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:play-during
+  rdf:type ui:StyleProperty ;
+  rdfs:label "play-during"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:position
+  rdf:type ui:StyleProperty ;
+  rdfs:label "position"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:properties
+  rdf:type ui:StyleProperty ;
+  rdfs:comment "An \"abstract\" base property to group the CSS properties underneath."^^xsd:string ;
+  rdfs:label "properties"^^xsd:string ;
+.
+css:quotes
+  rdf:type ui:StyleProperty ;
+  rdfs:label "quotes"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:richness
+  rdf:type ui:StyleProperty ;
+  rdfs:label "richness"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:right
+  rdf:type ui:StyleProperty ;
+  rdfs:label "right"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:speak
+  rdf:type ui:StyleProperty ;
+  rdfs:label "speak"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:speak-header
+  rdf:type ui:StyleProperty ;
+  rdfs:label "speak-header"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:speak-numeral
+  rdf:type ui:StyleProperty ;
+  rdfs:label "speak-numeral"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:speak-punctuation
+  rdf:type ui:StyleProperty ;
+  rdfs:label "speak-punctuation"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:speech-rate
+  rdf:type ui:StyleProperty ;
+  rdfs:label "speech-rate"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:stress
+  rdf:type ui:StyleProperty ;
+  rdfs:label "stress"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:table-layout
+  rdf:type ui:StyleProperty ;
+  rdfs:label "table-layout"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:text-align
+  rdf:type ui:StyleProperty ;
+  rdfs:label "text-align"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:text-decoration
+  rdf:type ui:StyleProperty ;
+  rdfs:label "text-decoration"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:text-indent
+  rdf:type ui:StyleProperty ;
+  rdfs:label "text-indent"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:text-transform
+  rdf:type ui:StyleProperty ;
+  rdfs:label "text-transform"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:top
+  rdf:type ui:StyleProperty ;
+  rdfs:label "top"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:unicode-bidi
+  rdf:type ui:StyleProperty ;
+  rdfs:label "unicode-bidi"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:vertical-align
+  rdf:type ui:StyleProperty ;
+  rdfs:label "vertical-align"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:visibility
+  rdf:type ui:StyleProperty ;
+  rdfs:label "visibility"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:voice-family
+  rdf:type ui:StyleProperty ;
+  rdfs:label "voice-family"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:volume
+  rdf:type ui:StyleProperty ;
+  rdfs:label "volume"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:white-space
+  rdf:type ui:StyleProperty ;
+  rdfs:label "white-space"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:widows
+  rdf:type ui:StyleProperty ;
+  rdfs:label "widows"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:width
+  rdf:type ui:StyleProperty ;
+  rdfs:label "width"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:word-spacing
+  rdf:type ui:StyleProperty ;
+  rdfs:label "word-spacing"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.
+css:z-index
+  rdf:type ui:StyleProperty ;
+  rdfs:label "z-index"^^xsd:string ;
+  rdfs:subPropertyOf css:properties ;
+.

@@ -1,0 +1,2230 @@
+# baseURI: http://topbraid.org/schemaconverter
+# imports: http://topbraid.org/sparqlmotionlib-swp
+
+@prefix afn: <http://jena.hpl.hp.com/ARQ/function#> .
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix schemaconverter: <http://topbraid.org/schemaconverter#> .
+@prefix schemax: <http://topbraid.org/schemax/> .
+@prefix sm: <http://topbraid.org/sparqlmotion#> .
+@prefix smf: <http://topbraid.org/sparqlmotionfunctions#> .
+@prefix sml: <http://topbraid.org/sparqlmotionlib#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spif: <http://spinrdf.org/spif#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix swa: <http://topbraid.org/swa#> .
+@prefix ui: <http://uispin.org/ui#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+schema:Boolean
+  owl:sameAs xsd:boolean ;
+.
+schema:Date
+  owl:sameAs xsd:date ;
+.
+schema:DateTime
+  owl:sameAs xsd:dateTime ;
+.
+schema:Distance
+  owl:sameAs xsd:string ;
+.
+schema:Duration
+  owl:sameAs xsd:duration ;
+.
+schema:Energy
+  owl:sameAs xsd:string ;
+.
+schema:Float
+  owl:sameAs xsd:float ;
+.
+schema:Integer
+  owl:sameAs xsd:integer ;
+.
+schema:Mass
+  owl:sameAs xsd:string ;
+.
+schema:Number
+  owl:sameAs xsd:float ;
+.
+schema:Text
+  owl:sameAs xsd:string ;
+.
+schema:Time
+  owl:sameAs xsd:time ;
+.
+schema:URL
+  owl:sameAs xsd:anyURI ;
+.
+arg:new
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:old
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:predicate
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:subject
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+<http://topbraid.org/schemaconverter>
+  rdf:type owl:Ontology ;
+  rdfs:comment """A collection of SPIN update templates that can be used to convert the original OWL version of schema.org into a more suitable OWL representation. There is also an SWP service that puts them all together for batch processing. To download the latest version, call the following URL in a browser
+
+    http://localhost:8083/tbl/swp?_viewClass=schemaconverter:RDFaFileConverter"""^^xsd:string ;
+  owl:imports <http://topbraid.org/sparqlmotionlib-swp> ;
+  owl:versionInfo "0.2.0"^^xsd:string ;
+.
+schemaconverter:ConvertObjectToDatatypeProperties
+  rdf:type spin:UpdateTemplate ;
+  spin:body [
+      rdf:type sp:Modify ;
+      sp:deletePattern (
+          [
+            sp:object owl:ObjectProperty ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:insertPattern (
+          [
+            sp:object owl:DatatypeProperty ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:text """DELETE {
+  ?property <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+}
+INSERT {
+  ?property <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+}
+WHERE
+  { ?property <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+    ?property <http://www.w3.org/2000/01/rdf-schema#range> ?range
+    FILTER ( ?range IN (<http://www.w3.org/2001/XMLSchema#boolean>, <http://www.w3.org/2001/XMLSchema#date>, <http://www.w3.org/2001/XMLSchema#string>, <http://www.w3.org/2001/XMLSchema#integer>, <http://www.w3.org/2001/XMLSchema#float>) )
+  }
+"""^^xsd:string ;
+      sp:where (
+          [
+            sp:object owl:ObjectProperty ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "range"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:in ;
+                sp:arg1 [
+                    sp:varName "range"^^xsd:string ;
+                  ] ;
+                sp:arg2 xsd:boolean ;
+                sp:arg3 xsd:date ;
+                sp:arg4 xsd:string ;
+                sp:arg5 xsd:integer ;
+                sp:arg6 xsd:float ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:comment "Some properties such as schema:representativeOfPage are declared as owl:ObjectProperties and their range is schema:Boolean. Those properties need to be converted to owl:DatatypeProperties."^^xsd:string ;
+  rdfs:label "Convert to datatype properties"^^xsd:string ;
+  rdfs:subClassOf spin:UpdateTemplates ;
+.
+schemaconverter:ConvertRDFSToOWLClasses
+  rdf:type spin:UpdateTemplate ;
+  spin:body [
+      rdf:type sp:Modify ;
+      sp:deletePattern (
+          [
+            sp:object rdfs:Class ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "class"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:insertPattern (
+          [
+            sp:object owl:Class ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "class"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:text """DELETE {
+  ?class <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+}
+INSERT {
+  ?class <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+}
+WHERE
+  { ?class <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> }
+"""^^xsd:string ;
+      sp:where (
+          [
+            sp:object rdfs:Class ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "class"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Convert RDFS to OWL classes"^^xsd:string ;
+  rdfs:subClassOf spin:UpdateTemplates ;
+.
+schemaconverter:ConvertRDFToOWLProperties
+  rdf:type spin:UpdateTemplate ;
+  spin:body [
+      rdf:type sp:Modify ;
+      sp:deletePattern (
+          [
+            sp:object rdf:Property ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:insertPattern (
+          [
+            sp:object [
+                sp:varName "type"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object rdf:Property ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:not ;
+                sp:arg1 [
+                    rdf:type schemaconverter:hasMixedRange ;
+                    arg:property [
+                        sp:varName "property"^^xsd:string ;
+                      ] ;
+                  ] ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "range"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:if ;
+                sp:arg1 [
+                    rdf:type sp:eq ;
+                    sp:arg1 [
+                        rdf:type afn:namespace ;
+                        sp:arg1 [
+                            sp:varName "range"^^xsd:string ;
+                          ] ;
+                      ] ;
+                    sp:arg2 "http://schema.org/" ;
+                  ] ;
+                sp:arg2 owl:ObjectProperty ;
+                sp:arg3 owl:DatatypeProperty ;
+              ] ;
+            sp:variable [
+                sp:varName "type"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:comment "Converts rdf:Properties to either owl:DatatypeProperties or owl:ObjectProperties, depending on their range. Don't convert mixed properties that have both types."^^xsd:string ;
+  rdfs:label "Convert RDF to OWL properties"^^xsd:string ;
+  rdfs:subClassOf spin:UpdateTemplates ;
+.
+schemaconverter:CopyPredicateValues
+  rdf:type spin:UpdateTemplate ;
+  spin:body [
+      rdf:type sp:Modify ;
+      sp:insertPattern (
+          [
+            sp:object [
+                sp:varName "o"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "new"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "o"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "old"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:new ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The new property."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:old ;
+      spl:valueType rdf:Property ;
+    ] ;
+  rdfs:label "Copy predicate values"^^xsd:string ;
+  rdfs:subClassOf spin:UpdateTemplates ;
+.
+schemaconverter:CreateOntology
+  rdf:type spin:UpdateTemplate ;
+  spin:body [
+      rdf:type sp:Modify ;
+      sp:insertPattern (
+          [
+            sp:object owl:Ontology ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "ontology"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object "Schema.org (converted to OWL by TopQuadrant)" ;
+            sp:predicate rdfs:label ;
+            sp:subject [
+                sp:varName "ontology"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "date"^^xsd:string ;
+              ] ;
+            sp:predicate owl:versionInfo ;
+            sp:subject [
+                sp:varName "ontology"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Bind ;
+            sp:expression <http://topbraid.org/schema/> ;
+            sp:variable [
+                sp:varName "ontology"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:now ;
+              ] ;
+            sp:variable [
+                sp:varName "date"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Create ontology"^^xsd:string ;
+  rdfs:subClassOf spin:UpdateTemplates ;
+.
+schemaconverter:CreateUnion
+  rdf:type spin:UpdateTemplate ;
+  spin:body [
+      rdf:type sp:Modify ;
+      sp:deletePattern (
+          [
+            sp:object [
+                sp:varName "old"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "predicate"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "subject"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:insertPattern (
+          [
+            sp:object [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "predicate"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "subject"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object owl:Class ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "list"^^xsd:string ;
+              ] ;
+            sp:predicate owl:unionOf ;
+            sp:subject [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "element"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "subList"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "rest"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "subList"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:text """DELETE {
+  ?subject ?predicate ?old .
+}
+INSERT {
+  ?subject ?predicate ?union .
+  ?union <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+  ?union <http://www.w3.org/2002/07/owl#unionOf> ?list .
+  ?subList <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> ?element .
+  ?subList <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> ?rest .
+}
+WHERE
+  { { BIND(bnode() AS ?union)
+      ??0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> ?list .
+      ??0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> ??1 .
+      ??1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> ?subList .
+      ??1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> ??2 .
+      ??2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> ?element .
+      ??2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> ??3 .
+      ??3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> ?rest .
+      ??3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+      ??0 <http://www.topbraid.org/tops#constructRDFList> ??4 .
+      ??4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> ?subject .
+      ??4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> ??5 .
+      ??5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> ?predicate .
+      ??5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> ??6 .
+      ??6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> ?o .
+      ??6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil>
+    }
+    ?subject ?predicate ?old
+  }
+"""^^xsd:string ;
+      sp:where (
+          (
+            [
+              rdf:type sp:Bind ;
+              sp:expression [
+                  rdf:type sp:bnode ;
+                ] ;
+              sp:variable [
+                  sp:varName "union"^^xsd:string ;
+                ] ;
+            ]
+            [
+              sp:object [
+                  sp:varName "list"^^xsd:string ;
+                ] ;
+              sp:predicate rdf:first ;
+              sp:subject [
+                  sp:varName "?0"^^xsd:string ;
+                ] ;
+            ]
+            [
+              sp:object [
+                  sp:varName "?1"^^xsd:string ;
+                ] ;
+              sp:predicate rdf:rest ;
+              sp:subject [
+                  sp:varName "?0"^^xsd:string ;
+                ] ;
+            ]
+            [
+              sp:object [
+                  sp:varName "subList"^^xsd:string ;
+                ] ;
+              sp:predicate rdf:first ;
+              sp:subject [
+                  sp:varName "?1"^^xsd:string ;
+                ] ;
+            ]
+            [
+              sp:object [
+                  sp:varName "?2"^^xsd:string ;
+                ] ;
+              sp:predicate rdf:rest ;
+              sp:subject [
+                  sp:varName "?1"^^xsd:string ;
+                ] ;
+            ]
+            [
+              sp:object [
+                  sp:varName "element"^^xsd:string ;
+                ] ;
+              sp:predicate rdf:first ;
+              sp:subject [
+                  sp:varName "?2"^^xsd:string ;
+                ] ;
+            ]
+            [
+              sp:object [
+                  sp:varName "?3"^^xsd:string ;
+                ] ;
+              sp:predicate rdf:rest ;
+              sp:subject [
+                  sp:varName "?2"^^xsd:string ;
+                ] ;
+            ]
+            [
+              sp:object [
+                  sp:varName "rest"^^xsd:string ;
+                ] ;
+              sp:predicate rdf:first ;
+              sp:subject [
+                  sp:varName "?3"^^xsd:string ;
+                ] ;
+            ]
+            [
+              sp:object () ;
+              sp:predicate rdf:rest ;
+              sp:subject [
+                  sp:varName "?3"^^xsd:string ;
+                ] ;
+            ]
+            [
+              sp:object [
+                  sp:varName "?4"^^xsd:string ;
+                ] ;
+              sp:predicate <http://www.topbraid.org/tops#constructRDFList> ;
+              sp:subject [
+                  sp:varName "?0"^^xsd:string ;
+                ] ;
+            ]
+            [
+              sp:object [
+                  sp:varName "subject"^^xsd:string ;
+                ] ;
+              sp:predicate rdf:first ;
+              sp:subject [
+                  sp:varName "?4"^^xsd:string ;
+                ] ;
+            ]
+            [
+              sp:object [
+                  sp:varName "?5"^^xsd:string ;
+                ] ;
+              sp:predicate rdf:rest ;
+              sp:subject [
+                  sp:varName "?4"^^xsd:string ;
+                ] ;
+            ]
+            [
+              sp:object [
+                  sp:varName "predicate"^^xsd:string ;
+                ] ;
+              sp:predicate rdf:first ;
+              sp:subject [
+                  sp:varName "?5"^^xsd:string ;
+                ] ;
+            ]
+            [
+              sp:object [
+                  sp:varName "?6"^^xsd:string ;
+                ] ;
+              sp:predicate rdf:rest ;
+              sp:subject [
+                  sp:varName "?5"^^xsd:string ;
+                ] ;
+            ]
+            [
+              sp:object [
+                  sp:varName "o"^^xsd:string ;
+                ] ;
+              sp:predicate rdf:first ;
+              sp:subject [
+                  sp:varName "?6"^^xsd:string ;
+                ] ;
+            ]
+            [
+              sp:object () ;
+              sp:predicate rdf:rest ;
+              sp:subject [
+                  sp:varName "?6"^^xsd:string ;
+                ] ;
+            ]
+          )
+          [
+            sp:object [
+                sp:varName "old"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "predicate"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "subject"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:predicate ;
+      spl:valueType rdf:Property ;
+      rdfs:comment "The property (either rdfs:domain or rdfs:range)"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:subject ;
+      spl:valueType rdfs:Resource ;
+    ] ;
+  rdfs:label "Create union"^^xsd:string ;
+  rdfs:subClassOf spin:UpdateTemplates ;
+.
+schemaconverter:CreateUnionRangeClasses
+  rdf:type spin:UpdateTemplate ;
+  spin:body [
+      rdf:type sp:Modify ;
+      sp:deletePattern (
+          [
+            sp:object [
+                sp:varName "range"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:insertPattern (
+          [
+            sp:object [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object owl:Class ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object schemax:UnionClasses ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "range"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object owl:Class ;
+            sp:predicate rdf:type ;
+            sp:subject schemax:UnionClasses ;
+          ]
+          [
+            sp:object owl:Thing ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject schemax:UnionClasses ;
+          ]
+          [
+            sp:object "Union classes" ;
+            sp:predicate rdfs:label ;
+            sp:subject schemax:UnionClasses ;
+          ]
+          [
+            sp:object "An artificial superclass to organize various union classes (needed for ranges) under a single root in tree displays." ;
+            sp:predicate rdfs:comment ;
+            sp:subject schemax:UnionClasses ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:SubQuery ;
+            sp:query [
+                rdf:type sp:Select ;
+                sp:distinct "true"^^xsd:boolean ;
+                sp:resultVariables (
+                    [
+                      sp:varName "property"^^xsd:string ;
+                    ]
+                  ) ;
+                sp:where (
+                    [
+                      sp:object [
+                          sp:varName "range1"^^xsd:string ;
+                        ] ;
+                      sp:predicate rdfs:range ;
+                      sp:subject [
+                          sp:varName "property"^^xsd:string ;
+                        ] ;
+                    ]
+                    [
+                      sp:object [
+                          sp:varName "range2"^^xsd:string ;
+                        ] ;
+                      sp:predicate rdfs:range ;
+                      sp:subject [
+                          sp:varName "property"^^xsd:string ;
+                        ] ;
+                    ]
+                    [
+                      rdf:type sp:Filter ;
+                      sp:expression [
+                          rdf:type sp:ne ;
+                          sp:arg1 [
+                              sp:varName "range1"^^xsd:string ;
+                            ] ;
+                          sp:arg2 [
+                              sp:varName "range2"^^xsd:string ;
+                            ] ;
+                        ] ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "range"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type schemaconverter:unionClassName ;
+                arg:property [
+                    sp:varName "property"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "unionName"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:iri ;
+                sp:arg1 [
+                    rdf:type sp:concat ;
+                    sp:arg1 "http://topbraid.org/schemax/" ;
+                    sp:arg2 [
+                        sp:varName "unionName"^^xsd:string ;
+                      ] ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:comment "Introduces artificial \"union\" classes that represent multiple ranges. For example if the range of X is Alpha or Beta then a new class is created AlphaOrBeta and the range assigned to that only."^^xsd:string ;
+  rdfs:label "Create union range classes"^^xsd:string ;
+  rdfs:subClassOf spin:UpdateTemplates ;
+.
+schemaconverter:DeleteDeclaration
+  rdf:type spin:UpdateTemplate ;
+  spin:body [
+      rdf:type sp:DeleteWhere ;
+      sp:text """DELETE WHERE 
+{
+  ?subject ?p ?o .
+}
+"""^^xsd:string ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "o"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "subject"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:subject ;
+      spl:valueType rdfs:Resource ;
+      rdfs:comment "The subject to delete."^^xsd:string ;
+    ] ;
+  rdfs:comment "Deletes the declaration of a given resource."^^xsd:string ;
+  rdfs:label "Delete declaration"^^xsd:string ;
+  rdfs:subClassOf spin:UpdateTemplates ;
+.
+schemaconverter:DeleteRedundantUnions
+  rdf:type spin:UpdateTemplate ;
+  spin:body [
+      rdf:type sp:Modify ;
+      sp:deletePattern (
+          [
+            sp:object [
+                sp:varName "domain"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "rel"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+            sp:predicate owl:unionOf ;
+            sp:subject [
+                sp:varName "domain"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object owl:Class ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "domain"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "anyO"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "anyP"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:insertPattern (
+          [
+            sp:object [
+                sp:varName "class"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "rel"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:text """DELETE {
+  ?property ?rel ?domain .
+  ?domain <http://www.w3.org/2002/07/owl#unionOf> ?union .
+  ?domain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+  ?union ?anyP ?anyO .
+}
+INSERT {
+  ?property ?rel ?class .
+}
+WHERE
+  { ?domain <http://www.w3.org/2002/07/owl#unionOf> ?union .
+    ?property ?rel ?domain .
+    ?union <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> ?class .
+    ?union <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+    ?union ?anyP ?anyO
+  }
+"""^^xsd:string ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+            sp:predicate owl:unionOf ;
+            sp:subject [
+                sp:varName "domain"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "domain"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "rel"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "class"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object () ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "anyO"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "anyP"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Delete redundant unions"^^xsd:string ;
+  rdfs:subClassOf spin:UpdateTemplates ;
+.
+schemaconverter:DeleteTriplesWithPredicate
+  rdf:type spin:UpdateTemplate ;
+  spin:body [
+      rdf:type sp:DeleteWhere ;
+      sp:text """DELETE WHERE 
+{
+  ?s ?predicate ?o .
+}
+"""^^xsd:string ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "o"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "predicate"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:predicate ;
+      spl:valueType rdf:Property ;
+    ] ;
+  rdfs:label "Delete triples with predicate"^^xsd:string ;
+  rdfs:subClassOf spin:UpdateTemplates ;
+.
+schemaconverter:DeleteUnionNumberRanges
+  rdf:type spin:UpdateTemplate ;
+  spin:body [
+      rdf:type sp:Modify ;
+      sp:deletePattern (
+          [
+            sp:object [
+                sp:varName "range"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object owl:Class ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "range"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+            sp:predicate owl:unionOf ;
+            sp:subject [
+                sp:varName "range"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object schema:Number ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "rest"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object schema:Text ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "rest"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object () ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "rest"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:insertPattern (
+          [
+            sp:object xsd:float ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:text """DELETE {
+  ?property <http://www.w3.org/2000/01/rdf-schema#range> ?range .
+  ?range <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+  ?range <http://www.w3.org/2002/07/owl#unionOf> ?union .
+  ?union <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://schema.org/Number> .
+  ?union <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> ?rest .
+  ?rest <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://schema.org/Text> .
+  ?rest <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+}
+INSERT {
+  ?property <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+}
+WHERE
+  { ?property <http://www.w3.org/2000/01/rdf-schema#range> ?range .
+    ?range <http://www.w3.org/2002/07/owl#unionOf> ?union .
+    ?union <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://schema.org/Number> .
+    ?union <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> ?rest .
+    ?rest <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://schema.org/Text> .
+    ?rest <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil>
+  }
+"""^^xsd:string ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "range"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+            sp:predicate owl:unionOf ;
+            sp:subject [
+                sp:varName "range"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object schema:Number ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "rest"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "union"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object schema:Text ;
+            sp:predicate rdf:first ;
+            sp:subject [
+                sp:varName "rest"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object () ;
+            sp:predicate rdf:rest ;
+            sp:subject [
+                sp:varName "rest"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:comment """Replaces
+
+      rdfs:range
+              [ a       owl:Class ;
+                owl:unionOf (schema:Number schema:Text)
+              ] .
+
+with
+
+	rdfs:range xsd:float ."""^^xsd:string ;
+  rdfs:label "Delete union number ranges"^^xsd:string ;
+  rdfs:subClassOf spin:UpdateTemplates ;
+.
+schemaconverter:DeleteXSDStringForObjectProperties
+  rdf:type spin:UpdateTemplate ;
+  spin:body [
+      rdf:type sp:Modify ;
+      sp:deletePattern (
+          [
+            sp:object xsd:string ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object xsd:string ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "other"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object owl:Class ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "other"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Delete xsd:string for object properties"^^xsd:string ;
+  rdfs:subClassOf spin:UpdateTemplates ;
+.
+schemaconverter:EnsureAtLeastOneSuperclass
+  rdf:type spin:UpdateTemplate ;
+  spin:body [
+      rdf:type sp:Modify ;
+      sp:insertPattern (
+          [
+            sp:object owl:Thing ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject [
+                sp:varName "class"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:text """INSERT {
+  ?class <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+}
+WHERE
+  { ?class <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class>
+    FILTER NOT EXISTS {?class <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?any }
+  }
+"""^^xsd:string ;
+      sp:where (
+          [
+            sp:object owl:Class ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "class"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:notExists ;
+                sp:elements (
+                    [
+                      sp:object [
+                          sp:varName "any"^^xsd:string ;
+                        ] ;
+                      sp:predicate rdfs:subClassOf ;
+                      sp:subject [
+                          sp:varName "class"^^xsd:string ;
+                        ] ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Ensure at least one superclass"^^xsd:string ;
+  rdfs:subClassOf spin:UpdateTemplates ;
+.
+schemaconverter:OWLFileConverter
+  rdf:type ui:Service ;
+  ui:private "true"^^xsd:boolean ;
+  ui:prototype [
+      rdf:type sml:ImportRDFFromURL ;
+      sml:url "http://schema.org/docs/schemaorg.owl"^^xsd:string ;
+      ui:child [
+          rdf:type ui:call ;
+          arg:subject schema:Thing ;
+          ui:childIndex 5 ;
+          ui:template schemaconverter:DeleteDeclaration ;
+        ] ;
+      ui:child [
+          rdf:type ui:call ;
+          arg:subject schema:description ;
+          ui:childIndex 6 ;
+          ui:template schemaconverter:DeleteDeclaration ;
+        ] ;
+      ui:child [
+          rdf:type ui:call ;
+          arg:subject schema:name ;
+          ui:childIndex 7 ;
+          ui:template schemaconverter:DeleteDeclaration ;
+        ] ;
+      ui:child [
+          rdf:type ui:call ;
+          arg:subject schema:url ;
+          ui:childIndex 8 ;
+          ui:template schemaconverter:DeleteDeclaration ;
+        ] ;
+      ui:child [
+          rdf:type ui:call ;
+          ui:childIndex 0 ;
+          ui:template schemaconverter:DeleteRedundantUnions ;
+        ] ;
+      ui:child [
+          rdf:type ui:call ;
+          ui:childIndex 1 ;
+          ui:template schemaconverter:DeleteUnionNumberRanges ;
+        ] ;
+      ui:child [
+          rdf:type ui:call ;
+          ui:childIndex 2 ;
+          ui:template schemaconverter:ReplaceDatatypes ;
+        ] ;
+      ui:child [
+          rdf:type ui:call ;
+          ui:childIndex 3 ;
+          ui:template schemaconverter:ConvertObjectToDatatypeProperties ;
+        ] ;
+      ui:child [
+          rdf:type ui:call ;
+          ui:childIndex 4 ;
+          ui:template schemaconverter:RedirectLinksToOWLThing ;
+        ] ;
+      ui:child [
+          rdf:type ui:return ;
+          ui:childIndex 9 ;
+        ] ;
+    ] ;
+  rdfs:comment """Downloads the official schema.org OWL file and applies some updates to it to align it better with existing semantic web best practices. See the descriptions of the various templates for details. In addition, note that the following replacements are being assumed:
+- schema:Thing -> owl:Thing
+- schema:name -> rdfs:label
+- schema:description -> rdfs:comment
+- schema:url -> [the URI of the resource itself]"""^^xsd:string ;
+  rdfs:label "OWL file converter"^^xsd:string ;
+  rdfs:subClassOf ui:TurtleServices ;
+.
+schemaconverter:PreferXSDAnyURI
+  rdf:type spin:UpdateTemplate ;
+  spin:body [
+      rdf:type sp:Modify ;
+      sp:deletePattern (
+          [
+            sp:object [
+                sp:varName "other"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:text """DELETE {
+  ?property <http://www.w3.org/2000/01/rdf-schema#range> ?other .
+}
+WHERE
+  { ?property <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+    ?property <http://www.w3.org/2000/01/rdf-schema#range> ?other
+    FILTER ( ?other != <http://www.w3.org/2001/XMLSchema#anyURI> )
+  }
+"""^^xsd:string ;
+      sp:where (
+          [
+            sp:object xsd:anyURI ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "other"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:ne ;
+                sp:arg1 [
+                    sp:varName "other"^^xsd:string ;
+                  ] ;
+                sp:arg2 xsd:anyURI ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:comment "If a property has multiple ranges, and one of them is xsd:anyURI, then delete the others."^^xsd:string ;
+  rdfs:label "Prefer xsd:float"^^xsd:string ;
+  rdfs:subClassOf spin:UpdateTemplates ;
+.
+schemaconverter:PreferXSDFloat
+  rdf:type spin:UpdateTemplate ;
+  spin:body [
+      rdf:type sp:Modify ;
+      sp:deletePattern (
+          [
+            sp:object [
+                sp:varName "other"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:text """DELETE {
+  ?property <http://www.w3.org/2000/01/rdf-schema#range> ?other .
+}
+WHERE
+  { ?property <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+    ?property <http://www.w3.org/2000/01/rdf-schema#range> ?other
+    FILTER ( ?other != <http://www.w3.org/2001/XMLSchema#float> )
+  }
+"""^^xsd:string ;
+      sp:where (
+          [
+            sp:object xsd:float ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "other"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:ne ;
+                sp:arg1 [
+                    sp:varName "other"^^xsd:string ;
+                  ] ;
+                sp:arg2 xsd:float ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:comment "If a property has multiple ranges, and one of them is xsd:float, then delete the others."^^xsd:string ;
+  rdfs:label "Prefer xsd:float"^^xsd:string ;
+  rdfs:subClassOf spin:UpdateTemplates ;
+.
+schemaconverter:RDFaFileConverter
+  rdf:type ui:Service ;
+  ui:private "true"^^xsd:boolean ;
+  ui:prototype [
+      rdf:type sml:ImportRDFFromURL ;
+      sml:url "http://www.w3.org/2012/pyRdfa/extract?format=xml&uri=http://schema.org/docs/schema_org_rdfa.html"^^xsd:string ;
+      ui:child [
+          rdf:type ui:setContext ;
+          ui:child [
+              rdf:type schemaconverter:createUnions ;
+              arg:predicate rdfs:domain ;
+              ui:childIndex 9 ;
+            ] ;
+          ui:child [
+              rdf:type schemaconverter:createUnions ;
+              arg:predicate rdfs:range ;
+              ui:childIndex 10 ;
+            ] ;
+          ui:child [
+              rdf:type schemaconverter:deleteLegacyProperties ;
+              ui:childIndex 0 ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:new rdfs:domain ;
+              arg:old schema:domainIncludes ;
+              ui:childIndex 2 ;
+              ui:template schemaconverter:CopyPredicateValues ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:new rdfs:range ;
+              arg:old schema:rangeIncludes ;
+              ui:childIndex 1 ;
+              ui:template schemaconverter:CopyPredicateValues ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:predicate <http://purl.org/dc/terms/source> ;
+              ui:childIndex 18 ;
+              ui:template schemaconverter:DeleteTriplesWithPredicate ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:predicate schema:domainIncludes ;
+              ui:childIndex 19 ;
+              ui:template schemaconverter:DeleteTriplesWithPredicate ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:predicate schema:rangeIncludes ;
+              ui:childIndex 20 ;
+              ui:template schemaconverter:DeleteTriplesWithPredicate ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:subject schema:Class ;
+              ui:childIndex 11 ;
+              ui:template schemaconverter:DeleteDeclaration ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:subject schema:Property ;
+              ui:childIndex 12 ;
+              ui:template schemaconverter:DeleteDeclaration ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:subject schema:Thing ;
+              ui:childIndex 13 ;
+              ui:template schemaconverter:DeleteDeclaration ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:subject schema:additionalType ;
+              ui:childIndex 17 ;
+              ui:template schemaconverter:DeleteDeclaration ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:subject schema:description ;
+              ui:childIndex 14 ;
+              ui:template schemaconverter:DeleteDeclaration ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:subject schema:name ;
+              ui:childIndex 15 ;
+              ui:template schemaconverter:DeleteDeclaration ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:subject schema:url ;
+              ui:childIndex 16 ;
+              ui:template schemaconverter:DeleteDeclaration ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              ui:childIndex 21 ;
+              ui:template schemaconverter:UnCamelCaseLabels ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              ui:childIndex 22 ;
+              ui:template schemaconverter:CreateOntology ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              ui:childIndex 3 ;
+              ui:template schemaconverter:ConvertRDFSToOWLClasses ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              ui:childIndex 4 ;
+              ui:template schemaconverter:ReplaceDatatypes ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              ui:childIndex 5 ;
+              ui:template schemaconverter:PreferXSDFloat ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              ui:childIndex 6 ;
+              ui:template schemaconverter:PreferXSDAnyURI ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              ui:childIndex 7 ;
+              ui:template schemaconverter:ConvertRDFToOWLProperties ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              ui:childIndex 8 ;
+              ui:template schemaconverter:RedirectLinksToOWLThing ;
+            ] ;
+          ui:child [
+              rdf:type ui:return ;
+              ui:childIndex 23 ;
+            ] ;
+          ui:childIndex 1 ;
+          ui:queryGraph ui:tempGraph ;
+        ] ;
+      ui:child [
+          rdf:type ui:update ;
+          ui:childIndex 0 ;
+          ui:updateQuery [
+              rdf:type sp:Modify ;
+              sp:insertPattern (
+                  [
+                    rdf:type sp:NamedGraph ;
+                    sp:elements (
+                        [
+                          sp:object [
+                              sp:varName "o"^^xsd:string ;
+                            ] ;
+                          sp:predicate [
+                              sp:varName "p"^^xsd:string ;
+                            ] ;
+                          sp:subject [
+                              sp:varName "s"^^xsd:string ;
+                            ] ;
+                        ]
+                      ) ;
+                    sp:graphNameNode ui:tempGraph ;
+                  ]
+                ) ;
+              sp:where (
+                  [
+                    sp:object [
+                        sp:varName "o"^^xsd:string ;
+                      ] ;
+                    sp:predicate [
+                        sp:varName "p"^^xsd:string ;
+                      ] ;
+                    sp:subject [
+                        sp:varName "s"^^xsd:string ;
+                      ] ;
+                  ]
+                ) ;
+            ] ;
+        ] ;
+    ] ;
+  rdfs:comment """Downloads and converts the RDFa representation from the official schema.org site and transforms it. See the descriptions of the various templates for details. In addition, note that the following replacements are being assumed:
+- schema:Thing -> owl:Thing
+- schema:name -> rdfs:label
+- schema:description -> rdfs:comment
+- schema:url -> [the URI of the resource itself]"""^^xsd:string ;
+  rdfs:label "RDFa file converter"^^xsd:string ;
+  rdfs:subClassOf ui:TurtleServices ;
+.
+schemaconverter:RDFaFileConverterSingleRange
+  rdf:type ui:Service ;
+  ui:private "true"^^xsd:boolean ;
+  ui:prototype [
+      rdf:type sml:ImportRDFFromURL ;
+      sml:url "http://www.w3.org/2012/pyRdfa/extract?format=xml&uri=http://schema.org/docs/schema_org_rdfa.html"^^xsd:string ;
+      ui:child [
+          rdf:type ui:setContext ;
+          ui:child [
+              rdf:type schemaconverter:createUnions ;
+              arg:predicate rdfs:domain ;
+              ui:childIndex 10 ;
+            ] ;
+          ui:child [
+              rdf:type schemaconverter:deleteLegacyProperties ;
+              ui:childIndex 0 ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:new rdfs:domain ;
+              arg:old schema:domainIncludes ;
+              ui:childIndex 2 ;
+              ui:template schemaconverter:CopyPredicateValues ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:new rdfs:range ;
+              arg:old schema:rangeIncludes ;
+              ui:childIndex 1 ;
+              ui:template schemaconverter:CopyPredicateValues ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:predicate <http://purl.org/dc/terms/source> ;
+              ui:childIndex 19 ;
+              ui:template schemaconverter:DeleteTriplesWithPredicate ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:subject schema:Class ;
+              ui:childIndex 12 ;
+              ui:template schemaconverter:DeleteDeclaration ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:subject schema:Property ;
+              ui:childIndex 13 ;
+              ui:template schemaconverter:DeleteDeclaration ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:subject schema:Thing ;
+              ui:childIndex 14 ;
+              ui:template schemaconverter:DeleteDeclaration ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:subject schema:additionalType ;
+              ui:childIndex 18 ;
+              ui:template schemaconverter:DeleteDeclaration ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:subject schema:description ;
+              ui:childIndex 15 ;
+              ui:template schemaconverter:DeleteDeclaration ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:subject schema:name ;
+              ui:childIndex 16 ;
+              ui:template schemaconverter:DeleteDeclaration ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              arg:subject schema:url ;
+              ui:childIndex 17 ;
+              ui:template schemaconverter:DeleteDeclaration ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              ui:childIndex 11 ;
+              ui:template schemaconverter:CreateUnionRangeClasses ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              ui:childIndex 20 ;
+              ui:template schemaconverter:UnCamelCaseLabels ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              ui:childIndex 21 ;
+              ui:template schemaconverter:CreateOntology ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              ui:childIndex 3 ;
+              ui:template schemaconverter:ConvertRDFSToOWLClasses ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              ui:childIndex 4 ;
+              ui:template schemaconverter:ReplaceDatatypes ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              ui:childIndex 5 ;
+              ui:template schemaconverter:DeleteXSDStringForObjectProperties ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              ui:childIndex 6 ;
+              ui:template schemaconverter:PreferXSDFloat ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              ui:childIndex 7 ;
+              ui:template schemaconverter:PreferXSDAnyURI ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              ui:childIndex 8 ;
+              ui:template schemaconverter:ConvertRDFToOWLProperties ;
+            ] ;
+          ui:child [
+              rdf:type ui:call ;
+              ui:childIndex 9 ;
+              ui:template schemaconverter:RedirectLinksToOWLThing ;
+            ] ;
+          ui:child [
+              rdf:type ui:return ;
+              ui:childIndex 22 ;
+            ] ;
+          ui:childIndex 1 ;
+          ui:queryGraph ui:tempGraph ;
+        ] ;
+      ui:child [
+          rdf:type ui:update ;
+          ui:childIndex 0 ;
+          ui:updateQuery [
+              rdf:type sp:Modify ;
+              sp:insertPattern (
+                  [
+                    rdf:type sp:NamedGraph ;
+                    sp:elements (
+                        [
+                          sp:object [
+                              sp:varName "o"^^xsd:string ;
+                            ] ;
+                          sp:predicate [
+                              sp:varName "p"^^xsd:string ;
+                            ] ;
+                          sp:subject [
+                              sp:varName "s"^^xsd:string ;
+                            ] ;
+                        ]
+                      ) ;
+                    sp:graphNameNode ui:tempGraph ;
+                  ]
+                ) ;
+              sp:where (
+                  [
+                    sp:object [
+                        sp:varName "o"^^xsd:string ;
+                      ] ;
+                    sp:predicate [
+                        sp:varName "p"^^xsd:string ;
+                      ] ;
+                    sp:subject [
+                        sp:varName "s"^^xsd:string ;
+                      ] ;
+                  ]
+                ) ;
+            ] ;
+        ] ;
+    ] ;
+  rdfs:label "RDFa file converter single range"^^xsd:string ;
+  rdfs:subClassOf ui:TurtleServices ;
+.
+schemaconverter:RedirectLinksToOWLThing
+  rdf:type spin:UpdateTemplate ;
+  spin:body [
+      rdf:type sp:Modify ;
+      sp:deletePattern (
+          [
+            sp:object schema:Thing ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:insertPattern (
+          [
+            sp:object owl:Thing ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:text """DELETE {
+  ?s ?p <http://schema.org/Thing> .
+}
+INSERT {
+  ?s ?p <http://www.w3.org/2002/07/owl#Thing> .
+}
+WHERE
+  { ?s ?p <http://schema.org/Thing> }
+"""^^xsd:string ;
+      sp:where (
+          [
+            sp:object schema:Thing ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:comment "Replaces schema:Thing with owl:Thing."^^xsd:string ;
+  rdfs:label "Redirect links to owl:Thing"^^xsd:string ;
+  rdfs:subClassOf spin:UpdateTemplates ;
+.
+schemaconverter:ReplaceDatatypes
+  rdf:type spin:UpdateTemplate ;
+  spin:body [
+      rdf:type sp:Modify ;
+      sp:deletePattern (
+          [
+            sp:object [
+                sp:varName "old"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:insertPattern (
+          [
+            sp:object [
+                sp:varName "new"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:NamedGraph ;
+            sp:elements (
+                [
+                  sp:object [
+                      sp:varName "new"^^xsd:string ;
+                    ] ;
+                  sp:predicate owl:sameAs ;
+                  sp:subject [
+                      sp:varName "old"^^xsd:string ;
+                    ] ;
+                ]
+              ) ;
+            sp:graphNameNode <http://topbraid.org/schemaconverter> ;
+          ]
+          [
+            sp:object [
+                sp:varName "old"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Replace datatypes"^^xsd:string ;
+  rdfs:subClassOf spin:UpdateTemplates ;
+.
+schemaconverter:UnCamelCaseLabels
+  rdf:type spin:UpdateTemplate ;
+  spin:body [
+      rdf:type sp:Modify ;
+      sp:deletePattern (
+          [
+            sp:object [
+                sp:varName "old"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:label ;
+            sp:subject [
+                sp:varName "subject"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:insertPattern (
+          [
+            sp:object [
+                sp:varName "new"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:label ;
+            sp:subject [
+                sp:varName "subject"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "old"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:label ;
+            sp:subject [
+                sp:varName "subject"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type spif:unCamelCase ;
+                sp:arg1 [
+                    sp:varName "old"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "new"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  rdfs:label "Un-camel case labels"^^xsd:string ;
+  rdfs:subClassOf spin:UpdateTemplates ;
+.
+schemaconverter:createUnions
+  rdf:type ui:Method ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:predicate ;
+      spl:valueType rdf:Property ;
+    ] ;
+  ui:prototype [
+      rdf:type ui:forEach ;
+      ui:child [
+          rdf:type ui:call ;
+          arg:predicate [
+              sp:varName "predicate"^^xsd:string ;
+            ] ;
+          arg:subject [
+              sp:varName "subject"^^xsd:string ;
+            ] ;
+          ui:childIndex 0 ;
+          ui:template schemaconverter:CreateUnion ;
+        ] ;
+      ui:resultSet [
+          rdf:type sp:Select ;
+          sp:distinct "true"^^xsd:boolean ;
+          sp:resultVariables (
+              [
+                sp:varName "subject"^^xsd:string ;
+              ]
+            ) ;
+          sp:where (
+              [
+                sp:object [
+                    sp:varName "type"^^xsd:string ;
+                  ] ;
+                sp:predicate rdf:type ;
+                sp:subject [
+                    sp:varName "subject"^^xsd:string ;
+                  ] ;
+              ]
+              [
+                rdf:type sp:Filter ;
+                sp:expression [
+                    rdf:type sp:or ;
+                    sp:arg1 [
+                        rdf:type sp:or ;
+                        sp:arg1 [
+                            rdf:type sp:eq ;
+                            sp:arg1 [
+                                sp:varName "type"^^xsd:string ;
+                              ] ;
+                            sp:arg2 owl:ObjectProperty ;
+                          ] ;
+                        sp:arg2 [
+                            rdf:type sp:eq ;
+                            sp:arg1 [
+                                sp:varName "type"^^xsd:string ;
+                              ] ;
+                            sp:arg2 owl:DatatypeProperty ;
+                          ] ;
+                      ] ;
+                    sp:arg2 [
+                        rdf:type sp:eq ;
+                        sp:arg1 [
+                            sp:varName "type"^^xsd:string ;
+                          ] ;
+                        sp:arg2 rdf:Property ;
+                      ] ;
+                  ] ;
+              ]
+              [
+                rdf:type sp:Filter ;
+                sp:expression [
+                    rdf:type sp:gt ;
+                    sp:arg1 [
+                        rdf:type spl:objectCount ;
+                        sp:arg1 [
+                            sp:varName "subject"^^xsd:string ;
+                          ] ;
+                        sp:arg2 [
+                            sp:varName "predicate"^^xsd:string ;
+                          ] ;
+                      ] ;
+                    sp:arg2 1 ;
+                  ] ;
+              ]
+            ) ;
+        ] ;
+    ] ;
+  rdfs:label "create unions"^^xsd:string ;
+  rdfs:subClassOf ui:Methods ;
+.
+schemaconverter:deleteLegacyProperties
+  rdf:type ui:Method ;
+  ui:prototype [
+      rdf:type ui:forEach ;
+      ui:child [
+          rdf:type ui:call ;
+          arg:subject [
+              sp:varName "property"^^xsd:string ;
+            ] ;
+          ui:childIndex 0 ;
+          ui:template schemaconverter:DeleteDeclaration ;
+        ] ;
+      ui:resultSet [
+          rdf:type sp:Select ;
+          sp:resultVariables (
+              [
+                sp:varName "property"^^xsd:string ;
+              ]
+            ) ;
+          sp:where (
+              [
+                sp:object [
+                    sp:varName "comment"^^xsd:string ;
+                  ] ;
+                sp:predicate rdfs:comment ;
+                sp:subject [
+                    sp:varName "property"^^xsd:string ;
+                  ] ;
+              ]
+              [
+                rdf:type sp:Filter ;
+                sp:expression [
+                    rdf:type sp:regex ;
+                    sp:arg1 [
+                        sp:varName "comment"^^xsd:string ;
+                      ] ;
+                    sp:arg2 "legacy" ;
+                  ] ;
+              ]
+              [
+                rdf:type sp:Filter ;
+                sp:expression [
+                    rdf:type fn:ends-with ;
+                    sp:arg1 [
+                        rdf:type afn:localname ;
+                        sp:arg1 [
+                            sp:varName "property"^^xsd:string ;
+                          ] ;
+                      ] ;
+                    sp:arg2 "s" ;
+                  ] ;
+              ]
+            ) ;
+        ] ;
+    ] ;
+  rdfs:label "delete legacy properties"^^xsd:string ;
+  rdfs:subClassOf ui:Methods ;
+.
+schemaconverter:hasMixedRange
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Ask ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "datatype"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:eq ;
+                sp:arg1 [
+                    rdf:type afn:namespace ;
+                    sp:arg1 [
+                        sp:varName "datatype"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type afn:namespace ;
+                    sp:arg1 xsd:string ;
+                  ] ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "object"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:eq ;
+                sp:arg1 [
+                    rdf:type afn:namespace ;
+                    sp:arg1 [
+                        sp:varName "object"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg2 "http://schema.org/" ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:property ;
+      spl:valueType rdf:Property ;
+    ] ;
+  spin:returnType xsd:boolean ;
+  rdfs:label "has mixed range"^^xsd:string ;
+  rdfs:subClassOf spin:Functions ;
+.
+schemaconverter:unionClassName
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:orderBy (
+          [
+            sp:varName "name"^^xsd:string ;
+          ]
+        ) ;
+      sp:resultVariables (
+          [
+            sp:expression [
+                rdf:type sp:GroupConcat ;
+                sp:expression [
+                    sp:varName "name"^^xsd:string ;
+                  ] ;
+                sp:separator "Or"^^xsd:string ;
+              ] ;
+            sp:varName "unionURI"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "range"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:range ;
+            sp:subject [
+                sp:varName "property"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type xsd:string ;
+                sp:arg1 [
+                    rdf:type afn:localname ;
+                    sp:arg1 [
+                        sp:varName "range"^^xsd:string ;
+                      ] ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "name"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:property ;
+      spl:valueType rdf:Property ;
+    ] ;
+  spin:returnType xsd:string ;
+  rdfs:label "union class name"^^xsd:string ;
+  rdfs:subClassOf spin:Functions ;
+.
+rdfs:Literal
+  owl:sameAs xsd:string ;
+.
+owl:Thing
+  rdfs:isDefinedBy rdf:Statement ;
+.

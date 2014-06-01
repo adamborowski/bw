@@ -1,0 +1,2286 @@
+# baseURI: http://topbraid.org/swadoc
+# imports: http://topbraid.org/examples/kennedys
+# imports: http://topbraid.org/swa
+# imports: http://topbraid.org/swa/defaultapp
+# imports: http://uispin.org/html
+
+@prefix afn: <http://jena.hpl.hp.com/ARQ/function#> .
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix composite: <http://www.topbraid.org/2007/05/composite.owl#> .
+@prefix css: <http://uispin.org/css#> .
+@prefix daml: <http://www.daml.org/2001/03/daml+oil#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix default: <http://uispin.org/default#> .
+@prefix defaultapp: <http://topbraid.org/swa/defaultapp#> .
+@prefix email: <http://topbraid.org/email#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix html: <http://uispin.org/html#> .
+@prefix kennedys: <http://topbraid.org/examples/kennedys#> .
+@prefix let: <http://uispin.org/let#> .
+@prefix letrs: <http://uispin.org/letrs#> .
+@prefix list: <http://jena.hpl.hp.com/ARQ/list#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix search: <http://topbraid.org/search#> .
+@prefix search.spin: <http://topbraid.org/search.spin#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sm: <http://topbraid.org/sparqlmotion#> .
+@prefix smf: <http://topbraid.org/sparqlmotionfunctions#> .
+@prefix sml: <http://topbraid.org/sparqlmotionlib#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix sparqlmotionlib-swp: <http://topbraid.org/sparqlmotionlib-swp#> .
+@prefix spif: <http://spinrdf.org/spif#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix spr: <http://spinrdf.org/spr#> .
+@prefix spra: <http://spinrdf.org/spra#> .
+@prefix style: <http://uispin.org/style#> .
+@prefix swa: <http://topbraid.org/swa#> .
+@prefix swadoc: <http://topbraid.org/swadoc#> .
+@prefix swon: <http://uispin.org/swon#> .
+@prefix ui: <http://uispin.org/ui#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+arg:arg
+  rdf:type rdf:Property ;
+  rdfs:label "arg"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:element
+  rdf:type rdf:Property ;
+  rdfs:label "element"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:example
+  rdf:type rdf:Property ;
+  rdfs:label "example"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+<http://topbraid.org/swadoc>
+  rdf:type owl:Ontology ;
+  owl:imports <http://topbraid.org/examples/kennedys> ;
+  owl:imports <http://topbraid.org/swa> ;
+  owl:imports <http://topbraid.org/swa/defaultapp> ;
+  owl:imports <http://uispin.org/html> ;
+  owl:versionInfo "0.5.0"^^xsd:string ;
+.
+swadoc:API
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:element ;
+      spl:valueType ui:NodeClass ;
+      rdfs:comment "The element (class) to display the help for."^^xsd:string ;
+    ] ;
+  ui:prototype """
+<div class=\"swadoc-api\">
+    <div class=\"swadoc-api-title\">{= ui:encodeNode(?element) }</div>
+    <div>{= spl:object(?element, rdfs:comment) }</div>
+    <div class=\"swadoc-api-subtitle\">Arguments</div>
+    <ul>
+        <ui:forEach ui:resultSet=\"{#
+                SELECT ?arg
+                WHERE {
+                    ?element (rdfs:subClassOf)* ?cls .
+                    ?cls spin:constraint ?arg .
+                    ?arg a spl:Argument .
+                    ?arg spl:predicate ?predicate .
+                }
+                ORDER BY (afn:localname(?predicate)) }\">
+            <li>
+                <swadoc:ArgumentView arg:arg=\"{= ?arg }\"/>
+            </li>
+        </ui:forEach>
+    </ul>
+</div>
+"""^^ui:Literal ;
+  rdfs:label "API"^^xsd:string ;
+  rdfs:subClassOf swadoc:Elements ;
+.
+swadoc:Actions
+  rdf:type ui:NodeClass ;
+  ui:prototype """
+<ui:group>
+    <h2 id=\"actions\">6 Actions, Edit Handlers and SPARQLMotion Integration</h2>
+    <h3 id=\"Action\">6.1 The <code>swa:Action</code> Framework</h3>
+    <p>
+		Many applications (such as EVN) have menu-like structures in which user can
+		select an action to execute.  The list of actions may be context-sensitive
+		and depend on the selected resource or context.  SWA provides a framework
+		for such actions, based on the class <code>swa:Action</code> and its
+		subclass <code>swa:ResourceAction</code>:
+	</p>
+    <swadoc:API arg:element=\"{= swa:Action }\"/>
+    <p>
+		An Action is not a visual object by itself, but if the Action is stored
+		in a .ui. graph, then the system can dynamically discover and walk through
+		the available actions and render them as menu items, buttons or whatever.
+		The component <code>swa:ResourceActionsButton</code> can be used to
+		display a drop down menu with all actions that are available for a given
+		resource:
+	</p>
+    <swadoc:API arg:element=\"{= swa:ResourceActionsButton }\"/>
+    <p/>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:ResourceActionsButtonExample }\"/>
+    <h3 id=\"EditHandlers\">6.2 <code>swa:EditHandlers</code>
+    </h3>
+    <p>
+		Many Ajax application provide graphical means to edit RDF-based data.
+		For example, a tree-based application may have a button to delete a
+		tree node.  Those edits are typically executed through a server callback
+		without reloading the whole page.  Once the edit has been executed on
+		the server, the user interface will refresh to display the new state.
+		SWA suggests some design patterns to implement such scenarios, based
+		on the <code>swa:EditHandlers</code>:
+	</p>
+    <swadoc:API arg:element=\"{= swa:EditHandlers }\"/>
+    <p>
+		The class <code>swa:EditHandlers</code> doesn't do anything by itself
+		but should be subclassed by those non-visual SWA elements that perform
+		updates of the RDF model.  It is perfectly legal to have SWP element
+		that deliver nothing at all, and only have side effects.  A typical
+		<code>ui:prototype</code> of an edit handler has the following format:
+	</p>
+    <pre class=\"swadoc-example-source\">&lt;ui:transaction&gt;
+&lt;ui:update ui:updateQuery=\"{! ... }\" /&gt;
+... code that generates a JSON result object goes here ...
+&lt;/ui:transaction&gt;</pre>
+    <p>
+		If used inside of EVN, the <code>ui:transaction</code> element will
+		create the right response for you, and the EVN client knows how to
+		handle the JSON response to update the tree etc.  Custom SWA applications
+		can come up with their own design patterns.
+	</p>
+    <p>
+		In order to invoke an EditHandler, you can use the provided JavaScript
+		function <code>swa.callHandler</code> (see swa.js for details).  This
+		will issue the Ajax call to execute it with the provided parameters.
+		If you have an EditHandler that takes arguments that you want the user
+		to enter, then you can simply call the built-in JavaScript function
+		<code>swa.openHandlerDialog</code>.
+	</p>
+    <h3 id=\"Change\">6.3 Change Handling</h3>
+    <p>
+		For interactive editing applications, where changes in one place may need
+		to update other places, you should always use the SWA Gadgets framework.
+		Gadgets use the event hub to publish and subscribe to change events.
+		Whenever an edit form is saved or an EditHandler executed, the SWA JavaScript
+		API will publish an event \"org.topbraid.swa.change\".  The data payload object
+		of this event is a JSON structure with the following structure:
+	</p>
+    <pre>{
+		\"changed\" : true ,
+		\"added\" : 3 ,
+		\"deleted\" : 1 ,
+		\"changes\" :
+		{ 
+			\"http://tests.evn.topbraid.org/geo/geo#Falkland_Islands\" : 
+			{ 
+				\"http://www.w3.org/2004/02/skos/core#related\" : 
+				[ 
+					\"http://tests.evn.topbraid.org/geo/geo#Saint_Helena\",
+					\"http://tests.evn.topbraid.org/geo/geo#Bermuda_Islands\"
+				] 
+			}
+		} ,
+		\"labelChanges\" : {  } ,
+		\"rootResource\" : \"http://tests.evn.topbraid.org/geo/geo#Falkland_Islands\"
+}</pre>
+    <p>
+		Details of this data structure are provided in the TBC help at
+		<b>Help &gt; TopBraid Composer &gt; TopBraid Live Integration &gt; The Edit Servlet</b>.
+	</p>
+    <p>
+		Any gadget that needs to refresh on such changes needs to subscribe to
+		the change event and walk through the JSON object to find out what has
+		changed.  Take a look at the implementation of <code>swa:ClassTreeGadget</code>
+		and its companion JavaScript function <code>swa.handleChangeForClassTree</code>
+		for an example.  You can also learn more about the behavior of the change
+		object by doing some edits and monitor the result JSON via FireBug.
+	</p>
+    <h3 id=\"SPARQLMotion\">6.4 Calling SPARQLMotion Scripts</h3>
+    <p>
+		SPARQLMotion is a built-in feature of TopBraid Live to execute
+		data processing pipelines.  The TBL servlet 'sparqlmotion' can be
+		used to invoke any globally registered SPARQLMotion service with a
+		REST-like call.  These calls can be created \"manually\" or
+		through <code>ui:createLink</code>.
+	</p>
+    <p>
+		SPARQLMotion scripts that take arguments can be conveniently executed with
+		the built-in JavaScript function <code>swa.openSPARQLMotionDialog</code>.
+		This opens a modal dialog in which the user is prompted for the arguments,
+		including constraint checking.
+	</p>
+    <p>
+		Note however that in the current version, <code>sml:PerformUpdate</code>
+		and <code>ui:update</code> are not well aligned.  Changes performed
+		via a SPARQLMotion script may not be visible and handled correctly by
+		an SWA application.  We therefore recommend the use of <code>swa:EditHandlers</code>
+		for any operation that updates the triples relevant to the current application.
+		You can embed most SPARQLMotion modules directly inside of SWP elements:
+		Import <code>sparqlmotionlib-swp.ui.ttl</code> into your SWP file and you can
+		use SM modules as SWP tags.  For example, this allows you to define an
+		EditHandler that loads data from a spreadsheet and then performs a 
+		<code>ui:update</code> to write data from that spreadsheet into the current graph.
+	</p>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:label "Actions"^^xsd:string ;
+  rdfs:subClassOf swadoc:Elements ;
+.
+swadoc:Apps
+  rdf:type ui:NodeClass ;
+  ui:prototype """
+<ui:group>
+    <h2 id=\"apps\">2 Application Architecture and Layout</h2>
+    <p>
+		This section gives an overview of the steps needed to set up a basic SPARQL Web Application.
+	</p>
+    <h3 id=\"architecture\">2.1 Architecture of SPARQL Web Applications</h3>
+    <p>
+		As of TopBraid Composer 4.2, the recommended way of starting with the development
+		of SWA applications is to create a clone of the so-called SWA Default Application.
+		The Default Application demonstrates several best-practices and gives you a starting
+		point that is immediately up and running with a few mouse clicks.
+	</p>
+    <ol>
+        <li>
+            <b>Create a new project</b>: Use <code>File &gt; New &gt; Project</code> and select
+			a name that reflects the top-level URI of your application, e.g. <code>helloswa.org</code>.
+		</li>
+        <li>
+            <b>Create a new application</b>: Right-click on that new project and select
+			<code>New &gt; SWP Application based on Template</code>.
+			This opens up a dialog in which you can select the base template (leave it at default)
+			and enter a short id for your application.  This id should be sufficiently unique that
+			it does not clash with any other string in your application(s), e.g. \"helloswa\".
+		</li>
+        <li>
+            <b>Open your application in a browser</b>: Open an external web browser
+			and navigate to <code>http://localhost:8083/tbl/swp?_viewClass=helloswa:Application</code>.
+			It should look similar to the (interactive) example below.
+</li>
+        <li>
+            <b>Refine and debug your application</b>: We recommend Firefox and the
+			<a href=\"http://getfirebug.com\">FireBug</a> extension to execute and debug
+			your applications.  FireBug makes it easy to navigate through the DOM tree,
+			explore styles and step through JavaScript code if you ever need to do that.
+			The typical debug cycle of SWA applications is to make edits in TopBraid
+			(don't forget to hit Enter to assign your changes on the forms) and then
+			to refresh the web browser to see the changes.
+		</li>
+    </ol>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:DefaultAppExample }\"/>
+    <p>
+		The wizard will generate a few folders and files in your project, and you can freely modify
+		those files to play with your application.  Here is a rough introduction of the relevant files.
+	</p>
+    <ul>
+        <li>
+            <code>helloswa.ui.ttl</code> contains the SWP elements and their properties in RDF.
+			The starting point here is the class <code>helloswa:Application</code> which defines
+			the basic layout of the components in its <code>ui:prototype</code>.
+			Note that this is a subclass of <code>swa:Applications</code> which includes some
+			initialization code so that the event hub is working as it should.
+		</li>
+        <li>
+			Applications typically require other files such as JavaScript or CSS files at run-time.
+			In order to make them accessible on a location relative to the SWP servlet, folders
+			ending with <code>.www</code> can be used.  In this case, the folder <code>helloswa.www</code>
+			is generates by the application wizard.  The SWP servlet can then access its content
+			with relative URLs such as <code>lib/helloswa/js/helloswa.js</code>.
+		</li>
+        <li>
+			The CSS file <code>helloswa.css</code> is used as style sheet for your application.
+			Modify this to change colors, insert images etc.
+		</li>
+        <li>
+			Most JavaScript should be placed in a stand-alone JS file such as <code>helloswa.js</code>
+			instead of embedding it into the SWP elements.  Note that the current default application
+			uses its JavaScript file to initialize events, but this will change in future versions.
+		</li>
+    </ul>
+    <p>
+		Like all SWP views, the application above will by default operate on the currently
+		selected model in TBC.  This is good for prototyping and testing but not a clean
+		solution for applications that shall be published on a TopBraid Live server.
+		In those cases, the URL may contain a reference to the selected base URI, using
+		<code>_base=...</code> (see <a href=\"http://uispin.org/ui.html#server\">SWP Server
+		manual</a>).  Alternatively, if the application is meant to work on a fixed
+		query model, then you can use
+		<a href=\"http://uispin.org/ui.html#setContext\">
+            <code>ui:setContext</code>
+        </a>
+		to select a query model for the whole application or parts of it.
+	</p>
+    <h3 id=\"BorderLayout\">2.2 Application Layout, Windows, Gadgets and Events</h3>
+    <p>
+		Many rich internet applications divide the screen into various areas that can be
+		resized using dividers.  In the default application, there is a tree on the left
+		(\"west\") panel, a search form with its results on the right (\"east\") and a view form
+		occupies the rest (\"center\") of the screen.  SWA makes use of the
+		<a href=\"http://layout.jquery-dev.net\">jQuery UI Layout</a> framework, and provides
+		a convenience layer around it to help users get started quickly.
+	</p>
+    <p>
+		The class <code>swa:FullScreenBorderLayout</code> should be the top-level element
+		in your application if you want to work with resizable areas.  It can have up to
+		five children, for the individual screen areas as described in the documentation:
+	</p>
+    <swadoc:API arg:element=\"{= swa:FullScreenBorderLayout }\"/>
+    <p>
+		If you need to further divide a top-level panel, e.g. to have two or more sub-panels
+		on the left side like in the default application, then you can use
+		<code>swa:BorderLayout</code>.
+	</p>
+    <p>
+		You should organize your application's main views into so-called gadgets.
+		A gadget should be a subclass of <code>swa:Gadgets</code> and SWA already includes
+		a small <ui:createLink ui:viewClass=\"{= swadoc:GadgetsReference }\">
+            <a href=\"{= ?link }\">collection of reusable default gadgets</a>
+        </ui:createLink> and more will be added
+		in future versions.
+	</p>
+    <p>
+		The default application demonstrates how gadgets can be defined - look at the subclasses
+		of <code>swa:Gadgets</code>.  In order to embed gadgets into a stand-alone SWP application,
+		we recommend to wrap it with a <code>swa:Window</code>.  An <code>swa:Window</code> is
+		a simple container around one or more content widgets and has a title header above it.
+		Every <code>swa:Window</code> also has the notable feature to reload its content through
+		a simple JavaScript call (<code>swa:load()</code>) which covers a lot of use cases if
+		gadgets need to refresh in response to an event.
+	</p>
+    <swadoc:API arg:element=\"{= swa:Window }\"/>
+    <p>
+		A gadget should only interact with other gadgets through an	event hub.
+		SWA uses the event hub supported by the OpenSocial standard, which in turn relies on the 
+		<a href=\"http://www.openajax.org/member/wiki/OpenAjax_Hub_2.0_Specification\">OpenAjax
+		Hub specification</a>.
+	</p>
+    <p>
+		In a nutshell, if you want gadget A in your application to change its state whenever
+		the user does something in gadget B, then gadget B should publish an event to the hub
+		(using <code>gadgets.Hub.publish()</code>) and gadget A can \"listen\" to those events
+		(via <code>gadgets.Hub.subscribe()</code>).  Instead of using these JavaSctipt functions
+		directly, you should use the same patterns employed by the pre-defined gadgets of the SWA
+		library	as illustrated by the following example:
+	</p>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:EventsExample }\"/>
+    <p>
+		SWA includes a further convenience element <code>swa:SubscribeArgument</code> which makes
+		wiring components together very elegant.
+	</p>
+    <p>
+		Note that in future versions, any <code>swa:Gadget</code> can be exposed to
+		<a href=\"http://opensocial.org\">OpenSocial</a> containers through a built-in servlet.
+	</p>
+    <h3 id=\"load\">2.3 Loadable Page Divisions</h3>
+    <p>
+		Most rich internet applications need to make server requests to reload parts of
+		a page.  The classical use case is that the form should be reloaded if the user
+		changes selection.  SWP includes a built-in element called
+		<a href=\"http://uispin.org/ui.html#loadable\">
+            <code>ui:loadable</code>
+        </a>
+		that can be placed around divisions of the page that shall be re-loadable
+		without having to refresh the whole page.  SWA provides several JavaScript functions
+		that bring <code>ui:loadable</code> to life by making the necessary (jQuery) calls.
+	</p>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:LoadableExample }\"/>
+    <p>
+		Each <code>ui:loadable</code> must define a unique id via <code>ui:loadId</code>
+		and this must be the first argument of the <code>swa.load</code> JavaScript call.
+		Note that you need to be fully aware of the distinction between the JavaScript
+		world and the SWP world: JavaScript is executed on the client, and JavaScript
+		variables (such as <code>c</code> above) are visible as long as the user stays
+		on the same browser page.  SWP however is executed on the server, and the variables
+		there are visible while the servlet produces an HTML snippet.
+	</p>
+    <p>
+		Previous examples have used the built-in function <code>swa.loadWithResource</code>
+		which acts as a short-cut to the more general <code>swa.load</code> function.
+		You should use <code>swa.loadWithResource</code> if you need to pass a single
+		resource (identified by its URI) to the server, e.g. to reload a form for that resource.
+	</p>
+    <h3 id=\"handle\">2.4 Event handling, session management and Ajax callbacks</h3>
+    <p>
+		Just to repeat some content also covered by the general SWP guide
+		(see also <a href=\"http://uispin.org/ui.html#handle\">section 5.7</a>),
+		SWP includes support for some common application design patterns for event handling
+		leading to Ajax callbacks.  This is best shown in an example.
+	</p>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:HandleExample }\"/>
+    <h3 id=\"embedding\">2.5 Embedding SWA Components into HTML Pages</h3>
+    <p>
+		While it is possible to write complete applications with nothing but the SWP servlets,
+		it is sometimes desirable to embed SWP elements into web application created with other
+		top-level technologies such as PHP frameworks.
+		This can be done in a number of ways including iFrames and Ajax.
+		A worked-out example of how to use embed SWA components via Ajax callbacks can be
+		found in the file <code>TopBraid/SWA/doc/swadoc.www/embeddedSWADemo.html</code>
+		delivered with TopBraid Composer.  You can click into this working example here:
+		<a href=\"http://localhost:8083/tbl/lib/swadoc/embeddedSWADemo.html\">Embedded SWA Demo</a>
+    </p>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:label "Apps"^^xsd:string ;
+  rdfs:subClassOf swadoc:Elements ;
+.
+swadoc:ArgumentView
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:arg ;
+      spl:valueType spl:Argument ;
+      rdfs:comment "The spl:Argument to display."^^xsd:string ;
+    ] ;
+  ui:prototype """
+<div let:comment=\"{= spl:object(?arg, rdfs:comment) }\" let:optional=\"{= spl:object(?arg, spl:optional) }\" let:predicate=\"{= spl:object(?arg, spl:predicate) }\" let:valueType=\"{= spl:object(?arg, spl:valueType) }\">
+    <b>{= ui:encodeNode(?predicate) }</b>
+    <ui:if ui:condition=\"{= bound(?valueType) }\">({= ui:encodeNode(?valueType) })</ui:if>:{= IF(?optional, \" [Optional]\", \"\") } {= IF(bound(?comment), ?comment, ?none) }</div>
+"""^^ui:Literal ;
+  rdfs:label "Argument view"^^xsd:string ;
+  rdfs:subClassOf swadoc:Elements ;
+.
+swadoc:AutoCompleteExample
+  rdf:type swadoc:Example ;
+  ui:prototype """
+<div>
+    <h3>Please select a property</h3>
+    <div>
+        <span>Property: </span>
+        <swa:AutoComplete arg:id=\"property\" arg:type=\"{= rdf:Property }\"/>
+        <br/>
+        <br/>
+        <button onclick=\"alert('Selected: ' + $('#property').val())\">Show Selection</button>
+    </div>
+</div>
+"""^^ui:Literal ;
+  rdfs:comment "This example allows the user to enter the name of an instance of the class rdf:Property."^^xsd:string ;
+  rdfs:label "Auto complete example"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:CSSOverrideExample
+  rdf:type swadoc:Example ;
+  ui:headIncludes """
+<style>.swa-header {
+		background-color: red !important;
+	}</style>
+"""^^ui:Literal ;
+  ui:prototype """
+<div>
+    <swa:Header arg:label=\"Thing\"/>
+    <swa:ViewForm arg:resource=\"{= owl:Thing }\"/>
+</div>
+"""^^ui:Literal ;
+  rdfs:comment "This example shows how the default styles used by SWA can be overloaded to achieve different visual effects (here: a different color of the main header on the form). Note that this requires modifications to the head of the HTML document, using ui:headIncludes."^^xsd:string ;
+  rdfs:label "CSS override example"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:ChristopherKennedy
+  rdf:type swadoc:Person ;
+  swadoc:dateOfBirth "1963-07-04"^^xsd:date ;
+  swadoc:firstName "Christopher"^^xsd:string ;
+  swadoc:lastName "Kennedy"^^xsd:string ;
+  rdfs:label "Christopher G. Kennedy"^^xsd:string ;
+.
+swadoc:ClassPropertyTreeExample
+  rdf:type swadoc:Example ;
+  ui:prototype """
+<div>
+    <swa:Header arg:label=\"Class-Property Tree\"/>
+    <swa:Tree arg:dataProvider=\"{= swa:ClassPropertyTreeDataProvider }\" arg:filterFunction=\"{= swa:filterSystemResources }\" arg:id=\"classTree\" arg:root=\"{= owl:Thing }\"/>
+</div>
+"""^^ui:Literal ;
+  rdfs:comment "This example creates a mixed class and property tree, starting at owl:Thing. The tree is filtering out all system resources including owl:Nothing and owl:sameAs that would otherwise show up."^^xsd:string ;
+  rdfs:label "Class-Property tree example"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:ClassTreeExample
+  rdf:type swadoc:Example ;
+  ui:prototype """
+<div>
+    <swa:Header arg:label=\"Class Tree\"/>
+    <div style=\"margin: 4px; width: 400px; height: 120px; border: 1px solid grey; overflow: auto\">
+        <swa:Tree arg:dataProvider=\"{= swa:ClassTreeDataProvider }\" arg:id=\"classTree\" arg:onSelect=\"alert('Selected: ' + resource)\" arg:root=\"{= owl:Thing }\"/>
+    </div>
+    <div style=\"margin: 4px\">
+        <span>Find Class:&nbsp;</span>
+        <swa:AutoComplete arg:id=\"classFinderAutoComplete\" arg:onSelect=\"swa.selectTreeNode(&quot;classTree&quot;, resource, &quot;{= ui:currentQueryGraph() }&quot;)\" arg:type=\"{= rdfs:Class }\"/>
+    </div>
+</div>
+"""^^ui:Literal ;
+  rdfs:comment "This example creates a class tree, starting at rdfs:Resource, and shows how to register an event handler for the selected resource. Note that the event handler will have the JavaScript variable 'resource' bound to the selected resource. The example also has an auto-complete field that will select the entered class in the tree, using swa.selectTreeNode."^^xsd:string ;
+  rdfs:label "Class tree example"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:ClassViewFormExample
+  rdf:type swadoc:Example ;
+  ui:prototype """
+<swa:ViewForm arg:resource=\"{= owl:Thing }\"/>
+"""^^ui:Literal ;
+  rdfs:comment "This example shows the default form for the class owl:Thing. The form includes sections for Annotations, Class Axioms and Properties."^^xsd:string ;
+  rdfs:label "Example: Default view form of owl:Thing"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:DefaultAppExample
+  rdf:type swadoc:Example ;
+  arg:height "450px"^^xsd:string ;
+  ui:prototype """
+<ui:setContext ui:queryGraph=\"{= ui:graphWithImports(&lt;http://topbraid.org/examples/kennedys&gt;) }\">
+    <defaultapp:Application/>
+</ui:setContext>
+"""^^ui:Literal ;
+  rdfs:comment "This example shows the SWA default application in action."^^xsd:string ;
+  rdfs:label "Default Application example"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:EditableFormExample
+  rdf:type swadoc:Example ;
+  arg:height "400px"^^xsd:string ;
+  ui:prototype """
+<ui:setContext ui:queryGraph=\"{= ui:graphWithImports(&lt;http://topbraid.org/examples/kennedys&gt;) }\">
+    <swa:FullScreenBorderLayout arg:westSize=\"{= 200 }\">
+        <swa:Window arg:layoutPanel=\"west\" arg:title=\"Family Tree\">
+            <swa:Tree arg:dataProvider=\"{= swadoc:FamilyTreeDataProvider }\" arg:id=\"familyTree\" arg:onSelect=\"swa.loadWithResource('personForm', 'resource', resource)\"/>
+        </swa:Window>
+        <ui:loadable class=\"ui-layout-center\" ui:loadId=\"personForm\">
+            <swa:SwitchableForm arg:editable=\"{= true }\" arg:resource=\"{= COALESCE(?resource, kennedys:JosephKennedy) }\"/>
+        </ui:loadable>
+    </swa:FullScreenBorderLayout>
+</ui:setContext>
+"""^^ui:Literal ;
+  rdfs:comment """This form has been set to be editable, and users can switch back and forth between view and edit mode.
+
+Note that assigning the values (Save Changes) is currently only working for demo purposes within the controlled context of TBC-ME. You need to have the kennedys example model open in TBC while editing - the changes will be visible in the Change History then."""^^xsd:string ;
+  rdfs:label "Editable form example"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:Elements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  ui:headIncludes """
+<ui:group>
+    <link href=\"lib/swadoc/css/swadoc.css\" rel=\"stylesheet\" type=\"text/css\"/>
+    <title>SWP Applications Library (SWA)</title>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:label "Elements"^^xsd:string ;
+  rdfs:subClassOf ui:ViewElements ;
+.
+swadoc:EventsExample
+  rdf:type swadoc:Example ;
+  ui:prototype """
+<swa:FullScreenBorderLayout>
+    <swa:Window arg:layoutPanel=\"west\" arg:title=\"Event Publisher\">
+        <button onclick=\"{= swa:publishEvent(&quot;testEvent&quot;, &quot;'World' + Math.random()&quot;) }\">Click to Send Event</button>
+    </swa:Window>
+    <swa:Window arg:layoutPanel=\"center\" arg:title=\"Event Subscriber\">
+        <swa:Subscribe arg:code=\"$('#label').html(data)\" arg:event=\"testEvent\"/>
+        <span>Hello&nbsp;</span>
+        <span id=\"label\"/>
+    </swa:Window>
+</swa:FullScreenBorderLayout>
+"""^^ui:Literal ;
+  rdfs:comment """Illustrates how gadgets can communicate with each other. When the button is clicked, an event is published to the hub. Any number of other gadgets can subscribe to that event and will receive the event's payload in the variable 'data'.
+
+In this example we have not used Gadgets, so that the example is easier to read and better self-contained. However, users should wrap the contents of an swa:Window into a sub-class of swa:Gadgets, so that it becomes more modular and reusable."""^^xsd:string ;
+  rdfs:label "Events example"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:Example
+  rdf:type rdfs:Class ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:height ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The height of the iframe in preview."^^xsd:string ;
+    ] ;
+  rdfs:label "Example"^^xsd:string ;
+  rdfs:subClassOf ui:NodeClass ;
+.
+swadoc:ExampleViewer
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:example ;
+      spl:valueType ui:NodeClass ;
+      rdfs:comment "The example to view."^^xsd:string ;
+    ] ;
+  ui:prototype """
+<div class=\"swadoc-example\" let:comment=\"{#
+        SELECT ?comment
+        WHERE {
+            GRAPH ui:graph {
+                ?example rdfs:comment ?comment .
+            } .
+        } }\" let:headIncludes=\"{#
+        SELECT ?headIncludes
+        WHERE {
+            GRAPH ui:graph {
+                ?example ui:headIncludes ?headIncludes .
+            } .
+        } }\" let:prototype=\"{#
+        SELECT ?prototype
+        WHERE {
+            GRAPH ui:graph {
+                ?example ui:prototype ?prototype .
+            } .
+        } }\">
+    <div class=\"swadoc-example-title\">{#
+            SELECT ?label
+            WHERE {
+                GRAPH ui:graph {
+                    BIND (ui:label(?example) AS ?label) .
+                } .
+            } }</div>
+    <ui:if ui:condition=\"{= bound(?comment) }\">
+        <div>{= ?comment }</div>
+    </ui:if>
+    <ui:if ui:condition=\"{= bound(?headIncludes) }\">
+        <pre class=\"swadoc-example-source\">{= ui:label(?headIncludes) }</pre>
+    </ui:if>
+    <pre class=\"swadoc-example-source\">{= ui:label(?prototype) }</pre>
+    <div class=\"swadoc-example-view\" let:height=\"{= spl:object(?example, arg:height) }\">
+        <ui:createLink ui:sendQueryGraph=\"{= true }\" ui:viewClass=\"{= ?example }\">
+            <iframe class=\"swadoc-example-iframe\" src=\"{= ?link }\" style=\"height: {= COALESCE(?height, &quot;200px&quot;) }\"/>
+        </ui:createLink>
+    </div>
+</div>
+"""^^ui:Literal ;
+  rdfs:label "Example viewer"^^xsd:string ;
+  rdfs:subClassOf swadoc:Elements ;
+.
+swadoc:Examples
+  rdf:type swadoc:Example ;
+  ui:abstract "true"^^xsd:boolean ;
+  ui:responseType ui:HTML ;
+  rdfs:label "Examples"^^xsd:string ;
+  rdfs:subClassOf swa:Elements ;
+  rdfs:subClassOf swadoc:Elements ;
+.
+swadoc:FacetedSearchExample
+  rdf:type swadoc:Example ;
+  arg:height "400px"^^xsd:string ;
+  ui:prototype """
+<ui:setContext ui:queryGraph=\"{= &lt;http://topbraid.org/examples/kennedys&gt; }\">
+    <swa:FullScreenBorderLayout arg:westSize=\"{= 400 }\">
+        <swa:Window arg:layoutPanel=\"west\" arg:title=\"Search\">
+            <swa:FacetedSearchGadget arg:resourceType=\"{= kennedys:Person }\" ui:args=\"*\"/>
+        </swa:Window>
+        <swa:Window arg:layoutPanel=\"center\" arg:title=\"Search Results\">
+            <swa:SummarySearchResultsGadget ui:args=\"*\"/>
+        </swa:Window>
+    </swa:FullScreenBorderLayout>
+</ui:setContext>
+"""^^ui:Literal ;
+  rdfs:comment "This example shows faceted search (for the class kennedys:Person) on the left and a summary viewer on the right."^^xsd:string ;
+  rdfs:label "Faceted search example"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:FamilyTreeChildren
+  rdf:type spin:SelectTemplate ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:orderBy (
+          [
+            sp:varName "label"^^xsd:string ;
+          ]
+        ) ;
+      sp:resultVariables (
+          [
+            sp:varName "node"^^xsd:string ;
+          ]
+          [
+            sp:varName "label"^^xsd:string ;
+          ]
+          [
+            sp:varName "leaf"^^xsd:string ;
+          ]
+          [
+            sp:varName "icon"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "node"^^xsd:string ;
+              ] ;
+            sp:predicate kennedys:child ;
+            sp:subject [
+                sp:varName "parent"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:isIRI ;
+                sp:arg1 [
+                    sp:varName "node"^^xsd:string ;
+                  ] ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:notExists ;
+                sp:elements (
+                    [
+                      sp:object [
+                          sp:varName "child"^^xsd:string ;
+                        ] ;
+                      sp:predicate kennedys:child ;
+                      sp:subject [
+                          sp:varName "node"^^xsd:string ;
+                        ] ;
+                    ]
+                  ) ;
+              ] ;
+            sp:variable [
+                sp:varName "leaf"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type ui:label ;
+                sp:arg1 [
+                    sp:varName "node"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression "swa-icon-class" ;
+            sp:variable [
+                sp:varName "icon"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  rdfs:label "Family tree children"^^xsd:string ;
+  rdfs:subClassOf swa:TreeChildrenTemplates ;
+.
+swadoc:FamilyTreeDataProvider
+  rdf:type swa:TreeDataProvider ;
+  arg:treeChildrenTemplate swadoc:FamilyTreeChildren ;
+  arg:treeRootsTemplate swadoc:FamilyTreeRoots ;
+  rdfs:label "Family tree data provider"^^xsd:string ;
+.
+swadoc:FamilyTreeRoots
+  rdf:type spin:SelectTemplate ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "node"^^xsd:string ;
+          ]
+          [
+            sp:varName "label"^^xsd:string ;
+          ]
+          [
+            sp:varName "leaf"^^xsd:string ;
+          ]
+          [
+            sp:varName "icon"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:coalesce ;
+                sp:arg1 [
+                    sp:varName "root"^^xsd:string ;
+                  ] ;
+                sp:arg2 kennedys:JosephKennedy ;
+              ] ;
+            sp:variable [
+                sp:varName "node"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type ui:label ;
+                sp:arg1 [
+                    sp:varName "node"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:notExists ;
+                sp:elements (
+                    [
+                      sp:object [
+                          sp:varName "child"^^xsd:string ;
+                        ] ;
+                      sp:predicate kennedys:child ;
+                      sp:subject [
+                          sp:varName "node"^^xsd:string ;
+                        ] ;
+                    ]
+                  ) ;
+              ] ;
+            sp:variable [
+                sp:varName "leaf"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression "swa-icon-class" ;
+            sp:variable [
+                sp:varName "icon"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  rdfs:label "Family tree roots"^^xsd:string ;
+  rdfs:subClassOf swa:TreeRootsTemplates ;
+.
+swadoc:FormModesExample
+  rdf:type swadoc:Example ;
+  arg:height "500px"^^xsd:string ;
+  ui:prototype """
+<ui:setContext ui:varName=\"resourceType\" ui:varValue=\"{= swadoc:TestThing }\">
+    <swa:FullScreenBorderLayout arg:eastSize=\"{= 360 }\" arg:westSize=\"{= 320 }\">
+        <swa:Window arg:layoutPanel=\"west\" arg:title=\"View Form\">
+            <ui:resourceView ui:resource=\"{= swadoc:TheTestThing }\"/>
+        </swa:Window>
+        <swa:Window arg:layoutPanel=\"center\" arg:title=\"Search Form\">
+            <ui:setContext ui:varName=\"mode\" ui:varValue=\"search\">
+                <ui:classView ui:class=\"{= swadoc:TestThing }\" ui:matchIds=\"search,form\"/>
+            </ui:setContext>
+        </swa:Window>
+        <swa:Window arg:layoutPanel=\"east\" arg:title=\"Edit Form\">
+            <ui:setContext ui:varName=\"mode\" ui:varValue=\"edit\">
+                <ui:resourceView ui:matchIds=\"edit,form\" ui:resource=\"{= swadoc:TheTestThing }\"/>
+            </ui:setContext>
+            <p>Note: for the edit form to show up correctly, you need to make sure
+				that the swadoc.ui.ttl file is the currently active file in TBC.</p>
+        </swa:Window>
+    </swa:FullScreenBorderLayout>
+</ui:setContext>
+"""^^ui:Literal ;
+  rdfs:comment "This example displays the default form for an artificial test class that has properties for all commonly used ranges. The form is displayed three times: in view mode, search mode and edit mode. The purpose is to demonstrate which widgets are currently available for the different range types."^^xsd:string ;
+  rdfs:label "Form modes example"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:FormResultSetObjectsView
+  rdf:type ui:NodeClass ;
+  ui:prototype """
+<ui:group>
+    <h3 id=\"forms-result-sets\">3.7 Alternative ways of populating forms</h3>
+    <p>
+		In some cases it is desirable to reuse the look and feel of SWA forms,
+		although the data presented is not taken from subject/predicate pairs
+		like <code>swa:Objects</code> does.
+		The element <code>swa:ResultSetObjectsView</code> can be used to display
+		values taken from a SPARQL result set, e.g. produced by a template call
+		or an embedded SPARQL query.
+	</p>
+    <swadoc:API arg:element=\"{= swa:ResultSetObjectsView }\"/>
+    <p>The following example demonstrates this element</p>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:ResultSetObjectsViewExample }\"/>
+    <p>
+		Another way of reusing the design is to simulate the nesting of HTML tags
+		created by the default SWA widgets, reusing their CSS styles etc.
+		However those internal details of the widgets may be less stable.
+	</p>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:label "Form result set objects view"^^xsd:string ;
+  rdfs:subClassOf swadoc:Forms ;
+.
+swadoc:FormSearchExample
+  rdf:type swadoc:Example ;
+  arg:height "400px"^^xsd:string ;
+  ui:prototype """
+<ui:setContext ui:queryGraph=\"{= &lt;http://topbraid.org/examples/kennedys&gt; }\">
+    <swa:FullScreenBorderLayout arg:westSize=\"{= 400 }\">
+        <swa:Window arg:layoutPanel=\"west\" arg:title=\"Search\">
+            <swa:FormSearchGadget arg:resourceType=\"{= kennedys:Person }\" ui:args=\"*\"/>
+        </swa:Window>
+        <swa:Window arg:layoutPanel=\"center\" arg:title=\"Search Results\">
+            <swa:GridSearchResultsGadget ui:args=\"*\"/>
+        </swa:Window>
+    </swa:FullScreenBorderLayout>
+</ui:setContext>
+"""^^ui:Literal ;
+  rdfs:comment "This example shows a search form (for the class kennedys:Person) on the left and a result viewer grid on the right. Also note the various search widgets, such as auto-complete and numeric ranges."^^xsd:string ;
+  rdfs:label "Form search example"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:Forms
+  rdf:type ui:NodeClass ;
+  ui:prototype """
+<ui:group>
+    <h2 id=\"forms\">3 Forms</h2>
+    <p>
+		Forms provide a detailed view of a resource.  In a typical use case, a form
+		displays the properties of a resource.  The form may group those properties
+		into sections and may pick the most suitable display widget for a given value.
+		SWA provides a complehensive architecture for defining such forms.
+	</p>
+    <h3 id=\"forms-overview\">3.1 Overview of Forms</h3>
+    <p>
+		SWA distinguishes three kinds of forms:
+	</p>
+    <ul>
+        <li>View forms: Read-only display of property values</li>
+        <li>Search forms: Template forms with input fields to drive search</li>
+        <li>Edit forms: Editable display of property values with input fields (not stable yet, more in later versions)</li>
+    </ul>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:ClassViewFormExample }\"/>
+    <p>
+		While the SWA library defines default form layouts for the base classes
+		as shown above, it is possible to attach custom forms to other classes,
+		as shown in the following example:
+	</p>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:PersonViewFormExample }\"/>
+    <p>
+		When you instantiate <code>swa:ViewForm</code>, the system will simply place a
+		<a href=\"#Header\">
+            <code>swa:Header</code>
+        </a> on top to display the label and
+		type of the selected resource, and then use the declared resource view of
+		the provided resource.  This is done with the usual SWP mechanism using
+		<a href=\"http://uispin.org/ui.html#instanceView\">
+            <code>ui:instanceView</code>
+        </a>. See <a href=\"#Objects\">Section 3.4</a> for details. 
+	</p>
+    <p>
+		The mechanism used by SWA to select the most suitable form for a resource is
+		as follows.  The root class <code>rdfs:Resource</code> defines a 
+		<code>ui:instanceView</code> that points to <code>swa:TitledForm</code>.
+		This in turn will insert a title (the name of the resource), and then use
+		<code>ui:resourceView</code> with <code>matchId=\"form\"</code> to find the
+		most suitable form definition for the resource.
+		In other words, if you want your form layout to be used, put <code>ui:id=\"form\"</code>
+		as an attribute to the <code>ui:instanceView</code> definition.
+	</p>
+    <p>
+		Note that you should never attach <code>swa:ViewForm</code> as an instance view
+		of a class: this would lead to a situation in which the <code>swa:ViewForm</code>
+		will insert itself into its body and thus create an infinite loop.
+		Instead, attach a subclass of <code>swa:FormBody</code> to the class, or simple
+		create a <code>div</code> and enumerate your widgets using <code>swa:Objects</code>
+		tags.
+	</p>
+    <p>
+		By the way, SWA view forms will also automatically contain RDFa around the
+		corresponding widgets on the screen.
+	</p>
+    <p>
+		SWA provides several mechanisms to change the appearance of its forms.
+	</p>
+    <ul>
+        <li>
+            <a href=\"#forms-schema\">
+                <b>On the schema level</b>
+            </a>: The default forms look at the declared
+			ranges and domains of the properties to select what goes into each section.</li>
+        <li>
+            <a href=\"#forms-css\">
+                <b>Through CSS stylesheets</b>
+            </a>: On the most
+		basic level, you can change the stylesheets to modify things
+		like colors and spacing.</li>
+        <li>
+            <a href=\"#Objects\">
+                <b>Customizing form layouts with <code>swa:Objects</code>
+                </b>
+            </a>:
+		this most flexible mechanism is based on attaching new form definitions to a class
+		using <code>ui:instanceView</code>.</li>
+        <li>
+            <a href=\"#forms-widgets\">
+                <b>Custom widgets</b>
+            </a>: Custom widgets can
+		be installed to change the appearance of individual values on the form.</li>
+    </ul>
+    <swadoc:FormsSchema/>
+    <swadoc:FormsCSS/>
+    <swadoc:FormsObjects/>
+    <swadoc:FormsWidgets/>
+    <swadoc:FormsEdit/>
+    <swadoc:FormResultSetObjectsView/>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:label "Forms"^^xsd:string ;
+  rdfs:subClassOf swadoc:Elements ;
+.
+swadoc:FormsCSS
+  rdf:type ui:NodeClass ;
+  ui:prototype """
+<ui:group>
+    <h3 id=\"forms-css\">3.3 Styling Forms via CSS</h3>
+    <p>
+		The forms created by SWA all use the same widget base classes such as
+		<code>swa:Objects</code> to define their layout.  The basic layout of
+		those widgets consistently uses the same CSS styles to define things like
+		colors and spacing.  The details of those styles can easily be explored using
+		tools such as FireBug.  If you want to modify those styles, you can do so by
+		defining and including your own CSS file, and then using the <code>!important</code>
+		directive of CSS to override existing styles.
+	</p>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:CSSOverrideExample }\"/>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:label "Forms CSS"^^xsd:string ;
+  rdfs:subClassOf swadoc:Forms ;
+.
+swadoc:FormsEdit
+  rdf:type ui:NodeClass ;
+  ui:prototype """
+<ui:group>
+    <h3 id=\"forms-edit\">3.6 Edit Forms</h3>
+    <p>
+		SWA forms can be made editable, which means that users can switch a view
+		form to an edit form with input fields for the underlying RDF data.
+	</p>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:EditableFormExample }\"/>
+    <p>
+		Note that editing support is currently only officially supported as part of the
+		<a href=\"swp?_viewClass=teamworkdoc:Index\">TopBraid Teamwork Platform</a>
+		which is the foundation of EVN.  The recommended approach is to use
+		<code>swa:SwitchableFormGadget</code> in a Teamwork editor as your starting point.
+		Take a look at the EVN Ontology Editor for details on how this can be implemented.
+	</p>
+    <p>
+		The example below is putting all the different form types together.
+	</p>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:FormModesExample }\"/>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:label "Forms edit"^^xsd:string ;
+  rdfs:subClassOf swadoc:Forms ;
+.
+swadoc:FormsObjects
+  rdf:type ui:NodeClass ;
+  ui:prototype """
+<ui:group let:instanceView=\"{= spl:object(swadoc:Person, ui:instanceView) }\">
+    <h3 id=\"Objects\">3.4 Customizing Forms with <code>swa:Objects</code>
+    </h3>
+    <p>
+		See also: <a href=\"http://uispin.org/swa-forms.html\">SWA Forms Tutorial</a> online.
+	</p>
+    <p>
+		The Robert Kennedy example above was showing a customized form for the Person class.
+		This has been implemented by attaching the following SWP snippet to the
+		class <code>swadoc:Person</code> via <code>ui:instanceView</code>:
+	</p>
+    <pre class=\"swadoc-example-source\">{= ui:label(?instanceView) }</pre>
+    <p>
+		SWA forms are primarily a collection of <code>swa:Objects</code> elements.
+		This class represents place holders of specific widgets representing the objects
+		of a given property (<code>arg:predicate</code>) at the given subject.
+		Since the <code>arg:subject</code> argument is identical in all objects,
+		the example above uses <code>default:subject</code> to pass the value of
+		<code>?this</code> into all of them.  Additional arguments of <code>swa:Objects</code>
+		are explained below.
+	</p>
+    <swadoc:API arg:element=\"{= swa:Objects }\"/>
+    <p>
+		Note that <code>swa:Object</code> (without the 's' at the end) is a short-cut
+		to <code>swa:Objects</code> but with at most one value.  This is often a needed
+		to present entering multiple values on forms because many ontologies do not
+		correctly specify a maximum cardinality.
+	</p>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:TabularFormExample }\"/>
+    <p>
+		As a convenience for the creation of layouts that arrange widgets
+		in more than one column, SWA provides the element <code>swa:ColumnLayout</code>:
+	</p>
+    <swadoc:API arg:element=\"{= swa:ColumnLayout }\"/>
+    <p>
+		Note that if you want to define different forms for the various modes,
+		then you can associate your <code>ui:instanceView</code> with one of the
+		following match ids, via <a href=\"http://uispin.org/ui.html#id\">
+            <code>ui:id</code>
+        </a>:
+	</p>
+    <ul>
+        <li>
+            <code>ui:id=\"edit\"</code> to identify edit forms</li>
+        <li>
+            <code>ui:id=\"search\"</code> to identify search forms</li>
+    </ul>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:label "Forms objects"^^xsd:string ;
+  rdfs:subClassOf swadoc:Forms ;
+.
+swadoc:FormsSchema
+  rdf:type ui:NodeClass ;
+  ui:prototype """
+<ui:group>
+    <h3 id=\"forms-schema\">3.2 Ontology-Driven Forms</h3>
+    <p>
+		The default forms of SWA (attached to the root class <code>rdfs:Resource</code>
+		and other metaclasses such as <code>rdfs:Class</code>) are flexible enough to
+		display any kind of RDF resource.  They achieve this by looking at the given
+		resource (or resource type) and then check the available and relevant properties.
+		The implementation logic of this is embedded into the classes
+		<code>swa:ObjectsGroup</code> and <code>swa:SubjectsGroup</code> that dynamically
+		insert groups of widgets.
+		The behavior of those elements is different depending on the mode of the form.
+	</p>
+    <ul>
+        <li>
+            <b>In view mode</b>, the system looks at all properties that actually
+			have values for the given resource and inserts widgets for those.</li>
+        <li>
+            <b>In search and edit mode</b>, the system selects properties if
+			they have been associated with the given resource type via
+			<code>rdfs:domain</code>, <code>owl:Restriction</code>, or
+			<code>spin:constraint</code> (<code>spl:Argument</code> or
+			<code>spl:Attribute</code>).
+</li>
+    </ul>
+    <p>
+		This means that the \"cleanest\" way of adding properties to a form is to make
+		sure that the corresponding class defintions correctly reflect property
+		attachment.  This is straight-forward for your own ontologies, but may
+		be more difficult for ontologies maintained by third parties.  In some cases
+		it makes sense to create local branches of those ontologies to live inside
+		of the TopBraid workspace, and clean up <code>rdfs:domain</code> statements
+		in those local copies.  In many other cases though the
+		best way is to not modify the actual ontologies but
+		rather put layout information into the UI models,
+		as described later.
+	</p>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:label "Forms schema"^^xsd:string ;
+  rdfs:subClassOf swadoc:Forms ;
+.
+swadoc:FormsWidgets
+  rdf:type ui:NodeClass ;
+  ui:prototype """
+<ui:group>
+    <h3 id=\"forms-widgets\">3.5 Custom Widgets</h3>
+    <p>
+		In SWA, a widget is the user interface component to display a given value on
+		the web page.  For example, images are displayed using an image widget.
+		SWA uses a sophisticated and flexible mechanism to select which widgets show
+		up on the screen.  The mechanism works slightly differently depending on which
+		mode (view, edit, search) the user is in, but the basic idea remains identical:
+		Each widget is an SWP element (in the case of <code>swa:Objects</code>, the
+		widget classes are subclasses of <code>swa:ObjectWidget</code>).  In addition to
+		the <code>ui:prototype</code> that does the actual rendering, each widget also
+		includes metadata that is useful to determine the most suitable widget for a given
+		context.  For example, the property <code>swa:objectWidgetWeight</code> links
+		a widget class with a weighted SPARQL expression.  The SPARQL expression is
+		expected to evaluate to true if the widget is suitable for the given arguments.
+		From those that claim to be suitable, the engine selects the one with the
+		highest <code>swa:weight</code>.
+	</p>
+    <p>
+		The best way of understanding these mechanisms is to browse through the
+		existing widgets from the SWA namespace.
+	</p>
+    <p>
+		In general, using the weight-based approach described above is the preferred
+		mechanism to define the suitability of a widget.  However, in many cases it is
+		impractical and over-the-top to define such rules.  The simpler approach is
+		to let the <code>swa:Objects</code> define which widgets should appear.  The
+		argument properties <code>arg:viewWidget</code>, <code>arg:editWidget</code>
+		and <code>arg:searchWidget</code> can be used to explicitly specify the class
+		of a widget.  Among others this can be used to distinguish between radio buttons
+		and combo boxes for enumerated values.
+	</p>
+    <p>
+		In some cases, resources depend on each other, and certain objects have a life
+		cycle that depends on other objects.  For example, each <code>schema:Person</code>
+		can have a <code>schema:PostalAddress</code>, and the address itself should be
+		represented as an anonymous (blank) node, indicating that it is really just a helper
+		object of the Person.  In order to support these use cases, SWA provides widgets
+		for nested forms that will display the values of the depending object in small
+		embedded forms.  To activate those, create a <code>.ui.*</code> file for your
+		schema, and set the property <code>swa:blankNodeProperty</code> to <code>true</code>
+		inside such a globally registered file.  Whenever this marker triple is present,
+		the SWA forms will select nested forms.  The blank node classes should define
+		a suitably compact form as their <code>ui:instanceView</code>, and may use
+		<code>ui:id=\"nested\"</code> to define a form layout that is only used for nested forms.
+		See <code>schema.ui.ttlx</code> for examples (esp. <code>schema:PostalAddress</code>.
+	</p>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:label "Forms widgets"^^xsd:string ;
+  rdfs:subClassOf swadoc:Forms ;
+.
+swadoc:GadgetsReference
+  rdf:type ui:NodeClass ;
+  ui:prototype """
+<ui:setContext ui:queryGraph=\"{= ui:graphWithImports(&lt;http://topbraid.org/swa&gt;) }\">
+    <div class=\"swadoc-body\" letrs:gadgets=\"{#
+            SELECT ?gadget
+            WHERE {
+                ?gadget a swa:Gadget .
+                FILTER NOT EXISTS {
+                    ?gadget ui:abstract true .
+                } .
+            }
+            ORDER BY (afn:localname(?gadget)) }\">
+        <div class=\"head\">
+            <div>
+                <h1 id=\"title\">SWA Gadgets Reference</h1>
+                <h2>Version {= spl:objectInGraph(&lt;http://topbraid.org/swa&gt;, owl:versionInfo, &lt;http://topbraid.org/swa&gt;) }</h2>
+            </div>
+        </div>
+        <hr/>
+        <div>
+            <ui:forEach ui:resultSet=\"{= ?gadgets }\">
+                <div>
+                    <a href=\"#{= afn:localname(?gadget) }\">{= ui:encodeNode(?gadget) }</a>
+                </div>
+            </ui:forEach>
+        </div>
+        <div>
+            <ui:forEach ui:resultSet=\"{= ?gadgets }\">
+                <p>
+                    <swa:Space/>
+                </p>
+                <a id=\"{= afn:localname(?gadget) }\"/>
+                <swadoc:API arg:element=\"{= ?gadget }\"/>
+            </ui:forEach>
+        </div>
+    </div>
+</ui:setContext>
+"""^^ui:Literal ;
+  ui:responseType ui:HTML ;
+  rdfs:label "Gadgets reference"^^xsd:string ;
+  rdfs:subClassOf swadoc:Elements ;
+.
+swadoc:GettingStartedExample
+  rdf:type swadoc:Example ;
+  ui:prototype """
+<ui:setContext ui:queryGraph=\"{= ui:graphWithImports(&lt;http://topbraid.org/examples/kennedys&gt;) }\">
+    <swa:FullScreenBorderLayout arg:westSize=\"{= 200 }\">
+        <swa:Window arg:layoutPanel=\"west\" arg:title=\"Class Hierarchy\">
+            <swa:Tree arg:dataProvider=\"{= swa:ClassTreeDataProvider }\" arg:id=\"classTree\" arg:onSelect=\"swa.loadWithResource('formWindow', 'resource', resource)\" arg:root=\"{= owl:Thing }\"/>
+        </swa:Window>
+        <swa:Window arg:id=\"formWindow\" arg:layoutPanel=\"center\" arg:title=\"Please select a class\">
+            <ui:if ui:condition=\"{= bound(?resource) }\">
+                <swa:WindowTitleSetter arg:title=\"{= ui:label(?resource) }\" arg:windowId=\"formWindow\"/>
+                <swa:ViewForm arg:resource=\"{= ?resource }\"/>
+            </ui:if>
+        </swa:Window>
+    </swa:FullScreenBorderLayout>
+</ui:setContext>
+"""^^ui:Literal ;
+  rdfs:comment "This example illustrates a use case for a couple of SWA components: an swa:Tree on the left and a swa:ViewForm on the right. The components are arranged with the help of swa:FullScreenBorderLayout. A click on a class in the tree shows its form on the right."^^xsd:string ;
+  rdfs:label "Example: Getting started with SWA"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:HandleExample
+  rdf:type swadoc:Example ;
+  ui:prototype """
+<div let:graph=\"{= ui:createSessionGraph() }\" let:id=\"{= ui:uniqueId() }\">
+    <ui:setContext ui:queryGraph=\"{= ?graph }\">
+        <ui:setPropertyValue arg:property=\"{= owl:versionInfo }\" arg:value=\"{= 0 }\" ui:this=\"{= owl:Thing }\"/>
+        <ui:loadable ui:loadId=\"{= ?id }\">
+            <a let:old=\"{= spl:object(owl:Thing, owl:versionInfo) }\">
+                <span>Click to increment {= ?old }</span>
+                <ui:handle ui:event=\"onclick\" ui:thenLoadId=\"{= ?id }\">
+                    <ui:setPropertyValue arg:property=\"{= owl:versionInfo }\" arg:value=\"{= ?old + 1 }\" ui:this=\"{= owl:Thing }\"/>
+                </ui:handle>
+            </a>
+        </ui:loadable>
+    </ui:setContext>
+</div>
+"""^^ui:Literal ;
+  rdfs:comment "This example shows illustrates the use of various techniques to keep track of a user's session with Ajax callbacks. The component creates a session graph, which is valid for the duration of a user being logged in. This graph initially contains a triple with a counter and a hyperlink element is used to increase that counter through an Ajax callback."^^xsd:string ;
+  rdfs:label "ui:handle example"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:HeaderExample
+  rdf:type swadoc:Example ;
+  ui:prototype """
+<swa:Header arg:label=\"Header for {= ui:label(owl:Thing) }\"/>
+"""^^ui:Literal ;
+  rdfs:comment "This example shows just how little you can do (wrong) with swa:Headers."^^xsd:string ;
+  rdfs:label "Header example"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:Index
+  rdf:type ui:NodeClass ;
+  ui:prototype """
+<div class=\"swadoc-body\">
+    <div class=\"head\">
+        <div>
+            <h1 id=\"title\">SWP Application Component Library (SWA)</h1>
+            <h2>Version {= spl:objectInGraph(&lt;http://topbraid.org/swa&gt;, owl:versionInfo, &lt;http://topbraid.org/swa&gt;) }</h2>
+        </div>
+        <dl>
+            <dt>Authors:</dt>
+            <dd>Holger Knublauch &lt;<a href=\"mailto:holger@topquadrant.com\" shape=\"rect\">holger@topquadrant.com</a>&gt;</dd>
+        </dl>
+    </div>
+    <hr/>
+    <h2 id=\"abstract\">Abstract</h2>
+    <p>
+		The SWP Application Component Library (SWA) is an evolving library of SPARQL Web Pages (SWP)
+		components that form the backbone of EVN, the Default Application and similar projects.
+		SWA provides reusable SWP elements for frequently needed web application elements
+		including forms, trees, tables/grids, search and navigation.
+		This guide introduces SWA to help users evaluate and understand
+		this technology for their own use cases.
+	</p>
+    <p>
+		SWA is currently under development and is continuously improved.
+		Things do have stabilized recently and you are encouraged to build your own
+		applications and we appreciate your feedback.  However, TopQuadrant reserves the right
+		to make changes to the libraries in future versions.
+	</p>
+    <p/>
+    <hr/>
+    <div class=\"toc\">
+        <h2>
+            <a id=\"contents\" name=\"contents\">Table of Contents</a>
+        </h2>
+        <ul class=\"toc\">
+            <li class=\"tocline1\">
+                <a href=\"#introduction\">1 Getting Started with SWA</a>
+                <ul class=\"toc\">
+                    <li class=\"tocline2\">
+                        <a href=\"#motivation\">1.1 Why SWA?</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#overview\">1.2 Overview of SWA</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=\"tocline1\">
+                <a href=\"#apps\">2 Application Architecture and Layout</a>
+                <ul class=\"toc\">
+                    <li class=\"tocline2\">
+                        <a href=\"#architecture\">2.1 Architecture of SWA Applications</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#BorderLayout\">2.2 Application Layout, Windows, Gadgets and Events</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#load\">2.3 Loadable Page Divisions</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#handle\">2.4 Event handling, session management and Ajax callbacks</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#embedding\">2.5 Embedding SWA Components into HTML Pages</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=\"tocline1\">
+                <a href=\"#forms\">3 Forms</a>
+                <ul class=\"toc\">
+                    <li class=\"tocline2\">
+                        <a href=\"#forms-overview\">3.1 Overview of Forms</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#forms-schema\">3.2 Ontology-Driven Forms</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#forms-css\">3.3 Styling the Forms via CSS</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#Objects\">3.4 Customizing Forms with <code>swa:Objects</code>
+                        </a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#forms-widgets\">3.5 Custom Widgets</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#forms-edit\">3.6 Edit Forms</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#forms-result-sets\">3.7 Alternative Ways of Populating Forms</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=\"tocline1\">
+                <a href=\"#search\">4 Search</a>
+                <ul class=\"toc\">
+                    <li class=\"tocline2\">
+                        <a href=\"#FormSearchGadget\">4.1 Search Forms (<code>swa:FormSearchGadget</code>)</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#FacetedSearchGadget\">4.2 Faceted Search (<code>swa:FacetedSearchGadget</code>)</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#GridSearchResultsGadget\">4.3 Grid Results Viewers (<code>swa:GridSearchResultsGadget)</code>)</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#SummarySearchResultsGadget\">4.4 Summary Results Viewers (<code>swa:SummarySearchResultsGadget</code>)</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#MapSearchResultsGadget\">4.5 Map Results Viewers <code>swa:MapSearchResultsGadget</code>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class=\"tocline1\">
+                <a href=\"#trees\">5 Trees</a>
+                <ul class=\"toc\">
+                    <li class=\"tocline2\">
+                        <a href=\"#Tree\">5.1 The <code>swa:Tree</code> element</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#TreeDataProvider\">5.2 Custom <code>swa:TreeDataProviders</code>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class=\"tocline1\">
+                <a href=\"#actions\">6 Actions, Edit Handlers and SPARQLMotion Integration</a>
+                <ul class=\"toc\">
+                    <li class=\"tocline2\">
+                        <a href=\"#Action\">6.1 The <code>swa:Action</code> framework</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#EditHandlers\">6.2 <code>swa:EditHandlers</code>
+                        </a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#Change\">6.3 Change Handling</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#SPARQLMotion\">6.4 Calling SPARQLMotion Scripts</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=\"tocline1\">
+                <a href=\"#misc\">7 Other SWA Components</a>
+                <ul class=\"toc\">
+                    <li class=\"tocline2\">
+                        <a href=\"#Header\">7.1 Headers (<code>swa:Header</code>)</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#AutoComplete\">7.2 Auto-Complete Fields (<code>swa:AutoComplete</code>)</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#Link\">7.3 Hyperlinks (<code>swa:Link</code> and <code>swa:createLink</code>)</a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#ResultSetGrid\">7.4 Displaying SPARQL Result Sets with <code>swa:ResultSetGrid</code>
+                        </a>
+                    </li>
+                    <li class=\"tocline2\">
+                        <a href=\"#Dialogs\">7.5 Dialogs</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=\"tocline1\">
+                <a href=\"#ref\">Reference</a>
+                <ul class=\"toc\">
+                    <li class=\"tocline2\">
+                        <ui:createLink ui:viewClass=\"{= swadoc:GadgetsReference }\">
+                            <a href=\"{= ?link }\">SWA Gadgets Reference</a>
+                        </ui:createLink>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <ui:setContext ui:queryGraph=\"{= ui:graphWithImports(&lt;http://topbraid.org/swadoc&gt;) }\">
+        <p/>
+        <swadoc:Introduction/>
+        <p/>
+        <swadoc:Apps/>
+        <p/>
+        <swadoc:Forms/>
+        <p/>
+        <swadoc:Search/>
+        <p/>
+        <swadoc:Trees/>
+        <p/>
+        <swadoc:Actions/>
+        <p/>
+        <swadoc:Misc/>
+    </ui:setContext>
+</div>
+"""^^ui:Literal ;
+  ui:responseType ui:HTML ;
+  rdfs:label "Index"^^xsd:string ;
+  rdfs:subClassOf swadoc:Elements ;
+.
+swadoc:Introduction
+  rdf:type ui:NodeClass ;
+  ui:prototype """
+<ui:group>
+    <h2 id=\"introduction\">1 Getting Started with SWA</h2>
+    <p>
+		This section provides a basic overview of the SWP Applications
+		Library and its motivation.
+	</p>
+    <h3 id=\"motivation\">1.1 Why SWA?</h3>
+    <p>
+		Semantic Web technologies such as RDF, OWL, SKOS and SPARQL promise to
+		make data integration easier.  By using unique identifiers
+		for information resources and interlinked ontologies to provide
+		a structure around them, information can be traversed and understood
+		more easily than with heterogeneous formats and data silos.
+		While the data and query layers of RDF have been well-defined and
+		are supported by a wide range of tools, there are few frameworks
+		for building user interfaces to connect the dots.
+	</p>
+    <p>
+		Many RDF-based web applications share similar requirements:
+		In typical use cases, information workers want to freely navigate and
+		search through an RDF repository, use trees to walk through hierarchies,
+		use forms to examine details about a given resource, and use semantic
+		search to find resources with similar facets.
+		TopQuadrant's <a href=\"http://uispin.org\">SPARQL Web Pages (SWP)</a> technology can
+		in principle be used to build any kind of RDF-based web applications.
+		SWP makes it possible to generate arbitrary HTML, JavaScript, JSON and
+		XML by embedding SPARQL queries into template documents.  A key
+		strength of SWP is the ability to define custom tags that can be used
+		alongside of HTML elements to insert simple or complex snippets of
+		reusable application building blocks.  These application building
+		blocks may be created by experienced HTML developers and published as reusable
+		libraries to simplify the job of information workers who then only need to
+		assemble the reusable components into their custom applications.
+	</p>
+    <p>
+		SWP Application Component Library (SWA) is a reusable collection of SWP components
+		that are used by TopQuadrant to build the EVN family of tools as well as other
+		customer-facing solutions such as the EPIM ReportingHub project.  These solutions
+		are classical examples of RDF-based applications, in so far as they are developed
+		in a generic way so that they can operate on almost arbitrary data structures.
+		In the case of EVN, users need to be able to browse a SKOS hierarchy, and clicking
+		a concept in the tree takes users to a detailed form about the selected concept.
+		The forms however need to be smart enough to adapt to arbitrary sub-classes of
+		<code>skos:Concept</code>, be prepared to handle values of any data type, and
+		offer search capabilities that can dynamically decide which properties to show.
+		In order to reuse this control logic and to expose it to a bigger number of
+		different use cases, it became clear that the components used by EVN and EPIM may
+		also be of great value to other applications.
+	</p>
+    <p>
+		This document introduces many aspects of the SWA library and illustrates SWA
+		with the help of interactive examples such as below.
+	</p>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:GettingStartedExample }\"/>
+    <p>
+		Like SWP, the SWA library is \"RDF and SPARQL all the way down\".  This makes the
+		framework very self-contained and elegant, and also means that the model of a
+		user interface can be shared and even queried in the same way as the actual
+		data models are.  For example, SWA implements some design patterns that allow users to
+		conveniently declare which properties should go on a form for a class.  These
+		declarations are not only executable templates for creating HTML, but also create
+		an RDF model that can be re-purposed for other means.  In particular the same
+		layout can be turned into either a read-only form, a search form or an edit form,
+		simply by switching into a different mode. 
+	</p>
+    <h3 id=\"overview\">1.2 Overview of SWA</h3>
+    <p>
+		From a technical point of view, SWA is distributed through the SWP file
+		(<code>TopBraid/SWA/swa.ui.ttl</code>) plus required JavaScript libraries
+		and CSS stylesheets in sub-folders.  If you would like to understand the
+		very details of SWA, then you may want to open the SWA file with TopBraid
+		Composer and click through the classes under <code>swa:Elements</code>.
+		Note however that only the classes and features described in this document
+		are supposed to be used by custom applications.  In other words, the SWA
+		implementation contains a lot of elements that are marked as \"private\"
+		(using <a href=\"http://uispin.org/ui.html#private\">
+            <code>ui:private</code>
+        </a>)
+		and those may change completely and should not be used directly.  And even
+		though we expect that most major elements of SWA will remain stable, we cannot
+		guarantee full backwards compatbility between SWA versions yet.
+	</p>
+    <p>
+		This document dedicates individual sections to all key concepts of SWA.
+		<a href=\"#apps\">Section 2: Application Architecture and Layout</a> introduces
+		to how SWA applications are constructed from the ground up: a typical solution
+		defines a top-level user-defined SWP element that uses
+		<a href=\"#BorderLayout\">
+            <code>swa:FullScreenBorderLayout</code>
+        </a> to organize
+		the screen into resizable panels.  Those panels may be re-loaded by means of the
+		<a href=\"http://uispin.org/ui.html#loadable\">
+            <code>ui:loadable</code>
+        </a> control
+		element, and JavaScript events may trigger reloading.  For example, a click on a
+		tree may reload the form.
+		The SWA Gadgets framework makes working with such reloadable windows very easy.
+  		<a href=\"#forms\">Section 3: Forms</a> describes how
+		forms can be used and customized for individual ontologies.  In a nutshell, forms
+		are collections of <code>swa:Objects</code> elements, arranged in an HTML layout.
+		Forms may be customized in many ways, and new types of widgets can be added.
+		<a href=\"#grids\">Section 4: Grids and Search Results</a> shows how to display
+		tabular data, especially to explore search results.  SWA has a built-in mechanism
+		that turns HTML search forms into SPARQL queries, and the results of those queries
+		are then displayed in an interactive grid.  <a href=\"#tree\">Section 5: Trees</a>
+		introduces the use of tree structures to navigate through hierarchical data.
+		Finally, there are miscellaneous other SWA elements that are described in
+		<a href=\"#misc\">Section 6: Other SWA Components</a>.
+	</p>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:label "Introduction"^^xsd:string ;
+  rdfs:subClassOf swadoc:Elements ;
+.
+swadoc:KathleenKennedy
+  rdf:type swadoc:Person ;
+  swadoc:dateOfBirth "1951-07-04"^^xsd:date ;
+  swadoc:firstName "Kathleen"^^xsd:string ;
+  swadoc:image <http://www.topbraidcomposer.org/demos/kennedys/images/Kathleen_Kennedy_Townsend.jpg> ;
+  swadoc:lastName "Townsend"^^xsd:string ;
+  rdfs:label "Kathleen K. Townsend"^^xsd:string ;
+.
+swadoc:LinkExample
+  rdf:type swadoc:Example ;
+  ui:prototype """
+<div let:resource=\"{= swadoc:RobertKennedy }\">
+    <div>
+        <b>Default Link: </b>
+        <swa:Link arg:resource=\"{= ?resource }\"/>
+    </div>
+    <div>
+        <b>Custom Link</b>
+        <span> (by activating swadoc:createAlertLink as the swa:createLink function): </span>
+        <ui:setContext ui:varName=\"createLinkFunction\" ui:varValue=\"{= swadoc:createAlertLink }\">
+            <swa:Link arg:resource=\"{= ?resource }\"/>
+        </ui:setContext>
+    </div>
+    <div>
+        <b>No Link</b>
+        <span> (by activating swa:createNoLink as the swa:createLink function): </span>
+        <ui:setContext ui:varName=\"createLinkFunction\" ui:varValue=\"{= swa:createNoLink }\">
+            <swa:Link arg:resource=\"{= ?resource }\"/>
+        </ui:setContext>
+    </div>
+</div>
+"""^^ui:Literal ;
+  rdfs:comment "This example illustrates how the createLinkFunction context variable can be modified to alter the behavior of swa:Link via swa:createLink."^^xsd:string ;
+  rdfs:label "Link example"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:LoadableExample
+  rdf:type swadoc:Example ;
+  ui:prototype """
+<div>
+    <script>var c = 0;</script>
+    <button onclick=\"swa.load('loadable', { counter: ++c })\">Click to increment</button>
+    <p/>
+    <ui:loadable style=\"background-color: yellow\" ui:loadId=\"loadable\">
+        <ui:if ui:condition=\"{= bound(?counter) }\">The counter is now at {= ?counter }.</ui:if>
+        <ui:else>Please click the button above.</ui:else>
+    </ui:loadable>
+</div>
+"""^^ui:Literal ;
+  rdfs:comment "This (dummy) example illustrates the use of the built-in JavaScript function swa.load in conjunction with a ui:loadable. Each click on the button reloads the snippet inside of the ui:loadable tags from the server. Any number of JavaScript variables can be passed into the loadable, and those will be bound to corresponding SPARQL variables (such as ?counter) when the server produces the result. The HTML snippet is then used to replace the previous content. The loadable snippet itself contains a guard clause (using ui:if) to show a different text if the required argument (?counter) is not set."^^xsd:string ;
+  rdfs:label "Loadable example"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:MapSearchExample
+  rdf:type swadoc:Example ;
+  arg:height "400px"^^xsd:string ;
+  ui:prototype """
+<ui:setContext ui:queryGraph=\"{= ui:graphWithImports(&lt;urn:x-evn-master:geo&gt;) }\">
+    <swa:FullScreenBorderLayout arg:westSize=\"{= 400 }\">
+        <swa:Window arg:layoutPanel=\"west\" arg:title=\"Search\">
+            <swa:FormSearchGadget arg:resourceType=\"{= &lt;http://topquadrant.com/ns/examples/geography#GeoConcept&gt; }\" ui:args=\"*\"/>
+        </swa:Window>
+        <swa:Window arg:layoutPanel=\"center\" arg:title=\"Search Results\">
+            <swa:MapSearchResultsGadget ui:args=\"*\"/>
+        </swa:Window>
+    </swa:FullScreenBorderLayout>
+</ui:setContext>
+"""^^ui:Literal ;
+  rdfs:comment "This example shows a search form (for the class geotravel:Destination) on the left and a Google Map of the search results on the right."^^xsd:string ;
+  rdfs:label "Map search example"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:Misc
+  rdf:type ui:NodeClass ;
+  ui:prototype """
+<ui:group>
+    <h2 id=\"misc\">7 Other SWA Components</h2>
+    <p>
+		This section introduces several SWA elements that didn't really fit into the
+		previous categories.
+	</p>
+    <h3 id=\"Header\">7.1 Headers (<code>swa:Header</code>)</h3>
+    <p>
+		Headers are the (black) boxes that contain the title of a panel on the screen.
+		The role of the <code>swa:Header</code> element is to define a uniform look
+		and feel for those headers, e.g. by assigning a single CSS element.
+	</p>
+    <swadoc:API arg:element=\"{= swa:Header }\"/>
+    <p/>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:HeaderExample }\"/>
+    <h3 id=\"AutoComplete\">7.2 Auto-Complete Fields with <code>swa:AutoComplete</code>
+    </h3>
+    <p>
+		Auto-complete fields are textual input fields that suggest matching resources
+		as the user starts typing.  SWA provides an out-of-the-box component that
+		can be used to implement such auto-complete fields for instances of a given
+		class (or its sub-classes).
+	</p>
+    <swadoc:API arg:element=\"{= swa:AutoComplete }\"/>
+    <p/>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:AutoCompleteExample }\"/>
+    <h3 id=\"Link\">7.3 Hyperlinks (<code>swa:Link</code> and <code>swa:createLink</code>)</h3>
+    <p>
+		SWA applications should not directly construct <code>&lt;a href=\"...\" /&gt;</code>
+		hyperlinks, but instead always go through the element <code>swa:Link</code>:
+	</p>
+    <swadoc:API arg:element=\"{= swa:Link }\"/>
+    <p>
+		The <code>swa:Link</code> element uses the SPIN function <code>swa:createLink</code>
+		under the hood, to produce the URL to link to.
+	</p>
+    <swadoc:API arg:element=\"{= swa:createLink }\"/>
+    <p/>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:LinkExample }\"/>
+    <h3 id=\"ResultSetGrid\">7.4 Displaying SPARQL Result Sets with <code>swa:ResultSetGrid</code>
+    </h3>
+    <p>
+        <code>swa:ResultSetGrid</code> is a good choice to display the results of
+		a pre-defined query or SPIN template.  This element does not support
+		large data sets, because all results are loaded at once.
+	</p>
+    <p>Here is an example of the <code>swa:ResultSetGrid</code> in action.</p>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:ResultSetGridExample }\"/>
+    <h3 id=\"Dialogs\">7.5 Dialogs</h3>
+    <p>TODO - meanwhile look at the implementation of swa:ResourceViewDialog</p>
+    <swadoc:API arg:element=\"{= swa:ResourceViewDialog }\"/>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:label "Misc"^^xsd:string ;
+  rdfs:subClassOf swadoc:Elements ;
+.
+swadoc:Person
+  rdf:type owl:Class ;
+  ui:instanceView """
+<div default:subject=\"{= ?this }\" ui:id=\"form\">
+    <div class=\"swa-title\">Personal Details of {= ui:label(?this) }</div>
+    <swa:ColumnLayout arg:colWidths=\"50%,50%\" arg:width=\"700px\">
+        <div default:labelWidth=\"100px\">
+            <swa:Object arg:predicate=\"{= swadoc:firstName }\"/>
+            <swa:Object arg:predicate=\"{= swadoc:lastName }\"/>
+            <swa:Object arg:predicate=\"{= swadoc:dateOfBirth }\"/>
+            <swa:Objects arg:predicate=\"{= swadoc:child }\"/>
+        </div>
+        <swa:Objects arg:predicate=\"{= swadoc:image }\"/>
+    </swa:ColumnLayout>
+</div>
+"""^^ui:Literal ;
+  rdfs:label "Person"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+swadoc:PersonViewFormExample
+  rdf:type swadoc:Example ;
+  ui:prototype """
+<swa:ViewForm arg:resource=\"{= swadoc:RobertKennedy }\"/>
+"""^^ui:Literal ;
+  rdfs:comment "This example shows a customized form for the class Person."^^xsd:string ;
+  rdfs:label "Example: Customized view form for a Person"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:ResourceActionsButtonExample
+  rdf:type swadoc:Example ;
+  ui:prototype """
+<ui:setContext ui:varName=\"swaAppName\" ui:varValue=\"SWADOC\">
+    <swa:Header arg:label=\"Click the Button below for a drop down menu\"/>
+    <swa:ResourceActionsButton arg:resource=\"{= swadoc:Examples }\"/>
+</ui:setContext>
+"""^^ui:Literal ;
+  rdfs:comment "This example only displays actions that have been declared for the application \"SWADOC\". Look at the swadoc.ui.ttl file itself (in TBC) to see how the matching action is implemented."^^xsd:string ;
+  rdfs:label "Resource actions button example"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:ResultSetGridExample
+  rdf:type swadoc:Example ;
+  arg:height "320px"^^xsd:string ;
+  ui:prototype """
+<swa:ResultSetGrid arg:hiddenColName=\"uri\" arg:onSelect=\"alert('Clicked on ' + data['property'] + ' for URI ' + data['uri'] )\" arg:resultSet=\"{#
+        SELECT ?property ?range ?domain ?uri
+        WHERE {
+            ?p rdfs:range ?range .
+            ?p rdfs:domain ?domain .
+            BIND (ui:label(?p) AS ?property) .
+            BIND (xsd:string(?p) AS ?uri) .
+        }
+        ORDER BY (?property) }\"/>
+"""^^ui:Literal ;
+  rdfs:comment "Runs a (small) SPARQL query and display all results in a grid."^^xsd:string ;
+  rdfs:label "Result set grid example"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:ResultSetObjectsViewExample
+  rdf:type swadoc:Example ;
+  ui:prototype """
+<swa:ResultSetObjectsView arg:label=\"Matching classes\" arg:resultSet=\"{#
+        SELECT ?class
+        WHERE {
+            ?class a owl:Class .
+            FILTER isIRI(?class) .
+        }
+        ORDER BY (ui:label(?class))
+        LIMIT 4 }\" arg:toolTip=\"Just a dummy tool tip\"/>
+"""^^ui:Literal ;
+  rdfs:comment "Illustrates a use case of swa:ResultSetObjectsView to display the results of a SPARQL SELECT query."^^xsd:string ;
+  rdfs:label "Result set objects view example"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:RobertKennedy
+  rdf:type swadoc:Person ;
+  swadoc:child swadoc:ChristopherKennedy ;
+  swadoc:child swadoc:KathleenKennedy ;
+  swadoc:dateOfBirth "1925-11-20"^^xsd:date ;
+  swadoc:firstName "Robert"^^xsd:string ;
+  swadoc:image <http://www.topbraidcomposer.org/demos/kennedys/images/196px-Robertkennedy.jpg> ;
+  swadoc:lastName "Kennedy"^^xsd:string ;
+  rdfs:label "Robert F. Kennedy"^^xsd:string ;
+.
+swadoc:Search
+  rdf:type ui:NodeClass ;
+  ui:prototype """
+<ui:group>
+    <h2 id=\"search\">4 Search</h2>
+    <p>
+		Search in SWA encompasses the ability to find resources of a certain type
+		that match certain filter conditions.  Usually those conditions align with
+		properties that the matching resources must have, e.g. every instance of
+		Person where the first name is \"John\".  In the context of SWA, these filter
+		conditions are called <em>facets</em>.
+	</p>
+    <p>
+		There are multiple kinds of user interfaces to select the search facets:
+	</p>
+    <ul>
+        <li>
+            <a href=\"#FormSearchGadget\">Form-based Search</a> presents a form similar to
+			edit and view forms.
+		</li>
+        <li>
+            <a href=\"#FacetedSearchGadget\">Faceted Search</a> presents groups of values that the
+			user can click on to create groups of similar instances.
+		</li>
+    </ul>
+    <p>
+		When the user initiates a search, e.g. by clicking on the search button,
+		the gadgets will publish an event that other gadgets can subscribe to.
+		The event will contain enough information that allows other gadgets to
+		run the actual search and display its results.
+		SWA comes with a collection of result browser gadgets, and each of them
+		can be combined with any of the search gadgets:
+	</p>
+    <ul>
+        <li>
+            <a href=\"#GridSearchResultsGadget\">Grid Search Results Gadgets</a> display the
+			search results in a compact tabular form.  Users can page through the
+			results and change sorting order.
+		</li>
+        <li>
+            <a href=\"#SummarySearchResultsGadget\">Summary Search Results Gadgets</a> display the
+			search results in a vertical list of summary views that provide a certain
+			level of detail.  Users can page through the results and change sorting order.
+		</li>
+        <li>
+            <a href=\"#MapSearchResultsGadget\">Map Search Results Gadgets</a> display the
+			search results on an interactive (Google) Map.
+			Only the result that are on the currently visible area will be requested
+			from the server.
+		</li>
+    </ul>
+    <p>
+		The architecture of this design is flexible enough to enable SWP developers
+		to create their own search gadgets or results viewers.
+		If you are interested in doing this, take a look at the source code of the
+		existing SWA gadgets.
+		The basic idea is:
+	</p>
+    <ol>
+        <li>A search gadget creates a session graph (<code>ui:createSessionGraph()</code>)
+		that lives for the duration of the user session.</li>
+        <li>The session graph contains a single instance of <code>search:Search</code>
+		which is an ontology to describe search facets and their values</li>
+        <li>If the user changes the search facets, so does the content of the session
+		graph.</li>
+        <li>If the user triggers a search, an event it published that points to the
+		session graph, by its URI.</li>
+        <li>Search result gadgets can subscribe to that event and execute the search
+		itself using the magic property <code>search:result</code>.</li>
+    </ol>
+    <p>
+		It is perfectly legal to have multiple result viewers subscribe to the event
+		published by a single search gadget - for example to display a table and a map.
+	</p>
+    <h3 id=\"FormSearchGadget\">4.1 Search Forms (<code>swa:FormSearchGadget</code>)</h3>
+    <p>
+		The search form is the most common way of searching RDF data.
+		A form displays input fields and other widgets (subclasses of
+		<code>swa:ObjectFacet</code> and <code>swa:SubjectFacet</code>)
+		to accept user input.
+	</p>
+    <p>
+		The search form also has check boxes in	front of every property so that they
+		will be included as columns in a result display.
+		The default selection of those check boxes can be influenced if the resource
+		type class or its superclasses have a value for <code>swa:keyProperties</code>.
+		These triples can be stored in a <code>.ui.*</code> file if you do not want to
+		\"pollute\" your ontology files.
+	</p>
+    <p>
+		In addition to the Search and Reset buttons, the search form gadget has
+		a drop down menu with items that may operate on the search results.
+		These actions are derived from the <code>swa:SearchResultsActions</code>
+		that are present in the global <code>.ui.*</code> files.
+	</p>
+    <p>
+		The properties being displayed on the form are selected by the same mechanism like
+		other forms in SWA, i.e. the gadget will pick a suitable form definition by looking
+		at the resource type and its superclasses.  Unless it has been overloaded
+		by a subclass, the default form would be used, consisting of a section
+		titled \"Properties\" that presents all properties that have matching domains.
+		In order to define a custom form, add an <code>ui:instanceView</code> with
+		<code>ui:id=\"search\"</code> or <code>ui:id=\"form\"</code> if the same layout
+		can be used for view and edit forms.  This <code>ui:instanceView</code> should
+		use the <code>swa:Object</code> infrastructure to define the choice of properties.
+		If you have defined a custom form that enumerates only a sub-set of the possible
+		properties for that class, you can insert a <code>swa:AddPropertyBox</code> to
+		allow users to manually add other properties.
+	</p>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:FormSearchExample }\"/>
+    <p/>
+    <swadoc:API arg:element=\"{= swa:FormSearchGadget }\"/>
+    <h3 id=\"FacetedSearchGadget\">4.2 Faceted Search (<code>swa:FacetedSearchGadget</code>)</h3>
+    <p>
+		Faceted search is an alternative to form-based search in which the user
+		starts with a complete set of matching instances and then incrementally
+		narrows down by selecting property values or ranges of property values.
+		A major feature of faceted search is that the user gets the see how many
+		matching resources are behind each possible combination.
+	</p>
+    <p>
+		The computation of these counts can be quite slow, and requires many SPARQL
+		queries in its default implementation.
+		The faceted search gadget will be default try to use a Solr index if one exists.
+		In particular EVN projects can be backed by a Solr index, and this may boost
+		performance significantly.
+	</p>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:FacetedSearchExample }\"/>
+    <p>
+		By default, the faceted search gadget will start with an empty list of facets,
+		and users can manually add more properties to that list.
+		In order to have a default list of facets, and to provide additional configurations,
+		you can link a class from your domain ontology with instances of <code>search:Search</code>
+		via the property <code>search:facetedSearch</code>.
+		The gadget will walk up the class hierarchy until it finds the first class that has
+		such a declared faceted search instance.
+		The <code>search:Search</code> needs to declare instances of <code>search:PropertyFacet</code>
+		in their order of appearance.
+		All of these are usually blank node structures.
+	</p>
+    <swadoc:API arg:element=\"{= swa:FacetedSearchGadget }\"/>
+    <p>
+		Although the user interface currently does not support selecting the columns for the
+		search results, the gadget will look for the property <code>swa:keyProperties</code>
+		at the resource type or its superclasses and use those as columns if available.
+		The <code>swa:keyProperties</code> triples can be stored in the <code>ui:graph</code>,
+		i.e. in a file ending with <code>.ui.*</code>.
+	</p>
+    <h3 id=\"GridSearchResultsGadget\">4.3 Grid Results Viewers (<code>swa:GridSearchResultsGadget)</code>)</h3>
+    <p>
+		Grids are a very compact way of browsing search results.
+		Each row represents one matching instance, with the label of that resource in the first column.
+		Additional columns may appear as selected by the user in a search form.
+		If the search originated from the faceted search gadget, the additional columns are
+		derived from the columns linked to the <code>search:Search</code> via <code>spin:column</code>.
+	</p>
+    <p>
+		An example of the <code>swa:GridSearchResultsGadget</code> is shown above in the section
+		on the <a href=\"#FormSearchGadget\">
+            <code>swa:FormSearchGadget</code>
+        </a>.
+	</p>
+    <swadoc:API arg:element=\"{= swa:GridSearchResultsGadget }\"/>
+    <p>
+		The grid allows paging through the result set and sorting by clicking on the column headers.
+		Note that although the system only ever needs to list 5 - 25 items, it may still need to
+		run a complete search over all rows to compute the sorting.
+	</p>
+    <h3 id=\"SummarySearchResultsGadget\">4.4 Summary Results Viewers (<code>swa:SummarySearchResultsGadget</code>)</h3>
+    <p>
+		The <code>swa:SummarySearchResultsGadget</code> displays a vertical list of snippets
+		that summarize each matching resource from the result set.
+		SWP can be used to define what appears in those snippets, as has been done for the
+		Kennedys example shown in the <a href=\"#FacetedSearchGadget\">Faceted search section</a> above.
+		In a nutshell, the gadget will walk up the class hierarchy until it finds the first class that
+		defines a <code>ui:instanceView</code> with <code>ui:id=\"summary\"</code>.
+	</p>
+    <p>
+		If no such summary has been found further up in the hierarchy, the system will use the default
+		summary attached to <code>rdfs:Resource</code> in the SWA library itself.
+		That default summary view (<code>swa:ResourceSummary</code>) consists of the label of the resource,
+		and possibly an image, a description and a list of other properties - one for each \"column\" in
+		the search.
+	</p>
+    <swadoc:API arg:element=\"{= swa:SummarySearchResultsGadget }\"/>
+    <h3 id=\"MapSearchResultsGadget\">4.5 Map Results Viewers (<code>swa:MapSearchResultsGadget</code>)</h3>
+    <p>
+		The <code>swa:MapSearchResultsGadget</code> is suitable for resources that have
+		<code>geo:lat</code>/<code>geo:long</code> coordinates attached to them.
+		It will internally perform a geographically bounded search that only queries
+		those instances that lie within the currently visible are of the Google map.
+	</p>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:MapSearchExample }\"/>
+    <p>
+		Note that geographic queries may be very slow on default RDF graphs.
+		We therefore strongly recommend using this component only in conjunction with
+		faceted search over a graph that is backed by a Solr index (see EVN).
+	</p>
+    <swadoc:API arg:element=\"{= swa:MapSearchResultsGadget }\"/>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:label "Search"^^xsd:string ;
+  rdfs:subClassOf swadoc:Elements ;
+.
+swadoc:SimpleAlertAction
+  rdf:type swa:ResourceAction ;
+  arg:appName "SWADOC"^^xsd:string ;
+  arg:condition "true"^^xsd:boolean ;
+  arg:onSelect "alert('Action executed')"^^xsd:string ;
+  rdfs:label "Simple alert action"^^xsd:string ;
+.
+swadoc:TabularFormExample
+  rdf:type swadoc:Example ;
+  ui:prototype """
+<div default:subject=\"{= swadoc:RobertKennedy }\" default:tabular=\"{= true }\">
+    <swa:ObjectsEnum arg:label=\"Personal Details of {= ui:label(?subject) }\">
+        <swa:Objects arg:predicate=\"{= swadoc:firstName }\"/>
+        <swa:Objects arg:predicate=\"{= swadoc:lastName }\"/>
+        <swa:Objects arg:predicate=\"{= swadoc:dateOfBirth }\"/>
+        <swa:Objects arg:label=\"children\" arg:predicate=\"{= swadoc:child }\"/>
+    </swa:ObjectsEnum>
+    <swa:ObjectsPlaceholder arg:label=\"Other Properties\"/>
+</div>
+"""^^ui:Literal ;
+  rdfs:comment "An example user-defined form layout with traditional tabular layout. Note that the default:tabular declaration in the beginning needs to be wrapped with {= ... } to make sure that the value is evaluated to the xsd:boolean value \"true\" and not the string \"true\". The example also shows the use of swa:ObjectsPlaceholder to insert all properties that have not been explicitly enumerated elsewhere."^^xsd:string ;
+  rdfs:label "Tabular form example"^^xsd:string ;
+  rdfs:subClassOf swadoc:Examples ;
+.
+swadoc:TestThing
+  rdf:type owl:Class ;
+  rdfs:comment "An artificial class that has properties for all kinds of value types to demonstrate the available widgets."^^xsd:string ;
+  rdfs:label "Test thing"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+swadoc:TheTestThing
+  rdf:type swadoc:TestThing ;
+  swadoc:booleanProperty "true"^^xsd:boolean ;
+  swadoc:dateProperty "2011-02-04"^^xsd:date ;
+  swadoc:dateTimeProperty "2011-02-04T01:02:03"^^xsd:dateTime ;
+  swadoc:floatProperty "4.2"^^xsd:float ;
+  swadoc:integerEnumProperty 15 ;
+  swadoc:integerProperty 42 ;
+  swadoc:personEnumProperty swadoc:RobertKennedy ;
+  swadoc:personProperty swadoc:ChristopherKennedy ;
+  swadoc:stringProperty "Hello World"^^xsd:string ;
+  swadoc:timeProperty "01:02:03"^^xsd:time ;
+  rdfs:label "The test thing"^^xsd:string ;
+.
+swadoc:Trees
+  rdf:type ui:NodeClass ;
+  ui:prototype """
+<ui:group>
+    <h2 id=\"trees\">5 Trees</h2>
+    <p>
+		Trees are interactive displays of hierarchical data structures such as subclass
+		relationships.  SWA provides an easy-to-use yet flexible tree implementation based
+		on the jQuery <a href=\"http://www.jstree.com/\">jsTree</a> library.
+		Those trees are lazy-loaded, which means that each expansion step is fetched individually
+		from the server, using Ajax callbacks.
+	</p>
+    <h3 id=\"Tree\">5.1 The <code>swa:Tree</code> element</h3>
+    <p>
+		The <code>swa:Tree</code> element can be used to insert a tree widget
+		into the HTML document.  The tree needs to be supplied with enough information
+		to enable it to display root and child objects:
+	</p>
+    <swadoc:API arg:element=\"{= swa:Tree }\"/>
+    <p/>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:ClassTreeExample }\"/>
+    <p/>
+    <swadoc:ExampleViewer arg:example=\"{= swadoc:ClassPropertyTreeExample }\"/>
+    <h3 id=\"TreeDataProvider\">5.2 Custom <code>swa:TreeDataProviders</code>
+    </h3>
+    <p>
+		Out-of-the-box SWA comes with the <code>swa:ClassTreeDataProvider</code>
+		that can be used to drive class tress with the <code>rdfs:subClassOf</code>
+		relationship.  It is possible to create other types of trees, such as
+		SKOS concept trees by implementing a custom <code>swa:TreeDataProvider</code>.
+		As shown below, the instances of this class basically need to define three
+		SPARQL queries (wrapped into SPIN templates).  Those are executed to deliver
+		the roots of the tree, and the children of a node.
+	</p>
+    <swadoc:API arg:element=\"{= swa:TreeDataProvider }\"/>
+    <p>
+		For an example implementation (SKOS tree), have a look at
+		<code>evn.ui:ConceptTreeDataProvider</code> in the <code>evn.ui.ttl</code>
+		file of TopBraid Composer's EVN project.
+	</p>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:label "Trees"^^xsd:string ;
+  rdfs:subClassOf swadoc:Elements ;
+.
+swadoc:booleanProperty
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:domain swadoc:TestThing ;
+  rdfs:label "boolean property"^^xsd:string ;
+  rdfs:range xsd:boolean ;
+.
+swadoc:child
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain swadoc:Person ;
+  rdfs:label "child"^^xsd:string ;
+  rdfs:range swadoc:Person ;
+.
+swadoc:createAlertLink
+  rdf:type spin:Function ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:expression [
+                rdf:type fn:concat ;
+                sp:arg1 "alert('Linking to " ;
+                sp:arg2 [
+                    rdf:type ui:label ;
+                    sp:arg1 [
+                        sp:varName "resource"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg3 "')" ;
+              ] ;
+            sp:varName "result"^^xsd:string ;
+          ]
+        ) ;
+      sp:where () ;
+    ] ;
+  rdfs:comment "An example createLink function that simply displays the resource URI in an alert box."^^xsd:string ;
+  rdfs:label "create alert link"^^xsd:string ;
+  rdfs:subClassOf swa:CreateLinkFunctions ;
+.
+swadoc:dateOfBirth
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain swadoc:Person ;
+  rdfs:label "date of birth"^^xsd:string ;
+  rdfs:range xsd:date ;
+.
+swadoc:dateProperty
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:domain swadoc:TestThing ;
+  rdfs:label "date property"^^xsd:string ;
+  rdfs:range xsd:date ;
+.
+swadoc:dateTimeProperty
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:domain swadoc:TestThing ;
+  rdfs:label "date time property"^^xsd:string ;
+  rdfs:range xsd:dateTime ;
+.
+swadoc:firstName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain swadoc:Person ;
+  rdfs:label "first name"^^xsd:string ;
+  rdfs:range xsd:string ;
+.
+swadoc:floatProperty
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:domain swadoc:TestThing ;
+  rdfs:label "float property"^^xsd:string ;
+  rdfs:range xsd:float ;
+.
+swadoc:image
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain swadoc:Person ;
+  rdfs:label "image"^^xsd:string ;
+.
+swadoc:integerEnumProperty
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:domain swadoc:TestThing ;
+  rdfs:label "integer enum property"^^xsd:string ;
+  rdfs:range [
+      rdf:type rdfs:Datatype ;
+      owl:oneOf (
+          0
+          15
+          30
+          40
+        ) ;
+    ] ;
+.
+swadoc:integerProperty
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:domain swadoc:TestThing ;
+  rdfs:label "integer property"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+swadoc:lastName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain swadoc:Person ;
+  rdfs:label "last name"^^xsd:string ;
+  rdfs:range xsd:string ;
+.
+swadoc:personEnumProperty
+  rdf:type owl:FunctionalProperty ;
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain swadoc:TestThing ;
+  rdfs:label "person enum property"^^xsd:string ;
+  rdfs:range [
+      rdf:type owl:Class ;
+      owl:oneOf (
+          swadoc:RobertKennedy
+          swadoc:ChristopherKennedy
+        ) ;
+    ] ;
+.
+swadoc:personProperty
+  rdf:type owl:FunctionalProperty ;
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain swadoc:TestThing ;
+  rdfs:label "person property"^^xsd:string ;
+  rdfs:range swadoc:Person ;
+.
+swadoc:stringProperty
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:domain swadoc:TestThing ;
+  rdfs:label "string property"^^xsd:string ;
+  rdfs:range xsd:string ;
+.
+swadoc:timeProperty
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:domain swadoc:TestThing ;
+  rdfs:label "time property"^^xsd:string ;
+  rdfs:range xsd:time ;
+.

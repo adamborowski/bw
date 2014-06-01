@@ -1,0 +1,200 @@
+# baseURI: http://topbraid.org/sparqlmotion
+# imports: http://spinrdf.org/spl
+
+# c14n-version: 3
+@prefix daml: <http://www.daml.org/2001/03/daml+oil#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <http://topbraid.org/sparqlmotion#> .
+@prefix sml: <http://topbraid.org/sparqlmotionlib#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+sp:_defaultValue
+  rdf:type sp:Variable ;
+  sp:varName "defaultValue"^^xsd:string ;
+.
+sp:_predicate
+  rdf:type sp:Variable ;
+  sp:varName "predicate"^^xsd:string ;
+.
+sp:_restriction
+  rdf:type sp:Variable ;
+  sp:varName "restriction"^^xsd:string ;
+.
+sp:_type
+  rdf:type sp:Variable ;
+  sp:varName "type"^^xsd:string ;
+.
+spin:Functions
+  spin:constraint [
+      rdf:type spl:Attribute ;
+      spl:defaultValue "result"^^xsd:string ;
+      spl:maxCount 1 ;
+      spl:minCount 0 ;
+      spl:predicate sm:outputVariable ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the result variable. In SPARQLMotion, a result variable must be specified, but we leave the minCount constraint on 0 to remove clutter in constraint checking."^^xsd:string ;
+    ] ;
+.
+<http://topbraid.org/sparqlmotion>
+  rdf:type owl:Ontology ;
+  rdfs:comment "Core ontology of SPARQLMotion: a declarative scripting language for Semantic Web technology. This ontology defines the basic building blocks of SPARQLMotion scripts. Scripts consist of modules, which are instances of (some subclass of) sm:Module. Modules can be chained together using sm:next and the sm:child properties." ;
+  rdfs:seeAlso <http://sparqlmotion.org> ;
+  owl:imports <http://spinrdf.org/spl> ;
+  owl:versionInfo "2.3"^^xsd:string ;
+.
+sm:CSV
+  rdf:type sm:ValueType ;
+  rdfs:label "CSV"^^xsd:string ;
+.
+sm:Function
+  rdf:type rdfs:Class ;
+  rdfs:comment """A SPIN Function backed by a SPARQLMotion script. When the function is called, the body script will be executed. Can also be called as web service using a SM servlet container such as the TopBraid Live.
+
+There are two ways of defining the body script:
+- sm:bodyScript for linear scripts (and XML Syntax)
+- sm:returnModule for any other style (and graphical notation)"""^^xsd:string ;
+  rdfs:label "Function"^^xsd:string ;
+  rdfs:subClassOf spin:Function ;
+.
+sm:Functions
+  rdf:type sm:Function ;
+  spin:abstract "true"^^xsd:boolean ;
+  rdfs:comment "An abstract superclass grouping together SPARQLMotion Functions."^^xsd:string ;
+  rdfs:label "Functions"^^xsd:string ;
+  rdfs:subClassOf spin:Functions ;
+.
+sm:JSON
+  rdf:type sm:ValueType ;
+  rdfs:label "JSON"^^xsd:string ;
+.
+sm:Module
+  rdf:type rdfs:Class ;
+  rdfs:comment """The metaclass of SPARQLMotion modules. SPARQLMotion modules are SPIN Modules that can perform some arbitrary data processing task.
+The instances of this metaclass define the input properties that are used to control the behavior. In order to declare a property, the following two SPIN templates must be used (attached to the class via spin:constraint):
+- spl:Argument: this is the most common case for single-valued properties that are configured by the user. In addition to concrete RDF nodes, spl:Arguments can also point to a SPARQL SELECT query (sp:Select), a SPIN Template call, or a SPARQL expression. In those cases, the value of the property will be computed dynamically at execution time. The nested SPARQL expressions can access any pre-bound input variable.
+- spl:Attribute: this should be used for any other value, such as SPARQL queries that drive the behavior of the module. No inline queries are supported for spl:Attributes."""^^xsd:string ;
+  rdfs:label "Module"^^xsd:string ;
+  rdfs:subClassOf spin:Module ;
+.
+sm:Modules
+  rdf:type rdfs:Class ;
+  spin:abstract "true"^^xsd:boolean ;
+  spin:constructor [
+      rdf:type spl:ConstructDefaultValues ;
+    ] ;
+  rdfs:comment "The abstract base class for the various types of SPARQLMotion data processing modules." ;
+  rdfs:label "Modules"^^xsd:string ;
+  rdfs:subClassOf spin:Modules ;
+.
+sm:SelectTemplates
+  rdf:type spin:SelectTemplate ;
+  spin:abstract "true"^^xsd:boolean ;
+  spin:constraint [
+      rdf:type spl:Attribute ;
+      spl:maxCount 1 ;
+      spl:minCount 1 ;
+      spl:predicate sm:body ;
+      rdfs:comment "The body script of the template. Will be executed for each row of the result set."^^xsd:string ;
+    ] ;
+  rdfs:comment "Root class of SPARQLMotion modules that are based on SPIN templates. Subclasses of this should also have rdf:type sm:Module. The SPARQLMotion engine will execute the SELECT query specified as spin:body of the module and repeat the sm:body of the module in each iteration, with pre-bound variables for each binding in the result set row."^^xsd:string ;
+  rdfs:label "Select templates"^^xsd:string ;
+  rdfs:subClassOf spin:SelectTemplates ;
+.
+sm:TSV
+  rdf:type sm:ValueType ;
+  rdfs:label "TSV"^^xsd:string ;
+.
+sm:ValueType
+  rdf:type rdfs:Class ;
+  rdfs:comment "A value type such as XML or JSON." ;
+  rdfs:label "value type" ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+sm:XML
+  rdf:type sm:ValueType ;
+  rdfs:label "XML"^^xsd:string ;
+.
+sm:body
+  rdf:type rdf:Property ;
+  rdfs:comment "Links an iterator modules with its body, i.e. the start of a module chain that is executed as part of the loop." ;
+  rdfs:label "body"^^xsd:string ;
+  rdfs:range spin:Modules ;
+  rdfs:subPropertyOf sm:child ;
+.
+sm:bodyScript
+  rdf:type rdf:Property ;
+  rdf:type owl:DeprecatedProperty ;
+  rdfs:comment """Links a SPARQLMotion Function with the beginning of the linear SM script that shall be executed when the function is called.
+
+This mechanism has been deprecated as of TopBraid 3.6.2. The preferred mechanism is to embed SM modules into the XML syntax of SWP."""^^xsd:string ;
+  rdfs:domain sm:Function ;
+  rdfs:label "body script"^^xsd:string ;
+  rdfs:range sm:Modules ;
+.
+sm:child
+  rdf:type rdf:Property ;
+  rdfs:comment "Links a parent module with a child module that marks the start of a nested sub-script. This property is not meant to be used directly, but its primary function is to serve as superproperty of sm:body, sm:if and sm:else." ;
+  rdfs:label "child"^^xsd:string ;
+  rdfs:range spin:Modules ;
+.
+sm:else
+  rdf:type rdf:Property ;
+  rdfs:comment "Links a branching module with its \"false\" branch, i.e. the branch that shall be executed if the condition is false." ;
+  rdfs:label "else"^^xsd:string ;
+  rdfs:range spin:Modules ;
+  rdfs:subPropertyOf sm:child ;
+.
+sm:icon
+  rdf:type rdf:Property ;
+  rdfs:comment "Can link a sm:Module subclass with an image URL so that the module can be displayed in visual editors. Images should be 48x48 pixels and in PNG, GIF or JPG format." ;
+  rdfs:label "icon"^^xsd:string ;
+.
+sm:if
+  rdf:type rdf:Property ;
+  rdfs:comment "Links a branching module with its \"true\" branch, i.e. the branch that shall be executed if the condition is true." ;
+  rdfs:label "if"^^xsd:string ;
+  rdfs:range spin:Modules ;
+  rdfs:subPropertyOf sm:child ;
+.
+sm:next
+  rdf:type rdf:Property ;
+  rdfs:comment "Links a source module (subject) with a target module (object), describing a chain of execution and evaluation." ;
+  rdfs:domain spin:Modules ;
+  rdfs:label "next"^^xsd:string ;
+  rdfs:range spin:Modules ;
+.
+sm:nodeX
+  rdf:type rdf:Property ;
+  rdfs:comment "The x coordinate of a module on a diagram." ;
+  rdfs:label "node x"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+sm:nodeY
+  rdf:type rdf:Property ;
+  rdfs:comment "The y coordinate of a module on a diagram." ;
+  rdfs:label "node y"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+sm:outputVariable
+  rdf:type rdf:Property ;
+  rdfs:comment "The name of the declared output variable of a module. This is typically used by modules to enable script users to bind the output of a module with matching variables in the target module." ;
+  rdfs:label "outputVariable" ;
+  rdfs:range xsd:string ;
+.
+sm:returnModule
+  rdf:type rdf:Property ;
+  rdfs:comment "Can be attached to user-defined SPARQLMotion functions to define the return module of the function's SPARQLMotion script. The result of the function will depend on the selected return module type."^^xsd:string ;
+  rdfs:domain spin:Function ;
+  rdfs:label "return module"^^xsd:string ;
+  rdfs:range sm:Modules ;
+.
+sm:source
+  rdf:type owl:AnnotationProperty ;
+  rdfs:comment "Can be used to link a resource to the SPARQLMotion script that generated it. For example, if a file has been automatically generated by a SPARQLMotion script then the owl:Ontology in the resulting file should point back to the script, so that others can re-run the generation if the input data has changed." ;
+  rdfs:label "source"^^xsd:string ;
+  rdfs:subPropertyOf rdfs:seeAlso ;
+.

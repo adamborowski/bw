@@ -1,0 +1,298 @@
+# baseURI: http://topbraid.org/swa/opensocial
+# imports: http://topbraid.org/swa
+
+# c14n-version: 3
+@prefix afn: <http://jena.hpl.hp.com/ARQ/function#> .
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix composite: <http://www.topbraid.org/2007/05/composite.owl#> .
+@prefix css: <http://uispin.org/css#> .
+@prefix daml: <http://www.daml.org/2001/03/daml+oil#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix default: <http://uispin.org/default#> .
+@prefix email: <http://topbraid.org/email#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix html: <http://uispin.org/html#> .
+@prefix let: <http://uispin.org/let#> .
+@prefix letrs: <http://uispin.org/letrs#> .
+@prefix list: <http://jena.hpl.hp.com/ARQ/list#> .
+@prefix opensocial: <http://topbraid.org/swa/opensocial#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix search: <http://topbraid.org/search#> .
+@prefix search.spin: <http://topbraid.org/search.spin#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sm: <http://topbraid.org/sparqlmotion#> .
+@prefix smf: <http://topbraid.org/sparqlmotionfunctions#> .
+@prefix sml: <http://topbraid.org/sparqlmotionlib#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix sparqlmotionlib-swp: <http://topbraid.org/sparqlmotionlib-swp#> .
+@prefix spif: <http://spinrdf.org/spif#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix spr: <http://spinrdf.org/spr#> .
+@prefix spra: <http://spinrdf.org/spra#> .
+@prefix style: <http://uispin.org/style#> .
+@prefix swa: <http://topbraid.org/swa#> .
+@prefix swon: <http://uispin.org/swon#> .
+@prefix ui: <http://uispin.org/ui#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+arg:oAuthBroker
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+<http://topbraid.org/swa/opensocial>
+  rdf:type owl:Ontology ;
+  owl:imports <http://topbraid.org/swa> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+opensocial:GadgetContent
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:oAuthBroker ;
+      spl:valueType xsd:string ;
+      rdfs:comment "OAuth broker URL"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:gadgetName ;
+      spl:valueType xsd:string ;
+      rdfs:comment "rdfs:label for the gadget"^^xsd:string ;
+    ] ;
+  ui:prototype """
+<ui:group let:gadgetContentDiv=\"GadgetContentDiv\" let:gadgetIncludesDiv=\"GadgetIncludesDiv\" let:gadgetURI=\"{= swa:getGadgetFromLabel(?gadgetName) }\">
+    <div id=\"{= ?gadgetIncludesDiv }\"/>
+    <div id=\"{= ?gadgetContentDiv }\"/>
+    <ui:if ui:condition=\"{= bound(?oAuthBroker) }\">
+        <opensocial:OAuthContentSections/>
+        <opensocial:OAuthContentWrapper arg:oAuthBroker=\"{= ?oAuthBroker }\"/>
+    </ui:if>
+    <script type=\"text/javascript\">function renderContent() {
+var prefs = new gadgets.Prefs();
+var server = \"{= ui:server() }\";
+var servlet = \"swp\";
+var viewClass = \"{= ?gadgetURI }\";
+var queryString = getQueryString(server, viewClass, prefs);
+var contentURL = server + servlet + queryString;
+var includesURL = contentURL + \"&amp;_headIncludes=true\";
+
+$.get(includesURL, function(includesData) {
+  $('#{= ?gadgetIncludesDiv }').replaceWith(includesData);
+  $.get(contentURL, function(contentData) {
+$('#{= ?gadgetContentDiv }').replaceWith(contentData);
+  });
+});
+gadgets.window.adjustHeight();
+  }
+
+  function getQueryString(server, viewClass, prefs) {
+var queryString = \"?_gadgetContainer=true&amp;_snippet=true&amp;_server=\" + escape(server) + \"&amp;_viewClass=\" + escape(viewClass);<ui:forEach ui:resultSet=\"{#
+                SELECT ?arg ?atClass
+                WHERE {
+                    GRAPH ui:graph {
+                        ?gadgetURI (rdfs:subClassOf)* ?atClass .
+                        ?atClass spin:constraint ?arg .
+                        ?arg a opensocial:UserPref .
+                    } .
+                } }\">
+            <ui:group let:varName=\"{= afn:localname(spl:objectInGraph(?arg, spl:predicate, ui:graph)) }\">var {= ?varName } = prefs.getString(\"{= ?varName }\");
+if ({= ?varName } != \"\") {
+  queryString += '&amp;{= ?varName }=' + escape({= ?varName });
+}</ui:group>
+        </ui:forEach>return queryString;
+  }
+
+  function selectWorkspace(gadgetID, workspaceURI) {
+var prefs = new gadgets.Prefs();
+	var gadget = $('#' + gadgetID);
+var gadgetState = gadget.attr('uistate');
+	if(!gadgetState) {
+		alert('Error: Invalid use of selectWorkspace: Missing uistate attribute at ' + gadgetID);
+		return;
+	}
+var newState = gadgetState.replace(/_base=[^&amp;]*/, \"_base=\"+escape(workspaceURI));
+if (newState.indexOf("_base=") &lt; 0) {
+    newState = "_base="+escape(workspaceURI)+"&amp;"+newState;
+}
+gadget.attr('uistate', newState);
+prefs.set(\"_base\", workspaceURI);
+gadget.attr('uistate', newState);
+swa.load(gadgetID);
+  }
+
+  gadgets.util.registerOnLoadHandler(function() {<ui:if ui:condition=\"{= bound(?oAuthBroker) }\">
+renderOAuthContentWrapper();
+</ui:if>
+        <ui:else>
+renderContent();
+</ui:else>
+  });</script>
+</ui:group>
+"""^^ui:Literal ;
+  ui:responseType ui:HTML ;
+  rdfs:label "Gadget Content"^^xsd:string ;
+  rdfs:subClassOf swa:ScriptElements ;
+.
+opensocial:Gadgets
+  rdf:type swa:Gadget ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Base class of gadgets that can be used in an OpenSocial container."^^xsd:string ;
+  rdfs:label "OpenSocial Gadgets"^^xsd:string ;
+  rdfs:subClassOf swa:Gadgets ;
+.
+opensocial:OAuthContentSections
+  rdf:type ui:NodeClass ;
+  ui:prototype """
+<ui:group>
+    <script src=\"{= ui:lib() }/tbi/js/popup.js\" type=\"text/javascript\"/>
+    <div id=\"main\" style=\"display: none\"/>
+    <div id=\"approval\" style=\"display: none\">
+        <img src=\"{= ui:lib() }/tbi/css/images/new.gif\"/>
+        <a href=\"#\" id=\"personalize\">Personalize this gadget</a>
+    </div>
+    <div id=\"waiting\" style=\"display: none\">
+				Please click
+				<a href=\"#\" id=\"approvaldone\">I've approved access</a>
+				once you've approved access to your data.
+			</div>
+</ui:group>
+"""^^ui:Literal ;
+  rdfs:comment "Content sections for OAuth"^^xsd:string ;
+  rdfs:label "OAuth Content Sections"^^xsd:string ;
+  rdfs:subClassOf swa:LayoutElements ;
+.
+opensocial:OAuthContentWrapper
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:oAuthBroker ;
+      spl:valueType xsd:string ;
+      rdfs:comment "URL for the OAuth broker"^^xsd:string ;
+    ] ;
+  ui:prototype """
+<script type=\"text/javascript\">function renderOAuthContentWrapper() {
+   fetchData();
+}
+
+function showOneSection(toshow) {
+   var sections = [ \"main\", \"approval\", \"waiting\" ];
+   for (var i=0; i &lt; sections.length; ++i) {
+  var sectionId = sections[i];
+  var section = document.getElementById(sectionId);
+  if (sectionId === toshow) {
+ section.style.display = \"block\";
+  } else {
+ section.style.display = \"none\";
+  }
+   }
+}
+
+// Process returned JSON feed to display data.
+function showResults(result) {
+   showOneSection('main');
+
+   var titleElement = document.createElement('div');
+   var nameNode = document.createTextNode(result.feed.title.$t);
+   titleElement.appendChild(nameNode);
+   document.getElementById(\"main\").appendChild(titleElement);
+   document.getElementById(\"main\").appendChild(document.createElement(\"br\"));
+
+   list = result.feed.entry;
+
+   for(var i = 0; i &lt; list.length; i++) {
+  entry = list[i];
+  var divElement = document.createElement('div');
+  divElement.setAttribute('class', 'name');
+  var valueNode = document.createTextNode(entry.gd$email[0].address);
+  divElement.appendChild(nameNode);
+  divElement.appendChild(valueNode);
+  document.getElementById(\"main\").appendChild(divElement);
+   }
+}
+
+// Invoke makeRequest() to fetch data from the service provider endpoint.
+// Depending on the results of makeRequest, decide which version of the UI
+// to ask showOneSection() to display. If user has approved access to his
+// or her data, display data.
+// If the user hasn't approved access yet, response.oauthApprovalUrl contains a
+// URL that includes a Google-supplied request token. This is presented in the 
+// gadget as a link that the user clicks to begin the approval process.     
+function fetchData() {
+   var params = {};
+   //dynamically create broker url
+   url = \"{= ?oAuthBroker }\";
+   //params[gadgets.io.ProxyUrlRequestParameters.REFRESH_INTERVAL] = 10;
+   params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+   params[gadgets.io.RequestParameters.AUTHORIZATION] = gadgets.io.AuthorizationType.OAUTH;
+   params[gadgets.io.RequestParameters.OAUTH_SERVICE_NAME] = \"TopBraid\";
+   params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
+   params[gadgets.io.RequestParameters.REFRESH_INTERVAL] = 0;
+
+   gadgets.io.makeRequest(url, function (response) {
+
+  if (response.oauthApprovalUrl) {
+ // Create the popup handler. The onOpen function is called when the user
+ // opens the popup window. The onClose function is called when the popup
+ // window is closed.
+ var popup = shindig.oauth.popup({
+destination: response.oauthApprovalUrl,
+windowOptions: null,
+onOpen: function() { showOneSection('waiting'); },
+onClose: function() { fetchData(); }
+ });
+ // Use the popup handler to attach onclick handlers to UI elements.  The
+ // createOpenerOnClick() function returns an onclick handler to open the
+ // popup window.  The createApprovedOnClick function returns an onclick 
+ // handler that will close the popup window and attempt to fetch the user's
+ // data again.
+ var personalize = document.getElementById('personalize');
+ personalize.onclick = popup.createOpenerOnClick();
+ var approvaldone = document.getElementById('approvaldone');
+ approvaldone.onclick = popup.createApprovedOnClick();
+ showOneSection('approval');
+  } else if (response.data &amp;&amp; response.data.authorized) {
+ renderContent();
+  } else {
+ // The response.oauthError and response.oauthErrorText values may help debug
+ // problems with your gadget.
+ var main = document.getElementById('main');
+ var err = document.createTextNode('OAuth error: ' +
+response.oauthError + ': ' + response.oauthErrorText);
+ main.appendChild(err);
+ showOneSection('main');
+  }
+   }, params);
+}</script>
+"""^^ui:Literal ;
+  ui:responseType ui:HTML ;
+  rdfs:label "OAuth Content Wrapper"^^xsd:string ;
+  rdfs:subClassOf swa:ScriptElements ;
+.
+opensocial:UserPref
+  rdf:type spin:ConstructTemplate ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate opensocial:datatype ;
+      spl:valueType xsd:string ;
+      rdfs:comment "Data type of the user preference"^^xsd:string ;
+    ] ;
+  spin:labelTemplate "UserPref {?datatype} {?predicate} {?defaultValue}"^^xsd:string ;
+  rdfs:comment "User Preference for an OpenSocial gadget."^^xsd:string ;
+  rdfs:label "User Preference"^^xsd:string ;
+  rdfs:subClassOf spl:Argument ;
+.
+opensocial:datatype
+  rdf:type rdf:Property ;
+  rdfs:label "datatype"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+opensocial:requireFeature
+  rdf:type rdf:Property ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.

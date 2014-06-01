@@ -1,0 +1,1524 @@
+# baseURI: http://uispin.org/svg
+# imports: http://uispin.org/css
+# imports: http://uispin.org/ui
+
+# c14n-version: 3
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix svg: <http://uispin.org/svg#> .
+@prefix ui: <http://uispin.org/ui#> .
+@prefix xlink: <http://www.w3.org/1999/xlink#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+<http://uispin.org/css#audio-level>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "audio-level"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#buffered-rendering>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "buffered-rendering"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#color>
+  rdfs:label "color"^^xsd:string ;
+.
+<http://uispin.org/css#color-rendering>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "color-rendering"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#display-align>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "display-align"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#fill>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "fill"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#fill-opacity>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "fill-opacity"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#fill-rule>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "fill-rule"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#image-rendering>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "image-rendering"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#line-increment>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "line-increment"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#opacity>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "opacity"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#pointer-events>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "pointer-events"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#shape-rendering>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "shape-rendering"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#solid-color>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "solid-color"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#solid-opacity>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "solid-opacity"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#stop-color>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "stop-color"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#stop-opacity>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "stop-opacity"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#stroke>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "stroke"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#stroke-dasharray>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "stroke-dasharray"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#stroke-dashoffset>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "stroke-dashoffset"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#stroke-linecap>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "stroke-linecap"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#stroke-linejoin>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "stroke-linejoin"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#stroke-miterlimit>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "stroke-miterlimit"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#stroke-opacity>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "stroke-opacity"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#stroke-width>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "stroke-width"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#text-anchor>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "text-anchor"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#text-rendering>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "text-rendering"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#vector-effect>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "vector-effect"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#viewport-fill>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "viewport-fill"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/css#viewport-fill-opacity>
+  rdf:type ui:StyleProperty ;
+  rdfs:label "viewport-fill-opacity"^^xsd:string ;
+  rdfs:subPropertyOf <http://uispin.org/css#properties> ;
+.
+<http://uispin.org/svg>
+  rdf:type owl:Ontology ;
+  rdfs:comment "A vocabulary to represent Scalable Vector Graphics (SVG) in UISPIN RDF documents. This version supports SVG Tiny 1.2."^^xsd:string ;
+  owl:imports <http://uispin.org/css> ;
+  owl:imports <http://uispin.org/ui> ;
+  owl:versionInfo "0.1.1"^^xsd:string ;
+.
+svg:A
+  rdf:type ui:NodeClass ;
+  rdfs:comment "SVG provides an 'a' element, analogous to HTML's 'a' element, to indicate links (also known as hyperlinks or Web links)"^^xsd:string ;
+  rdfs:label "A"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/linking.html#AElement> ;
+  rdfs:subClassOf svg:ContainerElements ;
+.
+svg:Animate
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'animate' element is used to animate a single attribute or property over time."^^xsd:string ;
+  rdfs:label "Animate"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/animate.html#AnimateElement> ;
+  rdfs:subClassOf svg:AnimationElements ;
+.
+svg:AnimateColor
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'animateColor' element specifies a color transition over time."^^xsd:string ;
+  rdfs:label "Animate color"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/animate.html#AnimateColorElement> ;
+  rdfs:subClassOf svg:AnimationElements ;
+.
+svg:AnimateMotion
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'animateMotion' element causes its target element to move along a motion path."^^xsd:string ;
+  rdfs:label "Animate motion"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/animate.html#AnimateMotionElement> ;
+  rdfs:subClassOf svg:AnimationElements ;
+.
+svg:AnimateTransform
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'animateTransform' element animates a transformation attribute on a target element, thereby allowing animations to control translation, scaling, rotation and/or skewing."^^xsd:string ;
+  rdfs:label "Animate transform"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/animate.html#AnimateTransformElement> ;
+  rdfs:subClassOf svg:AnimationElements ;
+.
+svg:Animation
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'animation' elements specifies an SVG document providing synchronized animated vector graphics."^^xsd:string ;
+  rdfs:label "Animation"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/multimedia.html#AnimationElement> ;
+  rdfs:subClassOf svg:GraphicsElements ;
+.
+svg:AnimationElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract superclass of the various SVG animation elements."^^xsd:string ;
+  rdfs:label "Animation element"^^xsd:string ;
+  rdfs:subClassOf svg:Elements ;
+.
+svg:Attribute
+  rdf:type rdfs:Class ;
+  rdfs:label "Attribute"^^xsd:string ;
+  rdfs:subClassOf rdf:Property ;
+.
+svg:Audio
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'audio' element specifies an audio file which is to be rendered to provide synchronized audio."^^xsd:string ;
+  rdfs:label "Audio"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/multimedia.html#AudioElement> ;
+  rdfs:subClassOf svg:MultimediaElements ;
+.
+svg:Circle
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:cx ;
+      rdfs:comment "The x-axis coordinate of the center of the circle. The lacuna value is '0'."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:cy ;
+      rdfs:comment "The y-axis coordinate of the center of the circle. The lacuna value is '0'."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:r ;
+      rdfs:comment "The radius of the circle. A negative value is unsupported. A value of zero disables rendering of the element. The lacuna value is '0'."^^xsd:string ;
+    ] ;
+  rdfs:comment "The 'circle' element defines a circle based on a center point and a radius."^^xsd:string ;
+  rdfs:label "Circle"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/shapes.html#CircleElement> ;
+  rdfs:subClassOf svg:GraphicsElements ;
+.
+svg:ContainerElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract base class of the various SVG container elements."^^xsd:string ;
+  rdfs:label "Container elements"^^xsd:string ;
+  rdfs:subClassOf svg:Elements ;
+.
+svg:Defs
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'defs' element is a container element for referenced elements."^^xsd:string ;
+  rdfs:label "Defs"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/struct.html#DefsElement> ;
+  rdfs:subClassOf svg:StructuralElements ;
+.
+svg:Desc
+  rdf:type ui:NodeClass ;
+  rdfs:label "Desc"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/struct.html#TitleAndDescriptionElements> ;
+  rdfs:subClassOf svg:DescriptiveElements ;
+.
+svg:DescriptiveElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract base class of descriptive SVG elements."^^xsd:string ;
+  rdfs:label "Descriptive elements"^^xsd:string ;
+  rdfs:subClassOf svg:Elements ;
+.
+svg:Discard
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'discard' element allows authors to specify the time at which particular elements are to be discarded, thereby reducing the resources required by an SVG user agent."^^xsd:string ;
+  rdfs:label "Discard"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/struct.html#DiscardElement> ;
+  rdfs:subClassOf svg:AnimationElements ;
+.
+svg:Elements
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:class ;
+      rdfs:comment "Assigns one or more class names to an element."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:content ;
+      rdfs:comment "The 'content' attribute provides a plain text value that may be suitable for humans, or may be machine-readable, or both, depending on the context."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:id ;
+      rdfs:comment "This attribute specifies a unique identifier for the element. Because of wider use and compatibility with legacy content and existing user agents (including authoring tools), it is recommended that content intended for use in a Web browser environment use 'id' instead of 'xml:id'."^^xsd:string ;
+    ] ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract base class of all SVG elements. Defines common attributes such as id and class."^^xsd:string ;
+  rdfs:label "SVG Elements"^^xsd:string ;
+  rdfs:subClassOf ui:Element ;
+.
+svg:Ellipse
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:cx ;
+      rdfs:comment "The x-axis coordinate of the center of the ellipse. The lacuna value is '0'."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:cy ;
+      rdfs:comment "The y-axis coordinate of the center of the ellipse. The lacuna value is '0'."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:rx ;
+      rdfs:comment "The x-axis radius of the ellipse. A negative value is unsupported. A value of zero disables rendering of the element. The lacuna value is '0'."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:ry ;
+      rdfs:comment "The y-axis radius of the ellipse. A negative value is unsupported. A value of zero disables rendering of the element. The lacuna value is '0'."^^xsd:string ;
+    ] ;
+  rdfs:comment "The 'ellipse' element defines an ellipse which is axis-aligned with the current user coordinate system based on a center point and two radii."^^xsd:string ;
+  rdfs:label "Ellipse"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/shapes.html#EllipseElement> ;
+  rdfs:subClassOf svg:GraphicsElements ;
+.
+svg:Font
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'font' element defines an SVG font."^^xsd:string ;
+  rdfs:label "Font"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/fonts.html#FontElement> ;
+  rdfs:subClassOf svg:FontElements ;
+.
+svg:Font-face
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'font-face' element is an XML structure which corresponds directly to the @font-face facility in CSS2. It can be used to describe the characteristics of any font, SVG font or otherwise."^^xsd:string ;
+  rdfs:label "Font-face"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/fonts.html#FontFaceElement> ;
+  rdfs:subClassOf svg:FontElements ;
+.
+svg:Font-face-src
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'font-face-src' element, together with the 'font-face-uri' elements described further down correspond to the 'src' descriptor within an @font-face rule."^^xsd:string ;
+  rdfs:label "Font-face-src"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/fonts.html#FontFaceSrcElement> ;
+  rdfs:subClassOf svg:FontElements ;
+.
+svg:Font-face-uri
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'font-face-uri' element is used within a 'font-face-src' element to reference a font defined inside or outside of the current SVG document."^^xsd:string ;
+  rdfs:label "Font-face-uri"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/fonts.html#FontFaceUriElement> ;
+  rdfs:subClassOf svg:FontElements ;
+.
+svg:FontElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract base class of SVG font elements."^^xsd:string ;
+  rdfs:label "Font elements"^^xsd:string ;
+  rdfs:subClassOf svg:Elements ;
+.
+svg:ForeignObject
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'foreignObject' element is an extensibility point which allows user agents to offer graphical rendering features beyond those which are defined within this specification."^^xsd:string ;
+  rdfs:label "Foreign object"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/extend.html#ForeignObjectElement> ;
+  rdfs:subClassOf svg:StructuralElements ;
+.
+svg:G
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'g' element is a container element for grouping together related graphics elements."^^xsd:string ;
+  rdfs:label "G"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/struct.html#GElement> ;
+  rdfs:subClassOf svg:ContainerElements ;
+.
+svg:Glyph
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'glyph' element defines the graphics for a given glyph."^^xsd:string ;
+  rdfs:label "Glyph"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/fonts.html#GlyphElement> ;
+  rdfs:subClassOf svg:FontElements ;
+.
+svg:GraphicsElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:label "Graphics elements"^^xsd:string ;
+  rdfs:subClassOf svg:Elements ;
+.
+svg:Handler
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'handler' element is similar to the 'script' element: its contents, either included inline or referenced, is code that is to be executed by a scripting engine used by user agent."^^xsd:string ;
+  rdfs:label "Handler"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/script.html#HandlerElement> ;
+  rdfs:subClassOf svg:ScriptingElements ;
+.
+svg:Hkern
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'hkern' element defines kerning pairs for horizontally-oriented pairs of glyphs."^^xsd:string ;
+  rdfs:label "Hkern"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/fonts.html#KernElements> ;
+  rdfs:subClassOf svg:FontElements ;
+.
+svg:Image
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:height ;
+      rdfs:comment "The height of the rectangular region."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:preserveAspectRatio ;
+      rdfs:comment "See http://www.w3.org/TR/SVGTiny12/coords.html#PreserveAspectRatioAttribute"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:type ;
+      rdfs:comment "A hint about the expected Internet Media Type of the raster image. Implementations may choose to not fetch images of formats that they do not support. Note that if an Internet Media type returned by the server, the server metadata is authoritative over the type attribute. See Metadata hints in specifications in the Authoritative Metadata TAG finding ([MIME-RESPECT], section 5). To ensure that a user agent only downloads media in formats that it supports, thus optimizing download time and bandwidth usage, authors are encouraged to use 'requiredFormats', instead of 'type'."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:width ;
+      rdfs:comment "The width of the rectangular region."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:x ;
+      rdfs:comment "The x-axis coordinate of one corner of the rectangular region."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:y ;
+      rdfs:comment "The y-axis coordinate of one corner of the rectangular region."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate xlink:href ;
+      rdfs:comment "An IRI reference to the image. An invalid IRI reference is an unsupported value. An empty attribute value (xlink:href=\"\") disables rendering of the element. The lacuna value is the empty string."^^xsd:string ;
+    ] ;
+  rdfs:comment "The 'image' element indicates that the contents of an image are to be rendered into a given rectangle within the current user coordinate system."^^xsd:string ;
+  rdfs:label "Image"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/struct.html#ImageElement> ;
+  rdfs:subClassOf svg:GraphicsElements ;
+.
+svg:Line
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:x1 ;
+      rdfs:comment "The x-axis coordinate of the start of the line. The lacuna value is '0'."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:x2 ;
+      rdfs:comment "The x-axis coordinate of the end of the line. The lacuna value is '0'."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:y1 ;
+      rdfs:comment "The y-axis coordinate of the start of the line. The lacuna value is '0'."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:y2 ;
+      rdfs:comment "The y-axis coordinate of the end of the line. The lacuna value is '0'."^^xsd:string ;
+    ] ;
+  rdfs:comment "The 'line' element defines a line segment that starts at one point and ends at another."^^xsd:string ;
+  rdfs:label "Line"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/shapes.html#LineElement> ;
+  rdfs:subClassOf svg:GraphicsElements ;
+.
+svg:LinearGradient
+  rdf:type ui:NodeClass ;
+  rdfs:comment "Linear gradients are defined by a 'linearGradient' element."^^xsd:string ;
+  rdfs:label "Linear gradient"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/painting.html#LinearGradientElement> ;
+  rdfs:subClassOf svg:PaintingElements ;
+.
+svg:Listener
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'listener' element from XML Events [XML-EVENTS] must be supported."^^xsd:string ;
+  rdfs:label "Listener"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/script.html#ListenerElement> ;
+  rdfs:subClassOf svg:ScriptingElements ;
+.
+svg:Metadata
+  rdf:type ui:NodeClass ;
+  rdfs:comment "Metadata which is included with SVG content should be specified within 'metadata' elements."^^xsd:string ;
+  rdfs:label "Metadata"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/metadata.html#MetadataElement> ;
+  rdfs:subClassOf svg:DescriptiveElements ;
+.
+svg:Missing-glyph
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'missing-glyph' element defines a graphic to use if there is an attempt to draw a glyph from a given font and the given glyph has not been defined."^^xsd:string ;
+  rdfs:label "Missing-glyph"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/fonts.html#MissingGlyphElement> ;
+  rdfs:subClassOf svg:FontElements ;
+.
+svg:Mpath
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'mpath' element is used to reference an existing 'path' element for use as a motion animation path."^^xsd:string ;
+  rdfs:label "Mpath"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/animate.html#MpathElement> ;
+  rdfs:subClassOf svg:AnimationElements ;
+.
+svg:MultimediaElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract base class of SVG multimedia elements."^^xsd:string ;
+  rdfs:label "Multimedia elements"^^xsd:string ;
+  rdfs:subClassOf svg:Elements ;
+.
+svg:PaintingElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract base class of SVG painting elements."^^xsd:string ;
+  rdfs:label "Painting elements"^^xsd:string ;
+  rdfs:subClassOf svg:Elements ;
+.
+svg:Path
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:d ;
+      rdfs:comment "The definition of the outline of a shape. See Path data. An empty attribute value (d=\"\") disables rendering of the element. The lacuna value is the empty string."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:pathLength ;
+      rdfs:comment "The authoring length of the path, in user units. This value is used to calibrate the user agent's own distance-along-a-path calculations with that of the author. The user agent shall scale all distance-along-a-path computations by the ratio of 'pathLength' to the user agent's own computed value for total path length. 'pathLength' potentially affects calculations for motion animation and various stroke operations."^^xsd:string ;
+    ] ;
+  rdfs:comment "Paths represent the outline of a shape which can be filled or stroked."^^xsd:string ;
+  rdfs:label "Path"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/paths.html#PathElement> ;
+  rdfs:subClassOf svg:GraphicsElements ;
+.
+svg:Polygon
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'polygon' element defines a closed shape consisting of a set of connected straight line segments."^^xsd:string ;
+  rdfs:label "Polygon"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/shapes.html#PolygonElement> ;
+  rdfs:subClassOf svg:GraphicsElements ;
+.
+svg:Polyline
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'polyline' element defines a set of connected straight line segments."^^xsd:string ;
+  rdfs:label "Polyline"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/shapes.html#PolylineElement> ;
+  rdfs:subClassOf svg:GraphicsElements ;
+.
+svg:Prefetch
+  rdf:type ui:NodeClass ;
+  rdfs:comment "SVG Tiny 1.2 adds functionality to allow content developers to suggest prefetching content from the server before it is needed to improve the rendering performance of the document."^^xsd:string ;
+  rdfs:label "Prefetch"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/struct.html#PrefetchElement> ;
+  rdfs:subClassOf svg:StructuralElements ;
+.
+svg:RadialGradient
+  rdf:type ui:NodeClass ;
+  rdfs:comment "Radial gradients are defined by a 'radialGradient' element."^^xsd:string ;
+  rdfs:label "Radial gradient"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/painting.html#RadialGradientElement> ;
+  rdfs:subClassOf svg:PaintingElements ;
+.
+svg:Rect
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:height ;
+      rdfs:comment "The height of the rectangle. A negative value is unsupported. A value of zero disables rendering of the element. The lacuna value is '0'."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:rx ;
+      rdfs:comment "For rounded rectangles, the x-axis radius of the ellipse used to round off the corners of the rectangle. A negative value is unsupported. See the notes below about what happens if the attribute is not specified."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:ry ;
+      rdfs:comment "For rounded rectangles, the y-axis radius of the ellipse used to round off the corners of the rectangle. A negative value is unsupported. See the notes below about what happens if the attribute is not specified."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:width ;
+      rdfs:comment "The width of the rectangle. A negative value is unsupported. A value of zero disables rendering of the element. The lacuna value is '0'."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:x ;
+      rdfs:comment "The x-axis coordinate of the side of the rectangle which has the smaller x-axis coordinate value in the current user coordinate system. The lacuna value is '0'."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:y ;
+      rdfs:comment "The y-axis coordinate of the side of the rectangle which has the smaller y-axis coordinate value in the current user coordinate system. The lacuna value is '0'."^^xsd:string ;
+    ] ;
+  rdfs:comment "The 'rect' element defines a rectangle which is axis-aligned with the current user coordinate system."^^xsd:string ;
+  rdfs:label "Rect"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/shapes.html#RectElement> ;
+  rdfs:subClassOf svg:GraphicsElements ;
+.
+svg:Script
+  rdf:type ui:NodeClass ;
+  rdfs:comment "A 'script' element may either contain or point to executable content (e.g., ECMAScript or Java JAR file)."^^xsd:string ;
+  rdfs:label "Script"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/script.html#ScriptElement> ;
+  rdfs:subClassOf svg:ScriptingElements ;
+.
+svg:ScriptingElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract base class of SVG scripting elements."^^xsd:string ;
+  rdfs:label "Scripting elements"^^xsd:string ;
+  rdfs:subClassOf svg:Elements ;
+.
+svg:Set
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'set' element provides a simple means of just setting the value of an attribute for a specified duration."^^xsd:string ;
+  rdfs:label "Set"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/animate.html#SetElement> ;
+  rdfs:subClassOf svg:AnimationElements ;
+.
+svg:SolidColor
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'solidColor' element is a paint server that provides a single color with opacity."^^xsd:string ;
+  rdfs:label "Solid color"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/painting.html#SolidColorElement> ;
+  rdfs:subClassOf svg:PaintingElements ;
+.
+svg:Stop
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The ramp of colors to use on a gradient is defined by the 'stop' elements that are child elements to either the 'linearGradient' element or the 'radialGradient' element."^^xsd:string ;
+  rdfs:label "Stop"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/painting.html#StopElement> ;
+  rdfs:subClassOf svg:PaintingElements ;
+.
+svg:StructuralElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract base class of the SCG structural elements."^^xsd:string ;
+  rdfs:label "Structural elements"^^xsd:string ;
+  rdfs:subClassOf svg:Elements ;
+.
+svg:Svg
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:baseProfile ;
+      rdfs:comment "Describes the minimum SVG language profile that the author believes is necessary to correctly render the content. See rules for baseProfile processing for further instructions."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:contentScriptType ;
+      rdfs:comment "Identifies the default scripting language for the given document. This attribute sets the default scripting language for all the instances of script in the document fragment. This language must be used for all scripts that do not specify their own scripting language. The <content-type> value specifies a media type, per Multipart Internet Mail Extensions: (MIME) Part Two: Media Types [RFC2046]. The lacuna value is \"application/ecmascript\"."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:height ;
+      rdfs:comment "The intrinsic height of the SVG document fragment."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:playbackOrder ;
+      rdfs:comment "Indicates whether it is possible to seek backwards in the document. In earlier versions of SVG there was no need to put restrictions on the direction of seeking but with the newly introduced facilities for long-running documents (e.g. the 'discard' element) there is sometimes a need to restrict this."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:preserveAspectRatio ;
+      rdfs:comment "See http://www.w3.org/TR/SVGTiny12/coords.html#PreserveAspectRatioAttribute"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:snapshotTime ;
+      rdfs:comment "Indicates a moment in time which is most relevant for a still-image of the animated SVG content. This time may be used as a hint to the SVG user agent for rendering a still-image of an animated SVG document, such as a preview. A value of 'none' means that no 'snapshotTime' is available. See example 05_22 for an example of using the 'snapshotTime' attribute."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:timelineBegin ;
+      rdfs:comment "Controls the initialization of the timeline for the document."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:version ;
+      rdfs:comment "Indicates the SVG language version to which this document fragment conforms."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:width ;
+      rdfs:comment "The intrinsic width of the SVG document fragment. Together with the 'height', 'viewBox' and 'preserveAspectRatio' attributes it defines the intrinsic aspect ratio and (unless both width and height are percentages) the intrinsic size of the svg element. See The initial viewport."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:zoomAndPan ;
+      rdfs:comment "See http://www.w3.org/TR/SVGTiny12/interact.html#ZoomAndPanAttribute"^^xsd:string ;
+    ] ;
+  rdfs:comment "An SVG document fragment consists of any number of SVG elements contained within an 'svg' element, including the 'svg' element."^^xsd:string ;
+  rdfs:label "SVG"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/struct.html#SVGElement> ;
+  rdfs:subClassOf svg:StructuralElements ;
+.
+svg:Switch
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'switch' element is a container element that can be used to select one of its child elements to process based on their conditional processing attributes."^^xsd:string ;
+  rdfs:label "Switch"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/struct.html#SwitchElement> ;
+  rdfs:subClassOf svg:StructuralElements ;
+.
+svg:Tbreak
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'tbreak' element is an empty element that forcibly breaks the current line of text, even if the current line of text is empty (i.e. multiple consecutive 'tbreak' elements each cause a line break.)"^^xsd:string ;
+  rdfs:label "Tbreak"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/text.html#tbreakElement> ;
+  rdfs:subClassOf svg:TextElements ;
+.
+svg:Text
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:editable ;
+      rdfs:comment "This attribute indicates whether the text can be edited. See the definition of the 'editable' attribute."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:rotate ;
+      rdfs:comment "This attribute indicates the supplemental rotation about the alignment-point that must be applied to the glyphs corresponding to characters within this element according to the following rules:"^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:x ;
+      rdfs:comment "If a single <coordinate> is provided, then the value represents the new absolute X coordinate for the current text position for rendering the glyphs that correspond to the first character within this element or any of its descendants."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate svg:y ;
+      rdfs:comment "The corresponding list of absolute Y coordinates for the glyphs corresponding to the characters within this element. The processing rules for the 'y' attribute parallel the processing rules for the 'x' attribute."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate ui:text ;
+      rdfs:comment "The text string."^^xsd:string ;
+    ] ;
+  rdfs:comment "The 'text' element defines a graphics element consisting of text."^^xsd:string ;
+  rdfs:label "Text"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/text.html#TextElement> ;
+  rdfs:subClassOf svg:TextElements ;
+.
+svg:TextArea
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'textArea' element allows simplistic wrapping of text content within a given region."^^xsd:string ;
+  rdfs:label "Text area"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/text.html#TextAreaElement> ;
+  rdfs:subClassOf svg:TextElements ;
+.
+svg:TextElements
+  rdf:type ui:NodeClass ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract base class of the SVG text elements."^^xsd:string ;
+  rdfs:label "Text elements"^^xsd:string ;
+  rdfs:subClassOf svg:Elements ;
+.
+svg:Title
+  rdf:type ui:NodeClass ;
+  rdfs:comment "Each container element or graphics element in an SVG document may contain one or more of each of the 'title' and 'desc' descriptive elements, which together comprise a sort of heading and summary of the containing element."^^xsd:string ;
+  rdfs:label "Title"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/struct.html#TitleAndDescriptionElements> ;
+  rdfs:subClassOf svg:DescriptiveElements ;
+.
+svg:Tspan
+  rdf:type ui:NodeClass ;
+  rdfs:comment "Within a text content block element, graphic and font properties can be adjusted by including a 'tspan' element."^^xsd:string ;
+  rdfs:label "Tspan"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/text.html#TSpanElement> ;
+  rdfs:subClassOf svg:TextElements ;
+.
+svg:Use
+  rdf:type ui:NodeClass ;
+  rdfs:comment "Any 'g' or graphics element is potentially a template object that can be re-used (i.e. \"instantiated\") in the SVG document via a 'use' element, thus creating an instance tree."^^xsd:string ;
+  rdfs:label "Use"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/struct.html#UseElement> ;
+  rdfs:subClassOf svg:StructuralElements ;
+.
+svg:Video
+  rdf:type ui:NodeClass ;
+  rdfs:comment "The 'video' element specifies a video file which is to be rendered to provide synchronized video."^^xsd:string ;
+  rdfs:label "Video"^^xsd:string ;
+  rdfs:seeAlso <http://www.w3.org/TR/SVGTiny12/multimedia.html#VideoElement> ;
+  rdfs:subClassOf svg:MultimediaElements ;
+.
+svg:about
+  rdf:type svg:Attribute ;
+  rdfs:label "about"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:accent-height
+  rdf:type svg:Attribute ;
+  rdfs:label "accent-height"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:accumulate
+  rdf:type svg:Attribute ;
+  rdfs:label "accumulate"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:additive
+  rdf:type svg:Attribute ;
+  rdfs:label "additive"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:alphabetic
+  rdf:type svg:Attribute ;
+  rdfs:label "alphabetic"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:arabic-form
+  rdf:type svg:Attribute ;
+  rdfs:label "arabic-form"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:ascent
+  rdf:type svg:Attribute ;
+  rdfs:label "ascent"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:attributeName
+  rdf:type svg:Attribute ;
+  rdfs:label "attribute name"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:attributeType
+  rdf:type svg:Attribute ;
+  rdfs:label "attribute type"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:attributes
+  rdf:type svg:Attribute ;
+  rdfs:comment "Abstract base property to group all SVG attributes."^^xsd:string ;
+  rdfs:label "attributes"^^xsd:string ;
+.
+svg:bandwidth
+  rdf:type svg:Attribute ;
+  rdfs:label "bandwidth"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:baseProfile
+  rdf:type svg:Attribute ;
+  rdfs:label "base profile"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:bbox
+  rdf:type svg:Attribute ;
+  rdfs:label "bbox"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:begin
+  rdf:type svg:Attribute ;
+  rdfs:label "begin"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:by
+  rdf:type svg:Attribute ;
+  rdfs:label "by"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:calcMode
+  rdf:type svg:Attribute ;
+  rdfs:label "calc mode"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:cap-height
+  rdf:type svg:Attribute ;
+  rdfs:label "cap-height"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:class
+  rdf:type svg:Attribute ;
+  rdfs:label "class"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:content
+  rdf:type svg:Attribute ;
+  rdfs:label "content"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:contentScriptType
+  rdf:type svg:Attribute ;
+  rdfs:label "content script type"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:cx
+  rdf:type svg:Attribute ;
+  rdfs:label "cx"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:cy
+  rdf:type svg:Attribute ;
+  rdfs:label "cy"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:d
+  rdf:type svg:Attribute ;
+  rdfs:label "d"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:datatype
+  rdf:type svg:Attribute ;
+  rdfs:label "datatype"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:defaultAction
+  rdf:type svg:Attribute ;
+  rdfs:label "default action"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:descent
+  rdf:type svg:Attribute ;
+  rdfs:label "descent"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:dur
+  rdf:type svg:Attribute ;
+  rdfs:label "dur"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:editable
+  rdf:type svg:Attribute ;
+  rdfs:label "editable"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:end
+  rdf:type svg:Attribute ;
+  rdfs:label "end"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:externalResourcesRequired
+  rdf:type svg:Attribute ;
+  rdfs:label "external resources required"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:focusHighlight
+  rdf:type svg:Attribute ;
+  rdfs:label "focus highlight"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:focusable
+  rdf:type svg:Attribute ;
+  rdfs:label "focusable"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:font-stretch
+  rdf:type svg:Attribute ;
+  rdfs:label "font-stretch"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:fontFamily
+  rdf:type svg:Attribute ;
+  rdfs:label "font family"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:from
+  rdf:type svg:Attribute ;
+  rdfs:label "from"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:g1
+  rdf:type svg:Attribute ;
+  rdfs:label "g1"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:g2
+  rdf:type svg:Attribute ;
+  rdfs:label "g2"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:glyph-name
+  rdf:type svg:Attribute ;
+  rdfs:label "glyph-name"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:gradientUnits
+  rdf:type svg:Attribute ;
+  rdfs:label "gradient units"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:handler
+  rdf:type svg:Attribute ;
+  rdfs:label "handler"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:hanging
+  rdf:type svg:Attribute ;
+  rdfs:label "hanging"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:height
+  rdf:type svg:Attribute ;
+  rdfs:label "height"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:horiz-adv-x
+  rdf:type svg:Attribute ;
+  rdfs:label "horiz-adv-x"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:horiz-origin-x
+  rdf:type svg:Attribute ;
+  rdfs:label "horiz-origin-x"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:id
+  rdf:type svg:Attribute ;
+  rdfs:label "id"^^xsd:string ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:ideographic
+  rdf:type svg:Attribute ;
+  rdfs:label "ideographic"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:initialVisibility
+  rdf:type svg:Attribute ;
+  rdfs:label "initial visibility"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:k
+  rdf:type svg:Attribute ;
+  rdfs:label "k"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:keyPoints
+  rdf:type svg:Attribute ;
+  rdfs:label "key points"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:keySplines
+  rdf:type svg:Attribute ;
+  rdfs:label "key splines"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:keyTimes
+  rdf:type svg:Attribute ;
+  rdfs:label "key times"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:lang
+  rdf:type svg:Attribute ;
+  rdfs:label "lang"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:mathematical
+  rdf:type svg:Attribute ;
+  rdfs:label "mathematical"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:max
+  rdf:type svg:Attribute ;
+  rdfs:label "max"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:mediaCharacterEncoding
+  rdf:type svg:Attribute ;
+  rdfs:label "media character encoding"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:mediaContentEncodings
+  rdf:type svg:Attribute ;
+  rdfs:label "media content encodings"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:mediaSize
+  rdf:type svg:Attribute ;
+  rdfs:label "media size"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:mediaTime
+  rdf:type svg:Attribute ;
+  rdfs:label "media time"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:min
+  rdf:type svg:Attribute ;
+  rdfs:label "min"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:nav-down
+  rdf:type svg:Attribute ;
+  rdfs:label "nav-down"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:nav-down-left
+  rdf:type svg:Attribute ;
+  rdfs:label "nav-down-left"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:nav-down-right
+  rdf:type svg:Attribute ;
+  rdfs:label "nav-down-right"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:nav-left
+  rdf:type svg:Attribute ;
+  rdfs:label "nav-left"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:nav-next
+  rdf:type svg:Attribute ;
+  rdfs:label "nav-next"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:nav-prev
+  rdf:type svg:Attribute ;
+  rdfs:label "nav-prev"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:nav-right
+  rdf:type svg:Attribute ;
+  rdfs:label "nav-right"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:nav-up
+  rdf:type svg:Attribute ;
+  rdfs:label "nav-up"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:nav-up-left
+  rdf:type svg:Attribute ;
+  rdfs:label "nav-up-left"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:nav-up-right
+  rdf:type svg:Attribute ;
+  rdfs:label "nav-up-right"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:observer
+  rdf:type svg:Attribute ;
+  rdfs:label "observer"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:offset
+  rdf:type svg:Attribute ;
+  rdfs:label "offset"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:origin
+  rdf:type svg:Attribute ;
+  rdfs:label "origin"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:overlay
+  rdf:type svg:Attribute ;
+  rdfs:label "overlay"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:overline-position
+  rdf:type svg:Attribute ;
+  rdfs:label "overline-position"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:overline-thickness
+  rdf:type svg:Attribute ;
+  rdfs:label "overline-thickness"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:panose-1
+  rdf:type svg:Attribute ;
+  rdfs:label "panose-1"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:path
+  rdf:type svg:Attribute ;
+  rdfs:label "path"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:pathLength
+  rdf:type svg:Attribute ;
+  rdfs:label "path length"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:phase
+  rdf:type svg:Attribute ;
+  rdfs:label "phase"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:playbackOrder
+  rdf:type svg:Attribute ;
+  rdfs:label "playback order"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:points
+  rdf:type svg:Attribute ;
+  rdfs:label "points"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:preserveAspectRatio
+  rdf:type svg:Attribute ;
+  rdfs:label "preserve aspect ratio"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:propagate
+  rdf:type svg:Attribute ;
+  rdfs:label "propagate"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:property
+  rdf:type svg:Attribute ;
+  rdfs:label "property"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:r
+  rdf:type svg:Attribute ;
+  rdfs:label "r"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:rel
+  rdf:type svg:Attribute ;
+  rdfs:label "rel"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:repeatCount
+  rdf:type svg:Attribute ;
+  rdfs:label "repeat count"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:repeatDur
+  rdf:type svg:Attribute ;
+  rdfs:label "repeat dur"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:requiredExtensions
+  rdf:type svg:Attribute ;
+  rdfs:label "required extensions"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:requiredFeatures
+  rdf:type svg:Attribute ;
+  rdfs:label "required features"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:requiredFonts
+  rdf:type svg:Attribute ;
+  rdfs:label "required fonts"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:requiredFormats
+  rdf:type svg:Attribute ;
+  rdfs:label "required formats"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:resource
+  rdf:type svg:Attribute ;
+  rdfs:label "resource"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:restart
+  rdf:type svg:Attribute ;
+  rdfs:label "restart"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:rev
+  rdf:type svg:Attribute ;
+  rdfs:label "rev"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:role
+  rdf:type svg:Attribute ;
+  rdfs:label "role"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:rotate
+  rdf:type svg:Attribute ;
+  rdfs:label "rotate"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:rx
+  rdf:type svg:Attribute ;
+  rdfs:label "rx"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:ry
+  rdf:type svg:Attribute ;
+  rdfs:label "ry"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:slope
+  rdf:type svg:Attribute ;
+  rdfs:label "slope"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:snapshotTime
+  rdf:type svg:Attribute ;
+  rdfs:label "snapshot time"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:stemh
+  rdf:type svg:Attribute ;
+  rdfs:label "stemh"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:stemv
+  rdf:type svg:Attribute ;
+  rdfs:label "stemv"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:strikethrough-position
+  rdf:type svg:Attribute ;
+  rdfs:label "strikethrough-position"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:strikethrough-thickness
+  rdf:type svg:Attribute ;
+  rdfs:label "strikethrough-thickness"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:syncBehavior
+  rdf:type svg:Attribute ;
+  rdfs:label "sync behavior"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:syncBehaviorDefault
+  rdf:type svg:Attribute ;
+  rdfs:label "sync behavior default"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:syncMaster
+  rdf:type svg:Attribute ;
+  rdfs:label "sync master"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:syncTolerance
+  rdf:type svg:Attribute ;
+  rdfs:label "sync tolerance"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:syncToleranceDefault
+  rdf:type svg:Attribute ;
+  rdfs:label "sync tolerance default"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:systemLanguage
+  rdf:type svg:Attribute ;
+  rdfs:label "system language"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:target
+  rdf:type svg:Attribute ;
+  rdfs:label "target"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:timelineBegin
+  rdf:type svg:Attribute ;
+  rdfs:label "timeline begin"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:to
+  rdf:type svg:Attribute ;
+  rdfs:label "to"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:transform
+  rdf:type svg:Attribute ;
+  rdfs:label "transform"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:transformBehavior
+  rdf:type svg:Attribute ;
+  rdfs:label "transform behavior"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:type
+  rdf:type svg:Attribute ;
+  rdfs:label "type"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:typeof
+  rdf:type svg:Attribute ;
+  rdfs:label "typeof"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:u1
+  rdf:type svg:Attribute ;
+  rdfs:label "u1"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:u2
+  rdf:type svg:Attribute ;
+  rdfs:label "u2"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:underline-position
+  rdf:type svg:Attribute ;
+  rdfs:label "underline-position"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:underline-thickness
+  rdf:type svg:Attribute ;
+  rdfs:label "underline-thickness"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:unicode
+  rdf:type svg:Attribute ;
+  rdfs:label "unicode"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:unicode-range
+  rdf:type svg:Attribute ;
+  rdfs:label "unicode-range"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:units-per-em
+  rdf:type svg:Attribute ;
+  rdfs:label "units-per-em"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:values
+  rdf:type svg:Attribute ;
+  rdfs:label "values"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:version
+  rdf:type svg:Attribute ;
+  rdfs:label "version"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:viewBox
+  rdf:type svg:Attribute ;
+  rdfs:label "view box"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:width
+  rdf:type svg:Attribute ;
+  rdfs:label "width"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:widths
+  rdf:type svg:Attribute ;
+  rdfs:label "widths"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:x
+  rdf:type svg:Attribute ;
+  rdfs:label "x"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:x-height
+  rdf:type svg:Attribute ;
+  rdfs:label "x-height"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:x1
+  rdf:type svg:Attribute ;
+  rdfs:label "x1"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:x2
+  rdf:type svg:Attribute ;
+  rdfs:label "x2"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:y
+  rdf:type svg:Attribute ;
+  rdfs:label "y"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:y1
+  rdf:type svg:Attribute ;
+  rdfs:label "y1"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:y2
+  rdf:type svg:Attribute ;
+  rdfs:label "y2"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+svg:zoomAndPan
+  rdf:type svg:Attribute ;
+  rdfs:label "zoom and pan"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+xlink:actuate
+  rdf:type svg:Attribute ;
+  rdfs:label "actuate"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+xlink:arcrole
+  rdf:type svg:Attribute ;
+  rdfs:label "arcrole"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+xlink:href
+  rdf:type svg:Attribute ;
+  rdfs:label "href"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+xlink:role
+  rdf:type svg:Attribute ;
+  rdfs:label "role"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+xlink:show
+  rdf:type svg:Attribute ;
+  rdfs:label "show"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+xlink:title
+  rdf:type svg:Attribute ;
+  rdfs:label "title"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.
+xlink:type
+  rdf:type svg:Attribute ;
+  rdfs:label "type"^^xsd:string ;
+  rdfs:subPropertyOf svg:attributes ;
+.

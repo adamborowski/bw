@@ -1,0 +1,479 @@
+# baseURI: http://topbraid.org/spin/skoscleaner
+# imports: http://spinrdf.org/spin
+# imports: http://www.w3.org/2004/02/skos/core
+
+# c14n-version: 3
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skoscleaner: <http://topbraid.org/spin/skoscleaner#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spif: <http://spinrdf.org/spif#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+<http://topbraid.org/spin/skoscleaner>
+  rdf:type owl:Ontology ;
+  rdfs:comment "A collection of SPIN Update rules that \"clean up\" a SKOS model according to some best practices, such as using skos:broader instead of skos:narrower."^^xsd:string ;
+  owl:imports <http://spinrdf.org/spin> ;
+  owl:imports <http://www.w3.org/2004/02/skos/core> ;
+  owl:versionInfo "0.2.0"^^xsd:string ;
+.
+skoscleaner:rule
+  rdf:type spin:RuleProperty ;
+  spin:rulePropertyMaxIterationCount 1 ;
+  rdfs:comment "Groups together all SKOS Cleaner rules so that they can be executed in a more targeted way, e.g. from SPARQLMotion. Also makes sure that the rules are only executed once."^^xsd:string ;
+  rdfs:label "rule"^^xsd:string ;
+  rdfs:subPropertyOf spin:rule ;
+.
+owl:Class
+  skoscleaner:rule [
+      rdf:type sp:Modify ;
+      sp:insertPattern (
+          [
+            sp:object owl:Thing ;
+            sp:predicate rdfs:subClassOf ;
+            sp:subject spin:_this ;
+          ]
+        ) ;
+      sp:where (
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:notExists ;
+                sp:elements (
+                    [
+                      sp:object [
+                          sp:varName "class"^^xsd:string ;
+                        ] ;
+                      sp:predicate rdfs:subClassOf ;
+                      sp:subject spin:_this ;
+                    ]
+                    [
+                      rdf:type sp:Filter ;
+                      sp:expression [
+                          rdf:type sp:isIRI ;
+                          sp:arg1 [
+sp:varName "class"^^xsd:string ;
+                            ] ;
+                        ] ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "Ensure that each named class has at least one named superclass (owl:Thing as fallback)"^^xsd:string ;
+    ] ;
+.
+owl:Thing
+  skoscleaner:rule [
+      rdf:type sp:DeleteWhere ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "any"^^xsd:string ;
+              ] ;
+            sp:predicate <http://www.w3.org/2004/02/skos/core#broaderTransitive> ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "Delete any skos:broaderTransitive"^^xsd:string ;
+    ] ;
+  skoscleaner:rule [
+      rdf:type sp:DeleteWhere ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "any"^^xsd:string ;
+              ] ;
+            sp:predicate <http://www.w3.org/2004/02/skos/core#narrowerTransitive> ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "Delete any skos:narrowerTransitive"^^xsd:string ;
+    ] ;
+  skoscleaner:rule [
+      rdf:type sp:DeleteWhere ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "any"^^xsd:string ;
+              ] ;
+            sp:predicate <http://www.w3.org/2004/02/skos/core#semanticRelation> ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "Delete any skos:semanticRelation"^^xsd:string ;
+    ] ;
+  skoscleaner:rule [
+      rdf:type sp:Modify ;
+      sp:deletePattern (
+          [
+            sp:object [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:label ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+            sp:predicate rdfs:label ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "label"^^xsd:string ;
+              ] ;
+            sp:predicate <http://www.w3.org/2004/02/skos/core#prefLabel> ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "Delete rdfs:labels where an identical skos:prefLabel exists"^^xsd:string ;
+    ] ;
+  skoscleaner:rule [
+      rdf:type sp:Modify ;
+      sp:deletePattern (
+          [
+            sp:object [
+                sp:varName "narrower"^^xsd:string ;
+              ] ;
+            sp:predicate <http://www.w3.org/2004/02/skos/core#narrower> ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:insertPattern (
+          [
+            sp:object [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+            sp:predicate <http://www.w3.org/2004/02/skos/core#broader> ;
+            sp:subject [
+                sp:varName "narrower"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "narrower"^^xsd:string ;
+              ] ;
+            sp:predicate <http://www.w3.org/2004/02/skos/core#narrower> ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "Replace skos:narrower with skos:broader"^^xsd:string ;
+    ] ;
+  skoscleaner:rule [
+      rdf:type sp:Modify ;
+      sp:deletePattern (
+          [
+            sp:object [
+                sp:varName "o"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:insertPattern (
+          [
+            sp:object [
+                sp:varName "typed"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "o"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:and ;
+                sp:arg1 [
+                    rdf:type sp:and ;
+                    sp:arg1 [
+                        rdf:type sp:isLiteral ;
+                        sp:arg1 [
+                            sp:varName "o"^^xsd:string ;
+                          ] ;
+                      ] ;
+                    sp:arg2 [
+                        rdf:type sp:eq ;
+                        sp:arg1 [
+                            rdf:type sp:datatype ;
+                            sp:arg1 [
+  sp:varName "o"^^xsd:string ;
+] ;
+                          ] ;
+                        sp:arg2 xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type sp:not ;
+                    sp:arg1 [
+                        rdf:type sp:sameTerm ;
+                        sp:arg1 [
+                            sp:varName "o"^^xsd:string ;
+                          ] ;
+                        sp:arg2 [
+                            rdf:type xsd:string ;
+                            sp:arg1 [
+  sp:varName "o"^^xsd:string ;
+] ;
+                          ] ;
+                      ] ;
+                  ] ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type xsd:string ;
+                sp:arg1 [
+                    sp:varName "o"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "typed"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "Replace untyped literals with xsd:string literals"^^xsd:string ;
+    ] ;
+  skoscleaner:rule [
+      rdf:type sp:Modify ;
+      sp:deletePattern (
+          [
+            sp:object [
+                sp:varName "old"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:insertPattern (
+          [
+            sp:object [
+                sp:varName "new"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "p"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "s"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      sp:where (
+          (
+            (
+              [
+                sp:object [
+                    sp:varName "old"^^xsd:string ;
+                  ] ;
+                sp:predicate [
+                    sp:varName "p"^^xsd:string ;
+                  ] ;
+                sp:subject [
+                    sp:varName "s"^^xsd:string ;
+                  ] ;
+              ]
+              [
+                rdf:type sp:Filter ;
+                sp:expression [
+                    rdf:type sp:and ;
+                    sp:arg1 [
+                        rdf:type sp:isLiteral ;
+                        sp:arg1 [
+                            sp:varName "old"^^xsd:string ;
+                          ] ;
+                      ] ;
+                    sp:arg2 [
+                        rdf:type sp:eq ;
+                        sp:arg1 [
+                            rdf:type sp:datatype ;
+                            sp:arg1 [
+  sp:varName "old"^^xsd:string ;
+] ;
+                          ] ;
+                        sp:arg2 xsd:string ;
+                      ] ;
+                  ] ;
+              ]
+              [
+                rdf:type sp:Filter ;
+                sp:expression [
+                    rdf:type sp:gt ;
+                    sp:arg1 [
+                        rdf:type spif:indexOf ;
+                        sp:arg1 [
+                            sp:varName "old"^^xsd:string ;
+                          ] ;
+                        sp:arg2 """""" ;
+                      ] ;
+                    sp:arg2 0 ;
+                  ] ;
+              ]
+            )
+            [
+              rdf:type sp:Bind ;
+              sp:expression [
+                  rdf:type spif:replaceAll ;
+                  sp:arg1 [
+                      sp:varName "old"^^xsd:string ;
+                    ] ;
+                  sp:arg2 """""" ;
+                  sp:arg3 "" ;
+                ] ;
+              sp:variable [
+                  sp:varName "lex"^^xsd:string ;
+                ] ;
+            ]
+          )
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:lang ;
+                sp:arg1 [
+                    sp:varName "old"^^xsd:string ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "lang"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Bind ;
+            sp:expression [
+                rdf:type sp:if ;
+                sp:arg1 [
+                    rdf:type sp:eq ;
+                    sp:arg1 [
+                        sp:varName "lang"^^xsd:string ;
+                      ] ;
+                    sp:arg2 "" ;
+                  ] ;
+                sp:arg2 [
+                    rdf:type xsd:string ;
+                    sp:arg1 [
+                        sp:varName "lex"^^xsd:string ;
+                      ] ;
+                  ] ;
+                sp:arg3 [
+                    rdf:type sp:strlang ;
+                    sp:arg1 [
+                        sp:varName "lex"^^xsd:string ;
+                      ] ;
+                    sp:arg2 [
+                        sp:varName "lang"^^xsd:string ;
+                      ] ;
+                  ] ;
+              ] ;
+            sp:variable [
+                sp:varName "new"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "Unify line breaks"^^xsd:string ;
+    ] ;
+.
+<http://www.w3.org/2004/02/skos/core#Concept>
+  skoscleaner:rule [
+      rdf:type sp:Modify ;
+      sp:deletePattern (
+          [
+            sp:object [
+                sp:varName "superType"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject spin:_this ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "superType"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject spin:_this ;
+          ]
+          [
+            sp:object [
+                sp:varName "subType"^^xsd:string ;
+              ] ;
+            sp:predicate rdf:type ;
+            sp:subject spin:_this ;
+          ]
+          [
+            rdf:type sp:TriplePath ;
+            sp:object [
+                sp:varName "superType"^^xsd:string ;
+              ] ;
+            sp:path [
+                rdf:type sp:ModPath ;
+                sp:modMax -2 ;
+                sp:modMin 1 ;
+                sp:subPath rdfs:subClassOf ;
+              ] ;
+            sp:subject [
+                sp:varName "subType"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:ne ;
+                sp:arg1 [
+                    sp:varName "superType"^^xsd:string ;
+                  ] ;
+                sp:arg2 [
+                    sp:varName "subType"^^xsd:string ;
+                  ] ;
+              ] ;
+          ]
+        ) ;
+      rdfs:comment "Remove redundant rdf:types - leave most specific one"^^xsd:string ;
+    ] ;
+.

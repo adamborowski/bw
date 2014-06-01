@@ -1,0 +1,267 @@
+# baseURI: http://uispin.org/swon
+# imports: http://uispin.org/ui
+
+@prefix afn: <http://jena.hpl.hp.com/ARQ/function#> .
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix default: <http://uispin.org/default#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix let: <http://uispin.org/let#> .
+@prefix letrs: <http://uispin.org/letrs#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix smf: <http://topbraid.org/sparqlmotionfunctions#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spif: <http://spinrdf.org/spif#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix spr: <http://spinrdf.org/spr#> .
+@prefix spra: <http://spinrdf.org/spra#> .
+@prefix swon: <http://uispin.org/swon#> .
+@prefix ui: <http://uispin.org/ui#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+arg:comma
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:labelFunction
+  rdf:type rdf:Property ;
+  rdfs:label "label function"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:name
+  rdf:type rdf:Property ;
+  rdfs:label "name"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:resultSet
+  rdf:type rdf:Property ;
+  rdfs:label "result set"^^xsd:string ;
+  rdfs:subPropertyOf ui:resultSet ;
+.
+arg:rowIndex
+  rdf:type rdf:Property ;
+  rdfs:label "row index"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+arg:value
+  rdf:type rdf:Property ;
+  rdfs:label "value"^^xsd:string ;
+  rdfs:subPropertyOf sp:arg ;
+.
+<http://uispin.org/swon>
+  rdf:type owl:Ontology ;
+  rdfs:comment "A library of SWP elements for creating JSON text output."^^xsd:string ;
+  owl:imports <http://uispin.org/ui> ;
+  owl:versionInfo "1.1.0"^^xsd:string ;
+.
+swon:Array
+  rdf:type ui:ControlElement ;
+  rdfs:comment "Creates a [ ... ] pair that can (for example) have swon:Objects as child elements."^^xsd:string ;
+  rdfs:label "Array"^^xsd:string ;
+  rdfs:subClassOf swon:Elements ;
+.
+swon:Dummy
+  rdf:type ui:ViewElement ;
+  ui:private "true"^^xsd:boolean ;
+  rdfs:comment "A dummy element that acts as a parent for the insertion point and will be skipped by the SWP serialization code."^^xsd:string ;
+  rdfs:label "Dummy"^^xsd:string ;
+  rdfs:subClassOf swon:Elements ;
+.
+swon:Elements
+  rdf:type ui:ViewElement ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:labelFunction ;
+      spl:valueType spin:Function ;
+      rdfs:comment "An option function that can be used to transform the values before they are inserted into the name-value pairs. A typical use case is to use ui:label."^^xsd:string ;
+    ] ;
+  ui:abstract "true"^^xsd:boolean ;
+  rdfs:comment "Abstract superclass of the JSON elements."^^xsd:string ;
+  rdfs:label "JSON Elements"^^xsd:string ;
+  rdfs:subClassOf ui:ViewElements ;
+.
+swon:ForEachResultSetColumnIndex
+  rdf:type spin:SelectTemplate ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "colIndex"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "colIndex"^^xsd:string ;
+              ] ;
+            sp:predicate spr:colIndices ;
+            sp:subject [
+                sp:varName "resultSet"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resultSet ;
+      spl:valueType sp:Select ;
+      rdfs:comment "The result set to get all column indices of."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  rdfs:label "For each result set column index"^^xsd:string ;
+  rdfs:subClassOf spin:SelectTemplates ;
+.
+swon:ForEachResultSetRowIndex
+  rdf:type spin:SelectTemplate ;
+  spin:body [
+      rdf:type sp:Select ;
+      sp:resultVariables (
+          [
+            sp:varName "rowIndex"^^xsd:string ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "rowIndex"^^xsd:string ;
+              ] ;
+            sp:predicate spr:rowIndices ;
+            sp:subject [
+                sp:varName "resultSet"^^xsd:string ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resultSet ;
+      spl:valueType sp:Select ;
+      rdfs:comment "The result set to get all column indices of."^^xsd:string ;
+    ] ;
+  spin:private "true"^^xsd:boolean ;
+  rdfs:label "For each result set row index"^^xsd:string ;
+  rdfs:subClassOf spin:SelectTemplates ;
+.
+swon:NameValuePair
+  rdf:type ui:ControlElement ;
+  rdfs:comment "Deprecated: use swon:Value instead."^^xsd:string ;
+  rdfs:subClassOf swon:Value ;
+.
+swon:Object
+  rdf:type ui:ControlElement ;
+  rdfs:comment "Creates a { ... } pair that can have elements of type swon:Value as children."^^xsd:string ;
+  rdfs:label "Object"^^xsd:string ;
+  rdfs:subClassOf swon:Elements ;
+.
+swon:RSArray
+  rdf:type ui:ViewElement ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resultSet ;
+      spl:valueType sp:Select ;
+      rdfs:comment "The result set to walk through."^^xsd:string ;
+    ] ;
+  ui:prototype """
+<ui:call arg:resultSet=\"{= ?resultSet }\" ui:template=\"{= swon:ForEachResultSetRowIndex }\">[<ui:forEach ui:resultSet=\"{= ?rs }\" ui:separator=\",\">
+        <ui:group let:value=\"{= spr:cell(?resultSet, ?rowIndex, 0) }\">\"{= ui:escapeJSON(IF(bound(?labelFunction), spif:invoke(?labelFunction, ?value), xsd:string(?value))) }\"</ui:group>
+    </ui:forEach>]</ui:call>
+"""^^ui:Literal ;
+  rdfs:comment "Creates a simple JSON array with all values from the first column of a given result set, e.g. ['A','B','C']."^^xsd:string ;
+  rdfs:label "RS Array"^^xsd:string ;
+  rdfs:subClassOf swon:Elements ;
+.
+swon:RSObject
+  rdf:type ui:ViewElement ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:rowIndex ;
+      spl:valueType xsd:integer ;
+      rdfs:comment "The (optional) row index to select the object."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resultSet ;
+      spl:valueType sp:Select ;
+      rdfs:comment "The result set containing the name-value pairs - the names are the result variables. If the optional row index isn't present, the system will use the first row."^^xsd:string ;
+    ] ;
+  ui:prototype """
+<ui:call arg:resultSet=\"{= ?resultSet }\" ui:template=\"{= swon:ForEachResultSetColumnIndex }\">
+    <swon:Object>
+        <ui:forEach ui:resultSet=\"{= ?rs }\" ui:separator=\",\">
+            <swon:Value arg:labelFunction=\"{= ?labelFunction }\" arg:name=\"{= spr:colName(?resultSet, ?colIndex) }\" arg:value=\"{= spr:cell(?resultSet, COALESCE(?rowIndex, 0), ?colIndex) }\"/>
+        </ui:forEach>
+    </swon:Object>
+</ui:call>
+"""^^ui:Literal ;
+  rdfs:comment "Takes a result set and produces a JSON object that has one value for each variable. The values are taken from the first row of the result set by default, but other rows can be selected."^^xsd:string ;
+  rdfs:label "RS object"^^xsd:string ;
+  rdfs:subClassOf swon:Elements ;
+.
+swon:RSObjectArray
+  rdf:type ui:ViewElement ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:resultSet ;
+      spl:valueType sp:Select ;
+      rdfs:comment "The result set delivering the rows."^^xsd:string ;
+    ] ;
+  ui:prototype """
+<ui:call arg:resultSet=\"{= ?resultSet }\" ui:template=\"{= swon:ForEachResultSetRowIndex }\">
+    <swon:Array>
+        <ui:forEach ui:resultSet=\"{= ?rs }\" ui:separator=\",\">
+            <swon:RSObject arg:labelFunction=\"{= ?labelFunction }\" arg:resultSet=\"{= ?resultSet }\" arg:rowIndex=\"{= ?rowIndex }\"/>
+        </ui:forEach>
+    </swon:Array>
+</ui:call>
+"""^^ui:Literal ;
+  rdfs:comment "Creates a JSON array from a result set where each item is a swon:RSObject, with fields for each variable."^^xsd:string ;
+  rdfs:label "RS object array"^^xsd:string ;
+  rdfs:subClassOf swon:Elements ;
+.
+swon:Value
+  rdf:type ui:ControlElement ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:comma ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "True to append a comma behind the value."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:value ;
+      rdfs:comment "The value to render. If unbound, the engine will print \"null\" unless any child elements are present. The child elements are inserted otherwise."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:name ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the variable."^^xsd:string ;
+    ] ;
+  rdfs:comment "Prints a valid JSON name-value pair, e.g. \"varName\":\"value\". If the arg:value argument is unbound, then the engine will insert the child elements of the swon:Value, allowing to nest complex objects as values. If arg:value is unbound and no children are present it will print \"null\". If required, the element will make sure that a comma is inserted before the name."^^xsd:string ;
+  rdfs:label "Value"^^xsd:string ;
+  rdfs:subClassOf swon:Elements ;
+.
+swon:Values
+  rdf:type ui:ControlElement ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:comma ;
+      spl:valueType xsd:boolean ;
+      rdfs:comment "True to append a comma behind the value."^^xsd:string ;
+    ] ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:predicate arg:name ;
+      spl:valueType xsd:string ;
+      rdfs:comment "The name of the variable."^^xsd:string ;
+    ] ;
+  rdfs:comment "Declares a JSON attribute with an array as its value. The child elements of this node are typically swon:Objects or ui:forEachs. Produces \"name\" : [ ... ] where ... is created by the child elements. Roughly equivalent to <swon:Value name=\"...\"><swon:Array>...</swon:Array></swon:Value>. If required, the element will make sure that a comma is inserted before the name."^^xsd:string ;
+  rdfs:subClassOf swon:Elements ;
+.

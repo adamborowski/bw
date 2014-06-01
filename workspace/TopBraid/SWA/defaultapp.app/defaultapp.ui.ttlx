@@ -1,0 +1,115 @@
+# baseURI: http://topbraid.org/swa/defaultapp
+# imports: http://topbraid.org/swa
+
+@prefix afn: <http://jena.hpl.hp.com/ARQ/function#> .
+@prefix arg: <http://spinrdf.org/arg#> .
+@prefix composite: <http://www.topbraid.org/2007/05/composite.owl#> .
+@prefix css: <http://uispin.org/css#> .
+@prefix daml: <http://www.daml.org/2001/03/daml+oil#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix default: <http://uispin.org/default#> .
+@prefix defaultapp: <http://topbraid.org/swa/defaultapp#> .
+@prefix email: <http://topbraid.org/email#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix html: <http://uispin.org/html#> .
+@prefix let: <http://uispin.org/let#> .
+@prefix letrs: <http://uispin.org/letrs#> .
+@prefix list: <http://jena.hpl.hp.com/ARQ/list#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix search: <http://topbraid.org/search#> .
+@prefix search.spin: <http://topbraid.org/search.spin#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sm: <http://topbraid.org/sparqlmotion#> .
+@prefix smf: <http://topbraid.org/sparqlmotionfunctions#> .
+@prefix sml: <http://topbraid.org/sparqlmotionlib#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix sparqlmotionlib-swp: <http://topbraid.org/sparqlmotionlib-swp#> .
+@prefix spif: <http://spinrdf.org/spif#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix spl: <http://spinrdf.org/spl#> .
+@prefix spr: <http://spinrdf.org/spr#> .
+@prefix spra: <http://spinrdf.org/spra#> .
+@prefix style: <http://uispin.org/style#> .
+@prefix swa: <http://topbraid.org/swa#> .
+@prefix swon: <http://uispin.org/swon#> .
+@prefix ui: <http://uispin.org/ui#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+arg:rootClass
+  rdf:type rdf:Property ;
+  rdfs:subPropertyOf sp:arg ;
+.
+<http://topbraid.org/swa/defaultapp>
+  rdf:type owl:Ontology ;
+  rdfs:comment """A default application built with SWA, consisting of a class tree, a search form, a list of instances, and a form for the selected instance.
+
+This application can be used as a starting point of custom applications. The way to get started is to create a deep copy of the TopBraid/defaultapp folder in your own project, and do a global replace of \"defaultapp\" to \"myapp\" across all text files, folder and file names. Naming conventions in the files are consistently using \"defaultapp\" for that purpose."""^^xsd:string ;
+  owl:imports <http://topbraid.org/swa> ;
+  owl:versionInfo "0.1.0"^^xsd:string ;
+.
+defaultapp:Application
+  rdf:type ui:NodeClass ;
+  spin:constraint [
+      rdf:type spl:Argument ;
+      spl:optional "true"^^xsd:boolean ;
+      spl:predicate arg:rootClass ;
+      spl:valueType rdfs:Class ;
+      rdfs:comment "The (optional) root class of the tree. If left empty, the tree will start with owl:Thing."^^xsd:string ;
+    ] ;
+  ui:headIncludes """
+<ui:group>
+    <title>TopBraid Default Application</title>
+    <link href=\"{= ui:lib() }/defaultapp/css/defaultapp.css\" rel=\"stylesheet\" type=\"text/css\"/>
+    <script src=\"{= ui:lib() }/defaultapp/js/defaultapp.js\" type=\"text/javascript\"/>
+</ui:group>
+"""^^ui:Literal ;
+  ui:prototype """
+<swa:FullScreenBorderLayout arg:deepLinkingEvent=\"org.defaultapp.instanceSelected\" arg:eastSize=\"{= 400 }\" arg:northFixed=\"{= true }\" arg:westSize=\"{= 300 }\" let:classSelectedEvent=\"org.defaultapp.classSelected\" let:instanceSelectedEvent=\"org.defaultapp.instanceSelected\" let:rootClass=\"{= COALESCE(?rootClass, owl:Thing) }\">
+    <defaultapp:ApplicationHeader/>
+    <swa:BorderLayout arg:layoutPanel=\"west\" arg:southSize=\"{= 200 }\">
+        <swa:Window arg:layoutPanel=\"center\" arg:title=\"Class Hierarchy\">
+            <swa:ClassTreeGadget arg:resourceSelectedEvent=\"{= ?instanceSelectedEvent }\" ui:args=\"*\"/>
+        </swa:Window>
+        <swa:Window arg:id=\"defaultappInstancesWindow\" arg:layoutPanel=\"south\" arg:title=\"Instances\">
+            <swa:InstancesGridGadget ui:args=\"*\"/>
+        </swa:Window>
+    </swa:BorderLayout>
+    <swa:Window arg:id=\"defaultappFormWindow\" arg:layoutPanel=\"center\" arg:title=\"Selected Resource\">
+        <swa:ViewFormGadget arg:resourceSelectedEvent=\"{= ?instanceSelectedEvent }\" ui:args=\"*\"/>
+    </swa:Window>
+    <swa:BorderLayout arg:layoutPanel=\"east\" arg:southSize=\"{= 200 }\">
+        <swa:Window arg:id=\"defaultappSearchWindow\" arg:layoutPanel=\"center\" arg:title=\"Search\">
+            <swa:FormSearchGadget arg:resourceType=\"{= COALESCE(?resourceType, ?rootClass) }\" ui:args=\"*\"/>
+        </swa:Window>
+        <swa:Window arg:layoutPanel=\"south\" arg:title=\"Search Results\">
+            <swa:GridSearchResultsGadget arg:resourceSelectedEvent=\"{= ?instanceSelectedEvent }\" ui:args=\"*\"/>
+        </swa:Window>
+    </swa:BorderLayout>
+</swa:FullScreenBorderLayout>
+"""^^ui:Literal ;
+  rdfs:comment """An SWA stand-alone application consisting of a header section, a class tree, an instances list, a search form with a result grid, and a form for the selected instance. The application can be configured to have a different root class than the default class of owl:Thing.
+
+The ui:prototype of this Application element defines the surrounding layout, while each component is defined by its own Gadget class."""^^xsd:string ;
+  rdfs:label "Default Application"^^xsd:string ;
+  rdfs:subClassOf swa:Applications ;
+.
+defaultapp:ApplicationHeader
+  rdf:type ui:NodeClass ;
+  ui:prototype """
+<ui:loadable class=\"ui-layout-north defaultapp-header\" ui:loadId=\"defaultappHeader\">
+    <div class=\"defaultapp-header-name\">TopBraid Default Application - {= ui:label(ui:graphWithoutImports(ui:currentQueryGraph())) }</div>
+</ui:loadable>
+"""^^ui:Literal ;
+  rdfs:comment "The main header, in the northern part of the application's layout. A place to display logos and drive the navigation."^^xsd:string ;
+  rdfs:label "Application header"^^xsd:string ;
+  rdfs:subClassOf swa:Elements ;
+.
+rdfs:Class
+  ui:instanceView """
+<defaultapp:Application arg:rootClass=\"{= ?this }\" ui:id=\"app\"/>
+"""^^ui:Literal ;
+.
