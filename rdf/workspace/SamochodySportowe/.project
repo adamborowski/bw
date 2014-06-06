@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>SamochodySportowe</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>prod.n3</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/prod.n3</locationURI>
+		</link>
+		<link>
+			<name>sam.n3</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/sam.n3</locationURI>
+		</link>
+	</linkedResources>
+</projectDescription>

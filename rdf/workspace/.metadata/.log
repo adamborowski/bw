@@ -1,0 +1,190 @@
+!SESSION 2014-06-06 16:41:07.435 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.egit.ui 2 0 2014-06-06 16:42:10.840
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\PC'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.topbraid.eclipsex 2 0 2014-06-06 16:45:34.771
+!MESSAGE  WARN [ModalContext] (ErrorHandlerFactory.java:77) - [line: 2, col: 1 ] Bad IRI: <!-- saved from url=(1013)http://dbpedia.org/sparql/?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+my%3A+%3Chttp%3A%2F%2Fkm.pg.gda.pl%2Frdf%2F%3E%0D%0ACONSTRUCT+%7B+%0D%0A%09%3Fman+rdf%3Atype+my%3AManufacturer+.+%0D%0A%09%3Fman+my%3Aname+%3Fname+.+%0D%0A%09%3Fman+my%3Afounder+%3Ffounder+.+%0D%0A%09%3Fman+my%3Aowner+%3Fown+.%0D%0A%09%3Fman+my%3AfoundedBy+%3FfBy+.%0D%0A%09%3Fman+my%3AfoundingDate+%3FfDate+.%0D%0A%09%3Fman+my%3AlocationCity+%3FlocCity+.%0D%0A%7D+WHERE+%7B%0D%0A%09%3Fman+dcterms%3Asubject+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2FCategory%3ASports_car_manufacturers%3E+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Aname+%3Fname+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Afounder+%3Ffounder+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Aowner+%3Fown+%7D+.%0D%0A++++++++OPTIONAL+%7B+%3Fman+dbpedia-owl%3AfoundedBy+%3FfBy+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpedia-owl%3AfoundingDate+%3FfDate+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpedia-owl%3AlocationCity+%3FlocCity+%7D+.%0D%0A%7D&format=text%2Fplain&timeout=50000&debug=on --> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
+
+
+!ENTRY org.topbraid.eclipsex 2 0 2014-06-06 16:45:34.930
+!MESSAGE  WARN [ModalContext] (ErrorHandlerFactory.java:77) - [line: 2, col: 1 ] Bad IRI: <!-- saved from url=(1013)http://dbpedia.org/sparql/?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+my%3A+%3Chttp%3A%2F%2Fkm.pg.gda.pl%2Frdf%2F%3E%0D%0ACONSTRUCT+%7B+%0D%0A%09%3Fman+rdf%3Atype+my%3AManufacturer+.+%0D%0A%09%3Fman+my%3Aname+%3Fname+.+%0D%0A%09%3Fman+my%3Afounder+%3Ffounder+.+%0D%0A%09%3Fman+my%3Aowner+%3Fown+.%0D%0A%09%3Fman+my%3AfoundedBy+%3FfBy+.%0D%0A%09%3Fman+my%3AfoundingDate+%3FfDate+.%0D%0A%09%3Fman+my%3AlocationCity+%3FlocCity+.%0D%0A%7D+WHERE+%7B%0D%0A%09%3Fman+dcterms%3Asubject+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2FCategory%3ASports_car_manufacturers%3E+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Aname+%3Fname+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Afounder+%3Ffounder+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Aowner+%3Fown+%7D+.%0D%0A++++++++OPTIONAL+%7B+%3Fman+dbpedia-owl%3AfoundedBy+%3FfBy+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpedia-owl%3AfoundingDate+%3FfDate+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpedia-owl%3AlocationCity+%3FlocCity+%7D+.%0D%0A%7D&format=text%2Fplain&timeout=50000&debug=on --> Code: 45/UNREGISTERED_NONIETF_SCHEME_TREE in SCHEME: The scheme name has a "-" in it, but it does not start in "x-" and the prefix is not known as the prefix of an alternative tree for URI schemes.
+
+
+!ENTRY org.topbraid.eclipsex 2 0 2014-06-06 16:45:35.087
+!MESSAGE  WARN [ModalContext] (ErrorHandlerFactory.java:77) - [line: 2, col: 1 ] Bad IRI: <!-- saved from url=(1013)http://dbpedia.org/sparql/?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+my%3A+%3Chttp%3A%2F%2Fkm.pg.gda.pl%2Frdf%2F%3E%0D%0ACONSTRUCT+%7B+%0D%0A%09%3Fman+rdf%3Atype+my%3AManufacturer+.+%0D%0A%09%3Fman+my%3Aname+%3Fname+.+%0D%0A%09%3Fman+my%3Afounder+%3Ffounder+.+%0D%0A%09%3Fman+my%3Aowner+%3Fown+.%0D%0A%09%3Fman+my%3AfoundedBy+%3FfBy+.%0D%0A%09%3Fman+my%3AfoundingDate+%3FfDate+.%0D%0A%09%3Fman+my%3AlocationCity+%3FlocCity+.%0D%0A%7D+WHERE+%7B%0D%0A%09%3Fman+dcterms%3Asubject+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2FCategory%3ASports_car_manufacturers%3E+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Aname+%3Fname+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Afounder+%3Ffounder+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Aowner+%3Fown+%7D+.%0D%0A++++++++OPTIONAL+%7B+%3Fman+dbpedia-owl%3AfoundedBy+%3FfBy+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpedia-owl%3AfoundingDate+%3FfDate+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpedia-owl%3AlocationCity+%3FlocCity+%7D+.%0D%0A%7D&format=text%2Fplain&timeout=50000&debug=on --> Code: 17/WHITESPACE in QUERY: A single whitespace character. These match no grammar rules of URIs/IRIs. These characters are permitted in RDF URI References, XML system identifiers, and XML Schema anyURIs.
+
+
+!ENTRY org.topbraid.eclipsex 4 0 2014-06-06 16:45:35.111
+!MESSAGE ERROR [ModalContext] (ErrorHandlerFactory.java:84) - [line: 3, col: 13] Triples not terminated by DOT
+
+
+!ENTRY org.topbraid.core 2 0 2014-06-06 16:45:35.120
+!MESSAGE Could not inspect file L/SamochodySportowe/prod.n3
+!STACK 0
+org.apache.jena.riot.RiotException: [line: 3, col: 13] Triples not terminated by DOT
+	at org.apache.jena.riot.system.ErrorHandlerFactory$ErrorHandlerStd.fatal(ErrorHandlerFactory.java:136)
+	at org.apache.jena.riot.lang.LangEngine.raiseException(LangEngine.java:163)
+	at org.apache.jena.riot.lang.LangEngine.exceptionDirect(LangEngine.java:156)
+	at org.apache.jena.riot.lang.LangEngine.exception(LangEngine.java:149)
+	at org.apache.jena.riot.lang.LangEngine.expect(LangEngine.java:141)
+	at org.apache.jena.riot.lang.LangEngine.expectOrEOF(LangEngine.java:128)
+	at org.apache.jena.riot.lang.LangTurtleBase.expectEndOfTriplesTurtle(LangTurtleBase.java:258)
+	at org.apache.jena.riot.lang.LangTurtle.expectEndOfTriples(LangTurtle.java:49)
+	at org.apache.jena.riot.lang.LangTurtleBase.triples(LangTurtleBase.java:243)
+	at org.apache.jena.riot.lang.LangTurtleBase.triplesSameSubject(LangTurtleBase.java:186)
+	at org.apache.jena.riot.lang.LangTurtle.oneTopLevelElement(LangTurtle.java:44)
+	at org.apache.jena.riot.lang.LangTurtleBase.runParser(LangTurtleBase.java:90)
+	at org.apache.jena.riot.lang.LangBase.parse(LangBase.java:42)
+	at org.apache.jena.riot.RDFParserRegistry$ReaderRIOTFactoryImpl$1.read(RDFParserRegistry.java:142)
+	at org.apache.jena.riot.RDFDataMgr.process(RDFDataMgr.java:818)
+	at org.apache.jena.riot.RDFDataMgr.read(RDFDataMgr.java:258)
+	at org.apache.jena.riot.RDFDataMgr.read(RDFDataMgr.java:244)
+	at org.apache.jena.riot.adapters.RDFReaderRIOT.read(RDFReaderRIOT.java:69)
+	at com.hp.hpl.jena.rdf.model.impl.ModelCom.read(ModelCom.java:274)
+	at org.topbraid.turtle.JenaFileGraphStore.readModelFromFile(JenaFileGraphStore.java:152)
+	at org.topbraid.turtle.JenaFileGraphStore.getBaseURI(JenaFileGraphStore.java:62)
+	at org.topbraid.turtle.TurtleGraphStore.getBaseURI(TurtleGraphStore.java:53)
+	at org.topbraid.core.registry.impl.FileRegistry.getBaseURIByInspection(FileRegistry.java:732)
+	at org.topbraid.core.registry.impl.FileRegistry.registerAndProcessImports(FileRegistry.java:681)
+	at org.topbraidcomposer.core.io.TBCFileRegistry.handleFileAdded(TBCFileRegistry.java:177)
+	at org.topbraidcomposer.core.io.TBCFileRegistry.handleFileDelta(TBCFileRegistry.java:247)
+	at org.topbraidcomposer.core.io.TBCFileRegistry.access$0(TBCFileRegistry.java:234)
+	at org.topbraidcomposer.core.io.TBCFileRegistry$3.visit(TBCFileRegistry.java:262)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.topbraidcomposer.core.io.TBCFileRegistry.handleResourceChange(TBCFileRegistry.java:259)
+	at org.topbraidcomposer.core.io.TBCFileRegistry.access$1(TBCFileRegistry.java:257)
+	at org.topbraidcomposer.core.io.TBCFileRegistry$5.run(TBCFileRegistry.java:401)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+
+!ENTRY org.topbraid.eclipsex 2 0 2014-06-06 16:45:35.136
+!MESSAGE  WARN [ModalContext] (ErrorHandlerFactory.java:77) - [line: 2, col: 1 ] Bad IRI: <!-- saved from url=(0762)http://dbpedia.org/sparql/?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+my%3A+%3Chttp%3A%2F%2Fkm.pg.gda.pl%2Frdf%2F%3E%0D%0ACONSTRUCT+%7B+%0D%0A%09%3Fcar+rdf%3Atype+my%3ACar+.+%0D%0A%09%3Fcar+my%3Aname+%3Fname+.+%0D%0A%09%3Fcar+my%3Aengine+%3Fen+.+%0D%0A%09%3Fcar+my%3Amanufacturer+%3Fman+.%0D%0A++++%3Fcar+my%3Aproduction+%3Fprod+.%0D%0A%7D+WHERE+%7B%0D%0A%09%3Fcar+dcterms%3Asubject+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2FCategory%3ASports_racing_cars%3E+.%0D%0A%09OPTIONAL+%7B+%3Fcar+foaf%3Aname+%3Fname+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fcar+dbpprop%3Aengine+%3Fen+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fcar+dbpprop%3Amanufacturer+%3Fman+%7D+.%0D%0A++++OPTIONAL+%7B+%3Fcar+dbpprop%3Aproduction+%3Fprod+%7D+.%0D%0A%7D&format=text%2Fplain&timeout=50000&debug=on --> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
+
+
+!ENTRY org.topbraid.eclipsex 2 0 2014-06-06 16:45:35.144
+!MESSAGE  WARN [ModalContext] (ErrorHandlerFactory.java:77) - [line: 2, col: 1 ] Bad IRI: <!-- saved from url=(0762)http://dbpedia.org/sparql/?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+my%3A+%3Chttp%3A%2F%2Fkm.pg.gda.pl%2Frdf%2F%3E%0D%0ACONSTRUCT+%7B+%0D%0A%09%3Fcar+rdf%3Atype+my%3ACar+.+%0D%0A%09%3Fcar+my%3Aname+%3Fname+.+%0D%0A%09%3Fcar+my%3Aengine+%3Fen+.+%0D%0A%09%3Fcar+my%3Amanufacturer+%3Fman+.%0D%0A++++%3Fcar+my%3Aproduction+%3Fprod+.%0D%0A%7D+WHERE+%7B%0D%0A%09%3Fcar+dcterms%3Asubject+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2FCategory%3ASports_racing_cars%3E+.%0D%0A%09OPTIONAL+%7B+%3Fcar+foaf%3Aname+%3Fname+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fcar+dbpprop%3Aengine+%3Fen+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fcar+dbpprop%3Amanufacturer+%3Fman+%7D+.%0D%0A++++OPTIONAL+%7B+%3Fcar+dbpprop%3Aproduction+%3Fprod+%7D+.%0D%0A%7D&format=text%2Fplain&timeout=50000&debug=on --> Code: 45/UNREGISTERED_NONIETF_SCHEME_TREE in SCHEME: The scheme name has a "-" in it, but it does not start in "x-" and the prefix is not known as the prefix of an alternative tree for URI schemes.
+
+
+!ENTRY org.topbraid.eclipsex 2 0 2014-06-06 16:45:35.152
+!MESSAGE  WARN [ModalContext] (ErrorHandlerFactory.java:77) - [line: 2, col: 1 ] Bad IRI: <!-- saved from url=(0762)http://dbpedia.org/sparql/?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+my%3A+%3Chttp%3A%2F%2Fkm.pg.gda.pl%2Frdf%2F%3E%0D%0ACONSTRUCT+%7B+%0D%0A%09%3Fcar+rdf%3Atype+my%3ACar+.+%0D%0A%09%3Fcar+my%3Aname+%3Fname+.+%0D%0A%09%3Fcar+my%3Aengine+%3Fen+.+%0D%0A%09%3Fcar+my%3Amanufacturer+%3Fman+.%0D%0A++++%3Fcar+my%3Aproduction+%3Fprod+.%0D%0A%7D+WHERE+%7B%0D%0A%09%3Fcar+dcterms%3Asubject+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2FCategory%3ASports_racing_cars%3E+.%0D%0A%09OPTIONAL+%7B+%3Fcar+foaf%3Aname+%3Fname+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fcar+dbpprop%3Aengine+%3Fen+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fcar+dbpprop%3Amanufacturer+%3Fman+%7D+.%0D%0A++++OPTIONAL+%7B+%3Fcar+dbpprop%3Aproduction+%3Fprod+%7D+.%0D%0A%7D&format=text%2Fplain&timeout=50000&debug=on --> Code: 17/WHITESPACE in QUERY: A single whitespace character. These match no grammar rules of URIs/IRIs. These characters are permitted in RDF URI References, XML system identifiers, and XML Schema anyURIs.
+
+
+!ENTRY org.topbraid.eclipsex 4 0 2014-06-06 16:45:35.161
+!MESSAGE ERROR [ModalContext] (ErrorHandlerFactory.java:84) - [line: 3, col: 13] Triples not terminated by DOT
+
+
+!ENTRY org.topbraid.core 2 0 2014-06-06 16:45:35.165
+!MESSAGE Could not inspect file L/SamochodySportowe/sam.n3
+!STACK 0
+org.apache.jena.riot.RiotException: [line: 3, col: 13] Triples not terminated by DOT
+	at org.apache.jena.riot.system.ErrorHandlerFactory$ErrorHandlerStd.fatal(ErrorHandlerFactory.java:136)
+	at org.apache.jena.riot.lang.LangEngine.raiseException(LangEngine.java:163)
+	at org.apache.jena.riot.lang.LangEngine.exceptionDirect(LangEngine.java:156)
+	at org.apache.jena.riot.lang.LangEngine.exception(LangEngine.java:149)
+	at org.apache.jena.riot.lang.LangEngine.expect(LangEngine.java:141)
+	at org.apache.jena.riot.lang.LangEngine.expectOrEOF(LangEngine.java:128)
+	at org.apache.jena.riot.lang.LangTurtleBase.expectEndOfTriplesTurtle(LangTurtleBase.java:258)
+	at org.apache.jena.riot.lang.LangTurtle.expectEndOfTriples(LangTurtle.java:49)
+	at org.apache.jena.riot.lang.LangTurtleBase.triples(LangTurtleBase.java:243)
+	at org.apache.jena.riot.lang.LangTurtleBase.triplesSameSubject(LangTurtleBase.java:186)
+	at org.apache.jena.riot.lang.LangTurtle.oneTopLevelElement(LangTurtle.java:44)
+	at org.apache.jena.riot.lang.LangTurtleBase.runParser(LangTurtleBase.java:90)
+	at org.apache.jena.riot.lang.LangBase.parse(LangBase.java:42)
+	at org.apache.jena.riot.RDFParserRegistry$ReaderRIOTFactoryImpl$1.read(RDFParserRegistry.java:142)
+	at org.apache.jena.riot.RDFDataMgr.process(RDFDataMgr.java:818)
+	at org.apache.jena.riot.RDFDataMgr.read(RDFDataMgr.java:258)
+	at org.apache.jena.riot.RDFDataMgr.read(RDFDataMgr.java:244)
+	at org.apache.jena.riot.adapters.RDFReaderRIOT.read(RDFReaderRIOT.java:69)
+	at com.hp.hpl.jena.rdf.model.impl.ModelCom.read(ModelCom.java:274)
+	at org.topbraid.turtle.JenaFileGraphStore.readModelFromFile(JenaFileGraphStore.java:152)
+	at org.topbraid.turtle.JenaFileGraphStore.getBaseURI(JenaFileGraphStore.java:62)
+	at org.topbraid.turtle.TurtleGraphStore.getBaseURI(TurtleGraphStore.java:53)
+	at org.topbraid.core.registry.impl.FileRegistry.getBaseURIByInspection(FileRegistry.java:732)
+	at org.topbraid.core.registry.impl.FileRegistry.registerAndProcessImports(FileRegistry.java:681)
+	at org.topbraidcomposer.core.io.TBCFileRegistry.handleFileAdded(TBCFileRegistry.java:177)
+	at org.topbraidcomposer.core.io.TBCFileRegistry.handleFileDelta(TBCFileRegistry.java:247)
+	at org.topbraidcomposer.core.io.TBCFileRegistry.access$0(TBCFileRegistry.java:234)
+	at org.topbraidcomposer.core.io.TBCFileRegistry$3.visit(TBCFileRegistry.java:262)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.topbraidcomposer.core.io.TBCFileRegistry.handleResourceChange(TBCFileRegistry.java:259)
+	at org.topbraidcomposer.core.io.TBCFileRegistry.access$1(TBCFileRegistry.java:257)
+	at org.topbraidcomposer.core.io.TBCFileRegistry$5.run(TBCFileRegistry.java:401)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+
+!ENTRY org.topbraid.eclipsex 2 0 2014-06-06 16:46:13.118
+!MESSAGE  WARN [ModalContext] (ErrorHandlerFactory.java:77) - [line: 2, col: 1 ] Bad IRI: <!-- saved from url=(1013)http://dbpedia.org/sparql/?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+my%3A+%3Chttp%3A%2F%2Fkm.pg.gda.pl%2Frdf%2F%3E%0D%0ACONSTRUCT+%7B+%0D%0A%09%3Fman+rdf%3Atype+my%3AManufacturer+.+%0D%0A%09%3Fman+my%3Aname+%3Fname+.+%0D%0A%09%3Fman+my%3Afounder+%3Ffounder+.+%0D%0A%09%3Fman+my%3Aowner+%3Fown+.%0D%0A%09%3Fman+my%3AfoundedBy+%3FfBy+.%0D%0A%09%3Fman+my%3AfoundingDate+%3FfDate+.%0D%0A%09%3Fman+my%3AlocationCity+%3FlocCity+.%0D%0A%7D+WHERE+%7B%0D%0A%09%3Fman+dcterms%3Asubject+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2FCategory%3ASports_car_manufacturers%3E+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Aname+%3Fname+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Afounder+%3Ffounder+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Aowner+%3Fown+%7D+.%0D%0A++++++++OPTIONAL+%7B+%3Fman+dbpedia-owl%3AfoundedBy+%3FfBy+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpedia-owl%3AfoundingDate+%3FfDate+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpedia-owl%3AlocationCity+%3FlocCity+%7D+.%0D%0A%7D&format=text%2Fplain&timeout=50000&debug=on --> Code: 0/ILLEGAL_CHARACTER in SCHEME: The character violates the grammar rules for URIs/IRIs.
+
+
+!ENTRY org.topbraid.eclipsex 2 0 2014-06-06 16:46:13.127
+!MESSAGE  WARN [ModalContext] (ErrorHandlerFactory.java:77) - [line: 2, col: 1 ] Bad IRI: <!-- saved from url=(1013)http://dbpedia.org/sparql/?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+my%3A+%3Chttp%3A%2F%2Fkm.pg.gda.pl%2Frdf%2F%3E%0D%0ACONSTRUCT+%7B+%0D%0A%09%3Fman+rdf%3Atype+my%3AManufacturer+.+%0D%0A%09%3Fman+my%3Aname+%3Fname+.+%0D%0A%09%3Fman+my%3Afounder+%3Ffounder+.+%0D%0A%09%3Fman+my%3Aowner+%3Fown+.%0D%0A%09%3Fman+my%3AfoundedBy+%3FfBy+.%0D%0A%09%3Fman+my%3AfoundingDate+%3FfDate+.%0D%0A%09%3Fman+my%3AlocationCity+%3FlocCity+.%0D%0A%7D+WHERE+%7B%0D%0A%09%3Fman+dcterms%3Asubject+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2FCategory%3ASports_car_manufacturers%3E+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Aname+%3Fname+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Afounder+%3Ffounder+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Aowner+%3Fown+%7D+.%0D%0A++++++++OPTIONAL+%7B+%3Fman+dbpedia-owl%3AfoundedBy+%3FfBy+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpedia-owl%3AfoundingDate+%3FfDate+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpedia-owl%3AlocationCity+%3FlocCity+%7D+.%0D%0A%7D&format=text%2Fplain&timeout=50000&debug=on --> Code: 45/UNREGISTERED_NONIETF_SCHEME_TREE in SCHEME: The scheme name has a "-" in it, but it does not start in "x-" and the prefix is not known as the prefix of an alternative tree for URI schemes.
+
+
+!ENTRY org.topbraid.eclipsex 2 0 2014-06-06 16:46:13.137
+!MESSAGE  WARN [ModalContext] (ErrorHandlerFactory.java:77) - [line: 2, col: 1 ] Bad IRI: <!-- saved from url=(1013)http://dbpedia.org/sparql/?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+my%3A+%3Chttp%3A%2F%2Fkm.pg.gda.pl%2Frdf%2F%3E%0D%0ACONSTRUCT+%7B+%0D%0A%09%3Fman+rdf%3Atype+my%3AManufacturer+.+%0D%0A%09%3Fman+my%3Aname+%3Fname+.+%0D%0A%09%3Fman+my%3Afounder+%3Ffounder+.+%0D%0A%09%3Fman+my%3Aowner+%3Fown+.%0D%0A%09%3Fman+my%3AfoundedBy+%3FfBy+.%0D%0A%09%3Fman+my%3AfoundingDate+%3FfDate+.%0D%0A%09%3Fman+my%3AlocationCity+%3FlocCity+.%0D%0A%7D+WHERE+%7B%0D%0A%09%3Fman+dcterms%3Asubject+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2FCategory%3ASports_car_manufacturers%3E+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Aname+%3Fname+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Afounder+%3Ffounder+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Aowner+%3Fown+%7D+.%0D%0A++++++++OPTIONAL+%7B+%3Fman+dbpedia-owl%3AfoundedBy+%3FfBy+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpedia-owl%3AfoundingDate+%3FfDate+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpedia-owl%3AlocationCity+%3FlocCity+%7D+.%0D%0A%7D&format=text%2Fplain&timeout=50000&debug=on --> Code: 17/WHITESPACE in QUERY: A single whitespace character. These match no grammar rules of URIs/IRIs. These characters are permitted in RDF URI References, XML system identifiers, and XML Schema anyURIs.
+
+
+!ENTRY org.topbraid.eclipsex 4 0 2014-06-06 16:46:13.146
+!MESSAGE ERROR [ModalContext] (ErrorHandlerFactory.java:84) - [line: 3, col: 13] Triples not terminated by DOT
+
+
+!ENTRY org.topbraid.core 2 0 2014-06-06 16:46:13.149
+!MESSAGE Could not inspect file L/SamochodySportowe/prod.n3
+!STACK 0
+org.apache.jena.riot.RiotException: [line: 3, col: 13] Triples not terminated by DOT
+	at org.apache.jena.riot.system.ErrorHandlerFactory$ErrorHandlerStd.fatal(ErrorHandlerFactory.java:136)
+	at org.apache.jena.riot.lang.LangEngine.raiseException(LangEngine.java:163)
+	at org.apache.jena.riot.lang.LangEngine.exceptionDirect(LangEngine.java:156)
+	at org.apache.jena.riot.lang.LangEngine.exception(LangEngine.java:149)
+	at org.apache.jena.riot.lang.LangEngine.expect(LangEngine.java:141)
+	at org.apache.jena.riot.lang.LangEngine.expectOrEOF(LangEngine.java:128)
+	at org.apache.jena.riot.lang.LangTurtleBase.expectEndOfTriplesTurtle(LangTurtleBase.java:258)
+	at org.apache.jena.riot.lang.LangTurtle.expectEndOfTriples(LangTurtle.java:49)
+	at org.apache.jena.riot.lang.LangTurtleBase.triples(LangTurtleBase.java:243)
+	at org.apache.jena.riot.lang.LangTurtleBase.triplesSameSubject(LangTurtleBase.java:186)
+	at org.apache.jena.riot.lang.LangTurtle.oneTopLevelElement(LangTurtle.java:44)
+	at org.apache.jena.riot.lang.LangTurtleBase.runParser(LangTurtleBase.java:90)
+	at org.apache.jena.riot.lang.LangBase.parse(LangBase.java:42)
+	at org.apache.jena.riot.RDFParserRegistry$ReaderRIOTFactoryImpl$1.read(RDFParserRegistry.java:142)
+	at org.apache.jena.riot.RDFDataMgr.process(RDFDataMgr.java:818)
+	at org.apache.jena.riot.RDFDataMgr.read(RDFDataMgr.java:258)
+	at org.apache.jena.riot.RDFDataMgr.read(RDFDataMgr.java:244)
+	at org.apache.jena.riot.adapters.RDFReaderRIOT.read(RDFReaderRIOT.java:69)
+	at com.hp.hpl.jena.rdf.model.impl.ModelCom.read(ModelCom.java:274)
+	at org.topbraid.turtle.JenaFileGraphStore.readModelFromFile(JenaFileGraphStore.java:152)
+	at org.topbraid.turtle.JenaFileGraphStore.getBaseURI(JenaFileGraphStore.java:62)
+	at org.topbraid.turtle.TurtleGraphStore.getBaseURI(TurtleGraphStore.java:53)
+	at org.topbraid.core.registry.impl.FileRegistry.getBaseURIByInspection(FileRegistry.java:732)
+	at org.topbraid.core.registry.impl.FileRegistry.registerAndProcessImports(FileRegistry.java:681)
+	at org.topbraidcomposer.core.io.TBCFileRegistry.handleFileAdded(TBCFileRegistry.java:177)
+	at org.topbraidcomposer.core.io.TBCFileRegistry.handleFileDelta(TBCFileRegistry.java:247)
+	at org.topbraidcomposer.core.io.TBCFileRegistry.access$0(TBCFileRegistry.java:234)
+	at org.topbraidcomposer.core.io.TBCFileRegistry$3.visit(TBCFileRegistry.java:262)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.topbraidcomposer.core.io.TBCFileRegistry.handleResourceChange(TBCFileRegistry.java:259)
+	at org.topbraidcomposer.core.io.TBCFileRegistry.access$1(TBCFileRegistry.java:257)
+	at org.topbraidcomposer.core.io.TBCFileRegistry$5.run(TBCFileRegistry.java:401)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+
+!ENTRY org.topbraid.core 2 0 2014-06-06 17:16:39.135
+!MESSAGE The base URI http://km.pg.gda.pl/rdf/ from L/SamochodySportowe/SportCars.ttl is already used in file L/SamochodySportowe/SamochodySportowe.ttl , so use of this base URI may cause difficulties. Please change one or other. (TBC case)
+
+!ENTRY org.topbraid.core 2 0 2014-06-06 17:17:04.169
+!MESSAGE The base URI http://km.pg.gda.pl/rdf/ from L/SamochodySportowe/SamochodySportowe.ttl is already used in file L/SamochodySportowe/SportCars.ttl , so use of this base URI may cause difficulties. Please change one or other. (TBC case)

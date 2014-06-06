@@ -1,0 +1,4 @@
+//D&A&T&P-http\://www.w3.org/2000/01/rdf-schema\#label\ {name}=false
+//D&A&T&P-http\://www.w3.org/2004/02/skos/core\#prefLabel\ {name}=false
+NewFileBaseURI=http\://km.pg.gda.pl/rdf/
+eclipse.preferences.version=1

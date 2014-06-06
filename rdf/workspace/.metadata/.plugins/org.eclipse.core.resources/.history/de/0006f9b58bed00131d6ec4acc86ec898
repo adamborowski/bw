@@ -1,0 +1,195 @@
+<http://dbpedia.org/resource/Jaguar_D-Type>	<http://km.pg.gda.pl/rdf/name>	"Jaguar D-Type"@en .
+<http://dbpedia.org/resource/Nissan_R383>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Nissan_Motor_Company> .
+<http://dbpedia.org/resource/Alfa_Romeo_GTA>	<http://km.pg.gda.pl/rdf/name>	"Giulia Sprint 1600 GTA"@en .
+<http://dbpedia.org/resource/Ferrari_F430_Challenge>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Ferrari> .
+<http://dbpedia.org/resource/Maserati_150S>	<http://km.pg.gda.pl/rdf/production>	"1955"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Ford_GT40>	<http://km.pg.gda.pl/rdf/production>	"107"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Nissan_R382>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Nissan_Motor_Company> .
+<http://dbpedia.org/resource/Ferrari_FXX>	<http://km.pg.gda.pl/rdf/name>	"Ferrari FXX"@en .
+<http://dbpedia.org/resource/Nissan_R381>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Nissan_Motor_Company> .
+<http://dbpedia.org/resource/Prince_R380>	<http://km.pg.gda.pl/rdf/name>	"Prince R380"@en .
+<http://dbpedia.org/resource/Westfield_XTR2>	<http://km.pg.gda.pl/rdf/production>	"2001"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Alfa_Romeo_GTA>	<http://km.pg.gda.pl/rdf/engine>	"1.6"^^<http://www.w3.org/2001/XMLSchema#double> .
+<http://dbpedia.org/resource/Renault_Sport_Spider>	<http://km.pg.gda.pl/rdf/name>	"Renault Spider"@en .
+<http://dbpedia.org/resource/Ferrari_FXX>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Prince_R380>	<http://km.pg.gda.pl/rdf/production>	"1965"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Caterham_7>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Lotus_23>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Jaguar_C-Type>	<http://km.pg.gda.pl/rdf/production>	"1951"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Matich_SR5>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Maserati_150S>	<http://km.pg.gda.pl/rdf/name>	"Maserati 150S"@en .
+<http://dbpedia.org/resource/Alfa_Romeo_GTA>	<http://km.pg.gda.pl/rdf/name>	"Alfa Romeo GTA"@en .
+<http://dbpedia.org/resource/Bandini_GT>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Jaguar_C-Type>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Nissan_R382>	<http://km.pg.gda.pl/rdf/name>	"Nissan R382"@en .
+<http://dbpedia.org/resource/Jaguar_D-Type>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Jaguar_Cars> .
+<http://dbpedia.org/resource/Maserati_150S>	<http://km.pg.gda.pl/rdf/name>	"Tipo 53"@en .
+<http://dbpedia.org/resource/Caterham_7>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Caterham_Cars> .
+<http://dbpedia.org/resource/Jaguar_D-Type>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Lotus_23>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Lotus_Cars> .
+<http://dbpedia.org/resource/Porsche_906>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Jaguar_C-Type>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Jaguar_Cars> .
+<http://dbpedia.org/resource/Maserati_Barchetta>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Bandini-Maserati_1500>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Abarth_205>	<http://km.pg.gda.pl/rdf/name>	"Abarth 205"@en .
+<http://dbpedia.org/resource/Maserati_150S>	<http://km.pg.gda.pl/rdf/engine>	"4"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Lotus_23>	<http://km.pg.gda.pl/rdf/production>	"1962"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Jaguar_D-Type>	<http://km.pg.gda.pl/rdf/production>	"1954"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Porsche_935>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Caterham_7_CSR>	<http://km.pg.gda.pl/rdf/name>	"CSR 200/260"@en .
+<http://dbpedia.org/resource/Maserati_450S>	<http://km.pg.gda.pl/rdf/name>	"Maserati 450S"@en .
+<http://dbpedia.org/resource/Ferrari_FXX>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Ferrari> .
+<http://dbpedia.org/resource/Caterham_7_CSR>	<http://km.pg.gda.pl/rdf/engine>	"2.3"^^<http://www.w3.org/2001/XMLSchema#double> .
+<http://dbpedia.org/resource/Matich_SR4>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Bandini_1000_turbo>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Alfa_Romeo_Giulia_TZ>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Alfa_Romeo> .
+<http://dbpedia.org/resource/Matich_SR3>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Bandini_1000_P>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Westfield_XTR2>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Westfield_Sportscars> .
+<http://dbpedia.org/resource/Mirage_(race_car)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Alfa_Romeo_GTA>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Alfa_Romeo> .
+<http://dbpedia.org/resource/Mercedes-Benz_300SL>	<http://km.pg.gda.pl/rdf/engine>	"212"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Elfin_Mallala>	<http://km.pg.gda.pl/rdf/production>	"5"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Maserati_Tipo_61>	<http://km.pg.gda.pl/rdf/engine>	"187"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Maserati_Tipo_61>	<http://km.pg.gda.pl/rdf/name>	"Birdcage"@en .
+<http://dbpedia.org/resource/Mercedes-Benz_300SL>	<http://km.pg.gda.pl/rdf/production>	"Roadster: 1,858"@en .
+<http://dbpedia.org/resource/Triumph_TR3>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Ford_GT40>	<http://km.pg.gda.pl/rdf/engine>	"4942"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Porsche_910>	<http://km.pg.gda.pl/rdf/manufacturer>	"Porsche"@en .
+<http://dbpedia.org/resource/Lotus_53>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Elfin_Mallala>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Ferrari_F430_Challenge>	<http://km.pg.gda.pl/rdf/name>	"Ferrari F430 Challenge"@en .
+<http://dbpedia.org/resource/Abarth_205>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Bristol_450>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Triumph_TR3>	<http://km.pg.gda.pl/rdf/engine>	"2138"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Triumph_TR3>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Standard_Motor_Company> .
+<http://dbpedia.org/resource/Mercedes-Benz_300SL>	<http://km.pg.gda.pl/rdf/name>	"Mercedes-Benz 300SL"@en .
+<http://dbpedia.org/resource/Nissan_R383>	<http://km.pg.gda.pl/rdf/production>	"1970"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Nissan_R382>	<http://km.pg.gda.pl/rdf/production>	"1969"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Triumph_TR3>	<http://km.pg.gda.pl/rdf/engine>	"1991"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Lotus_15>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Nissan_R381>	<http://km.pg.gda.pl/rdf/production>	"1968"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Ford_GT40>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Kar_Kraft> .
+<http://dbpedia.org/resource/Renault_Sport_Spider>	<http://km.pg.gda.pl/rdf/manufacturer>	"Renault"@en .
+<http://dbpedia.org/resource/Lotus_40>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Elfin_MS7>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Nissan_R383>	<http://km.pg.gda.pl/rdf/name>	"Nissan R383"@en .
+<http://dbpedia.org/resource/Prince_R380>	<http://km.pg.gda.pl/rdf/engine>	"200.0"^^<http://dbpedia.org/datatype/horsepower> .
+<http://dbpedia.org/resource/Elfin_Mallala>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Elfin_Sports_Cars> .
+<http://dbpedia.org/resource/Maserati_Tipo_61>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Nissan_R383>	<http://km.pg.gda.pl/rdf/engine>	"6"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Maserati_Barchetta>	<http://km.pg.gda.pl/rdf/name>	"Barchetta Stradale (road) one unit only"@en .
+<http://dbpedia.org/resource/Abarth_205>	<http://km.pg.gda.pl/rdf/engine>	"1.1"^^<http://www.w3.org/2001/XMLSchema#double> .
+<http://dbpedia.org/resource/Nissan_R382>	<http://km.pg.gda.pl/rdf/engine>	"6"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Ford_GT40>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Ford_Advanced_Vehicles> .
+<http://dbpedia.org/resource/Ford_GT40>	<http://km.pg.gda.pl/rdf/engine>	"4181"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Maserati_Tipo_61>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Maserati> .
+<http://dbpedia.org/resource/Elfin_Mallala>	<http://km.pg.gda.pl/rdf/engine>	"110.4"^^<http://dbpedia.org/datatype/kilowatt> .
+<http://dbpedia.org/resource/Alfa_Romeo_Giulia_TZ>	<http://km.pg.gda.pl/rdf/production>	"1963"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Porsche_961>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Bandini_1000_GT>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Prince_R380>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Nissan_Motor_Company> .
+<http://dbpedia.org/resource/Ford_GT40>	<http://km.pg.gda.pl/rdf/engine>	"4737"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Alfa_Romeo_GTA>	<http://km.pg.gda.pl/rdf/production>	"1968"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Porsche_910>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Alfa_Romeo_GTA>	<http://km.pg.gda.pl/rdf/production>	"1970"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Renault_Sport_Spider>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Maserati_300S>	<http://km.pg.gda.pl/rdf/name>	"Maserati 300S"@en .
+<http://dbpedia.org/resource/Ford_GT40>	<http://km.pg.gda.pl/rdf/name>	"Ford GT40"@en .
+<http://dbpedia.org/resource/Maserati_Barchetta>	<http://km.pg.gda.pl/rdf/production>	"1991"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Nissan_R381>	<http://km.pg.gda.pl/rdf/engine>	"5.5"^^<http://www.w3.org/2001/XMLSchema#double> .
+<http://dbpedia.org/resource/Prince_R380>	<http://km.pg.gda.pl/rdf/engine>	"220.0"^^<http://dbpedia.org/datatype/horsepower> .
+<http://dbpedia.org/resource/Alfa_Romeo_GTA>	<http://km.pg.gda.pl/rdf/production>	"1965"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Ford_GT40>	<http://km.pg.gda.pl/rdf/engine>	"6997"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Nissan_R381>	<http://km.pg.gda.pl/rdf/name>	"Nissan R381"@en .
+<http://dbpedia.org/resource/Alfa_Romeo_GTA>	<http://km.pg.gda.pl/rdf/production>	"1967"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Renault_Sport_Spider>	<http://km.pg.gda.pl/rdf/production>	"1996"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Elfin_Mallala>	<http://km.pg.gda.pl/rdf/name>	"Elfin Mallala"@en .
+<http://dbpedia.org/resource/Maserati_Tipo_61>	<http://km.pg.gda.pl/rdf/name>	"Maserati Tipo 61"@en .
+<http://dbpedia.org/resource/Porsche_906>	<http://km.pg.gda.pl/rdf/manufacturer>	"Porsche"@en .
+<http://dbpedia.org/resource/Alfa_Romeo_Giulia_TZ>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Caterham_7>	<http://km.pg.gda.pl/rdf/name>	"Caterham 7"@en .
+<http://dbpedia.org/resource/Ferrari_F430_Challenge>	<http://km.pg.gda.pl/rdf/production>	"2007"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Renault_Sport_Spider>	<http://km.pg.gda.pl/rdf/engine>	"1998"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Porsche_904>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Alfa_Romeo_Giulia_TZ>	<http://km.pg.gda.pl/rdf/engine>	"1.6"^^<http://www.w3.org/2001/XMLSchema#double> .
+<http://dbpedia.org/resource/Alfa_Romeo_GTA>	<http://km.pg.gda.pl/rdf/engine>	"1.3"^^<http://www.w3.org/2001/XMLSchema#double> .
+<http://dbpedia.org/resource/Alfa_Romeo_Giulia_TZ>	<http://km.pg.gda.pl/rdf/name>	"Alfa Romeo TZ"@en .
+<http://dbpedia.org/resource/Maserati_Barchetta>	<http://km.pg.gda.pl/rdf/engine>	"90"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Ferrari_FXX>	<http://km.pg.gda.pl/rdf/engine>	"6.3"^^<http://www.w3.org/2001/XMLSchema#double> .
+<http://dbpedia.org/resource/Ferrari_FXX>	<http://km.pg.gda.pl/rdf/production>	"2005"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Nissan_R383>	<http://km.pg.gda.pl/rdf/engine>	"900.0"^^<http://dbpedia.org/datatype/horsepower> .
+<http://dbpedia.org/resource/Maserati_Tipo_61>	<http://km.pg.gda.pl/rdf/production>	"16"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Porsche_906>	<http://km.pg.gda.pl/rdf/name>	"Porsche 906 Carrera 6"@en .
+<http://dbpedia.org/resource/Mercedes-Benz_300_SLR>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Mercedes-Benz_300SL>	<http://km.pg.gda.pl/rdf/production>	"Coup\u00E9: 1,400"@en .
+<http://dbpedia.org/resource/Westfield_XTR2>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Renault_Sport_Spider>	<http://km.pg.gda.pl/rdf/name>	"Renault Sport Spider"@en .
+<http://dbpedia.org/resource/Ford_GT40>	<http://km.pg.gda.pl/rdf/production>	"1964"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Maserati_Tipo_61>	<http://km.pg.gda.pl/rdf/production>	"1959"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Maserati_Barchetta>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Maserati> .
+<http://dbpedia.org/resource/Porsche_935>	<http://km.pg.gda.pl/rdf/name>	"Porsche 935"@en .
+<http://dbpedia.org/resource/Bizzarrini_P538>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Caterham_7>	<http://km.pg.gda.pl/rdf/production>	"1973"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Porsche_934>	<http://km.pg.gda.pl/rdf/name>	"Porsche 934"@en .
+<http://dbpedia.org/resource/Porsche_935>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Porsche> .
+<http://dbpedia.org/resource/Mercedes-Benz_300SL>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Mercedes-Benz> .
+<http://dbpedia.org/resource/Maserati_350S>	<http://km.pg.gda.pl/rdf/name>	"Maserati 350S"@en .
+<http://dbpedia.org/resource/Ford_GT40>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Nissan_R382>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Ferrari_F430_Challenge>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Mercedes-Benz_300SL>	<http://km.pg.gda.pl/rdf/engine>	"2996"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Mercedes-Benz_300SL>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Maserati_450S>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Maserati> .
+<http://dbpedia.org/resource/Nissan_R381>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Porsche_934>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Porsche> .
+<http://dbpedia.org/resource/Alfa_Romeo_GTA>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Ford_GT40>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Carroll_Shelby_International> .
+<http://dbpedia.org/resource/Prince_R380>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Nissan_R383>	<http://km.pg.gda.pl/rdf/engine>	"700.0"^^<http://dbpedia.org/datatype/horsepower> .
+<http://dbpedia.org/resource/Maserati_350S>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Maserati> .
+<http://dbpedia.org/resource/Nissan_R383>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Maserati_300S>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Maserati> .
+<http://dbpedia.org/resource/Ferrari_F430_Challenge>	<http://km.pg.gda.pl/rdf/engine>	"4.3"^^<http://www.w3.org/2001/XMLSchema#double> .
+<http://dbpedia.org/resource/Prince_R380>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Prince_Motor_Company> .
+<http://dbpedia.org/resource/Porsche_904>	<http://km.pg.gda.pl/rdf/name>	"Porsche 904"@en .
+<http://dbpedia.org/resource/Toyota_Supra_in_motorsport>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Maserati_200S>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Maserati> .
+<http://dbpedia.org/resource/Maserati_450S>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Triumph_TR3>	<http://km.pg.gda.pl/rdf/name>	"Triumph TR3"@en .
+<http://dbpedia.org/resource/Bandini_750_sport_internazionale>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Westfield_XTR2>	<http://km.pg.gda.pl/rdf/name>	"Westfield XTR2"@en .
+<http://dbpedia.org/resource/Elfin_Mallala>	<http://km.pg.gda.pl/rdf/production>	"1963"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Maserati_Barchetta>	<http://km.pg.gda.pl/rdf/name>	"Maserati Barchetta"@en .
+<http://dbpedia.org/resource/Maserati_200S>	<http://km.pg.gda.pl/rdf/name>	"Maserati 200S"@en .
+<http://dbpedia.org/resource/Abarth_205>	<http://km.pg.gda.pl/rdf/production>	"1950"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Maserati_150S>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Maserati> .
+<http://dbpedia.org/resource/Jaguar_C-Type>	<http://km.pg.gda.pl/rdf/name>	"Jaguar C-Type"@en .
+<http://dbpedia.org/resource/Maserati_300S>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Porsche_934>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Alfa_Romeo_GTA>	<http://km.pg.gda.pl/rdf/engine>	"2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Maserati_350S>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Mercedes-Benz_300SL>	<http://km.pg.gda.pl/rdf/production>	"1952"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Bandini_1000>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Maserati_150S>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Mercedes-Benz_300SL>	<http://km.pg.gda.pl/rdf/production>	"1954"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Elfin_Mallala>	<http://km.pg.gda.pl/rdf/engine>	"1600.0"^^<http://dbpedia.org/datatype/cubicCentimetre> .
+<http://dbpedia.org/resource/Alfa_Romeo_Giulia_TZ>	<http://km.pg.gda.pl/rdf/name>	"Alfa Romeo Giulia TZ"@en .
+<http://dbpedia.org/resource/Porsche_910>	<http://km.pg.gda.pl/rdf/name>	"Porsche 910 Carrera 10"@en .
+<http://dbpedia.org/resource/Bill_Thomas_Cheetah>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Bandini_Saloncino>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Ford_GT40>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/John_Wyer> .
+<http://dbpedia.org/resource/Maserati_200S>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Caterham_7_CSR>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Porsche_935>	<http://km.pg.gda.pl/rdf/engine>	"Flat 6 turbo"@en .
+<http://dbpedia.org/resource/Ferrari_340>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Mercedes-Benz_300SL>	<http://km.pg.gda.pl/rdf/production>	"3258"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Abarth_205>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Abarth> .
+<http://dbpedia.org/resource/Maserati_Tipo_61>	<http://km.pg.gda.pl/rdf/engine>	"2890.3"^^<http://www.w3.org/2001/XMLSchema#double> .
+<http://dbpedia.org/resource/Lotus_30>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Car> .
+<http://dbpedia.org/resource/Lotus_23>	<http://km.pg.gda.pl/rdf/name>	"Lotus 23"@en .
+<http://dbpedia.org/resource/Maserati_Barchetta>	<http://km.pg.gda.pl/rdf/name>	"Barchetta Corsa (racing)"@en .
+<http://dbpedia.org/resource/Prince_R380>	<http://km.pg.gda.pl/rdf/engine>	"2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Westfield_XTR2>	<http://km.pg.gda.pl/rdf/engine>	"GSXR1300R Suzuki Hayabusa"@en .
+<http://dbpedia.org/resource/Triumph_TR3>	<http://km.pg.gda.pl/rdf/production>	"1955"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Caterham_7_CSR>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Caterham_Cars> .

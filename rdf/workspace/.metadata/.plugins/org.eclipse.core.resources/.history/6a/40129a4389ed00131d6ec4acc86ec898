@@ -1,0 +1,747 @@
+
+<!-- saved from url=(1013)http://dbpedia.org/sparql/?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+my%3A+%3Chttp%3A%2F%2Fkm.pg.gda.pl%2Frdf%2F%3E%0D%0ACONSTRUCT+%7B+%0D%0A%09%3Fman+rdf%3Atype+my%3AManufacturer+.+%0D%0A%09%3Fman+my%3Aname+%3Fname+.+%0D%0A%09%3Fman+my%3Afounder+%3Ffounder+.+%0D%0A%09%3Fman+my%3Aowner+%3Fown+.%0D%0A%09%3Fman+my%3AfoundedBy+%3FfBy+.%0D%0A%09%3Fman+my%3AfoundingDate+%3FfDate+.%0D%0A%09%3Fman+my%3AlocationCity+%3FlocCity+.%0D%0A%7D+WHERE+%7B%0D%0A%09%3Fman+dcterms%3Asubject+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2FCategory%3ASports_car_manufacturers%3E+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Aname+%3Fname+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Afounder+%3Ffounder+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpprop%3Aowner+%3Fown+%7D+.%0D%0A++++++++OPTIONAL+%7B+%3Fman+dbpedia-owl%3AfoundedBy+%3FfBy+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpedia-owl%3AfoundingDate+%3FfDate+%7D+.%0D%0A%09OPTIONAL+%7B+%3Fman+dbpedia-owl%3AlocationCity+%3FlocCity+%7D+.%0D%0A%7D&format=text%2Fplain&timeout=50000&debug=on -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css"></style><script type="text/javascript" id="cta_linr_script" cta_linr="true">;(function(){var o=!0,w=null; (function(B){function v(a){if("bug-string-char-index"==a)return"a"!="a"[0];var f,c="json"==a;if(c||"json-stringify"==a||"json-parse"==a){if("json-stringify"==a||c){var d=k.stringify,b="function"==typeof d&&l;if(b){(f=function(){return 1}).toJSON=f;try{b="0"===d(0)&&"0"===d(new Number)&&'""'==d(new String)&&d(m)===r&&d(r)===r&&d()===r&&"1"===d(f)&&"[1]"==d([f])&&"[null]"==d([r])&&"null"==d(w)&&"[null,null,null]"==d([r,m,w])&&'{"a":[1,true,false,null,"\\u0000\\b\\n\\f\\r\\t"]}'==d({a:[f,o,!1,w,"\x00\u0008\n\u000c\r\t"]})&&"1"===d(w,f)&&"[\n 1,\n 2\n]"==d([1,2],w,1)&&'"-271821-04-20T00:00:00.000Z"'==d(new Date(-864E13))&&'"+275760-09-13T00:00:00.000Z"'==d(new Date(864E13))&&'"-000001-01-01T00:00:00.000Z"'==d(new Date(-621987552E5))&&'"1969-12-31T23:59:59.999Z"'==d(new Date(-1))}catch(n){b=!1}}if(!c)return b}if("json-parse"==a||c){a=k.parse;if("function"==typeof a)try{if(0===a("0")&&!a(!1)){f=a('{"a":[1,true,false,null,"\\u0000\\b\\n\\f\\r\\t"]}');var e=5==f.a.length&&1===f.a[0];if(e){try{e=!a('"\t"')}catch(g){}if(e)try{e=1!==a("01")}catch(i){}}}}catch(O){e=!1}if(!c)return e}return b&&e}}var m={}.toString,p,C,r,D=typeof define==="function"&&define.amd,k="object"==typeof exports&&exports;k||D?"object"==typeof ctaJSON&&ctaJSON?k?(k.stringify=ctaJSON.stringify,k.parse=ctaJSON.parse):k=ctaJSON:D&&(k=B.ctaJSON={}):k=B.ctaJSON||(B.ctaJSON={});var l=new Date(-3509827334573292);try{l=-109252==l.getUTCFullYear()&&0===l.getUTCMonth()&&1===l.getUTCDate()&&10==l.getUTCHours()&&37==l.getUTCMinutes()&&6==l.getUTCSeconds()&&708==l.getUTCMilliseconds()}catch(P){}if(!v("json")){var s=v("bug-string-char-index");if(!l)var t=Math.floor,J=[0,31,59,90,120,151,181,212,243,273,304,334],z=function(a,f){return J[f]+365*(a-1970)+t((a-1969+(f=+(f>1)))/4)-t((a-1901+f)/100)+t((a-1601+f)/400)};if(!(p={}.hasOwnProperty))p=function(a){var f={},c;if((f.__proto__=w,f.__proto__={toString:1},f).toString!=m)p=function(a){var f=this.__proto__,a=a in(this.__proto__=w,this);this.__proto__=f;return a};else{c=f.constructor;p=function(a){var f=(this.constructor||c).prototype;return a in this&&!(a in f&&this[a]===f[a])}}f=w;return p.call(this,a)};var K={"boolean":1,number:1,string:1,undefined:1};C=function(a,f){var c=0,b,h,n;(b=function(){this.valueOf=0}).prototype.valueOf=0;h=new b;for(n in h)p.call(h,n)&&c++;b=h=w;if(c)c=c==2?function(a,f){var c={},b=m.call(a)=="[object Function]",d;for(d in a)!(b&&d=="prototype")&&!p.call(c,d)&&(c[d]=1)&&p.call(a,d)&&f(d)}:function(a,f){var c=m.call(a)=="[object Function]",b,d;for(b in a)!(c&&b=="prototype")&&p.call(a,b)&&!(d=b==="constructor")&&f(b);(d||p.call(a,b="constructor"))&&f(b)};else{h=["valueOf","toString","toLocaleString","propertyIsEnumerable","isPrototypeOf","hasOwnProperty","constructor"];c=function(a,f){var c=m.call(a)=="[object Function]",b,d;if(d=!c)if(d=typeof a.constructor!="function"){d=typeof a.hasOwnProperty;d=d=="object"?!!a.hasOwnProperty:!K[d]}d=d?a.hasOwnProperty:p;for(b in a)!(c&&b=="prototype")&&d.call(a,b)&&f(b);for(c=h.length;b=h[--c];d.call(a,b)&&f(b));}}c(a,f)};if(!v("json-stringify")){var L={92:"\\\\",34:'\\"',8:"\\b",12:"\\f",10:"\\n",13:"\\r",9:"\\t"},u=function(a,f){return("000000"+(f||0)).slice(-a)},G=function(a){var f='"',b=0,d=a.length,h=d>10&&s,n;for(h&&(n=a.split(""));b<d;b++){var e=a.charCodeAt(b);switch(e){case 8:case 9:case 10:case 12:case 13:case 34:case 92:f=f+L[e];break;default:if(e<32){f=f+("\\u00"+u(2,e.toString(16)));break}f=f+(h?n[b]:s?a.charAt(b):a[b])}}return f+'"'},E=function(a,b,c,d,h,n,e){var g=b[a],i,j,k,l,q,s,v,x,y;try{g=b[a]}catch(A){}if(typeof g=="object"&&g){i=m.call(g);if(i=="[object Date]"&&!p.call(g,"toJSON"))if(g>-1/0&&g<1/0){if(z){k=t(g/864E5);for(i=t(k/365.2425)+1970-1;z(i+1,0)<=k;i++);for(j=t((k-z(i,0))/30.42);z(i,j+1)<=k;j++);k=1+k-z(i,j);l=(g%864E5+864E5)%864E5;q=t(l/36E5)%24;s=t(l/6E4)%60;v=t(l/1E3)%60;l=l%1E3}else{i=g.getUTCFullYear();j=g.getUTCMonth();k=g.getUTCDate();q=g.getUTCHours();s=g.getUTCMinutes();v=g.getUTCSeconds();l=g.getUTCMilliseconds()}g=(i<=0||i>=1E4?(i<0?"-":"+")+u(6,i<0?-i:i):u(4,i))+"-"+u(2,j+1)+"-"+u(2,k)+"T"+u(2,q)+":"+u(2,s)+":"+u(2,v)+"."+u(3,l)+"Z"}else g=w;else if(typeof g.toJSON=="function"&&(i!="[object Number]"&&i!="[object String]"&&i!="[object Array]"||p.call(g,"toJSON")))g=g.toJSON(a)}c&&(g=c.call(b,a,g));if(g===w)return"null";i=m.call(g);if(i=="[object Boolean]")return""+g;if(i=="[object Number]")return g>-1/0&&g<1/0?""+g:"null";if(i=="[object String]")return G(""+g);if(typeof g=="object"){for(a=e.length;a--;)if(e[a]===g)throw TypeError();e.push(g);x=[];b=n;n=n+h;if(i=="[object Array]"){j=0;for(a=g.length;j<a;y||(y=o),j++){i=E(j,g,c,d,h,n,e);x.push(i===r?"null":i)}a=y?h?"[\n"+n+x.join(",\n"+n)+"\n"+b+"]":"["+x.join(",")+"]":"[]"}else{C(d||g,function(a){var b=E(a,g,c,d,h,n,e);b!==r&&x.push(G(a)+":"+(h?" ":"")+b);y||(y=o)});a=y?h?"{\n"+n+x.join(",\n"+n)+"\n"+b+"}":"{"+x.join(",")+"}":"{}"}e.pop();return a}};k.stringify=function(a,b,c){var d,h,j;if(typeof b=="function"||typeof b=="object"&&b)if(m.call(b)=="[object Function]")h=b;else if(m.call(b)=="[object Array]"){j={};for(var e=0,g=b.length,i;e<g;i=b[e++],(m.call(i)=="[object String]"||m.call(i)=="[object Number]")&&(j[i]=1));}if(c)if(m.call(c)=="[object Number]"){if((c=c-c%1)>0){d="";for(c>10&&(c=10);d.length<c;d=d+" ");}}else m.call(c)=="[object String]"&&(d=c.length<=10?c:c.slice(0,10));return E("",(i={},i[""]=a,i),h,j,d,"",[])}}if(!v("json-parse")){var M=String.fromCharCode,N={92:"\\",34:'"',47:"/",98:"\u0008",116:"\t",110:"\n",102:"\u000c",114:"\r"},b,A,j=function(){b=A=w;throw SyntaxError();},q=function(){for(var a=A,f=a.length,c,d,h,k,e;b<f;){e=a.charCodeAt(b);switch(e){case 9:case 10:case 13:case 32:b++;break;case 123:case 125:case 91:case 93:case 58:case 44:c=s?a.charAt(b):a[b];b++;return c;case 34:c="@";for(b++;b<f;){e=a.charCodeAt(b);if(e<32)j();else if(e==92){e=a.charCodeAt(++b);switch(e){case 92:case 34:case 47:case 98:case 116:case 110:case 102:case 114:c=c+N[e];b++;break;case 117:d=++b;for(h=b+4;b<h;b++){e=a.charCodeAt(b);e>=48&&e<=57||e>=97&&e<=102||e>=65&&e<=70||j()}c=c+M("0x"+a.slice(d,b));break;default:j()}}else{if(e==34)break;e=a.charCodeAt(b);for(d=b;e>=32&&e!=92&&e!=34;)e=a.charCodeAt(++b);c=c+a.slice(d,b)}}if(a.charCodeAt(b)==34){b++;return c}j();default:d=b;if(e==45){k=o;e=a.charCodeAt(++b)}if(e>=48&&e<=57){for(e==48&&(e=a.charCodeAt(b+1),e>=48&&e<=57)&&j();b<f&&(e=a.charCodeAt(b),e>=48&&e<=57);b++);if(a.charCodeAt(b)==46){for(h=++b;h<f&&(e=a.charCodeAt(h),e>=48&&e<=57);h++);h==b&&j();b=h}e=a.charCodeAt(b);if(e==101||e==69){e=a.charCodeAt(++b);(e==43||e==45)&&b++;for(h=b;h<f&&(e=a.charCodeAt(h),e>=48&&e<=57);h++);h==b&&j();b=h}return+a.slice(d,b)}k&&j();if(a.slice(b,b+4)=="true"){b=b+4;return o}if(a.slice(b,b+5)=="false"){b=b+5;return false}if(a.slice(b,b+4)=="null"){b=b+4;return w}j()}}return"$"},F=function(a){var b,c;a=="$"&&j();if(typeof a=="string"){if((s?a.charAt(0):a[0])=="@")return a.slice(1);if(a=="["){for(b=[];;c||(c=o)){a=q();if(a=="]")break;if(c)if(a==","){a=q();a=="]"&&j()}else j();a==","&&j();b.push(F(a))}return b}if(a=="{"){for(b={};;c||(c=o)){a=q();if(a=="}")break;if(c)if(a==","){a=q();a=="}"&&j()}else j();(a==","||typeof a!="string"||(s?a.charAt(0):a[0])!="@"||q()!=":")&&j();b[a.slice(1)]=F(q())}return b}j()}return a},I=function(a,b,c){c=H(a,b,c);c===r?delete a[b]:a[b]=c},H=function(a,b,c){var d=a[b],h;if(typeof d=="object"&&d)if(m.call(d)=="[object Array]")for(h=d.length;h--;)I(d,h,c);else C(d,function(a){I(d,a,c)});return c.call(a,b,d)};k.parse=function(a,f){var c,d;b=0;A=""+a;c=F(q());q()!="$"&&j();b=A=w;return f&&m.call(f)=="[object Function]"?H((d={},d[""]=c,d),"",f):c}}}D&&define(function(){return k})})(this);}());
+
+if(!Array.prototype.indexOf){Array.prototype.indexOf=function(e){var t=this.length>>>0;var n=Number(arguments[1])||0;n=n<0?Math.ceil(n):Math.floor(n);if(n<0)n+=t;for(;n<t;n++){if(n in this&&this[n]===e)return n}return-1}}
+
+
+var cta_linr = {};
+cta_linr.innerFunctions = {};
+cta_linr.instances = {};
+cta_linr.ajax = {};
+cta_linr.ajax.instances = {};
+
+cta_linr.regInstance = function(ev, params) {
+
+    var key = ev.origin + '_' + (Math.random()*10000000);
+
+    cta_linr.instances[key] = {
+        source: ev.source,
+        origin: ev.origin
+    };
+};
+
+//handler for sending ajax request to plugin (through creating new element script)
+//should be called inside banner script
+cta_linr.sendAjaxRequest = function(ev, params) {
+	//preparing request params
+	var requestId = params.params['requestId'],
+		requestUrl = params.params['requestUrl'];
+
+    cta_linr.ajax.registerRequest(requestId, ev, params.params);
+	cta_linr.ajax.appendScript(requestId, requestUrl);
+};
+
+//callback for receiving ajax data from plugin
+cta_linr.receiveAjaxData = function(requestId, responce) {
+	//console.log('MD: ajax data was received');
+	var params = {
+		requestId: requestId,
+		responce: responce
+	}
+	//get request instance
+	var requestInstanse = cta_linr.ajax.instances[requestId];
+    if (typeof requestInstanse !== 'undefined') {
+		//console.log('MD: sending ajax responce...');
+		requestInstanse.ev.source.postMessage(ctaJSON.stringify({command: "receiveAjaxResponce", params: params}), requestInstanse.ev.origin);
+	}
+};
+
+//register ajax request by requestId
+cta_linr.ajax.registerRequest = function(requestId, ev, params) {
+	cta_linr.ajax.instances[requestId] = {
+		ev: ev,
+		params: params
+	}
+}
+
+//append script with specific url, which will be intercepted by plugin
+cta_linr.ajax.appendScript = function(requestId, requestUrl) {
+	var ajaxScript;
+	ajaxScript = document.createElement('script');
+	ajaxScript.src = '//priv.dog.extension/cta_linr.receiveAjaxData/' + requestId + '/' + requestUrl;
+	document.getElementsByTagName('head')[0].appendChild(ajaxScript);
+}
+
+/**
+* Ugly workaround for IE document.getElementsByName() function
+* FIXME: any updates are welcome
+*/
+cta_linr.innerFunctions.getElementsByAttribute = function (oElm, strTagName, strAttributeName, strAttributeValue) {
+
+    if(!oElm) {
+        oElm = document;
+    }
+
+    var arrElements = (strTagName == "*" && oElm.all)? oElm.all : oElm.getElementsByTagName(strTagName);
+    var arrReturnElements = new Array();
+    var oAttributeValue = (typeof strAttributeValue != "undefined")? new RegExp("(^|\\s)" + strAttributeValue + "(\\s|$)", "i") : null;
+    var oCurrent;
+    var oAttribute;
+
+    for(var i = 0; i < arrElements.length; i ++) {
+
+        oCurrent = arrElements[i];
+        oAttribute = oCurrent.getAttribute && oCurrent.getAttribute(strAttributeName);
+
+        if(typeof oAttribute == "string" && oAttribute.length > 0) {
+
+            if(typeof strAttributeValue == "undefined" || (oAttributeValue && oAttributeValue.test(oAttribute))){
+                arrReturnElements.push(oCurrent);
+            }
+        }
+    }
+
+    return arrReturnElements;
+};
+
+
+cta_linr.getContentType = function() {
+
+	var contentRules = {};
+	contentRules.adult = [
+		//(big|cyber|hard|huge|mega|small|soft|super|tiny|bare|naked|nude|anal|oral|topp?les|sex|phone|porn|){1,}.*(anal|babe|bharath|boob|breast|busen|busty|clit|cum|cunt|dick|fetish|fuck|girl|hooter|lez|lust|naked|nude|oral|orgy|penis|porn|porno|pupper|pussy|rotten|sex|shit|smutpump|teen|tit|topp?les|xxx){1,}/i,
+		//(anal|babe|bharath|boob|breast|busen|busty|clit|cum|cunt|dick|fetish|fuck|girl|hooter|lez|lust|naked|nude|oral|orgy|penis|porn|porno|pupper|pussy|rotten|sex|shit|smutpump|teen|tit|topp?les|xxx){1,}.*(big|cyber|hard|huge|mega|small|soft|super|tiny|bare|naked|nude|anal|oral|topp?les|sex|pussy){1,}/i,
+		//(adultsight|adultsite|adultsonly|adultweb|blowjob|bondage|centerfold|cumshot|cyberlust|cybercore|hardcore|masturbat|bangbros|pussylip|playmate|pornstar|sexdream|showgirl|softcore|striptease)/i
+
+        /(big|hard|dirty|sexy|hottest|naked|adult|hardcore|transexual|lesbian|asian|latina|ebony|amateur|milf|mature|teen|voyeur|group|pregnant|interracial|vintage){1,}.*(porn|xxx|sex|pussy|fetish|tits|dick|cunt|fuck|masturbat|fisting|boobs|butt|cock|suck|vagina|dildo|blowjob|whore|bbw|cfnm|bdsm|pornstar|gay|cumshot|penis|hentai|gangbang|cunnilingus|gonzo|fingering|bebe|girl){1,}/gi,
+        /(nude|porn|xxx| pussy | fetish | tits | dick | cunt | fuck| masturbat| fisting | boobs | cock | suck| vagina | dildo | blowjob | whore | bbw | cfnm | bdsm | pornstar | gay | cumshot| penis | hentai | gangbang | cunnilingus | gonzo| fingering | transexual | lesbian | ass )/gi
+	];
+
+	var metaTypes = {'title':true, 'keywords':true, 'description':true};
+	var metaTags = {};
+
+	var tmp = document.getElementsByTagName('meta');
+	for(var i in tmp) {
+
+		var metaTag = tmp[i];
+		try {
+			if((metaTag.name.toLowerCase() in metaTypes)) {
+				metaTags[metaTag.name] = metaTag.getAttribute('content') || metaTag.getAttribute('value');
+			}
+		}catch(e){}
+	}
+
+	var titleEl = document.getElementsByTagName('title');
+	if(titleEl) {
+		metaTags.title = titleEl[0].innerHTML;
+	}
+	for(var type in contentRules) {
+
+		var rules = contentRules[type];
+		for(var ruleKey in rules) {
+			var rule = rules[ruleKey];
+			for(var metaKey in metaTags) {
+
+				try {
+
+					var metaTag = metaTags[metaKey];
+					if(found = rule.exec(metaTag)) {
+						return type;
+					}
+				}
+				catch(e) {}
+			}
+		}
+	}
+
+	return 'clean';
+}
+
+cta_linr.closeAllAds = function(ev, params) {
+
+	var evnt;
+	for(var i = 0 in cta_linr.instances) {
+
+        evnt = cta_linr.instances[i];
+        var m = ctaJSON.stringify({command: "closeSelf", params: {}});
+        evnt.source.postMessage(m, evnt.origin);
+	}
+
+	var divs = cta_linr.innerFunctions.getElementsByAttribute(document, '*', 'name', 'cta_divforc');
+	for(var i = 0; i < divs.length; i++) {
+
+        var div = divs[i];
+		var dims = cta_linr.innerFunctions.getElementSize(div.getElementsByTagName('div')[0] || div);
+
+        if(typeof dims != 'undefined') {
+
+            div.style.width = parseInt(dims.width) + "px";
+            div.style.height = parseInt(dims.height) + "px";
+        }
+
+        div.id = '';
+        div.innerHTML = "";
+	}
+
+	var iframes = cta_linr.innerFunctions.getElementsByAttribute(document, 'iframe', 'name', 'cta_iframeforc');
+	for(var i = 0; i < iframes.length; i++) {
+
+        var iframe = iframes[i];
+		var dims = cta_linr.innerFunctions.getElementSize(iframe);
+
+		var p = iframe.parentNode;
+		var div = document.createElement("div");
+		div.style.width = parseInt(dims.width) + "px";
+		div.style.height = parseInt(dims.height) + "px";
+		div.style.display = "block";
+		p.insertBefore(div, iframe);
+		p.removeChild(iframe);
+	}
+
+	var imgs = document.getElementsByName('test-img');
+	for(var i = 0; i < imgs.length; i++) {
+		var img = imgs[i];
+		img.style.display="none";
+	}
+};
+
+
+/**
+ * Function works incorrect, because i do not know how get
+ * background color if it is image from css class
+ * */
+cta_linr.innerFunctions.getReverseColor = function (oEl) {
+
+    var backgroundColor = 'FFFFFF', color = {r: 255, g: 255, b: 255, a: 1}, reverse = {r: 0, g: 0, b: 0, a: 0};
+
+    if(typeof oEl == 'undefined') {
+        return color;
+    }
+
+    do {
+        if (oEl.currentStyle) {
+            var bc = oEl.currentStyle['backgroundColor'];
+        } else if (window.getComputedStyle) {
+            var bc = document.defaultView.getComputedStyle(oEl,null).getPropertyValue('background-color');
+        }
+
+        if(bc && bc != 'transparent' && bc != 'rgba(0, 0, 0, 0)') {
+            backgroundColor = bc;
+            break;
+        }
+
+    } while(oEl = oEl.parentNode);
+
+    if(/^rgb/.test(backgroundColor)) {
+
+        t = backgroundColor.match(/(\d{1,})/g);
+        color.r = t[0]; color.g = t[1]; color.b = t[2];
+
+        if(t.length > 3) {
+            color.a = t[3];
+        }
+    }
+    else if(backgroundColor.length == 3){
+
+        t = backgroundColor.match(/(.)/g);
+        color.r = parseInt(t[0], 16); color.g = parseInt(t[1], 16); color.b = parseInt(t[2], 16);
+    }
+    else if(backgroundColor.length == 6){
+
+        t = backgroundColor.match(/(.{2})/g);
+        color.r = parseInt(t[0], 16); color.g = parseInt(t[1], 16); color.b = parseInt(t[2], 16);
+    }
+    reverse.r = 255 - color.r; reverse.g = 255 - color.g; reverse.b = 255 - color.b; reverse.a = 1 - color.a;
+    return reverse;
+}
+
+cta_linr.innerFunctions.getElementSize = function(element) {
+
+	var dims = {height:0, width:0};
+
+    if(typeof element != 'undefined') {
+
+        if (typeof element.style != 'undefined' && element.style.height) {
+            dims.height = element.style.height;
+        }
+        else if (element.innerHeight) {
+            dims.height = element.innerHeight;
+        }
+        else if (element.clientHeight) {
+            dims.height = element.clientHeight;
+        }
+
+        if (typeof element.style != 'undefined' && element.style.width) {
+            dims.width = element.style.width;
+
+        }
+        else if (element.innerWidth) {
+            dims.width = element.innerWidth;
+
+        }
+        else if (element.clientWidth) {
+            dims.width = element.clientWidth;
+        }
+    }
+
+	return dims;
+};
+
+cta_linr.innerFunctions.findElPos = function(obj, usePos) {
+
+    var offleft = offtop = 0;
+    if (typeof obj != 'undefined' && obj.offsetParent) {
+        do {
+
+            if(usePos && (obj.style.position == 'absolute' || obj.style.position == 'relative')) {
+                break;
+            }
+
+            offleft += obj.offsetLeft;
+            offtop += obj.offsetTop;
+
+        } while (obj = obj.offsetParent);
+    }
+
+    return {offleft: offleft, offtop: offtop};
+};
+
+
+cta_linr.getAdditionalParams = function(ev, params) {
+
+	params.params.params.cType = cta_linr.getContentType();
+	cta_linr.getClientHeight(ev,params);
+
+}
+
+cta_linr.getClientHeight = function(ev, params) {
+
+	var cHeight = 0;
+
+	if (window.innerHeight) {
+		cHeight = window.innerHeight;
+	}
+	else if (document.documentElement && document.documentElement.clientHeight) {
+		cHeight = document.documentElement.clientHeight;
+	}
+	else if (document.body) {
+		cHeight = document.body.clientHeight;
+	}
+
+	var data = {clientHeight: cHeight, offsetTop: 0, params: params.params.params};
+
+    var ur = /^http[s]?\:\/\/(www\.)?/i;
+    var ifrs = document.getElementsByTagName("iframe");
+
+	for(var i = 0; i < ifrs.length; i++) {
+		try {
+			var iframe = ifrs[i];
+			pos = cta_linr.innerFunctions.findElPos(iframe);
+			if(iframe.src.toLowerCase().replace(ur, '') == params.params.referrer.toLowerCase().replace(ur, '')) {
+				data.offsetTop = pos.offtop;
+				ev.source.postMessage(ctaJSON.stringify({command: "setFoldIfIsItYour", params: data}), '*');
+			}
+			else {
+				data.offsetTop = pos.offtop;
+				iframe.contentWindow.postMessage(ctaJSON.stringify({command: "setFoldIfIsItYour", params: data}), '*');
+			}
+		}
+		catch (ex) {}
+	}
+
+    var frs = document.getElementsByTagName("frame");
+	for(var i = 0; i < frs.length; i++) {
+
+		var frame = frs[i];
+        pos = cta_linr.innerFunctions.findElPos(frame);
+
+		if(frame.src.toLowerCase().replace(ur, '') == params.params.referrer.toLowerCase().replace(ur, '')) {
+            // for frames we think that position is below because frames can be very largest and has many ads
+            data.offsetTop = data.clientHeight*1 + params.params.params.height*1;
+            ev.source.postMessage(ctaJSON.stringify({command: "setFoldIfIsItYour", params: data}), '*');
+		}
+        else {
+            data.offsetTop = pos.offtop;
+            frame.contentWindow.postMessage(ctaJSON.stringify({command: "setFoldIfIsItYour", params: data}), '*');
+        }
+	}
+
+    // if we do not found our frame we think that position is below because frames can be very largest and has many ads
+    data.offsetTop = data.clientHeight*1 + params.params.params.height*1;
+    ev.source.postMessage(ctaJSON.stringify({command: "setFoldIfIsItYour", params: data}), '*');
+
+	return data;
+};
+
+cta_linr.callOuterFunction = function(ev, params) {
+
+	if(window[params.params.func] != undefined && typeof window[params.params.func] == "function") {
+        try{
+            window[params.params.func].apply(window, params.params.arguments);
+        }
+        catch(e){console.log("CATCH", e)}
+	}
+};
+
+cta_linr.listn = function(ev) {
+    try {
+        var params = ctaJSON.parse(ev.data);
+
+        if( typeof params.command != "undefined"
+            && (typeof cta_linr[params.command] == "function")) {
+
+            var data = cta_linr[params.command](ev, params);
+            if(params.params != undefined && params.params.callback != undefined) {
+                ev.source.postMessage(ctaJSON.stringify({callback: params.params.callback, data: data}), ev.origin);
+            }
+        }
+    }
+    catch(ex) {}
+};
+
+// Workaround for IEs ...................
+function addTAEvent(evnt, elem, func) {
+    if (elem.addEventListener)  // W3C DOM
+         elem.addEventListener(evnt,func,false);
+    else if (elem.attachEvent) { // IE DOM
+        elem.attachEvent("on"+evnt, func);
+    }
+    else { // No much to do
+	elem[evnt] = func;
+     }
+}
+
+addTAEvent('message', window, cta_linr.listn);if((typeof cta_linr != "undefined") && (typeof cta_linr.regInstance == "function")){ 
+                        document.getElementById("cta_linr_script").setAttribute("cta_linr", "true")
+                       }
+</script></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">&lt;http://dbpedia.org/resource/Isotta_Fraschini&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Vincenzo_Fraschini&gt; .
+&lt;http://dbpedia.org/resource/Iso_Rivolta&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Diardi&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"\u00C7enberci Group"@en .
+&lt;http://dbpedia.org/resource/Alfa_Romeo&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Alexandre Darracq/Ugo Stella"@en .
+&lt;http://dbpedia.org/resource/Zimmer_(automobile)&gt;	&lt;http://km.pg.gda.pl/rdf/owner&gt;	"Art Zimmer"@en .
+&lt;http://dbpedia.org/resource/Jaguar_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/foundingDate&gt;	"1922-09-10+02:00"^^&lt;http://www.w3.org/2001/XMLSchema#date&gt; .
+&lt;http://dbpedia.org/resource/Lamborghini&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Lotus_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/owner&gt;	&lt;http://dbpedia.org/resource/General_Motors&gt; .
+&lt;http://dbpedia.org/resource/Isotta_Fraschini&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Vincenzo_Fraschini&gt; .
+&lt;http://dbpedia.org/resource/Bugatti&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Ettore_Bugatti&gt; .
+&lt;http://dbpedia.org/resource/Aston_Martin&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Gaydon&gt; .
+&lt;http://dbpedia.org/resource/Porsche&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Tesla_Motors&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/JB_Straubel&gt; .
+&lt;http://dbpedia.org/resource/Aston_Martin&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Arrinera&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Berkeley_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Berkeley B95 and B105"@en .
+&lt;http://dbpedia.org/resource/Briggs_Automotive_Company&gt;	&lt;http://km.pg.gda.pl/rdf/foundingDate&gt;	"2009-03-03+02:00"^^&lt;http://www.w3.org/2001/XMLSchema#date&gt; .
+&lt;http://dbpedia.org/resource/Pagani_Automobili_S.p.A.&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Horacio_Pagani_(auto_executive)&gt; .
+&lt;http://dbpedia.org/resource/Spyker_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Maarten_de_Bruijn&gt; .
+&lt;http://dbpedia.org/resource/Pagani_Automobili_S.p.A.&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Horacio_Pagani_(auto_executive)&gt; .
+&lt;http://dbpedia.org/resource/Bugatti&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Ettore_Bugatti&gt; .
+&lt;http://dbpedia.org/resource/Bandini_Automobili&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Forl%C3%AC&gt; .
+&lt;http://dbpedia.org/resource/Isotta_Fraschini&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Antonio_Fraschini&gt; .
+&lt;http://dbpedia.org/resource/Artega_Automobile&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Klaus_Dieter_Frers&gt; .
+&lt;http://dbpedia.org/resource/De_Tomaso&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"De Tomaso Automobili S.p.A."@en .
+&lt;http://dbpedia.org/resource/DeLorean_Motor_Company&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"DeLorean Motor Company"@en .
+&lt;http://dbpedia.org/resource/Tauro_Sport_Auto&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Tauro Sport Auto"@en .
+&lt;http://dbpedia.org/resource/Marlin_(car)&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Crediton&gt; .
+&lt;http://dbpedia.org/resource/Artega_Automobile&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Klaus_Dieter_Frers&gt; .
+&lt;http://dbpedia.org/resource/Zimmer_(automobile)&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Paul Zimmer"@en .
+&lt;http://dbpedia.org/resource/Tesla_Motors&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Tesla Motors, Inc."@en .
+&lt;http://dbpedia.org/resource/Shelby_SuperCars&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Jerod Shelby"@en .
+&lt;http://dbpedia.org/resource/MG_Cars&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Shelby_SuperCars&gt;	&lt;http://km.pg.gda.pl/rdf/owner&gt;	"Jerod Shelby"@en .
+&lt;http://dbpedia.org/resource/Berkeley_Cars&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Ascari_Cars&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Tesla_Motors&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Elon_Musk&gt; .
+&lt;http://dbpedia.org/resource/Isotta_Fraschini&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Antonio_Fraschini&gt; .
+&lt;http://dbpedia.org/resource/GTA_Motor&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Valencia&gt; .
+&lt;http://dbpedia.org/resource/BMW&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Bayerische Motoren Werke AG"@en .
+&lt;http://dbpedia.org/resource/Fisker_Automotive&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Bernhard Koehler"@en .
+&lt;http://dbpedia.org/resource/Diardi&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"DIARDI"@en .
+&lt;http://dbpedia.org/resource/AC_Cars&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/TVR&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/De_Tomaso&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Tesla_Motors&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Elon_Musk&gt; .
+&lt;http://dbpedia.org/resource/Pegaso&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Marcos_(automobile)&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Giocattolo&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Giocattolo Group B"@en .
+&lt;http://dbpedia.org/resource/Berkeley_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Berkeley Foursome"@en .
+&lt;http://dbpedia.org/resource/Ferrari&gt;	&lt;http://km.pg.gda.pl/rdf/owner&gt;	"Fiat S.p.A."@en .
+&lt;http://dbpedia.org/resource/Autobacs_Seven&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/ZAP_(motor_company)&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Gary Starr"@en .
+&lt;http://dbpedia.org/resource/Ascari_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Banbury&gt; .
+&lt;http://dbpedia.org/resource/Chinkara_Motors&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Mumbai&gt; .
+&lt;http://dbpedia.org/resource/Fornasari&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Giuseppe Fornasari"@en .
+&lt;http://dbpedia.org/resource/Mosler_Automotive&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Florida&gt; .
+&lt;http://dbpedia.org/resource/McLaren_Automotive&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Ron_Dennis&gt; .
+&lt;http://dbpedia.org/resource/Panther_Westwinds&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/PGO_(Automobile)&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Saint-Christol-l%C3%A8s-Al%C3%A8s&gt; .
+&lt;http://dbpedia.org/resource/Raw_Engineering&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Zimmer_(automobile)&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Berkeley_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Berkeley B65"@en .
+&lt;http://dbpedia.org/resource/BMW&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Munich&gt; .
+&lt;http://dbpedia.org/resource/BMW&gt;	&lt;http://km.pg.gda.pl/rdf/foundingDate&gt;	"1916-03-06+02:00"^^&lt;http://www.w3.org/2001/XMLSchema#date&gt; .
+&lt;http://dbpedia.org/resource/Jaguar_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/William_Walmsley&gt; .
+&lt;http://dbpedia.org/resource/Spyker_Cars&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/ZAP_(motor_company)&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"ZAP"@en .
+&lt;http://dbpedia.org/resource/McLaren_Automotive&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Ron_Dennis&gt; .
+&lt;http://dbpedia.org/resource/Venturi_Automobiles&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Fontvieille,_Monaco&gt; .
+&lt;http://dbpedia.org/resource/J%C3%B6sse_Car&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Berkeley_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Berkeley T60"@en .
+&lt;http://dbpedia.org/resource/Porsche&gt;	&lt;http://km.pg.gda.pl/rdf/owner&gt;	&lt;http://dbpedia.org/resource/Volkswagen_Group&gt; .
+&lt;http://dbpedia.org/resource/Isdera&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Autobacs_Seven&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Toshio Sumino"@en .
+&lt;http://dbpedia.org/resource/Dax_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Harlow&gt; .
+&lt;http://dbpedia.org/resource/Mosler_Automotive&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Warren_Mosler&gt; .
+&lt;http://dbpedia.org/resource/Jaguar_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/William_Lyons&gt; .
+&lt;http://dbpedia.org/resource/Alfa_Romeo&gt;	&lt;http://km.pg.gda.pl/rdf/foundingDate&gt;	"1910-06-23+02:00"^^&lt;http://www.w3.org/2001/XMLSchema#date&gt; .
+&lt;http://dbpedia.org/resource/Audi&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"August Horch"@en .
+&lt;http://dbpedia.org/resource/Audi&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/August_Horch&gt; .
+&lt;http://dbpedia.org/resource/Diardi&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Tauro_Sport_Auto&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Valladolid&gt; .
+&lt;http://dbpedia.org/resource/McLaren_Automotive&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Woking&gt; .
+&lt;http://dbpedia.org/resource/Venturi_Automobiles&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"G\u00E9rard Godefro"@en .
+&lt;http://dbpedia.org/resource/Jaguar_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Sir William Lyons and William Walmsley"@en .
+&lt;http://dbpedia.org/resource/Berkeley_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Berkeley Sports SE328"@en .
+&lt;http://dbpedia.org/resource/Ferrari&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Maranello&gt; .
+&lt;http://dbpedia.org/resource/Pagani_Automobili_S.p.A.&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Marussia_Motors&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Nikolai_Fomenko&gt; .
+&lt;http://dbpedia.org/resource/Tesla_Motors&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Mosler_Automotive&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Warren_Mosler&gt; .
+&lt;http://dbpedia.org/resource/Rexer&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Leading_Edge_Sports_Car_Company&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Elfin_Sports_Cars&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Berkeley_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Berkeley Bandit"@en .
+&lt;http://dbpedia.org/resource/Gumpert&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Gumpert Sportwagenmanufaktur"@en .
+&lt;http://dbpedia.org/resource/Ultima_Sports&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Kieft_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Wolverhampton&gt; .
+&lt;http://dbpedia.org/resource/Zimmer_(automobile)&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Cambridge,_Maryland&gt; .
+&lt;http://dbpedia.org/resource/Tiger_Racing&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Veritas_(automobile)&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Veritas RS3"@en .
+&lt;http://dbpedia.org/resource/Lightning_Car_Company&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Fulham&gt; .
+&lt;http://dbpedia.org/resource/Alfa_Romeo&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Turin&gt; .
+&lt;http://dbpedia.org/resource/Donkervoort&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/J.A._Donkervoort&gt; .
+&lt;http://dbpedia.org/resource/Coda_Automotive&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Elfin_Sports_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Garrie_Cooper&gt; .
+&lt;http://dbpedia.org/resource/GTM_Cars&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/AC_Frua&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Wiesmann&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/McLaren_Automotive&gt;	&lt;http://km.pg.gda.pl/rdf/owner&gt;	&lt;http://dbpedia.org/resource/McLaren_Group&gt; .
+&lt;http://dbpedia.org/resource/FYK&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/KTM&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Ascari_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/owner&gt;	"Klaas Zwart"@en .
+&lt;http://dbpedia.org/resource/Wirth_Research&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Wirth Research"@en .
+&lt;http://dbpedia.org/resource/Westfield_Sportscars&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Carroll_Shelby_International&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Alfa_Romeo&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Alexandre_Darracq&gt; .
+&lt;http://dbpedia.org/resource/Morgan_Motor_Company&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Morgan 3 Wheeler"@en .
+&lt;http://dbpedia.org/resource/KTM&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Mattighofen&gt; .
+&lt;http://dbpedia.org/resource/Lotus_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/owner&gt;	&lt;http://dbpedia.org/resource/Bugatti&gt; .
+&lt;http://dbpedia.org/resource/Zenvo&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Marussia_Motors&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Marussia Motors"@en .
+&lt;http://dbpedia.org/resource/Aston_Martin&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Warwickshire&gt; .
+&lt;http://dbpedia.org/resource/Donkervoort&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/J.A._Donkervoort&gt; .
+&lt;http://dbpedia.org/resource/Alfa_Romeo&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Alfa Romeo Automobiles S.p.A."@en .
+&lt;http://dbpedia.org/resource/Bizzarrini&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Elfin_Sports_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Garrie_Cooper&gt; .
+&lt;http://dbpedia.org/resource/AC_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Surrey&gt; .
+&lt;http://dbpedia.org/resource/GTA_Motor&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Marcos_(automobile)&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Jem_Marsh&gt; .
+&lt;http://dbpedia.org/resource/MG_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Cecil_Kimber&gt; .
+&lt;http://dbpedia.org/resource/Noble_Automotive&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Lee_Noble&gt; .
+&lt;http://dbpedia.org/resource/Marcos_(automobile)&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Jem_Marsh&gt; .
+&lt;http://dbpedia.org/resource/Morgan_Motor_Company&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Malvern,_Worcestershire&gt; .
+&lt;http://dbpedia.org/resource/Valmet_Automotive&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Morgan_Motor_Company&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/MG_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Cecil_Kimber&gt; .
+&lt;http://dbpedia.org/resource/Project_1221&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Giocattolo&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Isotta_Fraschini&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Milan&gt; .
+&lt;http://dbpedia.org/resource/Dauer_Sportwagen&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Marussia_Motors&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Andrei Tsheglakov"@en .
+&lt;http://dbpedia.org/resource/Kieft_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Cyril_Kieft&gt; .
+&lt;http://dbpedia.org/resource/MTX_(automobile)&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Noble_Automotive&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Lee_Noble&gt; .
+&lt;http://dbpedia.org/resource/Briggs_Automotive_Company&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Briggs Automotive Company  Limited"@en .
+&lt;http://dbpedia.org/resource/Venturi_Automobiles&gt;	&lt;http://km.pg.gda.pl/rdf/owner&gt;	"Gildo P. Pastor"@en .
+&lt;http://dbpedia.org/resource/Veritas_(automobile)&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Lotus_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/owner&gt;	&lt;http://dbpedia.org/resource/Proton_(automobile)&gt; .
+&lt;http://dbpedia.org/resource/Sebring_(sports_car)&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Wisbech&gt; .
+&lt;http://dbpedia.org/resource/Kieft_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Cyril_Kieft&gt; .
+&lt;http://dbpedia.org/resource/Murtaya&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Murtaya"@en .
+&lt;http://dbpedia.org/resource/Solana_(automobile)&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Koenigsegg&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Koenigsegg Automotive AB"@en .
+&lt;http://dbpedia.org/resource/AC_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"The Weller Brothers"@en .
+&lt;http://dbpedia.org/resource/Lamborghini&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Sant\u0027Agata_Bolognese&gt; .
+&lt;http://dbpedia.org/resource/Lotec&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Caterham_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Caterham&gt; .
+&lt;http://dbpedia.org/resource/Caterham_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Caterham Cars Ltd"@en .
+&lt;http://dbpedia.org/resource/GTA_Motor&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"GTA Motor"@en .
+&lt;http://dbpedia.org/resource/Hurtan&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Orca_Engineering&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Fisker_Automotive&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Henrik_Fisker&gt; .
+&lt;http://dbpedia.org/resource/De_Tomaso&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Alejandro_de_Tomaso&gt; .
+&lt;http://dbpedia.org/resource/Briggs_Automotive_Company&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/De_Tomaso&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Alejandro_de_Tomaso&gt; .
+&lt;http://dbpedia.org/resource/Porsche&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Ferdinand_Porsche&gt; .
+&lt;http://dbpedia.org/resource/Maserati_in_motorsport&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/List_of_sports_car_manufacturers&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Ronart_Cars&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Saleen&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Bugatti&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Artega_Automobile&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Alfa_Romeo&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Ugo_Stella&gt; .
+&lt;http://dbpedia.org/resource/Spyker_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Victor_Muller&gt; .
+&lt;http://dbpedia.org/resource/Jaguar_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Whitley,_Coventry&gt; .
+&lt;http://dbpedia.org/resource/Gumpert&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Altenburg&gt; .
+&lt;http://dbpedia.org/resource/Fisker_Automotive&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Henrik_Fisker&gt; .
+&lt;http://dbpedia.org/resource/Venturi_Automobiles&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Lotus_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Hethel&gt; .
+&lt;http://dbpedia.org/resource/Wirth_Research&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Nick_Wirth&gt; .
+&lt;http://dbpedia.org/resource/Alpine_(automobile)&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Ferrari&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Enzo_Ferrari&gt; .
+&lt;http://dbpedia.org/resource/Koenigsegg&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Porsche&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Ferdinand_Porsche&gt; .
+&lt;http://dbpedia.org/resource/Sebring_(sports_car)&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Sebring International"@en .
+&lt;http://dbpedia.org/resource/Wirth_Research&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Nick_Wirth&gt; .
+&lt;http://dbpedia.org/resource/Marussia_Motors&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Nikolai Fomenko"@en .
+&lt;http://dbpedia.org/resource/Tauro_Sport_Auto&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Ferrari&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Enzo_Ferrari&gt; .
+&lt;http://dbpedia.org/resource/Dax_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/owner&gt;	"Brian Johns"@en .
+&lt;http://dbpedia.org/resource/Bugatti&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Bugatti"@en .
+&lt;http://dbpedia.org/resource/Aston_Martin&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Aston Martin Lagonda Limited"@en .
+&lt;http://dbpedia.org/resource/Tesla_Motors&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Marc Tarpenning"@en .
+&lt;http://dbpedia.org/resource/Bugatti_Automobiles&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/MG_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"MG"@en .
+&lt;http://dbpedia.org/resource/Alfa_Romeo&gt;	&lt;http://km.pg.gda.pl/rdf/owner&gt;	"Fiat S.p.A."@en .
+&lt;http://dbpedia.org/resource/Melkus&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Lotus_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Norfolk&gt; .
+&lt;http://dbpedia.org/resource/Panoz_Auto_Development&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Tesla_Motors&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"JB Straubel"@en .
+&lt;http://dbpedia.org/resource/Marussia_Motors&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Jefim Ostrovskiy"@en .
+&lt;http://dbpedia.org/resource/Valmet_Automotive&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Valmet Automotive Oy"@en .
+&lt;http://dbpedia.org/resource/Isdera&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Hildesheim&gt; .
+&lt;http://dbpedia.org/resource/Audi&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Ingolstadt&gt; .
+&lt;http://dbpedia.org/resource/Bugatti&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Molsheim&gt; .
+&lt;http://dbpedia.org/resource/Berkeley_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Berkeley Sports SE492"@en .
+&lt;http://dbpedia.org/resource/Lightning_Car_Company&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Hommell&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Bocar&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Audi&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"AUDI Aktiengesellschaft"@en .
+&lt;http://dbpedia.org/resource/Connaught_Engineering&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Isdera&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Eberhard Schulz"@en .
+&lt;http://dbpedia.org/resource/Lotus_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/owner&gt;	&lt;http://dbpedia.org/resource/Romano_Artioli&gt; .
+&lt;http://dbpedia.org/resource/Kieft_Cars&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Gumpert&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Thuringia&gt; .
+&lt;http://dbpedia.org/resource/Briggs_Automotive_Company&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Cheshire&gt; .
+&lt;http://dbpedia.org/resource/BMW&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Franz_Josef_Popp&gt; .
+&lt;http://dbpedia.org/resource/Shelby_SuperCars&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/West_Richland,_Washington&gt; .
+&lt;http://dbpedia.org/resource/Fisker_Automotive&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/TVR&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Blackpool&gt; .
+&lt;http://dbpedia.org/resource/Westfield_Sportscars&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Kingswinford&gt; .
+&lt;http://dbpedia.org/resource/Isotta_Fraschini&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Oreste_Fraschini&gt; .
+&lt;http://dbpedia.org/resource/Spyker_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Victor Muller"@en .
+&lt;http://dbpedia.org/resource/Berkeley_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Berkeley Sports SA322"@en .
+&lt;http://dbpedia.org/resource/Alfa_Romeo&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Nicola_Romeo&gt; .
+&lt;http://dbpedia.org/resource/BMW&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Franz_Josef_Popp&gt; .
+&lt;http://dbpedia.org/resource/Artega_Automobile&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Delbr%C3%BCck&gt; .
+&lt;http://dbpedia.org/resource/Isotta_Fraschini&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Oreste_Fraschini&gt; .
+&lt;http://dbpedia.org/resource/Isotta_Fraschini&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Cesare_Isotta&gt; .
+&lt;http://dbpedia.org/resource/Tesla_Motors&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Martin_Eberhard&gt; .
+&lt;http://dbpedia.org/resource/Marussia_Motors&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Isotta_Fraschini&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Isotta Fraschini"@en .
+&lt;http://dbpedia.org/resource/Isotta_Fraschini&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Cesare_Isotta&gt; .
+&lt;http://dbpedia.org/resource/Mosler_Automotive&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Arrinera&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Warsaw&gt; .
+&lt;http://dbpedia.org/resource/Porsche&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Porsche Automobil Holding"@en .
+&lt;http://dbpedia.org/resource/Marlin_(car)&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Paul Moorhouse"@en .
+&lt;http://dbpedia.org/resource/Isotta_Fraschini&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Alfa_Romeo&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Nicola_Romeo&gt; .
+&lt;http://dbpedia.org/resource/Shelby_SuperCars&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Raw_Engineering&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Herefordshire&gt; .
+&lt;http://dbpedia.org/resource/Tesla_Motors&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Ian Wright"@en .
+&lt;http://dbpedia.org/resource/Lancia_Zagato&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/ZAP_(motor_company)&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Santa_Rosa,_California&gt; .
+&lt;http://dbpedia.org/resource/Dax_Cars&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Audi&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Hi-Tech_Automotive&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/DeLorean_Motor_Company&gt;	&lt;http://km.pg.gda.pl/rdf/foundingDate&gt;	"1975-10-23+02:00"^^&lt;http://www.w3.org/2001/XMLSchema#date&gt; .
+&lt;http://dbpedia.org/resource/De_La_Chapelle&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Koenigsegg&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Christian_von_Koenigsegg&gt; .
+&lt;http://dbpedia.org/resource/Caterham_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Graham Nearn"@en .
+&lt;http://dbpedia.org/resource/Pagani&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Horacio_Pagani_(auto_executive)&gt; .
+&lt;http://dbpedia.org/resource/Gumpert&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Roland_Gumpert&gt; .
+&lt;http://dbpedia.org/resource/Audi&gt;	&lt;http://km.pg.gda.pl/rdf/owner&gt;	"Volkswagen Group"@en .
+&lt;http://dbpedia.org/resource/Gumpert&gt;	&lt;http://km.pg.gda.pl/rdf/owner&gt;	&lt;http://dbpedia.org/resource/Roland_Gumpert&gt; .
+&lt;http://dbpedia.org/resource/Allard&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/ZAP_(motor_company)&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Morgan_Motor_Company&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/H.F.S._Morgan&gt; .
+&lt;http://dbpedia.org/resource/AC_Frua&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"AC Frua"@en .
+&lt;http://dbpedia.org/resource/Sebring_(sports_car)&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Koenigsegg&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Christian_von_Koenigsegg&gt; .
+&lt;http://dbpedia.org/resource/Gumpert&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Roland_Gumpert&gt; .
+&lt;http://dbpedia.org/resource/Fornasari&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Giuseppe_Fornasari&gt; .
+&lt;http://dbpedia.org/resource/Morgan_Motor_Company&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/H.F.S._Morgan&gt; .
+&lt;http://dbpedia.org/resource/Berkeley_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Berkeley QB95 and QB105"@en .
+&lt;http://dbpedia.org/resource/Donkervoort&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/PGO_(Automobile)&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Coda_Automotive&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"CODA Automotive, Inc."@en .
+&lt;http://dbpedia.org/resource/Shelby_SuperCars&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Jerod_Shelby&gt; .
+&lt;http://dbpedia.org/resource/Superformance&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/KTM&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Hans Trunkenpolz"@en .
+&lt;http://dbpedia.org/resource/Bugatti&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Alsace&gt; .
+&lt;http://dbpedia.org/resource/Tesla_Motors&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Martin Eberhard"@en .
+&lt;http://dbpedia.org/resource/Pagani&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Horacio_Pagani_(auto_executive)&gt; .
+&lt;http://dbpedia.org/resource/Fornasari&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Chinkara_Motors&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Chinkara Motors"@en .
+&lt;http://dbpedia.org/resource/Marcos_(automobile)&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Kenilworth&gt; .
+&lt;http://dbpedia.org/resource/AC_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Thames_Ditton&gt; .
+&lt;http://dbpedia.org/resource/Rexer&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Tallinn&gt; .
+&lt;http://dbpedia.org/resource/BMW&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Lister_Cars&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Koenigsegg&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/%C3%84ngelholm&gt; .
+&lt;http://dbpedia.org/resource/Gumpert&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Lotus_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Colin_Chapman&gt; .
+&lt;http://dbpedia.org/resource/GTM_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Kingswinford&gt; .
+&lt;http://dbpedia.org/resource/Marcos_(automobile)&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Frank_Costin&gt; .
+&lt;http://dbpedia.org/resource/DB_(car)&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Caterham_Cars&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Wirth_Research&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Alfa_Romeo&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Bugatti_Automobiles&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Bugatti Automobiles S.A.S."@en .
+&lt;http://dbpedia.org/resource/Ferrari&gt;	&lt;http://km.pg.gda.pl/rdf/owner&gt;	"Piero Ferrari"@en .
+&lt;http://dbpedia.org/resource/Venturi_Automobiles&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Claude Poiraud"@en .
+&lt;http://dbpedia.org/resource/Spyker_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Zeewolde&gt; .
+&lt;http://dbpedia.org/resource/Lotus_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Colin_Chapman&gt; .
+&lt;http://dbpedia.org/resource/Isdera&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Isdera"@en .
+&lt;http://dbpedia.org/resource/Kieft_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Kieft"@en .
+&lt;http://dbpedia.org/resource/Lamborghini&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Automobili Lamborghini S.p.A."@en .
+&lt;http://dbpedia.org/resource/Marlin_(car)&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/McLaren_Automotive&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Marcos_(automobile)&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Frank_Costin&gt; .
+&lt;http://dbpedia.org/resource/Briggs_Automotive_Company&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Holmes_Chapel&gt; .
+&lt;http://dbpedia.org/resource/Dax_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Derek Johns"@en .
+&lt;http://dbpedia.org/resource/Qvale&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Fisker_Automotive&gt;	&lt;http://km.pg.gda.pl/rdf/foundingDate&gt;	"2007-07-31+02:00"^^&lt;http://www.w3.org/2001/XMLSchema#date&gt; .
+&lt;http://dbpedia.org/resource/Audi&gt;	&lt;http://km.pg.gda.pl/rdf/foundingDate&gt;	"1909-07-15+02:00"^^&lt;http://www.w3.org/2001/XMLSchema#date&gt; .
+&lt;http://dbpedia.org/resource/Ferrari&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Marlin_(car)&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Sportster"@en .
+&lt;http://dbpedia.org/resource/Jensen_Motors&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Noble_Automotive&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/McLaren_Automotive&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Surrey&gt; .
+&lt;http://dbpedia.org/resource/Chinkara_Motors&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Aquila_racing_cars&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Pagani&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Lotus_Cars&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Valmet_Automotive&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Uusikaupunki&gt; .
+&lt;http://dbpedia.org/resource/Lightning_Car_Company&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Lightning Car Company"@en .
+&lt;http://dbpedia.org/resource/Lamborghini&gt;	&lt;http://km.pg.gda.pl/rdf/foundedBy&gt;	&lt;http://dbpedia.org/resource/Ferruccio_Lamborghini&gt; .
+&lt;http://dbpedia.org/resource/Jaguar_Cars&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Bugatti_Automobiles&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Molsheim&gt; .
+&lt;http://dbpedia.org/resource/Ferrari&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Ferrari S.p.A."@en .
+&lt;http://dbpedia.org/resource/Mosler_Automotive&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Riviera_Beach,_Florida&gt; .
+&lt;http://dbpedia.org/resource/Marlin_(car)&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"5"^^&lt;http://www.w3.org/2001/XMLSchema#integer&gt; .
+&lt;http://dbpedia.org/resource/Lamborghini&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Ferruccio_Lamborghini&gt; .
+&lt;http://dbpedia.org/resource/Bandini_Automobili&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Rimac_Automobili&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Mate Rimac"@en .
+&lt;http://dbpedia.org/resource/Aquila_racing_cars&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	"Dan Suenson &amp; Anders W Bonde"@en .
+&lt;http://dbpedia.org/resource/Marcos_(automobile)&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Marcos 1800"@en .
+&lt;http://dbpedia.org/resource/Murtaya&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/DeLorean_Motor_Company&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/McLaren_Automotive&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/England&gt; .
+&lt;http://dbpedia.org/resource/Lotus_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Lotus Cars Limited"@en .
+&lt;http://dbpedia.org/resource/Rimac_Automobili&gt;	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;	&lt;http://km.pg.gda.pl/rdf/Manufacturer&gt; .
+&lt;http://dbpedia.org/resource/Orca_Engineering&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Ebenholz&gt; .
+&lt;http://dbpedia.org/resource/Zimmer_(automobile)&gt;	&lt;http://km.pg.gda.pl/rdf/locationCity&gt;	&lt;http://dbpedia.org/resource/Syracuse,_New_York&gt; .
+&lt;http://dbpedia.org/resource/Zenvo&gt;	&lt;http://km.pg.gda.pl/rdf/name&gt;	"Zenvo ST1"@en .
+&lt;http://dbpedia.org/resource/Spyker_Cars&gt;	&lt;http://km.pg.gda.pl/rdf/founder&gt;	&lt;http://dbpedia.org/resource/Maarten_de_Bruijn&gt; .
+</pre></body><div id="sideDragRight" style="display: none;"><div class="side_search_box" id="side_google_search" data-allowed-type="text" style="height: 20%; background-image: url(chrome-extension://aneodkojaglhnkkdbbdnmmmgimlcaogo/images/webSearch.png); background-color: rgb(255, 255, 255); background-size: cover; background-position: 50% 50%;"></div><div class="side_search_box" id="side_wikipedia_search" data-allowed-type="text" style="height: 20%; background-image: url(chrome-extension://aneodkojaglhnkkdbbdnmmmgimlcaogo/images/wikipedia.png); background-color: rgb(255, 255, 255); background-size: cover; background-position: 50% 50%;"></div><div class="side_search_box" id="side_youtube_search" data-allowed-type="text" style="height: 20%; background-image: url(chrome-extension://aneodkojaglhnkkdbbdnmmmgimlcaogo/images/youtube.png); background-color: rgb(255, 255, 255); background-size: cover; background-position: 50% 50%;"></div><div class="side_search_box" id="side_translate_search" data-allowed-type="text" style="height: 20%; background-image: url(chrome-extension://aneodkojaglhnkkdbbdnmmmgimlcaogo/images/translate.png); background-color: rgb(255, 255, 255); background-size: cover; background-position: 50% 50%;"></div><div class="side_search_box" id="side_image_search" data-allowed-type="all" style="height: 20%; background-image: url(chrome-extension://aneodkojaglhnkkdbbdnmmmgimlcaogo/images/imageSearch.png); background-color: rgb(255, 255, 255); background-size: cover; background-position: 50% 50%;"></div></div><div id="sideDragLeft" style="display: none;"><div class="side_search_box" id="side_facebook" data-allowed-type="images" style="height: 20%; background-image: url(chrome-extension://aneodkojaglhnkkdbbdnmmmgimlcaogo/images/facebook.png); background-color: rgb(255, 255, 255); background-size: cover; background-position: 50% 50%;"></div><div class="side_search_box" id="side_twitter" data-allowed-type="images" style="height: 20%; background-image: url(chrome-extension://aneodkojaglhnkkdbbdnmmmgimlcaogo/images/twitter.png); background-color: rgb(255, 255, 255); background-size: cover; background-position: 50% 50%;"></div><div class="side_search_box" id="side_googleplus" data-allowed-type="images" style="height: 20%; background-image: url(chrome-extension://aneodkojaglhnkkdbbdnmmmgimlcaogo/images/google+.png); background-color: rgb(255, 255, 255); background-size: cover; background-position: 50% 50%;"></div><div class="side_search_box" id="side_pinterest" data-allowed-type="images" style="height: 20%; background-image: url(chrome-extension://aneodkojaglhnkkdbbdnmmmgimlcaogo/images/pinterest.png); background-color: rgb(255, 255, 255); background-size: cover; background-position: 50% 50%;"></div><div class="side_search_box" id="side_linkedin" data-allowed-type="images" style="height: 20%; background-image: url(chrome-extension://aneodkojaglhnkkdbbdnmmmgimlcaogo/images/linkedin.png); background-color: rgb(255, 255, 255); background-size: cover; background-position: 50% 50%;"></div></div></html>
