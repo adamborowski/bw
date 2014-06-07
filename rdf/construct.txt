@@ -4,18 +4,33 @@ CONSTRUCT {
 	?man rdf:type my:Manufacturer . 
 	?man my:name ?name . 
 	?man my:founder ?founder . 
-	?man my:owner ?own .
-	?man my:foundedBy ?fBy .
+	?man my:owner ?owner .
 	?man my:foundingDate ?fDate .
-	?man my:locationCity ?locCity .
+	?man my:locationCity ?City  .
 } WHERE {
 	?man dcterms:subject <http://dbpedia.org/resource/Category:Sports_car_manufacturers> .
-	OPTIONAL { ?man dbpedia2:name ?name } .
-	OPTIONAL { ?man dbpedia2:founder ?founder } .
-	OPTIONAL { ?man dbpedia2:owner ?own } .
-    OPTIONAL { ?man dbpedia:ontology/foundedBy ?fBy } .
-	OPTIONAL { ?man dbpedia:ontology/foundingDate ?fDate } .
-	OPTIONAL { ?man dbpedia:ontology/locationCity ?locCity } .
+	OPTIONAL { ?man dbpprop:name ?name } .
+	OPTIONAL { ?man dbpprop:founder ?f } .
+	OPTIONAL { ?man dbpprop:owner ?own } .
+	OPTIONAL { ?man dbpedia-owl:foundingDate ?fDate } .
+	OPTIONAL { ?man dbpedia-owl:locationCity ?locCity } .
+	BIND(STRAFTER(STR(?locCity), "http://dbpedia.org/resource/") as ?City)
+	BIND(REPLACE(REPLACE(STR(?own),"http://dbpedia.org/resource/",""),"_"," ") as ?owner)
+	BIND(REPLACE(REPLACE(STR(?f),"http://dbpedia.org/resource/",""),"_"," ") as ?founder)
+}
+//Manufacturers by country
+Category:Car_manufacturers_by_country
+
+DELETE { ?x :p ?value }
+INSERT { 
+    ?x _:p ?before .
+    ?x _:p ?after .
+}
+WHERE {
+   ?x :p ?value .
+   FILTER(CONTAINS(?value, ","))
+   BIND(strbefore(?value, ",") as ?before)
+   BIND(strafter(?value, ",") as ?after)
 }
 //Car
 PREFIX my: <http://km.pg.gda.pl/rdf/>
