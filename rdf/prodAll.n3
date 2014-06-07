@@ -1,0 +1,780 @@
+<http://dbpedia.org/resource/Jonway>	<http://km.pg.gda.pl/rdf/locationCity>	"Zhejiang" .
+<http://dbpedia.org/resource/Rivian_Automotive>	<http://km.pg.gda.pl/rdf/locationCity>	"Rockledge,_Florida" .
+<http://dbpedia.org/resource/General_Motors_Egypt>	<http://km.pg.gda.pl/rdf/locationCity>	"Cairo" .
+<http://dbpedia.org/resource/Lotus_Cars>	<http://km.pg.gda.pl/rdf/owner>	"Proton (automobile)" .
+<http://dbpedia.org/resource/MG_Motor>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Inokom>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/GAZ>	<http://km.pg.gda.pl/rdf/name>	"\u0413\u043E\u0301\u0440\u044C\u043A\u043E\u0432\u0441\u043A\u0438\u0439 \u0430\u0432\u0442\u043E\u043C\u043E\u0431\u0438\u0301\u043B\u044C\u043D\u044B\u0439 \u0437\u0430\u0432\u043E\u0301\u0434"@en .
+<http://dbpedia.org/resource/Gumpert>	<http://km.pg.gda.pl/rdf/locationCity>	"Altenburg" .
+<http://dbpedia.org/resource/Fiat>	<http://km.pg.gda.pl/rdf/name>	"Fiat S.p.A."@en .
+<http://dbpedia.org/resource/MG_Cars>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Rover_(marque)>	<http://km.pg.gda.pl/rdf/name>	"Rover Marque"@en .
+<http://dbpedia.org/resource/General_Motors_Egypt>	<http://km.pg.gda.pl/rdf/owner>	"16" .
+<http://dbpedia.org/resource/Fabryka_Samochod%C3%B3w_Ma%C5%82olitra%C5%BCowych>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Aton_Impulse>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Fiat_India_Automobiles>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Yutong>	<http://km.pg.gda.pl/rdf/name>	"Zhengzhou Yutong Group Co., Ltd."@en .
+<http://dbpedia.org/resource/Yulon>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Simca>	<http://km.pg.gda.pl/rdf/founder>	"Henri Pigozzi" .
+<http://dbpedia.org/resource/Gumpert>	<http://km.pg.gda.pl/rdf/name>	"Gumpert Sportwagenmanufaktur"@en .
+<http://dbpedia.org/resource/Bollack_Netter_and_Co>	<http://km.pg.gda.pl/rdf/founder>	"Lucien Bollack" .
+<http://dbpedia.org/resource/Auto_5000>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Packard>	<http://km.pg.gda.pl/rdf/founder>	"George L. Weiss" .
+<http://dbpedia.org/resource/Advanced_Automotive_Design>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Hyundai_Motor_Company>	<http://km.pg.gda.pl/rdf/foundingDate>	"1967-12-28+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Basse_und_Selve>	<http://km.pg.gda.pl/rdf/name>	"Basse und Selve GmbH"@en .
+<http://dbpedia.org/resource/Saleen>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Aspid>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Fiat>	<http://km.pg.gda.pl/rdf/foundingDate>	"1899-07-10+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Renault_Espa%C3%B1a>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Holden>	<http://km.pg.gda.pl/rdf/name>	"GM Holden Ltd"@en .
+<http://dbpedia.org/resource/LuAZ>	<http://km.pg.gda.pl/rdf/locationCity>	"Lutsk" .
+<http://dbpedia.org/resource/Fenix_Automotive>	<http://km.pg.gda.pl/rdf/name>	"Fenix Automotive"@en .
+<http://dbpedia.org/resource/Infiniti>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Daimler_AG>	<http://km.pg.gda.pl/rdf/owner>	"Kuwait Investment Authority" .
+<http://dbpedia.org/resource/Entreposto>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Honda>	<http://km.pg.gda.pl/rdf/name>	"Honda Motor Company, Ltd."@en .
+<http://dbpedia.org/resource/Big_Three_(automobile_manufacturers)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Bahman_Group>	<http://km.pg.gda.pl/rdf/name>	"Bahman Group"@en .
+<http://dbpedia.org/resource/De_Tomaso>	<http://km.pg.gda.pl/rdf/founder>	"Alejandro de Tomaso" .
+<http://dbpedia.org/resource/Lotus_Cars>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/CIME>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Ghabbour_Group>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Terrafugia>	<http://km.pg.gda.pl/rdf/name>	"Terrafugia"@en .
+<http://dbpedia.org/resource/AvtoVAZ>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Coda_Automotive>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Tesla_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Tauro_Sport_Auto>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/MG_Motor>	<http://km.pg.gda.pl/rdf/locationCity>	"Longbridge" .
+<http://dbpedia.org/resource/Poinard>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Beijing_Benz>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Fiat>	<http://km.pg.gda.pl/rdf/founder>	"Giovanni Agnelli" .
+<http://dbpedia.org/resource/Audi_Senna>	<http://km.pg.gda.pl/rdf/locationCity>	"Curitiba" .
+<http://dbpedia.org/resource/Fiat>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Lotus_Cars>	<http://km.pg.gda.pl/rdf/founder>	"Colin Chapman" .
+<http://dbpedia.org/resource/Edfor>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/ZAZ>	<http://km.pg.gda.pl/rdf/founder>	"Soviet Union" .
+<http://dbpedia.org/resource/Panhard>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Etox>	<http://km.pg.gda.pl/rdf/founder>	"Ercan Malko\u00E7" .
+<http://dbpedia.org/resource/Ordnance_Factory_Medak>	<http://km.pg.gda.pl/rdf/name>	"Ordnance Factory Medak"@en .
+<http://dbpedia.org/resource/Renault>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Ferrari>	<http://km.pg.gda.pl/rdf/owner>	"Fiat S.p.A." .
+<http://dbpedia.org/resource/GM_Korea>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Standard_(Indian_automobile)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Pagani>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/National_Sewing_Machine_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/New-Map>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/JAC_Motors>	<http://km.pg.gda.pl/rdf/locationCity>	"Hefei" .
+<http://dbpedia.org/resource/BYD_Auto>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Renault_Argentina>	<http://km.pg.gda.pl/rdf/owner>	"COFAL" .
+<http://dbpedia.org/resource/Bugatti_Automobiles>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Diar>	<http://km.pg.gda.pl/rdf/locationCity>	"Isfahan_Province" .
+<http://dbpedia.org/resource/Rover_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Lamborghini>	<http://km.pg.gda.pl/rdf/founder>	"Ferruccio Lamborghini" .
+<http://dbpedia.org/resource/SsangYong_Motor_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Sevel_Argentina_S.A.>	<http://km.pg.gda.pl/rdf/foundingDate>	"1980-11-30+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/UAZ>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/American_Honda_Motor_Company>	<http://km.pg.gda.pl/rdf/name>	"American Honda Motor Company, Inc."@en .
+<http://dbpedia.org/resource/FAW-Volkswagen>	<http://km.pg.gda.pl/rdf/locationCity>	"Changchun" .
+<http://dbpedia.org/resource/Autobianchi>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Honda>	<http://km.pg.gda.pl/rdf/foundingDate>	"1948-09-23+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Automobili_Stanguellini>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Terrafugia>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/BMW>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/LuAZ>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Belga_Rise>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Toyota_Motor_Manufacturing_Turkey>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Aton_Impulse>	<http://km.pg.gda.pl/rdf/locationCity>	"Naberezhnye_Chelny" .
+<http://dbpedia.org/resource/Lancia>	<http://km.pg.gda.pl/rdf/foundingDate>	"1906-11-28+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/GAZ>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Chery>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Renault_Samsung_Motors>	<http://km.pg.gda.pl/rdf/owner>	"Renault" .
+<http://dbpedia.org/resource/Honda>	<http://km.pg.gda.pl/rdf/founder>	"Soichiro Honda" .
+<http://dbpedia.org/resource/Youngman>	<http://km.pg.gda.pl/rdf/founder>	"Pang Qingnian" .
+<http://dbpedia.org/resource/Mazda>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/FAW-Volkswagen>	<http://km.pg.gda.pl/rdf/foundingDate>	"1991-02-05+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Venturi_Automobiles>	<http://km.pg.gda.pl/rdf/locationCity>	"Fontvieille,_Monaco" .
+<http://dbpedia.org/resource/Miles_Electric_Vehicles>	<http://km.pg.gda.pl/rdf/locationCity>	"California" .
+<http://dbpedia.org/resource/Shanghai_Volkswagen>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Innocenti>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/American_Honda_Motor_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Pagani>	<http://km.pg.gda.pl/rdf/founder>	"Horacio Pagani (auto executive)" .
+<http://dbpedia.org/resource/Automobiles_Rally>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Rinspeed>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Zenvo>	<http://km.pg.gda.pl/rdf/name>	"Zenvo ST1"@en .
+<http://dbpedia.org/resource/General_Motors>	<http://km.pg.gda.pl/rdf/founder>	"William C. Durant" .
+<http://dbpedia.org/resource/Proton_(automobile)>	<http://km.pg.gda.pl/rdf/foundingDate>	"1983-05-06+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Lamborghini>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Melkus>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Vehicle_Factory_Jabalpur>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/SG_Automotive>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Saab_Automobile>	<http://km.pg.gda.pl/rdf/locationCity>	"Trollh%C3%A4ttan" .
+<http://dbpedia.org/resource/Hafei>	<http://km.pg.gda.pl/rdf/name>	"\u54C8\u98DE\u6C7D\u8F66"@en .
+<http://dbpedia.org/resource/Porsche_India>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/FAW-Volkswagen>	<http://km.pg.gda.pl/rdf/locationCity>	"China" .
+<http://dbpedia.org/resource/Audi_Senna>	<http://km.pg.gda.pl/rdf/owner>	"Audi AG: 49 %" .
+<http://dbpedia.org/resource/Nissan_Motor_Company>	<http://km.pg.gda.pl/rdf/founder>	"Yoshisuke Aikawa" .
+<http://dbpedia.org/resource/List_of_American_truck_manufacturers>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Cadillac>	<http://km.pg.gda.pl/rdf/founder>	"Henry Ford, original founder" .
+<http://dbpedia.org/resource/Renault_Argentina>	<http://km.pg.gda.pl/rdf/name>	"Renault Argentina SA"@en .
+<http://dbpedia.org/resource/General_Motors_Egypt>	<http://km.pg.gda.pl/rdf/locationCity>	"Maadi" .
+<http://dbpedia.org/resource/Chrysler>	<http://km.pg.gda.pl/rdf/name>	"Chrysler Group LLC"@en .
+<http://dbpedia.org/resource/Chevrolet>	<http://km.pg.gda.pl/rdf/owner>	"General Motors" .
+<http://dbpedia.org/resource/Meyers_Manx,_Inc.>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Lancia>	<http://km.pg.gda.pl/rdf/founder>	"Vincenzo Lancia" .
+<http://dbpedia.org/resource/GM-AvtoVAZ>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Renault_Samsung_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Miles_Electric_Vehicles>	<http://km.pg.gda.pl/rdf/locationCity>	"Santa_Monica,_California" .
+<http://dbpedia.org/resource/Fujian_Benz>	<http://km.pg.gda.pl/rdf/locationCity>	"Fuzhou" .
+<http://dbpedia.org/resource/AM_General>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Etox>	<http://km.pg.gda.pl/rdf/locationCity>	"Ankara" .
+<http://dbpedia.org/resource/Daimler_AG>	<http://km.pg.gda.pl/rdf/owner>	"Institutional shareholders" .
+<http://dbpedia.org/resource/Bugatti_Automobiles>	<http://km.pg.gda.pl/rdf/name>	"Bugatti Automobiles S.A.S."@en .
+<http://dbpedia.org/resource/Spyker_Cars>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Honda>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Terrafugia>	<http://km.pg.gda.pl/rdf/founder>	"Alex Min" .
+<http://dbpedia.org/resource/Gumpert>	<http://km.pg.gda.pl/rdf/locationCity>	"Thuringia" .
+<http://dbpedia.org/resource/Abarth>	<http://km.pg.gda.pl/rdf/founder>	"Carlo Abarth" .
+<http://dbpedia.org/resource/Meadows_Frisky>	<http://km.pg.gda.pl/rdf/name>	"Meadows Frisky"@en .
+<http://dbpedia.org/resource/Land_Rover>	<http://km.pg.gda.pl/rdf/name>	"Land Rover marque"@en .
+<http://dbpedia.org/resource/Anadol>	<http://km.pg.gda.pl/rdf/name>	"ANADOL"@en .
+<http://dbpedia.org/resource/SAIPA>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Mochet>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/AM_General>	<http://km.pg.gda.pl/rdf/founder>	"American Motors" .
+<http://dbpedia.org/resource/Motor_Development_International>	<http://km.pg.gda.pl/rdf/locationCity>	"Carros" .
+<http://dbpedia.org/resource/Bugatti>	<http://km.pg.gda.pl/rdf/name>	"Bugatti"@en .
+<http://dbpedia.org/resource/Renault>	<http://km.pg.gda.pl/rdf/name>	"Renault S.A."@en .
+<http://dbpedia.org/resource/BYD_Auto>	<http://km.pg.gda.pl/rdf/locationCity>	"Guangdong" .
+<http://dbpedia.org/resource/Jawa_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Oyak-Renault>	<http://km.pg.gda.pl/rdf/name>	"Oyak Renault Otomobil Fabrikalar\u0131 A.\u015E."@en .
+<http://dbpedia.org/resource/Audi>	<http://km.pg.gda.pl/rdf/locationCity>	"Ingolstadt" .
+<http://dbpedia.org/resource/Ukrainian_Automobile_Corporation>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/LaSalle_(automobile)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Rover_(marque)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Jaguar_Cars>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Delahaye>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Porsche>	<http://km.pg.gda.pl/rdf/founder>	"Ferdinand Porsche" .
+<http://dbpedia.org/resource/Alfa_Romeo>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Gonow>	<http://km.pg.gda.pl/rdf/locationCity>	"Taizhou,_Zhejiang" .
+<http://dbpedia.org/resource/Holden>	<http://km.pg.gda.pl/rdf/founder>	"James Alexander Holden" .
+<http://dbpedia.org/resource/Bitter_Cars>	<http://km.pg.gda.pl/rdf/locationCity>	"Schwelm" .
+<http://dbpedia.org/resource/BMW>	<http://km.pg.gda.pl/rdf/locationCity>	"Munich" .
+<http://dbpedia.org/resource/Volkswagen_Group_China>	<http://km.pg.gda.pl/rdf/name>	"Volkswagen Group China"@en .
+<http://dbpedia.org/resource/Gautier%E2%80%93Wehrl%C3%A9>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Ford_Germany>	<http://km.pg.gda.pl/rdf/locationCity>	"North_Rhine-Westphalia" .
+<http://dbpedia.org/resource/Automobiles_Bernardet>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Zbrojovka_Brno>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Industrias_Kaiser_Argentina>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Talbot>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Lamborghini>	<http://km.pg.gda.pl/rdf/name>	"Automobili Lamborghini S.p.A."@en .
+<http://dbpedia.org/resource/Egy-Tech_Engineering>	<http://km.pg.gda.pl/rdf/name>	"\u0627\u064A\u062C\u064A \u062A\u0643 \u0644\u0644\u0635\u0646\u0627\u0639\u0627\u062A \u0627\u0644\u0645\u062A\u0637\u0648\u0631\u0629"@en .
+<http://dbpedia.org/resource/Briton_Motor_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Marussia_Motors>	<http://km.pg.gda.pl/rdf/founder>	"Andrei Tsheglakov" .
+<http://dbpedia.org/resource/AvtoVAZ>	<http://km.pg.gda.pl/rdf/owner>	"Renault 25%" .
+<http://dbpedia.org/resource/Zagato>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Ghabbour_Group>	<http://km.pg.gda.pl/rdf/locationCity>	"Cairo" .
+<http://dbpedia.org/resource/Isuzu_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Yutong>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Spyker_Cars>	<http://km.pg.gda.pl/rdf/founder>	"Victor Muller" .
+<http://dbpedia.org/resource/PSA_Peugeot_Citro%C3%ABn>	<http://km.pg.gda.pl/rdf/name>	"Peugeot S.A."@en .
+<http://dbpedia.org/resource/Tesla_Motors>	<http://km.pg.gda.pl/rdf/name>	"Tesla Motors, Inc."@en .
+<http://dbpedia.org/resource/Proton_(automobile)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Hyundai_Motor_Company>	<http://km.pg.gda.pl/rdf/founder>	"Chung Ju-yung" .
+<http://dbpedia.org/resource/Artega_Automobile>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Panhard>	<http://km.pg.gda.pl/rdf/founder>	"%C3%89mile Levassor" .
+<http://dbpedia.org/resource/Packard>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Ford_Motor_Company>	<http://km.pg.gda.pl/rdf/founder>	"Henry Ford" .
+<http://dbpedia.org/resource/Marlei_(car)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Hyundai_Motor_Company>	<http://km.pg.gda.pl/rdf/name>	"\uD604\uB300\uC790\uB3D9\uCC28 \uC8FC\uC2DD\uD68C\uC0AC"@en .
+<http://dbpedia.org/resource/Jeep>	<http://km.pg.gda.pl/rdf/locationCity>	"Toledo,_Ohio" .
+<http://dbpedia.org/resource/Lotec>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Stutz_Motor_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Tata_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/American_Honda_Motor_Company>	<http://km.pg.gda.pl/rdf/locationCity>	"California" .
+<http://dbpedia.org/resource/Kia_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Electric_Vehicle_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Ford_Motor_Company_of_Australia>	<http://km.pg.gda.pl/rdf/founder>	"Henry Ford" .
+<http://dbpedia.org/resource/Koenigsegg>	<http://km.pg.gda.pl/rdf/name>	"Koenigsegg Automotive AB"@en .
+<http://dbpedia.org/resource/Opel_India_Private_Limited>	<http://km.pg.gda.pl/rdf/locationCity>	"Halol" .
+<http://dbpedia.org/resource/Zenvo>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Jonway>	<http://km.pg.gda.pl/rdf/locationCity>	"Taizhou,_Zhejiang" .
+<http://dbpedia.org/resource/GM_Korea>	<http://km.pg.gda.pl/rdf/locationCity>	"Bupyeong_District" .
+<http://dbpedia.org/resource/Subaru>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Lincoln_Motor_Company>	<http://km.pg.gda.pl/rdf/locationCity>	"Dearborn,_Michigan" .
+<http://dbpedia.org/resource/Jonway>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Motor_Development_International>	<http://km.pg.gda.pl/rdf/founder>	"Guy N\u00E8gre" .
+<http://dbpedia.org/resource/De_Tomaso>	<http://km.pg.gda.pl/rdf/name>	"De Tomaso Automobili S.p.A."@en .
+<http://dbpedia.org/resource/Bugatti_Automobiles>	<http://km.pg.gda.pl/rdf/locationCity>	"Molsheim" .
+<http://dbpedia.org/resource/Eterniti_Motors>	<http://km.pg.gda.pl/rdf/locationCity>	"Park_Royal" .
+<http://dbpedia.org/resource/Otosan>	<http://km.pg.gda.pl/rdf/name>	"Otosan"@en .
+<http://dbpedia.org/resource/Renault_Argentina>	<http://km.pg.gda.pl/rdf/owner>	"Renault SAS" .
+<http://dbpedia.org/resource/Alfa_Romeo>	<http://km.pg.gda.pl/rdf/founder>	"Alexandre Darracq/Ugo Stella" .
+<http://dbpedia.org/resource/Monte_Carlo_Automobile>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Detroit_Automobile_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/BMW>	<http://km.pg.gda.pl/rdf/name>	"Bayerische Motoren Werke AG"@en .
+<http://dbpedia.org/resource/Tauro_Sport_Auto>	<http://km.pg.gda.pl/rdf/name>	"Tauro Sport Auto"@en .
+<http://dbpedia.org/resource/Aspid>	<http://km.pg.gda.pl/rdf/name>	"IFR Automotive, S.L."@en .
+<http://dbpedia.org/resource/Rover_Company>	<http://km.pg.gda.pl/rdf/founder>	"William Sutton" .
+<http://dbpedia.org/resource/Duesenberg>	<http://km.pg.gda.pl/rdf/locationCity>	"Indianapolis" .
+<http://dbpedia.org/resource/Toyota_Australia>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/GMC_(automobile)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Marussia_Motors>	<http://km.pg.gda.pl/rdf/name>	"Marussia Motors"@en .
+<http://dbpedia.org/resource/Volvo>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Basil_Green_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Venturi_Automobiles>	<http://km.pg.gda.pl/rdf/owner>	"Gildo P. Pastor" .
+<http://dbpedia.org/resource/Lancia>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Renault_Argentina>	<http://km.pg.gda.pl/rdf/locationCity>	"Buenos_Aires" .
+<http://dbpedia.org/resource/Youngman>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Suzuki>	<http://km.pg.gda.pl/rdf/founder>	"Michio Suzuki (inventor)" .
+<http://dbpedia.org/resource/Ozamktas_%C3%96zaltin_Makina_Otomotiv>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Xinkai>	<http://km.pg.gda.pl/rdf/name>	"Xinkai Automobile Group Co., Ltd."@en .
+<http://dbpedia.org/resource/T._J._Richards>	<http://km.pg.gda.pl/rdf/name>	"Richards, T. J."@en .
+<http://dbpedia.org/resource/Monte_Carlo_Automobile>	<http://km.pg.gda.pl/rdf/founder>	"Fulvio Ballabio" .
+<http://dbpedia.org/resource/Renault_Espa%C3%B1a>	<http://km.pg.gda.pl/rdf/locationCity>	"Valladolid" .
+<http://dbpedia.org/resource/Rolls-Royce_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Ruf_Automobile>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Packard>	<http://km.pg.gda.pl/rdf/founder>	"James Ward Packard" .
+<http://dbpedia.org/resource/Koenigsegg>	<http://km.pg.gda.pl/rdf/locationCity>	"%C3%84ngelholm" .
+<http://dbpedia.org/resource/Opel>	<http://km.pg.gda.pl/rdf/name>	"Adam Opel AG"@en .
+<http://dbpedia.org/resource/Jawa_Motors>	<http://km.pg.gda.pl/rdf/founder>	"Franti%C5%A1ek Jane%C4%8Dek" .
+<http://dbpedia.org/resource/Chambers_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Nissan_Motor_Company>	<http://km.pg.gda.pl/rdf/foundingDate>	"1933-12-25+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Beijing_Automotive_Group>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/AvtoVAZ>	<http://km.pg.gda.pl/rdf/owner>	"Russian Technologies 67.13%" .
+<http://dbpedia.org/resource/Venturi_Automobiles>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Motor_Development_International>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/FAW-Volkswagen>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Sevel_Argentina_S.A.>	<http://km.pg.gda.pl/rdf/founder>	"Jean Paul Parayre & Humberto Agnelli" .
+<http://dbpedia.org/resource/Maserati>	<http://km.pg.gda.pl/rdf/owner>	"Fiat S.p.A." .
+<http://dbpedia.org/resource/Fujian_Benz>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Central_Motors>	<http://km.pg.gda.pl/rdf/locationCity>	"%C5%8Chira,_Miyagi" .
+<http://dbpedia.org/resource/Suzuki>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Nissan_Motor_Company>	<http://km.pg.gda.pl/rdf/name>	"Nissan Jidosha Kabushiki-gaisha"@en .
+<http://dbpedia.org/resource/Wildfire_(motor_company)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Audi_Senna>	<http://km.pg.gda.pl/rdf/owner>	"Senna Import: 51 %" .
+<http://dbpedia.org/resource/Chevrolet>	<http://km.pg.gda.pl/rdf/founder>	"William C. Durant" .
+<http://dbpedia.org/resource/Hyundai_Assan_Otomotiv>	<http://km.pg.gda.pl/rdf/name>	"Hyundai Assan Otomotiv San ve Tic."@en .
+<http://dbpedia.org/resource/DIM_(automobiles)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/General_Motors_Egypt>	<http://km.pg.gda.pl/rdf/owner>	"31" .
+<http://dbpedia.org/resource/BMW>	<http://km.pg.gda.pl/rdf/foundingDate>	"1916-03-06+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Opel>	<http://km.pg.gda.pl/rdf/founder>	"Adam Opel" .
+<http://dbpedia.org/resource/Fabryka_Samochod%C3%B3w_Osobowych>	<http://km.pg.gda.pl/rdf/locationCity>	"Poland" .
+<http://dbpedia.org/resource/Porsche>	<http://km.pg.gda.pl/rdf/owner>	"Volkswagen Group" .
+<http://dbpedia.org/resource/Tesla_Motors>	<http://km.pg.gda.pl/rdf/founder>	"Marc Tarpenning" .
+<http://dbpedia.org/resource/Bollack_Netter_and_Co>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Rivian_Automotive>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/SEAT>	<http://km.pg.gda.pl/rdf/foundingDate>	"1950-05-08+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Maserati>	<http://km.pg.gda.pl/rdf/foundingDate>	"1914-11-30+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Vauxhall_Motors>	<http://km.pg.gda.pl/rdf/owner>	"General Motors" .
+<http://dbpedia.org/resource/Espenlaub_(automobile)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Etox>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Chevrolet>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/FAW-Volkswagen>	<http://km.pg.gda.pl/rdf/locationCity>	"Jilin" .
+<http://dbpedia.org/resource/Mors_(automobile)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Rover_Company>	<http://km.pg.gda.pl/rdf/founder>	"John Kemp Starley" .
+<http://dbpedia.org/resource/Renault>	<http://km.pg.gda.pl/rdf/founder>	"Fernand Renault" .
+<http://dbpedia.org/resource/Zimmer_(automobile)>	<http://km.pg.gda.pl/rdf/owner>	"Art Zimmer" .
+<http://dbpedia.org/resource/Bavarian_Auto_Group>	<http://km.pg.gda.pl/rdf/founder>	"Ali El-Saiedi" .
+<http://dbpedia.org/resource/Hyundai_Assan_Otomotiv>	<http://km.pg.gda.pl/rdf/locationCity>	"%C4%B0zmit" .
+<http://dbpedia.org/resource/ZAZ>	<http://km.pg.gda.pl/rdf/locationCity>	"Zaporizhia" .
+<http://dbpedia.org/resource/Perana_Performance_Group>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Egy-Tech_Engineering>	<http://km.pg.gda.pl/rdf/locationCity>	"Cairo" .
+<http://dbpedia.org/resource/GM-AvtoVAZ>	<http://km.pg.gda.pl/rdf/owner>	"AvtoVAZ  General Motors  EBRD" .
+<http://dbpedia.org/resource/TVR>	<http://km.pg.gda.pl/rdf/locationCity>	"Blackpool" .
+<http://dbpedia.org/resource/GMC_(automobile)>	<http://km.pg.gda.pl/rdf/locationCity>	"Michigan" .
+<http://dbpedia.org/resource/Nissan_Motor_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Minerva_(automobile)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Jeep>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Delage>	<http://km.pg.gda.pl/rdf/founder>	"Louis Del%C3%A2ge" .
+<http://dbpedia.org/resource/Ford_Germany>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Soar_Automotive>	<http://km.pg.gda.pl/rdf/locationCity>	"Qingdao" .
+<http://dbpedia.org/resource/Isotta_Fraschini>	<http://km.pg.gda.pl/rdf/locationCity>	"Milan" .
+<http://dbpedia.org/resource/Ford_Germany>	<http://km.pg.gda.pl/rdf/foundingDate>	"1925-08-17+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/General_Motors_Egypt>	<http://km.pg.gda.pl/rdf/owner>	"33" .
+<http://dbpedia.org/resource/Europestar>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Gumpert>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Automobiles_Claveau>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Mercedes-Benz_India>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Fiat_India_Automobiles>	<http://km.pg.gda.pl/rdf/foundingDate>	"1997-01-01+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Volkswagen>	<http://km.pg.gda.pl/rdf/founder>	"Ferdinand Porsche" .
+<http://dbpedia.org/resource/Lexus>	<http://km.pg.gda.pl/rdf/owner>	"Toyota" .
+<http://dbpedia.org/resource/Soar_Automotive>	<http://km.pg.gda.pl/rdf/locationCity>	"Shandong" .
+<http://dbpedia.org/resource/Renault_Argentina>	<http://km.pg.gda.pl/rdf/owner>	"RDIC" .
+<http://dbpedia.org/resource/Apal>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/AM_General>	<http://km.pg.gda.pl/rdf/owner>	"Renco Group" .
+<http://dbpedia.org/resource/Karmann>	<http://km.pg.gda.pl/rdf/owner>	"Valmet Automotive" .
+<http://dbpedia.org/resource/Saab_Automobile>	<http://km.pg.gda.pl/rdf/owner>	"National Modern Energy Holdings via National Electric Vehicle Sweden" .
+<http://dbpedia.org/resource/Morattab>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Le_Dauphin>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/General_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Xinkai>	<http://km.pg.gda.pl/rdf/locationCity>	"Gaobeidian" .
+<http://dbpedia.org/resource/Audi>	<http://km.pg.gda.pl/rdf/owner>	"Volkswagen Group" .
+<http://dbpedia.org/resource/Daewoo_Motors>	<http://km.pg.gda.pl/rdf/locationCity>	"Bupyeong_District" .
+<http://dbpedia.org/resource/Nissan_Motor_Company>	<http://km.pg.gda.pl/rdf/founder>	"Kenjiro Den" .
+<http://dbpedia.org/resource/Namco_(automobiles)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Renault_Argentina>	<http://km.pg.gda.pl/rdf/owner>	"Public" .
+<http://dbpedia.org/resource/Tata_Motors>	<http://km.pg.gda.pl/rdf/name>	"Tata Motors"@en .
+<http://dbpedia.org/resource/Soar_Automotive>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Panhard>	<http://km.pg.gda.pl/rdf/founder>	"Ren%C3%A9 Panhard" .
+<http://dbpedia.org/resource/Tesla_Motors>	<http://km.pg.gda.pl/rdf/founder>	"Elon Musk" .
+<http://dbpedia.org/resource/General_Motors_do_Brasil>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Lexus>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/AM_General>	<http://km.pg.gda.pl/rdf/locationCity>	"United_States" .
+<http://dbpedia.org/resource/American_Honda_Motor_Company>	<http://km.pg.gda.pl/rdf/locationCity>	"Torrance,_California" .
+<http://dbpedia.org/resource/Coda_Automotive>	<http://km.pg.gda.pl/rdf/name>	"CODA Automotive, Inc."@en .
+<http://dbpedia.org/resource/Aspid>	<http://km.pg.gda.pl/rdf/locationCity>	"Reus" .
+<http://dbpedia.org/resource/Alfa_Romeo>	<http://km.pg.gda.pl/rdf/founder>	"Nicola Romeo" .
+<http://dbpedia.org/resource/Bentley>	<http://km.pg.gda.pl/rdf/foundingDate>	"1919-01-17+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Zamyad_Co.>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Gonow>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Ferrari>	<http://km.pg.gda.pl/rdf/founder>	"Enzo Ferrari" .
+<http://dbpedia.org/resource/Koenigsegg>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Packard>	<http://km.pg.gda.pl/rdf/name>	"Packard"@en .
+<http://dbpedia.org/resource/Lexus>	<http://km.pg.gda.pl/rdf/name>	"Lexus"@en .
+<http://dbpedia.org/resource/Bavarian_Auto_Group>	<http://km.pg.gda.pl/rdf/founder>	"Lueder Paysen" .
+<http://dbpedia.org/resource/Anadol>	<http://km.pg.gda.pl/rdf/locationCity>	"Istanbul" .
+<http://dbpedia.org/resource/Abarth>	<http://km.pg.gda.pl/rdf/name>	"Abarth & C. Spa"@en .
+<http://dbpedia.org/resource/LaSalle_(automobile)>	<http://km.pg.gda.pl/rdf/name>	"LaSalle"@en .
+<http://dbpedia.org/resource/Tata_Motors_Cars>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Hafei>	<http://km.pg.gda.pl/rdf/locationCity>	"Harbin" .
+<http://dbpedia.org/resource/Beijing_Benz>	<http://km.pg.gda.pl/rdf/name>	"Beijing Benz Automotive Co., Ltd."@en .
+<http://dbpedia.org/resource/%C5%A0koda_Auto>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Kish_Khodro>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/China_Motor_Corporation>	<http://km.pg.gda.pl/rdf/foundingDate>	"1969-06-12+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Geely>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/BMW_India>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Iran_Khodro>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Jaguar_Land_Rover>	<http://km.pg.gda.pl/rdf/locationCity>	"Whitley,_Coventry" .
+<http://dbpedia.org/resource/Abarth>	<http://km.pg.gda.pl/rdf/foundingDate>	"1949-04-14+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Soar_Automotive>	<http://km.pg.gda.pl/rdf/name>	"Qingdao SOAR Automotive Group, Ltd."@en .
+<http://dbpedia.org/resource/Xinkai>	<http://km.pg.gda.pl/rdf/locationCity>	"Hebei" .
+<http://dbpedia.org/resource/Opel_India_Private_Limited>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Trabant>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Anadol>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Alfa_Romeo>	<http://km.pg.gda.pl/rdf/owner>	"Fiat S.p.A." .
+<http://dbpedia.org/resource/Land_Rover>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/%C5%A0koda_Auto>	<http://km.pg.gda.pl/rdf/founder>	"V\u00E1clav Laurin and V\u00E1clav Klement" .
+<http://dbpedia.org/resource/BMW>	<http://km.pg.gda.pl/rdf/founder>	"Franz Josef Popp" .
+<http://dbpedia.org/resource/Alfa_Romeo>	<http://km.pg.gda.pl/rdf/name>	"Alfa Romeo Automobiles S.p.A."@en .
+<http://dbpedia.org/resource/Volkswagen_Group_China>	<http://km.pg.gda.pl/rdf/name>	"\u5927\u4F17\u6C7D\u8F66"@en .
+<http://dbpedia.org/resource/Audi_Senna>	<http://km.pg.gda.pl/rdf/owner>	"since 03/2005:" .
+<http://dbpedia.org/resource/Speranza_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Ford_Motor_Company>	<http://km.pg.gda.pl/rdf/name>	"Ford Motor Company"@en .
+<http://dbpedia.org/resource/Grecav>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Lion-Peugeot>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Jaguar_Cars>	<http://km.pg.gda.pl/rdf/locationCity>	"Whitley,_Coventry" .
+<http://dbpedia.org/resource/Geely>	<http://km.pg.gda.pl/rdf/name>	"Zhejiang Geely Holding Group"@en .
+<http://dbpedia.org/resource/Chrysler>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/SAIC_Motor>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Huayang>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Nissan_Motor_Company>	<http://km.pg.gda.pl/rdf/name>	"Nissan Motor Company Ltd"@en .
+<http://dbpedia.org/resource/Rivian_Automotive>	<http://km.pg.gda.pl/rdf/name>	"Rivian Automotive"@en .
+<http://dbpedia.org/resource/Opel>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Shanghai_Volkswagen>	<http://km.pg.gda.pl/rdf/name>	"Shanghai Volkswagen Automotive Co., Ltd."@en .
+<http://dbpedia.org/resource/GMC_(automobile)>	<http://km.pg.gda.pl/rdf/locationCity>	"Detroit" .
+<http://dbpedia.org/resource/Tara_International>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/GAZ>	<http://km.pg.gda.pl/rdf/name>	"Gorky Automobile Plant"@en .
+<http://dbpedia.org/resource/Pars_Khodro>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Alfa_Romeo>	<http://km.pg.gda.pl/rdf/foundingDate>	"1910-06-23+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/AM_General>	<http://km.pg.gda.pl/rdf/owner>	"MacAndrews & Forbes" .
+<http://dbpedia.org/resource/Central_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Daimler_AG>	<http://km.pg.gda.pl/rdf/owner>	"Renault-Nissan Alliance" .
+<http://dbpedia.org/resource/Vauxhall_Motors>	<http://km.pg.gda.pl/rdf/founder>	"Alexander Wilson" .
+<http://dbpedia.org/resource/GMC_(automobile)>	<http://km.pg.gda.pl/rdf/owner>	"General Motors" .
+<http://dbpedia.org/resource/Tata_Motors>	<http://km.pg.gda.pl/rdf/founder>	"J. R. D. Tata" .
+<http://dbpedia.org/resource/Aston_Martin>	<http://km.pg.gda.pl/rdf/locationCity>	"Warwickshire" .
+<http://dbpedia.org/resource/Subaru>	<http://km.pg.gda.pl/rdf/founder>	"Kenji Kita" .
+<http://dbpedia.org/resource/CTA-Arsenal>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Fenix_Automotive>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Aspid>	<http://km.pg.gda.pl/rdf/founder>	"Ignacio Fern\u00E1ndez Rodr\u00EDguez" .
+<http://dbpedia.org/resource/Suzuki>	<http://km.pg.gda.pl/rdf/locationCity>	"Shizuoka_Prefecture" .
+<http://dbpedia.org/resource/Tauro_Sport_Auto>	<http://km.pg.gda.pl/rdf/locationCity>	"Valladolid" .
+<http://dbpedia.org/resource/The_Great_Horseless_Carriage_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Wartburg_(car)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Ruby_(car)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Beijing_Benz>	<http://km.pg.gda.pl/rdf/locationCity>	"Beijing" .
+<http://dbpedia.org/resource/Bahman_Group>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Honda>	<http://km.pg.gda.pl/rdf/founder>	"Takeo Fujisawa" .
+<http://dbpedia.org/resource/Shanghai_GM>	<http://km.pg.gda.pl/rdf/name>	"Shanghai General Motors Company Ltd"@en .
+<http://dbpedia.org/resource/Pennant_(automobile)>	<http://km.pg.gda.pl/rdf/name>	"Pennant"@en .
+<http://dbpedia.org/resource/Venturi_Automobiles>	<http://km.pg.gda.pl/rdf/founder>	"Claude Poiraud" .
+<http://dbpedia.org/resource/Cadillac>	<http://km.pg.gda.pl/rdf/foundingDate>	"1902-08-21+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Chrysler>	<http://km.pg.gda.pl/rdf/founder>	"Walter Chrysler" .
+<http://dbpedia.org/resource/Ordnance_Factory_Medak>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Isotta_Fraschini>	<http://km.pg.gda.pl/rdf/founder>	"Cesare Isotta" .
+<http://dbpedia.org/resource/Citro%C3%ABn>	<http://km.pg.gda.pl/rdf/locationCity>	"Saint-Ouen,_Seine-Saint-Denis" .
+<http://dbpedia.org/resource/Egy-Tech_Engineering>	<http://km.pg.gda.pl/rdf/locationCity>	"Heliopolis_(Cairo_suburb)" .
+<http://dbpedia.org/resource/MG_Motor>	<http://km.pg.gda.pl/rdf/founder>	"Cecil Kimber" .
+<http://dbpedia.org/resource/Bristol_Cars>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Jaguar_Cars>	<http://km.pg.gda.pl/rdf/foundingDate>	"1922-09-10+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Vauxhall_Motors>	<http://km.pg.gda.pl/rdf/locationCity>	"Luton" .
+<http://dbpedia.org/resource/Lamborghini>	<http://km.pg.gda.pl/rdf/locationCity>	"Sant'Agata_Bolognese" .
+<http://dbpedia.org/resource/Land_Rover>	<http://km.pg.gda.pl/rdf/locationCity>	"Jaguar_Land_Rover_Gaydon_Centre" .
+<http://dbpedia.org/resource/NSU_Motorenwerke>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Chevrolet>	<http://km.pg.gda.pl/rdf/locationCity>	"Detroit" .
+<http://dbpedia.org/resource/Iran_Khodro>	<http://km.pg.gda.pl/rdf/founder>	"Khayami family" .
+<http://dbpedia.org/resource/Oyak-Renault>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Pagani_Automobili_S.p.A.>	<http://km.pg.gda.pl/rdf/founder>	"Horacio Pagani (auto executive)" .
+<http://dbpedia.org/resource/Pennant_(automobile)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Saab_Automobile>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Zagato>	<http://km.pg.gda.pl/rdf/founder>	"Ugo Zagato" .
+<http://dbpedia.org/resource/MG_Cars>	<http://km.pg.gda.pl/rdf/founder>	"Cecil Kimber" .
+<http://dbpedia.org/resource/List_of_automobile_manufacturers_of_Italy>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/James_Cunningham,_Son_and_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/JAC_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/SEAT>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Prodrive>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Opel_India_Private_Limited>	<http://km.pg.gda.pl/rdf/locationCity>	"Gurgaon" .
+<http://dbpedia.org/resource/Jaguar_Land_Rover>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Edford_(automobile)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/General_Motors_Egypt>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Pontiac>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Zimmer_(automobile)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Chery>	<http://km.pg.gda.pl/rdf/foundingDate>	"1997-03-17+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Chevrolet>	<http://km.pg.gda.pl/rdf/locationCity>	"United_States" .
+<http://dbpedia.org/resource/Ford_Germany>	<http://km.pg.gda.pl/rdf/owner>	"Ford Motor Company" .
+<http://dbpedia.org/resource/Ghabbour_Group>	<http://km.pg.gda.pl/rdf/founder>	"Kamal Ghabbour" .
+<http://dbpedia.org/resource/Hyundai_Assan_Otomotiv>	<http://km.pg.gda.pl/rdf/owner>	"Kibar Holding" .
+<http://dbpedia.org/resource/Nissan_Motor_Company>	<http://km.pg.gda.pl/rdf/name>	"\u65E5\u7523\u81EA\u52D5\u8ECA\u682A\u5F0F\u4F1A\u793E"@en .
+<http://dbpedia.org/resource/Gumpert>	<http://km.pg.gda.pl/rdf/owner>	"Roland Gumpert" .
+<http://dbpedia.org/resource/Hyundai_Motor_Company>	<http://km.pg.gda.pl/rdf/locationCity>	"Seoul" .
+<http://dbpedia.org/resource/AM_General>	<http://km.pg.gda.pl/rdf/locationCity>	"South_Bend,_Indiana" .
+<http://dbpedia.org/resource/Gumpert>	<http://km.pg.gda.pl/rdf/founder>	"Roland Gumpert" .
+<http://dbpedia.org/resource/Detroit_Automobile_Company>	<http://km.pg.gda.pl/rdf/foundingDate>	"1899-08-04+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Mercedes-Benz>	<http://km.pg.gda.pl/rdf/locationCity>	"Stuttgart" .
+<http://dbpedia.org/resource/Mini_(marque)>	<http://km.pg.gda.pl/rdf/name>	"Mini"@en .
+<http://dbpedia.org/resource/Xinkai>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Markranst%C3%A4dter_Automobilfabrik>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Diar>	<http://km.pg.gda.pl/rdf/locationCity>	"Isfahan" .
+<http://dbpedia.org/resource/Pope_Manufacturing_Company>	<http://km.pg.gda.pl/rdf/founder>	"Albert Augustus Pope" .
+<http://dbpedia.org/resource/Terrafugia>	<http://km.pg.gda.pl/rdf/founder>	"Dr. Carl Dietrich" .
+<http://dbpedia.org/resource/Electric_Car_Corporation>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Fabryka_Samochod%C3%B3w_Osobowych>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Aixam>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Zagato>	<http://km.pg.gda.pl/rdf/name>	"ZAGATO"@en .
+<http://dbpedia.org/resource/Aurica_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Oldsmobile>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Ronn_Motor_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Martin-Sp%C3%A9ciale>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Unic>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/TVR>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Leading_Edge_Sports_Car_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Brilliance_Auto>	<http://km.pg.gda.pl/rdf/locationCity>	"Liaoning" .
+<http://dbpedia.org/resource/Playboy_Automobile_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Vauxhall_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Chevrolet_Sales_India_Private_Limited>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Zimmer_(automobile)>	<http://km.pg.gda.pl/rdf/founder>	"Paul Zimmer" .
+<http://dbpedia.org/resource/Maserati>	<http://km.pg.gda.pl/rdf/locationCity>	"Modena" .
+<http://dbpedia.org/resource/Basse_und_Selve>	<http://km.pg.gda.pl/rdf/locationCity>	"Altena,_Germany" .
+<http://dbpedia.org/resource/Bentley>	<http://km.pg.gda.pl/rdf/name>	"Bentley Motors Limited"@en .
+<http://dbpedia.org/resource/Aton_Impulse>	<http://km.pg.gda.pl/rdf/name>	"\u0410\u0442\u043E\u043D \u0418\u043C\u043F\u0443\u043B\u044C\u0441, \u041E\u041E\u041E"@en .
+<http://dbpedia.org/resource/Daimler_AG>	<http://km.pg.gda.pl/rdf/owner>	"Private shareholders" .
+<http://dbpedia.org/resource/Wildfire_(motor_company)>	<http://km.pg.gda.pl/rdf/name>	"Wildfire"@en .
+<http://dbpedia.org/resource/Saab_Automobile>	<http://km.pg.gda.pl/rdf/name>	"Saab Automobile"@en .
+<http://dbpedia.org/resource/Lotus_Cars>	<http://km.pg.gda.pl/rdf/locationCity>	"Norfolk" .
+<http://dbpedia.org/resource/Mercedes-Benz>	<http://km.pg.gda.pl/rdf/founder>	"Karl Benz" .
+<http://dbpedia.org/resource/Berna>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Chrysler>	<http://km.pg.gda.pl/rdf/foundingDate>	"2009-06-09+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Land_Rover>	<http://km.pg.gda.pl/rdf/owner>	"Tata Motors" .
+<http://dbpedia.org/resource/Vivinus>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Bollack_Netter_and_Co>	<http://km.pg.gda.pl/rdf/founder>	"Ren%C3%A9 Netter" .
+<http://dbpedia.org/resource/Critchley_Light_car>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/PSA_Peugeot_Citro%C3%ABn>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Iso_Rivolta>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Studiotorino>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Basse_und_Selve>	<http://km.pg.gda.pl/rdf/founder>	"Gustav Selve" .
+<http://dbpedia.org/resource/Beijing_Automotive_Group>	<http://km.pg.gda.pl/rdf/locationCity>	"Beijing" .
+<http://dbpedia.org/resource/CT&T_United>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Brilliance_Auto>	<http://km.pg.gda.pl/rdf/name>	"Brilliance China Automotive Holdings Limited"@en .
+<http://dbpedia.org/resource/Aston_Martin>	<http://km.pg.gda.pl/rdf/name>	"Aston Martin Lagonda Limited"@en .
+<http://dbpedia.org/resource/Lotus_Cars>	<http://km.pg.gda.pl/rdf/locationCity>	"Hethel" .
+<http://dbpedia.org/resource/China_Motor_Corporation>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Lotus_Cars>	<http://km.pg.gda.pl/rdf/owner>	"Romano Artioli" .
+<http://dbpedia.org/resource/Saab_Automobile>	<http://km.pg.gda.pl/rdf/founder>	"Saab Group" .
+<http://dbpedia.org/resource/Audi_Senna>	<http://km.pg.gda.pl/rdf/locationCity>	"S%C3%A3o_Jos%C3%A9_dos_Pinhais" .
+<http://dbpedia.org/resource/Portaro>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Abarth>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Diar>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Spyker_Cars>	<http://km.pg.gda.pl/rdf/founder>	"Maarten de Bruijn" .
+<http://dbpedia.org/resource/Daniels_Motor_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Shanghai_GM>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Chevrolet>	<http://km.pg.gda.pl/rdf/founder>	"Louis Chevrolet" .
+<http://dbpedia.org/resource/Kia_EcoDynamics>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Opel>	<http://km.pg.gda.pl/rdf/locationCity>	"R%C3%BCsselsheim" .
+<http://dbpedia.org/resource/Derways_Automobile_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Mazda>	<http://km.pg.gda.pl/rdf/founder>	"Jujiro Matsuda" .
+<http://dbpedia.org/resource/DR_Motor_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Trabant>	<http://km.pg.gda.pl/rdf/name>	"Trabant"@en .
+<http://dbpedia.org/resource/Mercedes-Benz>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Minerva_(automobile)>	<http://km.pg.gda.pl/rdf/name>	"Soci\u00E9t\u00E9 Anonyme Minerva Motors"@en .
+<http://dbpedia.org/resource/Tesla_Motors>	<http://km.pg.gda.pl/rdf/founder>	"Martin Eberhard" .
+<http://dbpedia.org/resource/Delage>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Youngman>	<http://km.pg.gda.pl/rdf/locationCity>	"Jinhua" .
+<http://dbpedia.org/resource/Aton_Impulse>	<http://km.pg.gda.pl/rdf/name>	"Aton Impulse, LLC"@en .
+<http://dbpedia.org/resource/Renault_Espa%C3%B1a>	<http://km.pg.gda.pl/rdf/name>	"Renault Espa\u00F1a Sociedad An\u00F3nima"@en .
+<http://dbpedia.org/resource/Hyundai_Assan_Otomotiv>	<http://km.pg.gda.pl/rdf/owner>	"Hyundai Motor Company" .
+<http://dbpedia.org/resource/Buick>	<http://km.pg.gda.pl/rdf/founder>	"David Dunbar Buick" .
+<http://dbpedia.org/resource/Artega_Automobile>	<http://km.pg.gda.pl/rdf/founder>	"Klaus Dieter Frers" .
+<http://dbpedia.org/resource/Dongfeng_Peugeot-Citro%C3%ABn>	<http://km.pg.gda.pl/rdf/locationCity>	"Hubei" .
+<http://dbpedia.org/resource/Cadillac>	<http://km.pg.gda.pl/rdf/locationCity>	"Warren,_Michigan" .
+<http://dbpedia.org/resource/Volkswagen_Group_China>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Nissan_Shatai>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Soar_Automotive>	<http://km.pg.gda.pl/rdf/name>	"\u9752\u5C9B\u7D22\u5C14\u6C7D\u8F66\u96C6\u56E2"@en .
+<http://dbpedia.org/resource/Scion_(automobile)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Buick>	<http://km.pg.gda.pl/rdf/foundingDate>	"1903-05-18+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Hafei>	<http://km.pg.gda.pl/rdf/name>	"Harbin HF Automobile Industry Group Co Ltd"@en .
+<http://dbpedia.org/resource/Bristol_Cars>	<http://km.pg.gda.pl/rdf/locationCity>	"Bristol" .
+<http://dbpedia.org/resource/Hyundai_Assan_Otomotiv>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Citro%C3%ABn>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Terrafugia>	<http://km.pg.gda.pl/rdf/founder>	"Anna Mracek Dietrich" .
+<http://dbpedia.org/resource/Dolo_(automobile)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/BAW>	<http://km.pg.gda.pl/rdf/locationCity>	"Chaoyang_District,_Beijing" .
+<http://dbpedia.org/resource/Audi_India>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Ford_Motor_Company_of_Australia>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Brilliance_Auto>	<http://km.pg.gda.pl/rdf/locationCity>	"Shenyang" .
+<http://dbpedia.org/resource/Bugatti>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/ACMA_(Ateliers_de_construction_de_motocycles_et_d\u0027automobiles)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Hawtai>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Citro%C3%ABn>	<http://km.pg.gda.pl/rdf/founder>	"Andr%C3%A9 Citro%C3%ABn" .
+<http://dbpedia.org/resource/Chrysler>	<http://km.pg.gda.pl/rdf/locationCity>	"Auburn_Hills,_Michigan" .
+<http://dbpedia.org/resource/Reyonnah>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Cadillac>	<http://km.pg.gda.pl/rdf/owner>	"General Motors" .
+<http://dbpedia.org/resource/Beijing_Benz>	<http://km.pg.gda.pl/rdf/owner>	"Beijing Automotive Group" .
+<http://dbpedia.org/resource/Mitsubishi_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Zimmer_(automobile)>	<http://km.pg.gda.pl/rdf/locationCity>	"Cambridge,_Maryland" .
+<http://dbpedia.org/resource/Suzuki>	<http://km.pg.gda.pl/rdf/locationCity>	"Hamamatsu" .
+<http://dbpedia.org/resource/Youngman>	<http://km.pg.gda.pl/rdf/locationCity>	"Zhejiang" .
+<http://dbpedia.org/resource/Fabryka_Samochod%C3%B3w_Osobowych>	<http://km.pg.gda.pl/rdf/foundingDate>	"1951-11-05+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/The_Coventry_Motor_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Oyak-Renault>	<http://km.pg.gda.pl/rdf/owner>	"Renault" .
+<http://dbpedia.org/resource/Pope_Manufacturing_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Spyker_N.V.>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Daihatsu>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Eterniti_Motors>	<http://km.pg.gda.pl/rdf/name>	"Eterniti Motors Limited"@en .
+<http://dbpedia.org/resource/Maserati>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/SEAT>	<http://km.pg.gda.pl/rdf/founder>	"Instituto Nacional de Industria" .
+<http://dbpedia.org/resource/Autobianchi>	<http://km.pg.gda.pl/rdf/foundingDate>	"1955-01-10+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Dongfeng_Peugeot-Citro%C3%ABn>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Ghabbour_Group>	<http://km.pg.gda.pl/rdf/founder>	"Sadek Ghabbour" .
+<http://dbpedia.org/resource/Maybach>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Duesenberg>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Bitter_Cars>	<http://km.pg.gda.pl/rdf/founder>	"Erich Bitter" .
+<http://dbpedia.org/resource/Venturi_Automobiles>	<http://km.pg.gda.pl/rdf/founder>	"G\u00E9rard Godefro" .
+<http://dbpedia.org/resource/Buick>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Seoudi_Group>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Lotus_Cars>	<http://km.pg.gda.pl/rdf/name>	"Lotus Cars Limited"@en .
+<http://dbpedia.org/resource/Opel_Eisenach>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Authi>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Terrafugia>	<http://km.pg.gda.pl/rdf/founder>	"Arun Prakash" .
+<http://dbpedia.org/resource/ZAZ>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/De_Tomaso>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/General_Motors_do_Brasil>	<http://km.pg.gda.pl/rdf/locationCity>	"S%C3%A3o_Caetano_do_Sul" .
+<http://dbpedia.org/resource/Marussia_Motors>	<http://km.pg.gda.pl/rdf/founder>	"Jefim Ostrovskiy" .
+<http://dbpedia.org/resource/Duesenberg>	<http://km.pg.gda.pl/rdf/locationCity>	"Indiana" .
+<http://dbpedia.org/resource/Meadows_Frisky>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Nissan_Motor_Company>	<http://km.pg.gda.pl/rdf/founder>	"Masujiro Hashimoto" .
+<http://dbpedia.org/resource/Audi_Senna>	<http://km.pg.gda.pl/rdf/owner>	"11" .
+<http://dbpedia.org/resource/Cadillac>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Devrim>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Minerva_(automobile)>	<http://km.pg.gda.pl/rdf/founder>	"Sylvain de Jong" .
+<http://dbpedia.org/resource/Isuzu_Motors>	<http://km.pg.gda.pl/rdf/founder>	"Yoshisuke Aikawa" .
+<http://dbpedia.org/resource/Geely>	<http://km.pg.gda.pl/rdf/founder>	"Li Shufu" .
+<http://dbpedia.org/resource/Mermerler_Otomotiv>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Ukrainian_Automobile_Corporation>	<http://km.pg.gda.pl/rdf/locationCity>	"Kiev" .
+<http://dbpedia.org/resource/MG_Motor>	<http://km.pg.gda.pl/rdf/locationCity>	"Birmingham" .
+<http://dbpedia.org/resource/Opel>	<http://km.pg.gda.pl/rdf/foundingDate>	"1862-01-20+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Reliant>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Bugatti>	<http://km.pg.gda.pl/rdf/locationCity>	"Alsace" .
+<http://dbpedia.org/resource/Hyundai_Motor_Company>	<http://km.pg.gda.pl/rdf/name>	"Hyundai Motor Company"@en .
+<http://dbpedia.org/resource/Audi_Senna>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Ferrari>	<http://km.pg.gda.pl/rdf/name>	"Ferrari S.p.A."@en .
+<http://dbpedia.org/resource/M2_(Mazda)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Jawa_Motors>	<http://km.pg.gda.pl/rdf/locationCity>	"Prague" .
+<http://dbpedia.org/resource/Daewoo_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Sevel_Argentina_S.A.>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Daimler_AG>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Kia_Motors>	<http://km.pg.gda.pl/rdf/foundingDate>	"1944-06-08+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Karmann>	<http://km.pg.gda.pl/rdf/name>	"Wilhelm Karmann GmbH"@en .
+<http://dbpedia.org/resource/Lotus_Cars>	<http://km.pg.gda.pl/rdf/owner>	"Bugatti" .
+<http://dbpedia.org/resource/Renault_Samsung_Motors>	<http://km.pg.gda.pl/rdf/owner>	"Samsung" .
+<http://dbpedia.org/resource/Duesen_Bayern>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Simca_do_Brasil>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Dongfeng_Peugeot-Citro%C3%ABn>	<http://km.pg.gda.pl/rdf/name>	"Dongfeng Peugeot-Citro\u00EBn Automobile Limited"@en .
+<http://dbpedia.org/resource/Simca>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Devrim>	<http://km.pg.gda.pl/rdf/name>	"Devrim"@en .
+<http://dbpedia.org/resource/E.H.P.>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Aixam>	<http://km.pg.gda.pl/rdf/locationCity>	"Aix-les-Bains" .
+<http://dbpedia.org/resource/Toyota_Motor_Manufacturing_France>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Aston_Martin>	<http://km.pg.gda.pl/rdf/locationCity>	"Gaydon" .
+<http://dbpedia.org/resource/Lorraine-Dietrich>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Ferrari>	<http://km.pg.gda.pl/rdf/locationCity>	"Maranello" .
+<http://dbpedia.org/resource/Delahaye>	<http://km.pg.gda.pl/rdf/founder>	"%C3%89mile Delahaye" .
+<http://dbpedia.org/resource/LuAZ>	<http://km.pg.gda.pl/rdf/name>	"Lutsky Avtomobilnny Zavod - LuAZ"@en .
+<http://dbpedia.org/resource/BYD_Auto>	<http://km.pg.gda.pl/rdf/locationCity>	"Shenzhen" .
+<http://dbpedia.org/resource/Duesenberg>	<http://km.pg.gda.pl/rdf/name>	"Duesenberg Automobile & Motors Company, Inc."@en .
+<http://dbpedia.org/resource/Subaru>	<http://km.pg.gda.pl/rdf/foundingDate>	"1953-07-06+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Chrysler>	<http://km.pg.gda.pl/rdf/foundingDate>	"1925-06-05+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Ferrari>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Belga_Rise>	<http://km.pg.gda.pl/rdf/name>	"Belga Rise"@en .
+<http://dbpedia.org/resource/Automobiles_L._Rosengart>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/FAW-Volkswagen>	<http://km.pg.gda.pl/rdf/name>	"\u4E00\u6C7D-\u5927\u4F17"@en .
+<http://dbpedia.org/resource/Cadillac>	<http://km.pg.gda.pl/rdf/founder>	"Henry M. Leland, founder" .
+<http://dbpedia.org/resource/Fuldamobil>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Renault>	<http://km.pg.gda.pl/rdf/founder>	"Marcel Renault" .
+<http://dbpedia.org/resource/General_Motors>	<http://km.pg.gda.pl/rdf/name>	"General Motors"@en .
+<http://dbpedia.org/resource/Miles_Electric_Vehicles>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Terrafugia>	<http://km.pg.gda.pl/rdf/founder>	"Dr. Samuel Schweighart" .
+<http://dbpedia.org/resource/Imperia_(car)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/General_Motors_Egypt>	<http://km.pg.gda.pl/rdf/owner>	"20" .
+<http://dbpedia.org/resource/Ukrainian_Automobile_Corporation>	<http://km.pg.gda.pl/rdf/name>	"Ukrainian Automobile Corporation JSC"@en .
+<http://dbpedia.org/resource/Bavarian_Auto_Group>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Maybach>	<http://km.pg.gda.pl/rdf/founder>	"Wilhelm Maybach" .
+<http://dbpedia.org/resource/BAW>	<http://km.pg.gda.pl/rdf/locationCity>	"Beijing" .
+<http://dbpedia.org/resource/Yutong>	<http://km.pg.gda.pl/rdf/locationCity>	"Zhengzhou" .
+<http://dbpedia.org/resource/Vinci_(automobile)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Tokyo_Trading>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Brilliance_Auto>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Zagross_Khodro>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Audi>	<http://km.pg.gda.pl/rdf/founder>	"August Horch" .
+<http://dbpedia.org/resource/Tesla_Motors>	<http://km.pg.gda.pl/rdf/founder>	"Ian Wright" .
+<http://dbpedia.org/resource/Central_Motors>	<http://km.pg.gda.pl/rdf/foundingDate>	"1950-09-03+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/DR_Motor_Company>	<http://km.pg.gda.pl/rdf/founder>	"Massimo di Risio" .
+<http://dbpedia.org/resource/Bravia_(automobile)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Marussia_Motors>	<http://km.pg.gda.pl/rdf/founder>	"Nikolai Fomenko" .
+<http://dbpedia.org/resource/Hafei>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Lexus>	<http://km.pg.gda.pl/rdf/founder>	"Eiji Toyoda" .
+<http://dbpedia.org/resource/Isuzu_Motors>	<http://km.pg.gda.pl/rdf/founder>	"William C. Durant" .
+<http://dbpedia.org/resource/Spyker_N.V.>	<http://km.pg.gda.pl/rdf/owner>	"Youngman" .
+<http://dbpedia.org/resource/Land_Rover>	<http://km.pg.gda.pl/rdf/name>	"Land Rover"@en .
+<http://dbpedia.org/resource/Yulon>	<http://km.pg.gda.pl/rdf/foundingDate>	"1953-09-09+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Daimler_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Soci%C3%A9t%C3%A9_Parisienne>	<http://km.pg.gda.pl/rdf/name>	"Soci\u00E9t\u00E9 Parisienne"@en .
+<http://dbpedia.org/resource/Otosan>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Nissan_Motor_Company>	<http://km.pg.gda.pl/rdf/founder>	"Meitaro Takeuchi" .
+<http://dbpedia.org/resource/Spyker_Cars>	<http://km.pg.gda.pl/rdf/locationCity>	"Zeewolde" .
+<http://dbpedia.org/resource/Jaguar_Cars>	<http://km.pg.gda.pl/rdf/founder>	"Sir William Lyons and William Walmsley" .
+<http://dbpedia.org/resource/Eterniti_Motors>	<http://km.pg.gda.pl/rdf/foundingDate>	"2010-08-31+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Renault>	<http://km.pg.gda.pl/rdf/locationCity>	"Boulogne-Billancourt" .
+<http://dbpedia.org/resource/Audi>	<http://km.pg.gda.pl/rdf/foundingDate>	"1909-07-15+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Bavarian_Auto_Group>	<http://km.pg.gda.pl/rdf/locationCity>	"Cairo" .
+<http://dbpedia.org/resource/Central_Motors>	<http://km.pg.gda.pl/rdf/founder>	"Ryuichi Tomiya" .
+<http://dbpedia.org/resource/Lincoln_Motor_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Renault_Argentina>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/MG_Cars>	<http://km.pg.gda.pl/rdf/name>	"MG"@en .
+<http://dbpedia.org/resource/Oyak-Renault>	<http://km.pg.gda.pl/rdf/owner>	"Ordu Yard%C4%B1mla%C5%9Fma Kurumu" .
+<http://dbpedia.org/resource/Porsche>	<http://km.pg.gda.pl/rdf/name>	"Porsche Automobil Holding"@en .
+<http://dbpedia.org/resource/Eterniti_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/%C5%A0koda_Auto>	<http://km.pg.gda.pl/rdf/locationCity>	"Mlad%C3%A1_Boleslav" .
+<http://dbpedia.org/resource/AvtoZAZ>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Abarth>	<http://km.pg.gda.pl/rdf/locationCity>	"Turin" .
+<http://dbpedia.org/resource/Fenix_Automotive>	<http://km.pg.gda.pl/rdf/founder>	"Lee Noble" .
+<http://dbpedia.org/resource/Automobiles_Rally>	<http://km.pg.gda.pl/rdf/founder>	"Eug%C3%A8ne Affovard Asni%C3%A8re" .
+<http://dbpedia.org/resource/Tesla_Motors>	<http://km.pg.gda.pl/rdf/founder>	"JB Straubel" .
+<http://dbpedia.org/resource/Audi_Senna>	<http://km.pg.gda.pl/rdf/owner>	"Audi AG: 100 %" .
+<http://dbpedia.org/resource/Bitter_Cars>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Packard>	<http://km.pg.gda.pl/rdf/founder>	"William Doud Packard" .
+<http://dbpedia.org/resource/Ford_Germany>	<http://km.pg.gda.pl/rdf/founder>	"Henry Ford" .
+<http://dbpedia.org/resource/Hindustan_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Iran_Khodro>	<http://km.pg.gda.pl/rdf/owner>	"private sector" .
+<http://dbpedia.org/resource/Fuldamobil>	<http://km.pg.gda.pl/rdf/name>	"Fuldamobil"@en .
+<http://dbpedia.org/resource/Zimmer_(automobile)>	<http://km.pg.gda.pl/rdf/locationCity>	"Syracuse,_New_York" .
+<http://dbpedia.org/resource/Isotta_Fraschini>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/ZAZ>	<http://km.pg.gda.pl/rdf/name>	"Zaporizhia Automobile Building Plant"@en .
+<http://dbpedia.org/resource/Bentley>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Praga_(company)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Youngman>	<http://km.pg.gda.pl/rdf/name>	"China Youngman Automobile Group Co., Ltd."@en .
+<http://dbpedia.org/resource/PSA_Peugeot_Citro%C3%ABn>	<http://km.pg.gda.pl/rdf/owner>	"Peugeot family General Motors" .
+<http://dbpedia.org/resource/Iran_Khodro>	<http://km.pg.gda.pl/rdf/name>	"Iran Khodro Company"@en .
+<http://dbpedia.org/resource/B._F._Meyers_&_Co.>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Jeep>	<http://km.pg.gda.pl/rdf/name>	"Jeep"@en .
+<http://dbpedia.org/resource/Alamagny>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Bristol_Cars>	<http://km.pg.gda.pl/rdf/name>	"Bristol Cars Limited"@en .
+<http://dbpedia.org/resource/Ferrari>	<http://km.pg.gda.pl/rdf/owner>	"Piero Ferrari" .
+<http://dbpedia.org/resource/UMM_(Uni%C3%A3o_Metalo-Mec%C3%A2nica)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Egy-Tech_Engineering>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Bugatti>	<http://km.pg.gda.pl/rdf/locationCity>	"Molsheim" .
+<http://dbpedia.org/resource/Renault>	<http://km.pg.gda.pl/rdf/founder>	"Louis Renault (industrialist)" .
+<http://dbpedia.org/resource/Automobiles_Marathon>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/AvtoVAZ>	<http://km.pg.gda.pl/rdf/name>	"JSC AvtoVAZ Common"@en .
+<http://dbpedia.org/resource/Iran_Khodro_Diesel>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Automobiles_Lambert>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Lotus_Cars>	<http://km.pg.gda.pl/rdf/owner>	"General Motors" .
+<http://dbpedia.org/resource/Isotta_Fraschini>	<http://km.pg.gda.pl/rdf/name>	"Isotta Fraschini"@en .
+<http://dbpedia.org/resource/M%C3%A9tallurgique>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Automobiles_Julien>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Terrafugia>	<http://km.pg.gda.pl/rdf/locationCity>	"Woburn,_Massachusetts" .
+<http://dbpedia.org/resource/Isotta_Fraschini>	<http://km.pg.gda.pl/rdf/founder>	"Vincenzo Fraschini" .
+<http://dbpedia.org/resource/Audi>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Gonow>	<http://km.pg.gda.pl/rdf/foundingDate>	"2003-09-22+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Suzuki>	<http://km.pg.gda.pl/rdf/name>	"Suzuki Motor Corporation"@en .
+<http://dbpedia.org/resource/Mitsubishi_Motors>	<http://km.pg.gda.pl/rdf/foundingDate>	"1970-04-21+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Maruti_Suzuki>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Mini_(marque)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Subaru>	<http://km.pg.gda.pl/rdf/founder>	"Chikuhei Nakajima (predecessor)" .
+<http://dbpedia.org/resource/SEAT>	<http://km.pg.gda.pl/rdf/name>	"SEAT, S.A."@en .
+<http://dbpedia.org/resource/Audi_Senna>	<http://km.pg.gda.pl/rdf/foundingDate>	"1993-11-17+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Holden>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Bentley>	<http://km.pg.gda.pl/rdf/locationCity>	"Crewe" .
+<http://dbpedia.org/resource/Zagato>	<http://km.pg.gda.pl/rdf/locationCity>	"Milan" .
+<http://dbpedia.org/resource/SAIC_Motor>	<http://km.pg.gda.pl/rdf/locationCity>	"Shanghai" .
+<http://dbpedia.org/resource/Dangel>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Mazda>	<http://km.pg.gda.pl/rdf/name>	"Mazda Motor Corporation"@en .
+<http://dbpedia.org/resource/Isotta_Fraschini>	<http://km.pg.gda.pl/rdf/founder>	"Antonio Fraschini" .
+<http://dbpedia.org/resource/Lada>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Dongfeng_Peugeot-Citro%C3%ABn>	<http://km.pg.gda.pl/rdf/locationCity>	"Wuhan" .
+<http://dbpedia.org/resource/Moskvitch>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Electrobat>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Bugatti>	<http://km.pg.gda.pl/rdf/founder>	"Ettore Bugatti" .
+<http://dbpedia.org/resource/Isotta_Fraschini>	<http://km.pg.gda.pl/rdf/founder>	"Oreste Fraschini" .
+<http://dbpedia.org/resource/Citro%C3%ABn>	<http://km.pg.gda.pl/rdf/name>	"Automobiles Citroen S.A."@en .
+<http://dbpedia.org/resource/Buick>	<http://km.pg.gda.pl/rdf/owner>	"General Motors" .
+<http://dbpedia.org/resource/Miles_Electric_Vehicles>	<http://km.pg.gda.pl/rdf/name>	"Miles Electric Vehicles"@en .
+<http://dbpedia.org/resource/GMC_(automobile)>	<http://km.pg.gda.pl/rdf/founder>	"William C. Durant" .
+<http://dbpedia.org/resource/Vehicle_Factory_Jabalpur>	<http://km.pg.gda.pl/rdf/name>	"Vehicle Factory Jabalpur"@en .
+<http://dbpedia.org/resource/T._J._Richards>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Ford_Motor_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Spyker_N.V.>	<http://km.pg.gda.pl/rdf/owner>	"Victor Muller" .
+<http://dbpedia.org/resource/Lada>	<http://km.pg.gda.pl/rdf/name>	"Lada"@en .
+<http://dbpedia.org/resource/AM_General>	<http://km.pg.gda.pl/rdf/name>	"AM General"@en .
+<http://dbpedia.org/resource/FAW-Volkswagen>	<http://km.pg.gda.pl/rdf/name>	"FAW-Volkswagen Automotive Company"@en .
+<http://dbpedia.org/resource/Tofa%C5%9F>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Land_Rover>	<http://km.pg.gda.pl/rdf/locationCity>	"Gaydon" .
+<http://dbpedia.org/resource/Oldsmobile>	<http://km.pg.gda.pl/rdf/foundingDate>	"1897-08-20+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Daimler_Company>	<http://km.pg.gda.pl/rdf/name>	"Daimler Marque"@en .
+<http://dbpedia.org/resource/Basse_und_Selve>	<http://km.pg.gda.pl/rdf/owner>	"Gustav Selve succeeded by Dr.Walther von Selve" .
+<http://dbpedia.org/resource/Marussia_Motors>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/BAW>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Daihatsu>	<http://km.pg.gda.pl/rdf/foundingDate>	"1907-02-28+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Karmann>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Pagani_Automobili_S.p.A.>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Volkswagen>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Renault>	<http://km.pg.gda.pl/rdf/foundingDate>	"1899-02-24+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Audi>	<http://km.pg.gda.pl/rdf/name>	"AUDI Aktiengesellschaft"@en .
+<http://dbpedia.org/resource/Miles_Electric_Vehicles>	<http://km.pg.gda.pl/rdf/founder>	"Miles Rubin" .
+<http://dbpedia.org/resource/Peugeot>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Mercedes_(car)>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Alfa_Romeo>	<http://km.pg.gda.pl/rdf/locationCity>	"Turin" .
+<http://dbpedia.org/resource/Lancia>	<http://km.pg.gda.pl/rdf/owner>	"Fiat S.p.A." .
+<http://dbpedia.org/resource/Pope_Manufacturing_Company>	<http://km.pg.gda.pl/rdf/locationCity>	"Hartford,_Connecticut" .
+<http://dbpedia.org/resource/Artega_Automobile>	<http://km.pg.gda.pl/rdf/locationCity>	"Delbr%C3%BCck" .
+<http://dbpedia.org/resource/Dallara>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/JAC_Motors>	<http://km.pg.gda.pl/rdf/locationCity>	"Anhui" .
+<http://dbpedia.org/resource/Volkswagen>	<http://km.pg.gda.pl/rdf/foundingDate>	"1937-05-27+02:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://dbpedia.org/resource/Basse_und_Selve>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Aixam>	<http://km.pg.gda.pl/rdf/locationCity>	"Savoie" .
+<http://dbpedia.org/resource/Automobiles_Boitel>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Ford_Motor_Company>	<http://km.pg.gda.pl/rdf/locationCity>	"Dearborn,_Michigan" .
+<http://dbpedia.org/resource/Aston_Martin>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Brennabor>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Nissan_Motor_Company>	<http://km.pg.gda.pl/rdf/founder>	"Rokuro Aoyama" .
+<http://dbpedia.org/resource/Modiran_Vehicle_Manufacturing_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Porsche>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Hyundai_Motor_Company>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Fabryka_Samochod%C3%B3w_Osobowych>	<http://km.pg.gda.pl/rdf/locationCity>	"Warsaw" .
+<http://dbpedia.org/resource/Koenigsegg>	<http://km.pg.gda.pl/rdf/founder>	"Christian von Koenigsegg" .
+<http://dbpedia.org/resource/Soci%C3%A9t%C3%A9_Parisienne>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Autolatina>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Carroll_Shelby_International>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .
+<http://dbpedia.org/resource/Egy-Tech_Engineering>	<http://km.pg.gda.pl/rdf/name>	"Egy-Tech Engineering"@en .
+<http://dbpedia.org/resource/Kia_Motors>	<http://km.pg.gda.pl/rdf/owner>	"Hyundai Motor Company" .
+<http://dbpedia.org/resource/Rootes_Australia>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/Manufacturer> .

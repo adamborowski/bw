@@ -20,6 +20,31 @@ CONSTRUCT {
 }
 //Manufacturers by country
 Category:Car_manufacturers_by_country
+PREFIX my: <http://km.pg.gda.pl/rdf/>
+CONSTRUCT { 
+	?man rdf:type my:Manufacturer . 
+	?man my:name ?name . 
+	?man my:founder ?founder . 
+	?man my:owner ?owner .
+	?man my:foundingDate ?fDate .
+	?man my:locationCity ?City  .
+} WHERE {
+	?man dcterms:subject ?manCountry
+	{
+		SELECT ?manCountry 
+		WHERE {
+		   {?manCountry  ?p <http://dbpedia.org/resource/Category:Car_manufacturers_by_country> FILTER (?p = skos:broader)}
+		} GROUP BY ?manCountry 
+	}
+	OPTIONAL { ?man dbpprop:name ?name } .
+	OPTIONAL { ?man dbpprop:founder ?f } .
+	OPTIONAL { ?man dbpprop:owner ?own } .
+	OPTIONAL { ?man dbpedia-owl:foundingDate ?fDate } .
+	OPTIONAL { ?man dbpedia-owl:locationCity ?locCity } .
+	BIND(STRAFTER(STR(?locCity), "http://dbpedia.org/resource/") as ?City)
+	BIND(REPLACE(REPLACE(STR(?own),"http://dbpedia.org/resource/",""),"_"," ") as ?owner)
+	BIND(REPLACE(REPLACE(STR(?f),"http://dbpedia.org/resource/",""),"_"," ") as ?founder)
+}
 
 DELETE { ?x :p ?value }
 INSERT { 

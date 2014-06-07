@@ -6,10 +6,19 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<http://dbpedia.org/resource/%C5%A0koda_Auto>
+  rdf:type :Manufacturer ;
+  :founder "Václav Laurin and Václav Klement" ;
+  :locationCity "Mlad%C3%A1_Boleslav" ;
+.
+<http://dbpedia.org/resource/ACMA_(Ateliers_de_construction_de_motocycles_et_d'automobiles)>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/AC_Ace>
   rdf:type :LeMansCar ;
   :engine 2 ;
   :engine "2.6"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/AC_Cars> ;
   :name "AC Ace"@en ;
   :production 1953 ;
 .
@@ -23,6 +32,22 @@
   rdf:type :Manufacturer ;
   :name "AC Frua"@en ;
 .
+<http://dbpedia.org/resource/AM_General>
+  rdf:type :Manufacturer ;
+  :founder "American Motors" ;
+  :locationCity "South_Bend,_Indiana" ;
+  :locationCity "United_States" ;
+  :name "AM General"@en ;
+  :owner "MacAndrews & Forbes" ;
+  :owner "Renco Group" ;
+.
+<http://dbpedia.org/resource/Abarth>
+  rdf:type :Manufacturer ;
+  :founder "Carlo Abarth" ;
+  :foundingDate "1949-04-14+02:00"^^xsd:date ;
+  :locationCity "Turin" ;
+  :name "Abarth & C. Spa"@en ;
+.
 <http://dbpedia.org/resource/Abarth_205>
   rdf:type :Car ;
   :engine "1.1"^^xsd:double ;
@@ -32,6 +57,17 @@
 .
 <http://dbpedia.org/resource/Acura_ARX-01>
   rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Advanced_Automotive_Design>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Aixam>
+  rdf:type :Manufacturer ;
+  :locationCity "Aix-les-Bains" ;
+  :locationCity "Savoie" ;
+.
+<http://dbpedia.org/resource/Alamagny>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Alfa_Romeo>
   rdf:type :Manufacturer ;
@@ -44,12 +80,12 @@
 .
 <http://dbpedia.org/resource/Alfa_Romeo_6C>
   rdf:type :LeMansCar ;
-  rdf:type :MilleMigliaCar ;
   :engine "1.5"^^xsd:double ;
   :engine "1.7"^^xsd:double ;
   :engine "1.9"^^xsd:double ;
   :engine "2.3"^^xsd:double ;
   :engine "2.5"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Alfa_Romeo> ;
   :name "Alfa Romeo 6C"@en ;
   :production 1925 ;
   :production 1929 ;
@@ -59,12 +95,12 @@
 .
 <http://dbpedia.org/resource/Alfa_Romeo_8C>
   rdf:type :LeMansCar ;
-  rdf:type :MilleMigliaCar ;
   :engine "2.3"^^xsd:double ;
   :engine "2.6"^^xsd:double ;
   :engine "2.9"^^xsd:double ;
   :engine "Supercharged  DOHC straight-eight engine"@en ;
   :engine "Supercharged 3822 cc straight eight twin overhead cam"@en ;
+  :manufacturer <http://dbpedia.org/resource/Alfa_Romeo> ;
   :name "Alfa Romeo 8C"@en ;
   :production 1931 ;
   :production 1935 ;
@@ -91,6 +127,7 @@
 <http://dbpedia.org/resource/Alfa_Romeo_Giulietta>
   rdf:type :LeMansCar ;
   :engine "1.3"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Alfa_Romeo> ;
   :name "Alfa Romeo Giulietta"@en ;
   :production 1954 ;
 .
@@ -109,6 +146,7 @@
   :engine 500 ;
   :engine 520 ;
   :engine 640 ;
+  :manufacturer <http://dbpedia.org/resource/Alfa_Romeo> ;
   :name "Alfa Romeo 33"@en ;
   :production 1966 ;
   :production 1967 ;
@@ -123,6 +161,20 @@
   rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/Alpine_(automobile)>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/American_Honda_Motor_Company>
+  rdf:type :Manufacturer ;
+  :locationCity "California" ;
+  :locationCity "Torrance,_California" ;
+  :name "American Honda Motor Company, Inc."@en ;
+.
+<http://dbpedia.org/resource/Anadol>
+  rdf:type :Manufacturer ;
+  :locationCity "Istanbul" ;
+  :name "ANADOL"@en ;
+.
+<http://dbpedia.org/resource/Apal>
   rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Aquila_racing_cars>
@@ -143,6 +195,12 @@
   :locationCity "Banbury" ;
   :owner "Klaas Zwart" ;
 .
+<http://dbpedia.org/resource/Aspid>
+  rdf:type :Manufacturer ;
+  :founder "Ignacio Fernández Rodríguez" ;
+  :locationCity "Reus" ;
+  :name "IFR Automotive, S.L."@en ;
+.
 <http://dbpedia.org/resource/Aston_Martin>
   rdf:type :Manufacturer ;
   :locationCity "Gaydon" ;
@@ -152,6 +210,7 @@
 <http://dbpedia.org/resource/Aston_Martin_2-Litre_Sports>
   rdf:type :LeMansCar ;
   :engine "1.97"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Aston_Martin> ;
   :name "Aston Martin DB1"@en ;
   :production 15 ;
   :production 1948 ;
@@ -162,6 +221,7 @@
 <http://dbpedia.org/resource/Aston_Martin_DB2>
   rdf:type :LeMansCar ;
   :engine "2.6"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Aston_Martin> ;
   :name "Aston Martin DB2"@en ;
   :production 1950 ;
   :production 411 ;
@@ -170,6 +230,7 @@
   rdf:type :LeMansCar ;
   :engine "2.6"^^xsd:double ;
   :engine "2.9"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Aston_Martin> ;
   :name "Aston Martin DB2/4"@en ;
   :production 1953 ;
   :production 764 ;
@@ -183,6 +244,7 @@
 <http://dbpedia.org/resource/Aston_Martin_DB4>
   rdf:type :LeMansCar ;
   :engine "3.7"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Aston_Martin> ;
   :name "Aston Martin DB4"@en ;
   :production 100 ;
   :production 1110 ;
@@ -200,9 +262,16 @@
   :engine "4.3"^^xsd:double ;
   :engine "4.7"^^xsd:double ;
   :engine 6 ;
+  :manufacturer <http://dbpedia.org/resource/Aston_Martin> ;
   :name "Aston Martin V12 Vantage"@en ;
   :name "Aston Martin V8 Vantage"@en ;
   :production 2005 ;
+.
+<http://dbpedia.org/resource/Aton_Impulse>
+  rdf:type :Manufacturer ;
+  :locationCity "Naberezhnye_Chelny" ;
+  :name "Aton Impulse, LLC"@en ;
+  :name "Атон Импульс, ООО"@en ;
 .
 <http://dbpedia.org/resource/Audi>
   rdf:type :Manufacturer ;
@@ -211,6 +280,9 @@
   :locationCity "Ingolstadt" ;
   :name "AUDI Aktiengesellschaft"@en ;
   :owner "Volkswagen Group" ;
+.
+<http://dbpedia.org/resource/Audi_India>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Audi_R10_TDI>
   rdf:type :LeMansCar ;
@@ -229,6 +301,20 @@
 .
 <http://dbpedia.org/resource/Audi_R8_(race_car)>
   rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Audi_Senna>
+  rdf:type :Manufacturer ;
+  :foundingDate "1993-11-17+02:00"^^xsd:date ;
+  :locationCity "Curitiba" ;
+  :locationCity "S%C3%A3o_Jos%C3%A9_dos_Pinhais" ;
+  :owner "11" ;
+  :owner "Audi AG: 100 %" ;
+  :owner "Audi AG: 49 %" ;
+  :owner "Senna Import: 51 %" ;
+  :owner "since 03/2005:" ;
+.
+<http://dbpedia.org/resource/Aurica_Motors>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Austin-Healey_100>
   rdf:type :LeMansCar ;
@@ -251,7 +337,6 @@
   :engine "A-Series I4 43HP"@en ;
   :engine "A-Series I4"@en ;
   :engine "later   A-Series I4"@en ;
-  :manufacturer <http://dbpedia.org/resource/Austin-Healey> ;
   :name "Austin Sprite"@en ;
   :name "Austin-Healey Sprite"@en ;
   :production 129347 ;
@@ -267,14 +352,71 @@
 <http://dbpedia.org/resource/Austin_7>
   rdf:type :LeMansCar ;
   :engine 747 ;
-  :manufacturer <http://dbpedia.org/resource/Austin_Motor_Company> ;
   :name "Austin 7"@en ;
   :production 1922 ;
   :production 290000 ;
 .
+<http://dbpedia.org/resource/Authi>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Auto_5000>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Autobacs_Seven>
   rdf:type :Manufacturer ;
   :founder "Toshio Sumino" ;
+.
+<http://dbpedia.org/resource/Autobianchi>
+  rdf:type :Manufacturer ;
+  :foundingDate "1955-01-10+02:00"^^xsd:date ;
+.
+<http://dbpedia.org/resource/Autolatina>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Automobiles_Bernardet>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Automobiles_Boitel>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Automobiles_Claveau>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Automobiles_Julien>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Automobiles_L._Rosengart>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Automobiles_Lambert>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Automobiles_Marathon>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Automobiles_Rally>
+  rdf:type :Manufacturer ;
+  :founder "Eug%C3%A8ne Affovard Asni%C3%A8re" ;
+.
+<http://dbpedia.org/resource/Automobili_Stanguellini>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/AvtoVAZ>
+  rdf:type :Manufacturer ;
+  :name "JSC AvtoVAZ Common"@en ;
+  :owner "Renault 25%" ;
+  :owner "Russian Technologies 67.13%" ;
+.
+<http://dbpedia.org/resource/AvtoZAZ>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/B._F._Meyers_&_Co.>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/BAW>
+  rdf:type :Manufacturer ;
+  :locationCity "Beijing" ;
+  :locationCity "Chaoyang_District,_Beijing" ;
 .
 <http://dbpedia.org/resource/BMW>
   rdf:type :Manufacturer ;
@@ -285,11 +427,14 @@
 .
 <http://dbpedia.org/resource/BMW_328>
   rdf:type :LeMansCar ;
-  rdf:type :MilleMigliaCar ;
   :engine 1971 ;
+  :manufacturer <http://dbpedia.org/resource/BMW> ;
   :name "BMW 328"@en ;
   :production 1936 ;
   :production 464 ;
+.
+<http://dbpedia.org/resource/BMW_India>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/BMW_M3>
   rdf:type :LeMansCar ;
@@ -298,7 +443,7 @@
   :engine 4 ;
   :engine "S50B30 3.0 L"@en ;
   :engine "S50B32 3.2 L"@en ;
-  :manufacturer <http://dbpedia.org/resource/BMW_M> ;
+  :manufacturer <http://dbpedia.org/resource/BMW> ;
   :name "BMW M3"@en ;
   :production 1985 ;
   :production 1992 ;
@@ -315,6 +460,15 @@
 .
 <http://dbpedia.org/resource/BRM_P351>
   rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/BYD_Auto>
+  rdf:type :Manufacturer ;
+  :locationCity "Guangdong" ;
+  :locationCity "Shenzhen" ;
+.
+<http://dbpedia.org/resource/Bahman_Group>
+  rdf:type :Manufacturer ;
+  :name "Bahman Group"@en ;
 .
 <http://dbpedia.org/resource/Bandini-Maserati_1500>
   rdf:type :Car ;
@@ -343,6 +497,42 @@
 .
 <http://dbpedia.org/resource/Bandini_Saloncino>
   rdf:type :Car ;
+.
+<http://dbpedia.org/resource/Basil_Green_Motors>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Basse_und_Selve>
+  rdf:type :Manufacturer ;
+  :founder "Gustav Selve" ;
+  :locationCity "Altena,_Germany" ;
+  :name "Basse und Selve GmbH"@en ;
+  :owner "Gustav Selve succeeded by Dr.Walther von Selve" ;
+.
+<http://dbpedia.org/resource/Bavarian_Auto_Group>
+  rdf:type :Manufacturer ;
+  :founder "Ali El-Saiedi" ;
+  :founder "Lueder Paysen" ;
+  :locationCity "Cairo" ;
+.
+<http://dbpedia.org/resource/Beijing_Automotive_Group>
+  rdf:type :Manufacturer ;
+  :locationCity "Beijing" ;
+.
+<http://dbpedia.org/resource/Beijing_Benz>
+  rdf:type :Manufacturer ;
+  :locationCity "Beijing" ;
+  :name "Beijing Benz Automotive Co., Ltd."@en ;
+  :owner "Beijing Automotive Group" ;
+.
+<http://dbpedia.org/resource/Belga_Rise>
+  rdf:type :Manufacturer ;
+  :name "Belga Rise"@en ;
+.
+<http://dbpedia.org/resource/Bentley>
+  rdf:type :Manufacturer ;
+  :foundingDate "1919-01-17+02:00"^^xsd:date ;
+  :locationCity "Crewe" ;
+  :name "Bentley Motors Limited"@en ;
 .
 <http://dbpedia.org/resource/Bentley_3_Litre>
   rdf:type :LeMansCar ;
@@ -395,8 +585,19 @@
   :name "Berkeley Sports SE492"@en ;
   :name "Berkeley T60"@en ;
 .
+<http://dbpedia.org/resource/Berna>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Big_Three_(automobile_manufacturers)>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Bill_Thomas_Cheetah>
   rdf:type :Car ;
+.
+<http://dbpedia.org/resource/Bitter_Cars>
+  rdf:type :Manufacturer ;
+  :founder "Erich Bitter" ;
+  :locationCity "Schwelm" ;
 .
 <http://dbpedia.org/resource/Bizzarrini>
   rdf:type :Manufacturer ;
@@ -407,6 +608,17 @@
 <http://dbpedia.org/resource/Bocar>
   rdf:type :Manufacturer ;
 .
+<http://dbpedia.org/resource/Bollack_Netter_and_Co>
+  rdf:type :Manufacturer ;
+  :founder "Lucien Bollack" ;
+  :founder "Ren%C3%A9 Netter" ;
+.
+<http://dbpedia.org/resource/Bravia_(automobile)>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Brennabor>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Briggs_Automotive_Company>
   rdf:type :Manufacturer ;
   :foundingDate "2009-03-03+02:00"^^xsd:date ;
@@ -414,9 +626,22 @@
   :locationCity "Holmes_Chapel" ;
   :name "Briggs Automotive Company  Limited"@en ;
 .
+<http://dbpedia.org/resource/Brilliance_Auto>
+  rdf:type :Manufacturer ;
+  :locationCity "Liaoning" ;
+  :locationCity "Shenyang" ;
+  :name "Brilliance China Automotive Holdings Limited"@en ;
+.
 <http://dbpedia.org/resource/Bristol_450>
-  rdf:type :Car ;
   rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Bristol_Cars>
+  rdf:type :Manufacturer ;
+  :locationCity "Bristol" ;
+  :name "Bristol Cars Limited"@en ;
+.
+<http://dbpedia.org/resource/Briton_Motor_Company>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Bugatti>
   rdf:type :Manufacturer ;
@@ -438,6 +663,7 @@
 .
 <http://dbpedia.org/resource/Bugatti_Type_49>
   rdf:type :LeMansCar ;
+  :manufacturer <http://dbpedia.org/resource/Bugatti> ;
   :name "Bugatti Type 30"@en ;
   :name "Type 38, 40, 43, 44, and 49"@en ;
   :production 1922 ;
@@ -451,9 +677,33 @@
 <http://dbpedia.org/resource/Bugatti_Type_57>
   rdf:type :LeMansCar ;
   :engine 3257 ;
+  :manufacturer <http://dbpedia.org/resource/Bugatti> ;
   :name "Bugatti Type 57"@en ;
   :production 1934 ;
   :production 710 ;
+.
+<http://dbpedia.org/resource/Buick>
+  rdf:type :Manufacturer ;
+  :founder "David Dunbar Buick" ;
+  :foundingDate "1903-05-18+02:00"^^xsd:date ;
+  :owner "General Motors" ;
+.
+<http://dbpedia.org/resource/CIME>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/CT&T_United>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/CTA-Arsenal>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Cadillac>
+  rdf:type :Manufacturer ;
+  :founder "Henry Ford, original founder" ;
+  :founder "Henry M. Leland, founder" ;
+  :foundingDate "1902-08-21+02:00"^^xsd:date ;
+  :locationCity "Warren,_Michigan" ;
+  :owner "General Motors" ;
 .
 <http://dbpedia.org/resource/Cadillac_Coupe_de_Ville>
   rdf:type :LeMansCar ;
@@ -479,6 +729,27 @@
   :founder "Graham Nearn" ;
   :locationCity "Caterham" ;
   :name "Caterham Cars Ltd"@en ;
+.
+<http://dbpedia.org/resource/Central_Motors>
+  rdf:type :Manufacturer ;
+  :founder "Ryuichi Tomiya" ;
+  :foundingDate "1950-09-03+02:00"^^xsd:date ;
+  :locationCity "%C5%8Chira,_Miyagi" ;
+.
+<http://dbpedia.org/resource/Chambers_Motors>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Chery>
+  rdf:type :Manufacturer ;
+  :foundingDate "1997-03-17+02:00"^^xsd:date ;
+.
+<http://dbpedia.org/resource/Chevrolet>
+  rdf:type :Manufacturer ;
+  :founder "Louis Chevrolet" ;
+  :founder "William C. Durant" ;
+  :locationCity "Detroit" ;
+  :locationCity "United_States" ;
+  :owner "General Motors" ;
 .
 <http://dbpedia.org/resource/Chevrolet_Corvette_(C1)>
   rdf:type :LeMansCar ;
@@ -507,10 +778,25 @@
 <http://dbpedia.org/resource/Chevrolet_Corvette_GTP>
   rdf:type :LeMansCar ;
 .
+<http://dbpedia.org/resource/Chevrolet_Sales_India_Private_Limited>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/China_Motor_Corporation>
+  rdf:type :Manufacturer ;
+  :foundingDate "1969-06-12+02:00"^^xsd:date ;
+.
 <http://dbpedia.org/resource/Chinkara_Motors>
   rdf:type :Manufacturer ;
   :locationCity "Mumbai" ;
   :name "Chinkara Motors"@en ;
+.
+<http://dbpedia.org/resource/Chrysler>
+  rdf:type :Manufacturer ;
+  :founder "Walter Chrysler" ;
+  :foundingDate "1925-06-05+02:00"^^xsd:date ;
+  :foundingDate "2009-06-09+02:00"^^xsd:date ;
+  :locationCity "Auburn_Hills,_Michigan" ;
+  :name "Chrysler Group LLC"@en ;
 .
 <http://dbpedia.org/resource/Chrysler_Imperial>
   rdf:type :LeMansCar ;
@@ -535,6 +821,12 @@
 <http://dbpedia.org/resource/Chrysler_Viper_GTS-R>
   rdf:type :LeMansCar ;
 .
+<http://dbpedia.org/resource/Citro%C3%ABn>
+  rdf:type :Manufacturer ;
+  :founder "Andr%C3%A9 Citro%C3%ABn" ;
+  :locationCity "Saint-Ouen,_Seine-Saint-Denis" ;
+  :name "Automobiles Citroen S.A."@en ;
+.
 <http://dbpedia.org/resource/Coda_Automotive>
   rdf:type :Manufacturer ;
   :name "CODA Automotive, Inc."@en ;
@@ -542,20 +834,59 @@
 <http://dbpedia.org/resource/Connaught_Engineering>
   rdf:type :Manufacturer ;
 .
+<http://dbpedia.org/resource/Critchley_Light_car>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/DB_(car)>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/DIM_(automobiles)>
   rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/DKW_Monza>
   rdf:type :LeMansCar ;
 .
+<http://dbpedia.org/resource/DR_Motor_Company>
+  rdf:type :Manufacturer ;
+  :founder "Massimo di Risio" ;
+.
+<http://dbpedia.org/resource/Daewoo_Motors>
+  rdf:type :Manufacturer ;
+  :locationCity "Bupyeong_District" ;
+.
+<http://dbpedia.org/resource/Daihatsu>
+  rdf:type :Manufacturer ;
+  :foundingDate "1907-02-28+02:00"^^xsd:date ;
+.
+<http://dbpedia.org/resource/Daimler_AG>
+  rdf:type :Manufacturer ;
+  :owner "Institutional shareholders" ;
+  :owner "Kuwait Investment Authority" ;
+  :owner "Private shareholders" ;
+  :owner "Renault-Nissan Alliance" ;
+.
+<http://dbpedia.org/resource/Daimler_Company>
+  rdf:type :Manufacturer ;
+  :name "Daimler Marque"@en ;
+.
+<http://dbpedia.org/resource/Dallara>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Dallara_SP1>
   rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Dangel>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Daniels_Motor_Company>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Dauer_962_Le_Mans>
   rdf:type :LeMansCar ;
   :engine """twin turbocharged Flat 6
 *544.4 kW  @ 7400 rpm
 *700.9 N-m  @ 5000 rpm"""@en ;
+  :manufacturer <http://dbpedia.org/resource/Dauer_Sportwagen> ;
   :name "Dauer 962 Le Mans"@en ;
   :production 1993 ;
 .
@@ -581,8 +912,32 @@
   :founder "Alejandro de Tomaso" ;
   :name "De Tomaso Automobili S.p.A."@en ;
 .
+<http://dbpedia.org/resource/Delage>
+  rdf:type :Manufacturer ;
+  :founder "Louis Del%C3%A2ge" ;
+.
+<http://dbpedia.org/resource/Delahaye>
+  rdf:type :Manufacturer ;
+  :founder "%C3%89mile Delahaye" ;
+.
 <http://dbpedia.org/resource/DeltaWing>
   rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Derways_Automobile_Company>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Detroit_Automobile_Company>
+  rdf:type :Manufacturer ;
+  :foundingDate "1899-08-04+02:00"^^xsd:date ;
+.
+<http://dbpedia.org/resource/Devrim>
+  rdf:type :Manufacturer ;
+  :name "Devrim"@en ;
+.
+<http://dbpedia.org/resource/Diar>
+  rdf:type :Manufacturer ;
+  :locationCity "Isfahan" ;
+  :locationCity "Isfahan_Province" ;
 .
 <http://dbpedia.org/resource/Diardi>
   rdf:type :Manufacturer ;
@@ -597,6 +952,7 @@
   :engine "2.4"^^xsd:double ;
   :engine 3 ;
   :engine "DOHC V6"@en ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
   :name "Ferrari Dino"@en ;
   :production 152 ;
   :production 1968 ;
@@ -605,15 +961,55 @@
   :production 1976 ;
   :production 3761 ;
 .
+<http://dbpedia.org/resource/Dolo_(automobile)>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Dongfeng_Peugeot-Citro%C3%ABn>
+  rdf:type :Manufacturer ;
+  :locationCity "Hubei" ;
+  :locationCity "Wuhan" ;
+  :name "Dongfeng Peugeot-Citroën Automobile Limited"@en ;
+.
 <http://dbpedia.org/resource/Donkervoort>
   rdf:type :Manufacturer ;
   :founder "J.A. Donkervoort" ;
+.
+<http://dbpedia.org/resource/Duesen_Bayern>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Duesenberg>
+  rdf:type :Manufacturer ;
+  :locationCity "Indiana" ;
+  :locationCity "Indianapolis" ;
+  :name "Duesenberg Automobile & Motors Company, Inc."@en ;
 .
 <http://dbpedia.org/resource/E.H.P.>
   rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/EMKA_Aston_Martin>
   rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Edfor>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Edford_(automobile)>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Egy-Tech_Engineering>
+  rdf:type :Manufacturer ;
+  :locationCity "Cairo" ;
+  :locationCity "Heliopolis_(Cairo_suburb)" ;
+  :name "Egy-Tech Engineering"@en ;
+  :name "ايجي تك للصناعات المتطورة"@en ;
+.
+<http://dbpedia.org/resource/Electric_Car_Corporation>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Electric_Vehicle_Company>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Electrobat>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Elfin_MS7>
   rdf:type :Car ;
@@ -630,8 +1026,51 @@
   rdf:type :Manufacturer ;
   :founder "Garrie Cooper" ;
 .
+<http://dbpedia.org/resource/Entreposto>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Espenlaub_(automobile)>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Eterniti_Motors>
+  rdf:type :Manufacturer ;
+  :foundingDate "2010-08-31+02:00"^^xsd:date ;
+  :locationCity "Park_Royal" ;
+  :name "Eterniti Motors Limited"@en ;
+.
+<http://dbpedia.org/resource/Etox>
+  rdf:type :Manufacturer ;
+  :founder "Ercan Malkoç" ;
+  :locationCity "Ankara" ;
+.
+<http://dbpedia.org/resource/Europestar>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/FAW-Volkswagen>
+  rdf:type :Manufacturer ;
+  :foundingDate "1991-02-05+02:00"^^xsd:date ;
+  :locationCity "Changchun" ;
+  :locationCity "China" ;
+  :locationCity "Jilin" ;
+  :name "FAW-Volkswagen Automotive Company"@en ;
+  :name "一汽-大众"@en ;
+.
 <http://dbpedia.org/resource/FYK>
   rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Fabryka_Samochod%C3%B3w_Ma%C5%82olitra%C5%BCowych>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Fabryka_Samochod%C3%B3w_Osobowych>
+  rdf:type :Manufacturer ;
+  :foundingDate "1951-11-05+02:00"^^xsd:date ;
+  :locationCity "Poland" ;
+  :locationCity "Warsaw" ;
+.
+<http://dbpedia.org/resource/Fenix_Automotive>
+  rdf:type :Manufacturer ;
+  :founder "Lee Noble" ;
+  :name "Fenix Automotive"@en ;
 .
 <http://dbpedia.org/resource/Ferrari>
   rdf:type :Manufacturer ;
@@ -643,15 +1082,15 @@
 .
 <http://dbpedia.org/resource/Ferrari_166_S>
   rdf:type :LeMansCar ;
-  rdf:type :MilleMigliaCar ;
   :engine 2 ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
   :name "Ferrari 166"@en ;
   :production 1948 ;
   :production 39 ;
 .
 <http://dbpedia.org/resource/Ferrari_195_S>
   rdf:type :LeMansCar ;
-  rdf:type :MilleMigliaCar ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
   :name "Ferrari 195 S"@en ;
   :production 1950 ;
   :production 2 ;
@@ -659,17 +1098,18 @@
 <http://dbpedia.org/resource/Ferrari_212_Inter>
   rdf:type :LeMansCar ;
   :engine "2.6"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
   :name "Ferrari 212 Inter"@en ;
   :production 1951 ;
   :production 82 ;
 .
 <http://dbpedia.org/resource/Ferrari_250>
   rdf:type :LeMansCar ;
-  rdf:type :MilleMigliaCar ;
 .
 <http://dbpedia.org/resource/Ferrari_330>
   rdf:type :LeMansCar ;
   :engine 4 ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
   :name "Ferrari 330"@en ;
   :production 1087 ;
   :production 1963 ;
@@ -689,24 +1129,26 @@
 <http://dbpedia.org/resource/Ferrari_458_Italia>
   rdf:type :LeMansCar ;
   :engine "4.5"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
   :name "Ferrari 458 Italia"@en ;
   :production 2009 ;
 .
 <http://dbpedia.org/resource/Ferrari_550>
   rdf:type :LeMansCar ;
   :engine "5.5"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
   :name "Ferrari 550"@en ;
   :name "Maranello & Barchetta"@en ;
   :production 1996 ;
 .
 <http://dbpedia.org/resource/Ferrari_America>
   rdf:type :LeMansCar ;
-  rdf:type :MilleMigliaCar ;
   :engine 4 ;
   :engine "4.1"^^xsd:double ;
   :engine "4.4"^^xsd:double ;
   :engine "4.5"^^xsd:double ;
   :engine 5 ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
   :name "330, 340, 365, 375, 400, 410, 500"@en ;
   :name "Ferrari America"@en ;
   :production 14 ;
@@ -722,11 +1164,13 @@
 <http://dbpedia.org/resource/Ferrari_F40>
   rdf:type :LeMansCar ;
   :engine "twin-turbocharged Tipo F120A V8 , rear, longitudinal, 90°"@en ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
   :production 1987 ;
 .
 <http://dbpedia.org/resource/Ferrari_F430>
   rdf:type :LeMansCar ;
   :engine "4.3"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
   :name "430"@en ;
   :name "Ferrari F430"@en ;
   :production 2004 ;
@@ -750,6 +1194,7 @@
   :engine "2.5"^^xsd:double ;
   :engine "2.9"^^xsd:double ;
   :engine "3.4"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
   :name "Ferrari Mondial"@en ;
   :name "Ferrari Monza"@en ;
   :name "Ferrari TF"@en ;
@@ -760,6 +1205,12 @@
 <http://dbpedia.org/resource/Ferrari_TR>
   rdf:type :LeMansCar ;
 .
+<http://dbpedia.org/resource/Fiat>
+  rdf:type :Manufacturer ;
+  :founder "Giovanni Agnelli" ;
+  :foundingDate "1899-07-10+02:00"^^xsd:date ;
+  :name "Fiat S.p.A."@en ;
+.
 <http://dbpedia.org/resource/Fiat_508>
   rdf:type :LeMansCar ;
   :engine "straight-4 995 cc"@en ;
@@ -768,6 +1219,10 @@
   :name "Fiat 508"@en ;
   :production 1932 ;
 .
+<http://dbpedia.org/resource/Fiat_India_Automobiles>
+  rdf:type :Manufacturer ;
+  :foundingDate "1997-01-01+02:00"^^xsd:date ;
+.
 <http://dbpedia.org/resource/Fisker_Automotive>
   rdf:type :Manufacturer ;
   :founder "Bernhard Koehler" ;
@@ -775,12 +1230,12 @@
   :foundingDate "2007-07-31+02:00"^^xsd:date ;
 .
 <http://dbpedia.org/resource/Ford_GT40>
-  rdf:type :Car ;
   rdf:type :LeMansCar ;
   :engine 4181 ;
   :engine 4737 ;
   :engine 4942 ;
   :engine 6997 ;
+  :manufacturer <http://dbpedia.org/resource/Carroll_Shelby_International> ;
   :manufacturer <http://dbpedia.org/resource/Ford_Advanced_Vehicles> ;
   :manufacturer <http://dbpedia.org/resource/John_Wyer> ;
   :manufacturer <http://dbpedia.org/resource/Kar_Kraft> ;
@@ -788,9 +1243,54 @@
   :production 107 ;
   :production 1964 ;
 .
+<http://dbpedia.org/resource/Ford_Germany>
+  rdf:type :Manufacturer ;
+  :founder "Henry Ford" ;
+  :foundingDate "1925-08-17+02:00"^^xsd:date ;
+  :locationCity "North_Rhine-Westphalia" ;
+  :owner "Ford Motor Company" ;
+.
+<http://dbpedia.org/resource/Ford_Motor_Company>
+  rdf:type :Manufacturer ;
+  :founder "Henry Ford" ;
+  :locationCity "Dearborn,_Michigan" ;
+  :name "Ford Motor Company"@en ;
+.
+<http://dbpedia.org/resource/Ford_Motor_Company_of_Australia>
+  rdf:type :Manufacturer ;
+  :founder "Henry Ford" ;
+.
 <http://dbpedia.org/resource/Fornasari>
   rdf:type :Manufacturer ;
   :founder "Giuseppe Fornasari" ;
+.
+<http://dbpedia.org/resource/Fujian_Benz>
+  rdf:type :Manufacturer ;
+  :locationCity "Fuzhou" ;
+.
+<http://dbpedia.org/resource/Fuldamobil>
+  rdf:type :Manufacturer ;
+  :name "Fuldamobil"@en ;
+.
+<http://dbpedia.org/resource/GAZ>
+  rdf:type :Manufacturer ;
+  :name "Gorky Automobile Plant"@en ;
+  :name "Го́рьковский автомоби́льный заво́д"@en ;
+.
+<http://dbpedia.org/resource/GM-AvtoVAZ>
+  rdf:type :Manufacturer ;
+  :owner "AvtoVAZ  General Motors  EBRD" ;
+.
+<http://dbpedia.org/resource/GMC_(automobile)>
+  rdf:type :Manufacturer ;
+  :founder "William C. Durant" ;
+  :locationCity "Detroit" ;
+  :locationCity "Michigan" ;
+  :owner "General Motors" ;
+.
+<http://dbpedia.org/resource/GM_Korea>
+  rdf:type :Manufacturer ;
+  :locationCity "Bupyeong_District" ;
 .
 <http://dbpedia.org/resource/GTA_Motor>
   rdf:type :Manufacturer ;
@@ -801,9 +1301,49 @@
   rdf:type :Manufacturer ;
   :locationCity "Kingswinford" ;
 .
+<http://dbpedia.org/resource/Gautier%E2%80%93Wehrl%C3%A9>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Geely>
+  rdf:type :Manufacturer ;
+  :founder "Li Shufu" ;
+  :name "Zhejiang Geely Holding Group"@en ;
+.
+<http://dbpedia.org/resource/General_Motors>
+  rdf:type :Manufacturer ;
+  :founder "William C. Durant" ;
+  :name "General Motors"@en ;
+.
+<http://dbpedia.org/resource/General_Motors_Egypt>
+  rdf:type :Manufacturer ;
+  :locationCity "Cairo" ;
+  :locationCity "Maadi" ;
+  :owner "16" ;
+  :owner "20" ;
+  :owner "31" ;
+  :owner "33" ;
+.
+<http://dbpedia.org/resource/General_Motors_do_Brasil>
+  rdf:type :Manufacturer ;
+  :locationCity "S%C3%A3o_Caetano_do_Sul" ;
+.
+<http://dbpedia.org/resource/Ghabbour_Group>
+  rdf:type :Manufacturer ;
+  :founder "Kamal Ghabbour" ;
+  :founder "Sadek Ghabbour" ;
+  :locationCity "Cairo" ;
+.
 <http://dbpedia.org/resource/Giocattolo>
   rdf:type :Manufacturer ;
   :name "Giocattolo Group B"@en ;
+.
+<http://dbpedia.org/resource/Gonow>
+  rdf:type :Manufacturer ;
+  :foundingDate "2003-09-22+02:00"^^xsd:date ;
+  :locationCity "Taizhou,_Zhejiang" ;
+.
+<http://dbpedia.org/resource/Grecav>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Gumpert>
   rdf:type :Manufacturer ;
@@ -816,11 +1356,35 @@
 <http://dbpedia.org/resource/HPD_ARX-03>
   rdf:type :LeMansCar ;
 .
+<http://dbpedia.org/resource/Hafei>
+  rdf:type :Manufacturer ;
+  :locationCity "Harbin" ;
+  :name "Harbin HF Automobile Industry Group Co Ltd"@en ;
+  :name "哈飞汽车"@en ;
+.
+<http://dbpedia.org/resource/Hawtai>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Hi-Tech_Automotive>
   rdf:type :Manufacturer ;
 .
+<http://dbpedia.org/resource/Hindustan_Motors>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Holden>
+  rdf:type :Manufacturer ;
+  :founder "James Alexander Holden" ;
+  :name "GM Holden Ltd"@en ;
+.
 <http://dbpedia.org/resource/Hommell>
   rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Honda>
+  rdf:type :Manufacturer ;
+  :founder "Soichiro Honda" ;
+  :founder "Takeo Fujisawa" ;
+  :foundingDate "1948-09-23+02:00"^^xsd:date ;
+  :name "Honda Motor Company, Ltd."@en ;
 .
 <http://dbpedia.org/resource/Honda_NSX>
   rdf:type :LeMansCar ;
@@ -832,7 +1396,49 @@
   :production 1990 ;
   :production 2015 ;
 .
+<http://dbpedia.org/resource/Huayang>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Hurtan>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Hyundai_Assan_Otomotiv>
+  rdf:type :Manufacturer ;
+  :locationCity "%C4%B0zmit" ;
+  :name "Hyundai Assan Otomotiv San ve Tic."@en ;
+  :owner "Hyundai Motor Company" ;
+  :owner "Kibar Holding" ;
+.
+<http://dbpedia.org/resource/Hyundai_Motor_Company>
+  rdf:type :Manufacturer ;
+  :founder "Chung Ju-yung" ;
+  :foundingDate "1967-12-28+02:00"^^xsd:date ;
+  :locationCity "Seoul" ;
+  :name "Hyundai Motor Company"@en ;
+  :name "현대자동차 주식회사"@en ;
+.
+<http://dbpedia.org/resource/Imperia_(car)>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Industrias_Kaiser_Argentina>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Infiniti>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Innocenti>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Inokom>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Iran_Khodro>
+  rdf:type :Manufacturer ;
+  :founder "Khayami family" ;
+  :name "Iran Khodro Company"@en ;
+  :owner "private sector" ;
+.
+<http://dbpedia.org/resource/Iran_Khodro_Diesel>
   rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Isdera>
@@ -853,12 +1459,22 @@
   :locationCity "Milan" ;
   :name "Isotta Fraschini"@en ;
 .
+<http://dbpedia.org/resource/Isuzu_Motors>
+  rdf:type :Manufacturer ;
+  :founder "William C. Durant" ;
+  :founder "Yoshisuke Aikawa" ;
+.
 <http://dbpedia.org/resource/J%C3%B6sse_Car>
   rdf:type :Manufacturer ;
 .
+<http://dbpedia.org/resource/JAC_Motors>
+  rdf:type :Manufacturer ;
+  :locationCity "Anhui" ;
+  :locationCity "Hefei" ;
+.
 <http://dbpedia.org/resource/Jaguar_C-Type>
-  rdf:type :Car ;
   rdf:type :LeMansCar ;
+  :manufacturer <http://dbpedia.org/resource/Jaguar_Cars> ;
   :name "Jaguar C-Type"@en ;
   :production 1951 ;
 .
@@ -869,53 +1485,96 @@
   :locationCity "Whitley,_Coventry" ;
 .
 <http://dbpedia.org/resource/Jaguar_D-Type>
-  rdf:type :Car ;
   rdf:type :LeMansCar ;
+  :manufacturer <http://dbpedia.org/resource/Jaguar_Cars> ;
   :name "Jaguar D-Type"@en ;
   :production 1954 ;
+.
+<http://dbpedia.org/resource/Jaguar_Land_Rover>
+  rdf:type :Manufacturer ;
+  :locationCity "Whitley,_Coventry" ;
 .
 <http://dbpedia.org/resource/Jaguar_XJ220>
   rdf:type :LeMansCar ;
   :engine "3.5"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Jaguar_Cars> ;
   :name "Jaguar XJ220"@en ;
   :production 1992 ;
 .
 <http://dbpedia.org/resource/Jaguar_XJR-12>
   rdf:type :LeMansCar ;
+  :manufacturer <http://dbpedia.org/resource/Jaguar_Cars> ;
   :name "Jaguar XJR-12"@en ;
   :production 1990 ;
 .
 <http://dbpedia.org/resource/Jaguar_XJR-9>
   rdf:type :LeMansCar ;
   :engine 7 ;
+  :manufacturer <http://dbpedia.org/resource/Jaguar_Cars> ;
   :name "Jaguar XJR-9"@en ;
   :production 1988 ;
 .
 <http://dbpedia.org/resource/Jaguar_XK120>
   rdf:type :LeMansCar ;
   :engine "3.4"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Jaguar_Cars> ;
   :name "Jaguar XK120"@en ;
   :production 12055 ;
   :production 1948 ;
 .
 <http://dbpedia.org/resource/Jaguar_XK140>
   rdf:type :LeMansCar ;
+  :manufacturer <http://dbpedia.org/resource/Jaguar_Cars> ;
   :name "Jaguar XK140"@en ;
   :production 1954 ;
 .
+<http://dbpedia.org/resource/James_Cunningham,_Son_and_Company>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Jawa_Motors>
+  rdf:type :Manufacturer ;
+  :founder "Franti%C5%A1ek Jane%C4%8Dek" ;
+  :locationCity "Prague" ;
+.
+<http://dbpedia.org/resource/Jeep>
+  rdf:type :Manufacturer ;
+  :locationCity "Toledo,_Ohio" ;
+  :name "Jeep"@en ;
+.
 <http://dbpedia.org/resource/Jensen_Motors>
   rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Jonway>
+  rdf:type :Manufacturer ;
+  :locationCity "Taizhou,_Zhejiang" ;
+  :locationCity "Zhejiang" ;
 .
 <http://dbpedia.org/resource/KTM>
   rdf:type :Manufacturer ;
   :founder "Hans Trunkenpolz" ;
   :locationCity "Mattighofen" ;
 .
+<http://dbpedia.org/resource/Karmann>
+  rdf:type :Manufacturer ;
+  :name "Wilhelm Karmann GmbH"@en ;
+  :owner "Valmet Automotive" ;
+.
+<http://dbpedia.org/resource/Kia_EcoDynamics>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Kia_Motors>
+  rdf:type :Manufacturer ;
+  :foundingDate "1944-06-08+02:00"^^xsd:date ;
+  :owner "Hyundai Motor Company" ;
+.
 <http://dbpedia.org/resource/Kieft_Cars>
   rdf:type :Manufacturer ;
   :founder "Cyril Kieft" ;
   :locationCity "Wolverhampton" ;
   :name "Kieft"@en ;
+.
+<http://dbpedia.org/resource/Kish_Khodro>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Koenigsegg>
   rdf:type :Manufacturer ;
@@ -925,6 +1584,14 @@
 .
 <http://dbpedia.org/resource/Kremer_K8_Spyder>
   rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/LaSalle_(automobile)>
+  rdf:type :Manufacturer ;
+  :name "LaSalle"@en ;
+.
+<http://dbpedia.org/resource/Lada>
+  rdf:type :Manufacturer ;
+  :name "Lada"@en ;
 .
 <http://dbpedia.org/resource/Lamborghini>
   rdf:type :Manufacturer ;
@@ -936,9 +1603,16 @@
   rdf:type :LeMansCar ;
   :engine "6.2"^^xsd:double ;
   :engine "6.5"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Lamborghini> ;
   :name "Lamborghini Murciélago"@en ;
   :production 2001 ;
   :production 4099 ;
+.
+<http://dbpedia.org/resource/Lancia>
+  rdf:type :Manufacturer ;
+  :founder "Vincenzo Lancia" ;
+  :foundingDate "1906-11-28+02:00"^^xsd:date ;
+  :owner "Fiat S.p.A." ;
 .
 <http://dbpedia.org/resource/Lancia_Aurelia>
   rdf:type :LeMansCar ;
@@ -967,13 +1641,43 @@
 <http://dbpedia.org/resource/Lancia_Zagato>
   rdf:type :Manufacturer ;
 .
+<http://dbpedia.org/resource/Land_Rover>
+  rdf:type :Manufacturer ;
+  :locationCity "Gaydon" ;
+  :locationCity "Jaguar_Land_Rover_Gaydon_Centre" ;
+  :name "Land Rover marque"@en ;
+  :name "Land Rover"@en ;
+  :owner "Tata Motors" ;
+.
+<http://dbpedia.org/resource/Le_Dauphin>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Leading_Edge_Sports_Car_Company>
   rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Lexus>
+  rdf:type :Manufacturer ;
+  :founder "Eiji Toyoda" ;
+  :name "Lexus"@en ;
+  :owner "Toyota" ;
 .
 <http://dbpedia.org/resource/Lightning_Car_Company>
   rdf:type :Manufacturer ;
   :locationCity "Fulham" ;
   :name "Lightning Car Company"@en ;
+.
+<http://dbpedia.org/resource/Lincoln_Motor_Company>
+  rdf:type :Manufacturer ;
+  :locationCity "Dearborn,_Michigan" ;
+.
+<http://dbpedia.org/resource/Lion-Peugeot>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/List_of_American_truck_manufacturers>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/List_of_automobile_manufacturers_of_Italy>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/List_of_sports_car_manufacturers>
   rdf:type :Manufacturer ;
@@ -984,6 +1688,7 @@
 <http://dbpedia.org/resource/Lister_Storm>
   rdf:type :LeMansCar ;
   :engine "Jaguar V12"@en ;
+  :manufacturer <http://dbpedia.org/resource/Lister_Cars> ;
   :name "Lister Storm"@en ;
 .
 <http://dbpedia.org/resource/Lister_Storm_LMP>
@@ -1018,6 +1723,9 @@
 .
 <http://dbpedia.org/resource/Lola_T92/10>
   rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Lorraine-Dietrich>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Lotec>
   rdf:type :Manufacturer ;
@@ -1061,6 +1769,7 @@
   :engine "1.2"^^xsd:double ;
   :engine 2 ;
   :engine "2.2"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Lotus_Cars> ;
   :name "Lotus Elite"@en ;
   :production 1958 ;
   :production 1974 ;
@@ -1071,6 +1780,7 @@
   :engine 2 ;
   :engine "2.2"^^xsd:double ;
   :engine "3.5"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Lotus_Cars> ;
   :name "Lotus Esprit"@en ;
   :production 1976 ;
   :production 1978 ;
@@ -1081,6 +1791,17 @@
 .
 <http://dbpedia.org/resource/Lotus_T128_(Le_Mans_Prototype)>
   rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/LuAZ>
+  rdf:type :Manufacturer ;
+  :locationCity "Lutsk" ;
+  :name "Lutsky Avtomobilnny Zavod - LuAZ"@en ;
+.
+<http://dbpedia.org/resource/M%C3%A9tallurgique>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/M2_(Mazda)>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/MG-Lola_EX257>
   rdf:type :LeMansCar ;
@@ -1094,6 +1815,7 @@
   rdf:type :LeMansCar ;
   :engine 746 ;
   :engine 847 ;
+  :manufacturer <http://dbpedia.org/resource/MG_Cars> ;
   :name "MG J-Type"@en ;
   :production 1932 ;
   :production 2083 ;
@@ -1107,6 +1829,7 @@
   :engine 1087 ;
   :engine "Straight-6 1087 cc"@en ;
   :engine "supercharged"@en ;
+  :manufacturer <http://dbpedia.org/resource/MG_Cars> ;
   :name "MG K-Type Magnette"@en ;
   :production 181 ;
   :production 1932 ;
@@ -1117,6 +1840,7 @@
 .
 <http://dbpedia.org/resource/MG_M-type>
   rdf:type :LeMansCar ;
+  :manufacturer <http://dbpedia.org/resource/MG_Cars> ;
   :name "MG M-type Midget"@en ;
   :production 1929 ;
   :production 3235 ;
@@ -1126,6 +1850,7 @@
   :engine "B-Series DOHC I4"@en ;
   :engine "B-Series I4"@en ;
   :engine "I4"@en ;
+  :manufacturer <http://dbpedia.org/resource/MG_Cars> ;
   :name "MGA"@en ;
   :production 101081 ;
   :production 1955 ;
@@ -1137,10 +1862,17 @@
   :production 58750 ;
   :production 8719 ;
 .
+<http://dbpedia.org/resource/MG_Motor>
+  rdf:type :Manufacturer ;
+  :founder "Cecil Kimber" ;
+  :locationCity "Birmingham" ;
+  :locationCity "Longbridge" ;
+.
 <http://dbpedia.org/resource/MG_P-type>
   rdf:type :LeMansCar ;
   :engine 847 ;
   :engine 939 ;
+  :manufacturer <http://dbpedia.org/resource/MG_Cars> ;
   :name "MG P-type"@en ;
   :production 1934 ;
   :production 1935 ;
@@ -1154,6 +1886,7 @@
   :engine "XPAG type I4 ohv"@en ;
   :engine "XPAG type I4"@en ;
   :engine "XPEG type I4"@en ;
+  :manufacturer <http://dbpedia.org/resource/MG_Cars> ;
   :manufacturer "BMC from 1952"@en ;
   :name "MG T-type"@en ;
   :production 10000 ;
@@ -1177,6 +1910,12 @@
   :locationCity "Kenilworth" ;
   :name "Marcos 1800"@en ;
 .
+<http://dbpedia.org/resource/Markranst%C3%A4dter_Automobilfabrik>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Marlei_(car)>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Marlin_(car)>
   rdf:type :Manufacturer ;
   :founder "Paul Moorhouse" ;
@@ -1184,12 +1923,24 @@
   :name 5 ;
   :name "Sportster"@en ;
 .
+<http://dbpedia.org/resource/Martin-Sp%C3%A9ciale>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Marussia_Motors>
   rdf:type :Manufacturer ;
   :founder "Andrei Tsheglakov" ;
   :founder "Jefim Ostrovskiy" ;
   :founder "Nikolai Fomenko" ;
   :name "Marussia Motors"@en ;
+.
+<http://dbpedia.org/resource/Maruti_Suzuki>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Maserati>
+  rdf:type :Manufacturer ;
+  :foundingDate "1914-11-30+02:00"^^xsd:date ;
+  :locationCity "Modena" ;
+  :owner "Fiat S.p.A." ;
 .
 <http://dbpedia.org/resource/Maserati_150S>
   rdf:type :Car ;
@@ -1205,7 +1956,6 @@
   :name "Maserati 200S"@en ;
 .
 <http://dbpedia.org/resource/Maserati_300S>
-  rdf:type :Car ;
   rdf:type :LeMansCar ;
   :manufacturer <http://dbpedia.org/resource/Maserati> ;
   :name "Maserati 300S"@en ;
@@ -1230,7 +1980,6 @@
   :production 1991 ;
 .
 <http://dbpedia.org/resource/Maserati_Tipo_61>
-  rdf:type :Car ;
   rdf:type :LeMansCar ;
   :engine 187 ;
   :engine "2890.3"^^xsd:double ;
@@ -1251,6 +2000,15 @@
 .
 <http://dbpedia.org/resource/Matich_SR5>
   rdf:type :Car ;
+.
+<http://dbpedia.org/resource/Maybach>
+  rdf:type :Manufacturer ;
+  :founder "Wilhelm Maybach" ;
+.
+<http://dbpedia.org/resource/Mazda>
+  rdf:type :Manufacturer ;
+  :founder "Jujiro Matsuda" ;
+  :name "Mazda Motor Corporation"@en ;
 .
 <http://dbpedia.org/resource/Mazda_717C>
   rdf:type :LeMansCar ;
@@ -1299,11 +2057,19 @@
 <http://dbpedia.org/resource/McLaren_F1_GTR>
   rdf:type :LeMansCar ;
 .
+<http://dbpedia.org/resource/Meadows_Frisky>
+  rdf:type :Manufacturer ;
+  :name "Meadows Frisky"@en ;
+.
 <http://dbpedia.org/resource/Melkus>
   rdf:type :Manufacturer ;
 .
+<http://dbpedia.org/resource/Mercedes-Benz>
+  rdf:type :Manufacturer ;
+  :founder "Karl Benz" ;
+  :locationCity "Stuttgart" ;
+.
 <http://dbpedia.org/resource/Mercedes-Benz_300SL>
-  rdf:type :Car ;
   rdf:type :LeMansCar ;
   :engine 212 ;
   :engine 2996 ;
@@ -1316,12 +2082,13 @@
   :production "Roadster: 1,858"@en ;
 .
 <http://dbpedia.org/resource/Mercedes-Benz_300_SLR>
-  rdf:type :Car ;
   rdf:type :LeMansCar ;
-  rdf:type :MilleMigliaCar ;
 .
 <http://dbpedia.org/resource/Mercedes-Benz_CLR>
   rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Mercedes-Benz_India>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Mercedes-Benz_SSK>
   rdf:type :MilleMigliaCar ;
@@ -1330,16 +2097,58 @@
   :name "Mercedes-Benz SSK"@en ;
   :production 1928 ;
 .
+<http://dbpedia.org/resource/Mercedes_(car)>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Mermerler_Otomotiv>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Meyers_Manx,_Inc.>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Miles_Electric_Vehicles>
+  rdf:type :Manufacturer ;
+  :founder "Miles Rubin" ;
+  :locationCity "California" ;
+  :locationCity "Santa_Monica,_California" ;
+  :name "Miles Electric Vehicles"@en ;
+.
 <http://dbpedia.org/resource/Mille_Miglia>
   rdf:type :MilleMigliaCar ;
 .
+<http://dbpedia.org/resource/Minerva_(automobile)>
+  rdf:type :Manufacturer ;
+  :founder "Sylvain de Jong" ;
+  :name "Société Anonyme Minerva Motors"@en ;
+.
+<http://dbpedia.org/resource/Mini_(marque)>
+  rdf:type :Manufacturer ;
+  :name "Mini"@en ;
+.
 <http://dbpedia.org/resource/Mirage_(race_car)>
-  rdf:type :Car ;
   rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Mitsubishi_Motors>
+  rdf:type :Manufacturer ;
+  :foundingDate "1970-04-21+02:00"^^xsd:date ;
+.
+<http://dbpedia.org/resource/Mochet>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Modiran_Vehicle_Manufacturing_Company>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Monte_Carlo_Automobile>
+  rdf:type :Manufacturer ;
+  :founder "Fulvio Ballabio" ;
+.
+<http://dbpedia.org/resource/Morattab>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Morgan_Aero_8>
   rdf:type :LeMansCar ;
   :engine "originally a 4.4 L, now a 4.8 L BMW N62 V8"@en ;
+  :manufacturer <http://dbpedia.org/resource/Morgan_Motor_Company> ;
   :name "Morgan Aero 8"@en ;
   :production 2001 ;
 .
@@ -1349,21 +2158,56 @@
   :locationCity "Malvern,_Worcestershire" ;
   :name "Morgan 3 Wheeler"@en ;
 .
+<http://dbpedia.org/resource/Mors_(automobile)>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Moskvitch>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Mosler_Automotive>
   rdf:type :Manufacturer ;
   :founder "Warren Mosler" ;
   :locationCity "Florida" ;
   :locationCity "Riviera_Beach,_Florida" ;
 .
+<http://dbpedia.org/resource/Motor_Development_International>
+  rdf:type :Manufacturer ;
+  :founder "Guy Nègre" ;
+  :locationCity "Carros" ;
+.
 <http://dbpedia.org/resource/Murtaya>
   rdf:type :Manufacturer ;
   :name "Murtaya"@en ;
 .
+<http://dbpedia.org/resource/NSU_Motorenwerke>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Namco_(automobiles)>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Nardi_750LM>
   rdf:type :LeMansCar ;
 .
+<http://dbpedia.org/resource/National_Sewing_Machine_Company>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/New-Map>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Nimrod_NRA/C2>
   rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Nissan_Motor_Company>
+  rdf:type :Manufacturer ;
+  :founder "Kenjiro Den" ;
+  :founder "Masujiro Hashimoto" ;
+  :founder "Meitaro Takeuchi" ;
+  :founder "Rokuro Aoyama" ;
+  :founder "Yoshisuke Aikawa" ;
+  :foundingDate "1933-12-25+02:00"^^xsd:date ;
+  :name "Nissan Jidosha Kabushiki-gaisha"@en ;
+  :name "Nissan Motor Company Ltd"@en ;
+  :name "日産自動車株式会社"@en ;
 .
 <http://dbpedia.org/resource/Nissan_R381>
   rdf:type :Car ;
@@ -1413,6 +2257,9 @@
 <http://dbpedia.org/resource/Nissan_R90C>
   rdf:type :LeMansCar ;
 .
+<http://dbpedia.org/resource/Nissan_Shatai>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Nissan_Skyline_GT-R>
   rdf:type :LeMansCar ;
   :engine 2 ;
@@ -1429,9 +2276,32 @@
   rdf:type :Manufacturer ;
   :founder "Lee Noble" ;
 .
+<http://dbpedia.org/resource/Oldsmobile>
+  rdf:type :Manufacturer ;
+  :foundingDate "1897-08-20+02:00"^^xsd:date ;
+.
+<http://dbpedia.org/resource/Opel>
+  rdf:type :Manufacturer ;
+  :founder "Adam Opel" ;
+  :foundingDate "1862-01-20+02:00"^^xsd:date ;
+  :locationCity "R%C3%BCsselsheim" ;
+  :name "Adam Opel AG"@en ;
+.
+<http://dbpedia.org/resource/Opel_Eisenach>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Opel_India_Private_Limited>
+  rdf:type :Manufacturer ;
+  :locationCity "Gurgaon" ;
+  :locationCity "Halol" ;
+.
 <http://dbpedia.org/resource/Orca_Engineering>
   rdf:type :Manufacturer ;
   :locationCity "Ebenholz" ;
+.
+<http://dbpedia.org/resource/Ordnance_Factory_Medak>
+  rdf:type :Manufacturer ;
+  :name "Ordnance Factory Medak"@en ;
 .
 <http://dbpedia.org/resource/Oreca_01>
   rdf:type :LeMansCar ;
@@ -1439,9 +2309,34 @@
 <http://dbpedia.org/resource/Oreca_03>
   rdf:type :LeMansCar ;
 .
+<http://dbpedia.org/resource/Otosan>
+  rdf:type :Manufacturer ;
+  :name "Otosan"@en ;
+.
+<http://dbpedia.org/resource/Oyak-Renault>
+  rdf:type :Manufacturer ;
+  :name "Oyak Renault Otomobil Fabrikaları A.Ş."@en ;
+  :owner "Ordu Yard%C4%B1mla%C5%9Fma Kurumu" ;
+  :owner "Renault" ;
+.
+<http://dbpedia.org/resource/Ozamktas_%C3%96zaltin_Makina_Otomotiv>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/PGO_(Automobile)>
   rdf:type :Manufacturer ;
   :locationCity "Saint-Christol-l%C3%A8s-Al%C3%A8s" ;
+.
+<http://dbpedia.org/resource/PSA_Peugeot_Citro%C3%ABn>
+  rdf:type :Manufacturer ;
+  :name "Peugeot S.A."@en ;
+  :owner "Peugeot family General Motors" ;
+.
+<http://dbpedia.org/resource/Packard>
+  rdf:type :Manufacturer ;
+  :founder "George L. Weiss" ;
+  :founder "James Ward Packard" ;
+  :founder "William Doud Packard" ;
+  :name "Packard"@en ;
 .
 <http://dbpedia.org/resource/Pagani>
   rdf:type :Manufacturer ;
@@ -1457,9 +2352,15 @@
   :engine "Mercedes-AMG M120 6.0 L V12"@en ;
   :engine "Mercedes-AMG M120 7.0 L V12"@en ;
   :engine "Mercedes-AMG M120 7.3 L V12"@en ;
+  :manufacturer <http://dbpedia.org/resource/Pagani> ;
   :name "Pagani Zonda"@en ;
   :production 1999 ;
   :production 2009 ;
+.
+<http://dbpedia.org/resource/Panhard>
+  rdf:type :Manufacturer ;
+  :founder "%C3%89mile Levassor" ;
+  :founder "Ren%C3%A9 Panhard" ;
 .
 <http://dbpedia.org/resource/Panoz_Auto_Development>
   rdf:type :Manufacturer ;
@@ -1476,11 +2377,24 @@
 <http://dbpedia.org/resource/Panther_Westwinds>
   rdf:type :Manufacturer ;
 .
+<http://dbpedia.org/resource/Pars_Khodro>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Pegaso>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Pennant_(automobile)>
+  rdf:type :Manufacturer ;
+  :name "Pennant"@en ;
+.
+<http://dbpedia.org/resource/Perana_Performance_Group>
   rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Pescarolo_01>
   rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Peugeot>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Peugeot_905>
   rdf:type :LeMansCar ;
@@ -1490,6 +2404,20 @@
 .
 <http://dbpedia.org/resource/Peugeot_908_HDi_FAP>
   rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Playboy_Automobile_Company>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Poinard>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Pontiac>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Pope_Manufacturing_Company>
+  rdf:type :Manufacturer ;
+  :founder "Albert Augustus Pope" ;
+  :locationCity "Hartford,_Connecticut" ;
 .
 <http://dbpedia.org/resource/Porsche>
   rdf:type :Manufacturer ;
@@ -1504,11 +2432,13 @@
   :engine "1.5"^^xsd:double ;
   :engine "1.6"^^xsd:double ;
   :engine 2 ;
+  :manufacturer <http://dbpedia.org/resource/Porsche> ;
   :name "Porsche 356"@en ;
   :production 1948 ;
 .
 <http://dbpedia.org/resource/Porsche_550>
   rdf:type :LeMansCar ;
+  :manufacturer <http://dbpedia.org/resource/Porsche> ;
   :production 1953 ;
 .
 <http://dbpedia.org/resource/Porsche_718>
@@ -1519,7 +2449,6 @@
   :name "Porsche 904"@en ;
 .
 <http://dbpedia.org/resource/Porsche_906>
-  rdf:type :Car ;
   rdf:type :LeMansCar ;
   :manufacturer "Porsche"@en ;
   :name "Porsche 906 Carrera 6"@en ;
@@ -1531,11 +2460,11 @@
   rdf:type :LeMansCar ;
   :engine "2.1"^^xsd:double ;
   :engine 3 ;
+  :manufacturer <http://dbpedia.org/resource/Porsche> ;
   :name "Porsche 908"@en ;
   :production 1968 ;
 .
 <http://dbpedia.org/resource/Porsche_910>
-  rdf:type :Car ;
   rdf:type :LeMansCar ;
   :manufacturer "Porsche"@en ;
   :name "Porsche 910 Carrera 10"@en ;
@@ -1543,12 +2472,14 @@
 <http://dbpedia.org/resource/Porsche_911_GT1>
   rdf:type :LeMansCar ;
   :engine "3.2"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Porsche> ;
   :name "Porsche 911 GT1 Straßenversion"@en ;
 .
 <http://dbpedia.org/resource/Porsche_911_GT2>
   rdf:type :LeMansCar ;
   :engine "3.6"^^xsd:double ;
   :engine "H6"@en ;
+  :manufacturer <http://dbpedia.org/resource/Porsche> ;
   :name "Porsche 911 GT2"@en ;
   :production 1993 ;
   :production 1999 ;
@@ -1557,6 +2488,7 @@
 <http://dbpedia.org/resource/Porsche_914-6_GT>
   rdf:type :LeMansCar ;
   :engine 2 ;
+  :manufacturer <http://dbpedia.org/resource/Porsche> ;
   :name "Porsche 914-6 GT"@en ;
   :production 1970 ;
 .
@@ -1568,9 +2500,9 @@
   :name "Porsche 934"@en ;
 .
 <http://dbpedia.org/resource/Porsche_935>
-  rdf:type :Car ;
   rdf:type :LeMansCar ;
   :engine "Flat 6 turbo"@en ;
+  :manufacturer <http://dbpedia.org/resource/Porsche> ;
   :name "Porsche 935"@en ;
 .
 <http://dbpedia.org/resource/Porsche_936>
@@ -1580,19 +2512,26 @@
   rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/Porsche_961>
-  rdf:type :Car ;
   rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/Porsche_962>
   rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Porsche_India>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Porsche_RS_Spyder>
   rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/Porsche_WSC-95>
   rdf:type :LeMansCar ;
-  :manufacturer <http://dbpedia.org/resource/Tom_Walkinshaw_Racing> ;
   :name "Porsche WSC-95"@en ;
+.
+<http://dbpedia.org/resource/Portaro>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Praga_(company)>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Prince_R380>
   rdf:type :Car ;
@@ -1604,8 +2543,15 @@
   :name "Prince R380"@en ;
   :production 1965 ;
 .
+<http://dbpedia.org/resource/Prodrive>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Project_1221>
   rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Proton_(automobile)>
+  rdf:type :Manufacturer ;
+  :foundingDate "1983-05-06+02:00"^^xsd:date ;
 .
 <http://dbpedia.org/resource/Qvale>
   rdf:type :Manufacturer ;
@@ -1613,6 +2559,18 @@
 <http://dbpedia.org/resource/Raw_Engineering>
   rdf:type :Manufacturer ;
   :locationCity "Herefordshire" ;
+.
+<http://dbpedia.org/resource/Reliant>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Renault>
+  rdf:type :Manufacturer ;
+  :founder "Fernand Renault" ;
+  :founder "Louis Renault (industrialist)" ;
+  :founder "Marcel Renault" ;
+  :foundingDate "1899-02-24+02:00"^^xsd:date ;
+  :locationCity "Boulogne-Billancourt" ;
+  :name "Renault S.A."@en ;
 .
 <http://dbpedia.org/resource/Renault_4CV>
   rdf:type :LeMansCar ;
@@ -1630,6 +2588,25 @@
 <http://dbpedia.org/resource/Renault_Alpine_A442>
   rdf:type :LeMansCar ;
 .
+<http://dbpedia.org/resource/Renault_Argentina>
+  rdf:type :Manufacturer ;
+  :locationCity "Buenos_Aires" ;
+  :name "Renault Argentina SA"@en ;
+  :owner "COFAL" ;
+  :owner "Public" ;
+  :owner "RDIC" ;
+  :owner "Renault SAS" ;
+.
+<http://dbpedia.org/resource/Renault_Espa%C3%B1a>
+  rdf:type :Manufacturer ;
+  :locationCity "Valladolid" ;
+  :name "Renault España Sociedad Anónima"@en ;
+.
+<http://dbpedia.org/resource/Renault_Samsung_Motors>
+  rdf:type :Manufacturer ;
+  :owner "Renault" ;
+  :owner "Samsung" ;
+.
 <http://dbpedia.org/resource/Renault_Sport_Spider>
   rdf:type :Car ;
   :engine 1998 ;
@@ -1645,13 +2622,15 @@
 <http://dbpedia.org/resource/Reynard_02S>
   rdf:type :LeMansCar ;
 .
+<http://dbpedia.org/resource/Reyonnah>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Riley_&_Scott_Mk_III>
   rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/Riley_Nine>
   rdf:type :LeMansCar ;
   :engine "1.1"^^xsd:double ;
-  :manufacturer <http://dbpedia.org/resource/Riley_Motor> ;
   :name "Riley Nine"@en ;
   :production 1926 ;
 .
@@ -1659,23 +2638,76 @@
   rdf:type :Manufacturer ;
   :founder "Mate Rimac" ;
 .
+<http://dbpedia.org/resource/Rinspeed>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Rivian_Automotive>
+  rdf:type :Manufacturer ;
+  :locationCity "Rockledge,_Florida" ;
+  :name "Rivian Automotive"@en ;
+.
+<http://dbpedia.org/resource/Rolls-Royce_Motors>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Ronart_Cars>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Ronn_Motor_Company>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Rootes_Australia>
   rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Rover-BRM>
   rdf:type :LeMansCar ;
   :engine "Gas turbine"@en ;
-  :manufacturer <http://dbpedia.org/resource/British_Racing_Motors> ;
   :manufacturer <http://dbpedia.org/resource/Rover_Company> ;
   :name "Rover-BRM"@en ;
 .
+<http://dbpedia.org/resource/Rover_(marque)>
+  rdf:type :Manufacturer ;
+  :name "Rover Marque"@en ;
+.
+<http://dbpedia.org/resource/Rover_Company>
+  rdf:type :Manufacturer ;
+  :founder "John Kemp Starley" ;
+  :founder "William Sutton" ;
+.
+<http://dbpedia.org/resource/Ruby_(car)>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Ruf_Automobile>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/SAIC_Motor>
+  rdf:type :Manufacturer ;
+  :locationCity "Shanghai" ;
+.
+<http://dbpedia.org/resource/SAIPA>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/SEAT>
+  rdf:type :Manufacturer ;
+  :founder "Instituto Nacional de Industria" ;
+  :foundingDate "1950-05-08+02:00"^^xsd:date ;
+  :name "SEAT, S.A."@en ;
+.
+<http://dbpedia.org/resource/SG_Automotive>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Saab_93>
   rdf:type :LeMansCar ;
-  rdf:type :MilleMigliaCar ;
   :engine 750 ;
   :manufacturer <http://dbpedia.org/resource/Saab_Automobile> ;
   :name "Saab 93"@en ;
   :production 1956 ;
+.
+<http://dbpedia.org/resource/Saab_Automobile>
+  rdf:type :Manufacturer ;
+  :founder "Saab Group" ;
+  :locationCity "Trollh%C3%A4ttan" ;
+  :name "Saab Automobile"@en ;
+  :owner "National Modern Energy Holdings via National Electric Vehicle Sweden" ;
 .
 <http://dbpedia.org/resource/Saleen>
   rdf:type :Manufacturer ;
@@ -1692,10 +2724,29 @@
 <http://dbpedia.org/resource/Sauber_SHS_C6>
   rdf:type :LeMansCar ;
 .
+<http://dbpedia.org/resource/Scion_(automobile)>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Sebring_(sports_car)>
   rdf:type :Manufacturer ;
   :locationCity "Wisbech" ;
   :name "Sebring International"@en ;
+.
+<http://dbpedia.org/resource/Seoudi_Group>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Sevel_Argentina_S.A.>
+  rdf:type :Manufacturer ;
+  :founder "Jean Paul Parayre & Humberto Agnelli" ;
+  :foundingDate "1980-11-30+02:00"^^xsd:date ;
+.
+<http://dbpedia.org/resource/Shanghai_GM>
+  rdf:type :Manufacturer ;
+  :name "Shanghai General Motors Company Ltd"@en ;
+.
+<http://dbpedia.org/resource/Shanghai_Volkswagen>
+  rdf:type :Manufacturer ;
+  :name "Shanghai Volkswagen Automotive Co., Ltd."@en ;
 .
 <http://dbpedia.org/resource/Shelby_SuperCars>
   rdf:type :Manufacturer ;
@@ -1703,12 +2754,34 @@
   :locationCity "West_Richland,_Washington" ;
   :owner "Jerod Shelby" ;
 .
+<http://dbpedia.org/resource/Simca>
+  rdf:type :Manufacturer ;
+  :founder "Henri Pigozzi" ;
+.
+<http://dbpedia.org/resource/Simca_do_Brasil>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Soar_Automotive>
+  rdf:type :Manufacturer ;
+  :locationCity "Qingdao" ;
+  :locationCity "Shandong" ;
+  :name "Qingdao SOAR Automotive Group, Ltd."@en ;
+  :name "青岛索尔汽车集团"@en ;
+.
+<http://dbpedia.org/resource/Soci%C3%A9t%C3%A9_Parisienne>
+  rdf:type :Manufacturer ;
+  :name "Société Parisienne"@en ;
+.
 <http://dbpedia.org/resource/Solana_(automobile)>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Speranza_Motors>
   rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Spyker_C8>
   rdf:type :LeMansCar ;
   :engine "4.2"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Spyker_Cars> ;
   :name "Spyker C8"@en ;
   :production 2000 ;
 .
@@ -1718,8 +2791,42 @@
   :founder "Victor Muller" ;
   :locationCity "Zeewolde" ;
 .
+<http://dbpedia.org/resource/Spyker_N.V.>
+  rdf:type :Manufacturer ;
+  :owner "Victor Muller" ;
+  :owner "Youngman" ;
+.
+<http://dbpedia.org/resource/SsangYong_Motor_Company>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Standard_(Indian_automobile)>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Studiotorino>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Stutz_Motor_Company>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Subaru>
+  rdf:type :Manufacturer ;
+  :founder "Chikuhei Nakajima (predecessor)" ;
+  :founder "Kenji Kita" ;
+  :foundingDate "1953-07-06+02:00"^^xsd:date ;
+.
 <http://dbpedia.org/resource/Superformance>
   rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Suzuki>
+  rdf:type :Manufacturer ;
+  :founder "Michio Suzuki (inventor)" ;
+  :locationCity "Hamamatsu" ;
+  :locationCity "Shizuoka_Prefecture" ;
+  :name "Suzuki Motor Corporation"@en ;
+.
+<http://dbpedia.org/resource/T._J._Richards>
+  rdf:type :Manufacturer ;
+  :name "Richards, T. J."@en ;
 .
 <http://dbpedia.org/resource/TVR>
   rdf:type :Manufacturer ;
@@ -1729,14 +2836,39 @@
   rdf:type :LeMansCar ;
   :engine 4 ;
   :engine "straight-6, 4 valves/cylinder, 3.6 L  TVR Speed Six"@en ;
+  :manufacturer <http://dbpedia.org/resource/TVR> ;
   :name "TVR Tuscan Speed-6"@en ;
   :name "TVR Tuscan"@en ;
   :production 1999 ;
+.
+<http://dbpedia.org/resource/Talbot>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Tara_International>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Tata_Motors>
+  rdf:type :Manufacturer ;
+  :founder "J. R. D. Tata" ;
+  :name "Tata Motors"@en ;
+.
+<http://dbpedia.org/resource/Tata_Motors_Cars>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Tauro_Sport_Auto>
   rdf:type :Manufacturer ;
   :locationCity "Valladolid" ;
   :name "Tauro Sport Auto"@en ;
+.
+<http://dbpedia.org/resource/Terrafugia>
+  rdf:type :Manufacturer ;
+  :founder "Alex Min" ;
+  :founder "Anna Mracek Dietrich" ;
+  :founder "Arun Prakash" ;
+  :founder "Dr. Carl Dietrich" ;
+  :founder "Dr. Samuel Schweighart" ;
+  :locationCity "Woburn,_Massachusetts" ;
+  :name "Terrafugia"@en ;
 .
 <http://dbpedia.org/resource/Tesla_Motors>
   rdf:type :Manufacturer ;
@@ -1747,7 +2879,19 @@
   :founder "Martin Eberhard" ;
   :name "Tesla Motors, Inc."@en ;
 .
+<http://dbpedia.org/resource/The_Coventry_Motor_Company>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/The_Great_Horseless_Carriage_Company>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Tiger_Racing>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Tofa%C5%9F>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Tokyo_Trading>
   rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Toyota_90C-V>
@@ -1756,14 +2900,22 @@
 <http://dbpedia.org/resource/Toyota_92C-V>
   rdf:type :LeMansCar ;
 .
+<http://dbpedia.org/resource/Toyota_Australia>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Toyota_Celica_LB_Turbo>
   rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/Toyota_GT-One>
   rdf:type :LeMansCar ;
 .
+<http://dbpedia.org/resource/Toyota_Motor_Manufacturing_France>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Toyota_Motor_Manufacturing_Turkey>
+  rdf:type :Manufacturer ;
+.
 <http://dbpedia.org/resource/Toyota_Supra_in_motorsport>
-  rdf:type :Car ;
   rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/Toyota_TS010>
@@ -1771,6 +2923,10 @@
 .
 <http://dbpedia.org/resource/Toyota_TS030_Hybrid>
   rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Trabant>
+  rdf:type :Manufacturer ;
+  :name "Trabant"@en ;
 .
 <http://dbpedia.org/resource/Triumph_TR2>
   rdf:type :LeMansCar ;
@@ -1780,11 +2936,9 @@
   :production 1953 ;
 .
 <http://dbpedia.org/resource/Triumph_TR3>
-  rdf:type :Car ;
   rdf:type :LeMansCar ;
   :engine 1991 ;
   :engine 2138 ;
-  :manufacturer <http://dbpedia.org/resource/Standard_Motor_Company> ;
   :name "Triumph TR3"@en ;
   :production 1955 ;
 .
@@ -1795,13 +2949,37 @@
   :name "Triumph TR4"@en ;
   :production 1961 ;
 .
+<http://dbpedia.org/resource/UAZ>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/UMM_(Uni%C3%A3o_Metalo-Mec%C3%A2nica)>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Ukrainian_Automobile_Corporation>
+  rdf:type :Manufacturer ;
+  :locationCity "Kiev" ;
+  :name "Ukrainian Automobile Corporation JSC"@en ;
+.
 <http://dbpedia.org/resource/Ultima_Sports>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Unic>
   rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Valmet_Automotive>
   rdf:type :Manufacturer ;
   :locationCity "Uusikaupunki" ;
   :name "Valmet Automotive Oy"@en ;
+.
+<http://dbpedia.org/resource/Vauxhall_Motors>
+  rdf:type :Manufacturer ;
+  :founder "Alexander Wilson" ;
+  :locationCity "Luton" ;
+  :owner "General Motors" ;
+.
+<http://dbpedia.org/resource/Vehicle_Factory_Jabalpur>
+  rdf:type :Manufacturer ;
+  :name "Vehicle Factory Jabalpur"@en ;
 .
 <http://dbpedia.org/resource/Venturi_Automobiles>
   rdf:type :Manufacturer ;
@@ -1813,6 +2991,28 @@
 <http://dbpedia.org/resource/Veritas_(automobile)>
   rdf:type :Manufacturer ;
   :name "Veritas RS3"@en ;
+.
+<http://dbpedia.org/resource/Vinci_(automobile)>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Vivinus>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Volkswagen>
+  rdf:type :Manufacturer ;
+  :founder "Ferdinand Porsche" ;
+  :foundingDate "1937-05-27+02:00"^^xsd:date ;
+.
+<http://dbpedia.org/resource/Volkswagen_Group_China>
+  rdf:type :Manufacturer ;
+  :name "Volkswagen Group China"@en ;
+  :name "大众汽车"@en ;
+.
+<http://dbpedia.org/resource/Volvo>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Wartburg_(car)>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Westfield_Sportscars>
   rdf:type :Manufacturer ;
@@ -1827,16 +3027,63 @@
 <http://dbpedia.org/resource/Wiesmann>
   rdf:type :Manufacturer ;
 .
+<http://dbpedia.org/resource/Wildfire_(motor_company)>
+  rdf:type :Manufacturer ;
+  :name "Wildfire"@en ;
+.
 <http://dbpedia.org/resource/Wirth_Research>
   rdf:type :Manufacturer ;
   :founder "Nick Wirth" ;
   :name "Wirth Research"@en ;
+.
+<http://dbpedia.org/resource/Xinkai>
+  rdf:type :Manufacturer ;
+  :locationCity "Gaobeidian" ;
+  :locationCity "Hebei" ;
+  :name "Xinkai Automobile Group Co., Ltd."@en ;
+.
+<http://dbpedia.org/resource/Youngman>
+  rdf:type :Manufacturer ;
+  :founder "Pang Qingnian" ;
+  :locationCity "Jinhua" ;
+  :locationCity "Zhejiang" ;
+  :name "China Youngman Automobile Group Co., Ltd."@en ;
+.
+<http://dbpedia.org/resource/Yulon>
+  rdf:type :Manufacturer ;
+  :foundingDate "1953-09-09+02:00"^^xsd:date ;
+.
+<http://dbpedia.org/resource/Yutong>
+  rdf:type :Manufacturer ;
+  :locationCity "Zhengzhou" ;
+  :name "Zhengzhou Yutong Group Co., Ltd."@en ;
 .
 <http://dbpedia.org/resource/ZAP_(motor_company)>
   rdf:type :Manufacturer ;
   :founder "Gary Starr" ;
   :locationCity "Santa_Rosa,_California" ;
   :name "ZAP"@en ;
+.
+<http://dbpedia.org/resource/ZAZ>
+  rdf:type :Manufacturer ;
+  :founder "Soviet Union" ;
+  :locationCity "Zaporizhia" ;
+  :name "Zaporizhia Automobile Building Plant"@en ;
+.
+<http://dbpedia.org/resource/Zagato>
+  rdf:type :Manufacturer ;
+  :founder "Ugo Zagato" ;
+  :locationCity "Milan" ;
+  :name "ZAGATO"@en ;
+.
+<http://dbpedia.org/resource/Zagross_Khodro>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Zamyad_Co.>
+  rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Zbrojovka_Brno>
+  rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Zenvo>
   rdf:type :Manufacturer ;

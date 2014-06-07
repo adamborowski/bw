@@ -25,6 +25,11 @@
 			<locationURI>PARENT-2-PROJECT_LOC/prod.n3</locationURI>
 		</link>
 		<link>
+			<name>prodAll.n3</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/prodAll.n3</locationURI>
+		</link>
+		<link>
 			<name>sam.n3</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/sam.n3</locationURI>
