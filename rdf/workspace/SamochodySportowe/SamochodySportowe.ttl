@@ -6,6 +6,14 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<http://dbpedia.org/resource/AC_Ace>
+  rdf:type :LeMansCar ;
+  :engine 2 ;
+  :engine "2.6"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/AC_Cars> ;
+  :name "AC Ace"@en ;
+  :production 1953 ;
+.
 <http://dbpedia.org/resource/AC_Cars>
   rdf:type :Manufacturer ;
   :founder "The Weller Brothers"@en ;
@@ -23,6 +31,9 @@
   :name "Abarth 205"@en ;
   :production 1950 ;
 .
+<http://dbpedia.org/resource/Acura_ARX-01>
+  rdf:type :LeMansCar ;
+.
 <http://dbpedia.org/resource/Alfa_Romeo>
   rdf:type :Manufacturer ;
   :foundedBy <http://dbpedia.org/resource/Alexandre_Darracq> ;
@@ -34,6 +45,35 @@
   :locationCity <http://dbpedia.org/resource/Turin> ;
   :name "Alfa Romeo Automobiles S.p.A."@en ;
   :owner "Fiat S.p.A."@en ;
+.
+<http://dbpedia.org/resource/Alfa_Romeo_6C>
+  rdf:type :LeMansCar ;
+  rdf:type :MilleMigliaCar ;
+  :engine "1.5"^^xsd:double ;
+  :engine "1.7"^^xsd:double ;
+  :engine "1.9"^^xsd:double ;
+  :engine "2.3"^^xsd:double ;
+  :engine "2.5"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Alfa_Romeo> ;
+  :name "Alfa Romeo 6C"@en ;
+  :production 1925 ;
+  :production 1929 ;
+  :production 1933 ;
+  :production 1934 ;
+  :production 1938 ;
+.
+<http://dbpedia.org/resource/Alfa_Romeo_8C>
+  rdf:type :LeMansCar ;
+  rdf:type :MilleMigliaCar ;
+  :engine "2.3"^^xsd:double ;
+  :engine "2.6"^^xsd:double ;
+  :engine "2.9"^^xsd:double ;
+  :engine "Supercharged  DOHC straight-eight engine"@en ;
+  :engine "Supercharged 3822 cc straight eight twin overhead cam"@en ;
+  :manufacturer <http://dbpedia.org/resource/Alfa_Romeo> ;
+  :name "Alfa Romeo 8C"@en ;
+  :production 1931 ;
+  :production 1935 ;
 .
 <http://dbpedia.org/resource/Alfa_Romeo_GTA>
   rdf:type :Car ;
@@ -56,8 +96,41 @@
   :name "Alfa Romeo TZ"@en ;
   :production 1963 ;
 .
+<http://dbpedia.org/resource/Alfa_Romeo_Giulietta>
+  rdf:type :LeMansCar ;
+  :engine "1.3"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Alfa_Romeo> ;
+  :name "Alfa Romeo Giulietta"@en ;
+  :production 1954 ;
+.
+<http://dbpedia.org/resource/Alfa_Romeo_Tipo_33>
+  rdf:type :LeMansCar ;
+  :engine 1995 ;
+  :engine 2134 ;
+  :engine 2500 ;
+  :engine 270 ;
+  :engine 2993 ;
+  :engine 2995 ;
+  :engine 2998 ;
+  :engine "315.0"^^<http://dbpedia.org/datatype/brakeHorsepower> ;
+  :engine 400 ;
+  :engine 440 ;
+  :engine 500 ;
+  :engine 520 ;
+  :engine 640 ;
+  :manufacturer <http://dbpedia.org/resource/Alfa_Romeo> ;
+  :name "Alfa Romeo 33"@en ;
+  :production 1966 ;
+  :production 1967 ;
+  :production 1969 ;
+  :production 1973 ;
+  :production 1976 ;
+.
 <http://dbpedia.org/resource/Allard>
   rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Alphi>
+  rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/Alpine_(automobile)>
   rdf:type :Manufacturer ;
@@ -87,6 +160,66 @@
   :locationCity <http://dbpedia.org/resource/Warwickshire> ;
   :name "Aston Martin Lagonda Limited"@en ;
 .
+<http://dbpedia.org/resource/Aston_Martin_2-Litre_Sports>
+  rdf:type :LeMansCar ;
+  :engine "1.97"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Aston_Martin> ;
+  :name "Aston Martin DB1"@en ;
+  :production 15 ;
+  :production 1948 ;
+.
+<http://dbpedia.org/resource/Aston_Martin_AMR-One>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Aston_Martin_DB2>
+  rdf:type :LeMansCar ;
+  :engine "2.6"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Aston_Martin> ;
+  :name "Aston Martin DB2"@en ;
+  :production 1950 ;
+  :production 411 ;
+.
+<http://dbpedia.org/resource/Aston_Martin_DB2/4>
+  rdf:type :LeMansCar ;
+  :engine "2.6"^^xsd:double ;
+  :engine "2.9"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Aston_Martin> ;
+  :name "Aston Martin DB2/4"@en ;
+  :production 1953 ;
+  :production 764 ;
+.
+<http://dbpedia.org/resource/Aston_Martin_DB3>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Aston_Martin_DB3S>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Aston_Martin_DB4>
+  rdf:type :LeMansCar ;
+  :engine "3.7"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Aston_Martin> ;
+  :name "Aston Martin DB4"@en ;
+  :production 100 ;
+  :production 1110 ;
+  :production 1210 ;
+  :production 1958 ;
+.
+<http://dbpedia.org/resource/Aston_Martin_DBR1>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Aston_Martin_DBR9>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Aston_Martin_Vantage_(2005)>
+  rdf:type :LeMansCar ;
+  :engine "4.3"^^xsd:double ;
+  :engine "4.7"^^xsd:double ;
+  :engine 6 ;
+  :manufacturer <http://dbpedia.org/resource/Aston_Martin> ;
+  :name "Aston Martin V12 Vantage"@en ;
+  :name "Aston Martin V8 Vantage"@en ;
+  :production 2005 ;
+.
 <http://dbpedia.org/resource/Audi>
   rdf:type :Manufacturer ;
   :foundedBy <http://dbpedia.org/resource/August_Horch> ;
@@ -95,6 +228,66 @@
   :locationCity <http://dbpedia.org/resource/Ingolstadt> ;
   :name "AUDI Aktiengesellschaft"@en ;
   :owner "Volkswagen Group"@en ;
+.
+<http://dbpedia.org/resource/Audi_R10_TDI>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Audi_R15_TDI>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Audi_R18>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Audi_R8C>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Audi_R8R>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Audi_R8_(race_car)>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Austin-Healey_100>
+  rdf:type :LeMansCar ;
+  :engine 2660 ;
+  :name "Austin-Healey 100"@en ;
+  :production 14634 ;
+  :production 1953 ;
+  :production "and five special test cars"@en ;
+  :production "plus an additional fifty 100S"@en ;
+.
+<http://dbpedia.org/resource/Austin-Healey_100-6>
+  rdf:type :LeMansCar ;
+  :engine 2639 ;
+  :name "Austin-Healey 100-6"@en ;
+  :production 14436 ;
+  :production 1956 ;
+.
+<http://dbpedia.org/resource/Austin-Healey_Sprite>
+  rdf:type :LeMansCar ;
+  :engine "A-Series I4 43HP"@en ;
+  :engine "A-Series I4"@en ;
+  :engine "later   A-Series I4"@en ;
+  :manufacturer <http://dbpedia.org/resource/Austin-Healey> ;
+  :name "Austin Sprite"@en ;
+  :name "Austin-Healey Sprite"@en ;
+  :production 129347 ;
+  :production 1958 ;
+  :production 1961 ;
+  :production 1964 ;
+  :production 1966 ;
+  :production 22790 ;
+  :production 25905 ;
+  :production 31665 ;
+  :production 48987 ;
+.
+<http://dbpedia.org/resource/Austin_7>
+  rdf:type :LeMansCar ;
+  :engine 747 ;
+  :manufacturer <http://dbpedia.org/resource/Austin_Motor_Company> ;
+  :name "Austin 7"@en ;
+  :production 1922 ;
+  :production 290000 ;
 .
 <http://dbpedia.org/resource/Autobacs_Seven>
   rdf:type :Manufacturer ;
@@ -107,6 +300,40 @@
   :foundingDate "1916-03-06+02:00"^^xsd:date ;
   :locationCity <http://dbpedia.org/resource/Munich> ;
   :name "Bayerische Motoren Werke AG"@en ;
+.
+<http://dbpedia.org/resource/BMW_328>
+  rdf:type :LeMansCar ;
+  rdf:type :MilleMigliaCar ;
+  :engine 1971 ;
+  :manufacturer <http://dbpedia.org/resource/BMW> ;
+  :name "BMW 328"@en ;
+  :production 1936 ;
+  :production 464 ;
+.
+<http://dbpedia.org/resource/BMW_M3>
+  rdf:type :LeMansCar ;
+  :engine "2.3"^^xsd:double ;
+  :engine "3.2"^^xsd:double ;
+  :engine 4 ;
+  :engine "S50B30 3.0 L"@en ;
+  :engine "S50B32 3.2 L"@en ;
+  :manufacturer <http://dbpedia.org/resource/BMW_M> ;
+  :name "BMW M3"@en ;
+  :production 1985 ;
+  :production 1992 ;
+  :production 2001 ;
+  :production 2007 ;
+  :production 71242 ;
+  :production 85744 ;
+.
+<http://dbpedia.org/resource/BMW_V12_LM>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/BMW_V12_LMR>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/BRM_P351>
+  rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/Bandini-Maserati_1500>
   rdf:type :Car ;
@@ -135,6 +362,45 @@
 .
 <http://dbpedia.org/resource/Bandini_Saloncino>
   rdf:type :Car ;
+.
+<http://dbpedia.org/resource/Bentley_3_Litre>
+  rdf:type :LeMansCar ;
+  :engine 3 ;
+  :manufacturer <http://dbpedia.org/resource/Bentley> ;
+  :name "Bentley 3 Litre"@en ;
+  :production 1622 ;
+  :production 1921 ;
+.
+<http://dbpedia.org/resource/Bentley_4%C2%BD_Litre>
+  rdf:type :LeMansCar ;
+  :engine "4.4"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Bentley> ;
+  :name "Bentley 4½ Litre"@en ;
+  :production 1927 ;
+  :production 720 ;
+.
+<http://dbpedia.org/resource/Bentley_Blower_No.1>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Bentley_Mark_VI>
+  rdf:type :LeMansCar ;
+  :engine "-litre 4.3 L I6"@en ;
+  :engine "-litre 4.6 L I6"@en ;
+  :manufacturer <http://dbpedia.org/resource/Bentley> ;
+  :name "Bentley Mark VI"@en ;
+  :production 1946 ;
+  :production 5208 ;
+.
+<http://dbpedia.org/resource/Bentley_Speed_8>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Bentley_Speed_Six>
+  rdf:type :LeMansCar ;
+  :engine "6.5"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Bentley> ;
+  :name "Bentley 6½ Litre & Speed Six"@en ;
+  :production 1926 ;
+  :production 544 ;
 .
 <http://dbpedia.org/resource/Berkeley_Cars>
   rdf:type :Manufacturer ;
@@ -169,6 +435,7 @@
 .
 <http://dbpedia.org/resource/Bristol_450>
   rdf:type :Car ;
+  rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/Bugatti>
   rdf:type :Manufacturer ;
@@ -182,6 +449,39 @@
   rdf:type :Manufacturer ;
   :locationCity <http://dbpedia.org/resource/Molsheim> ;
   :name "Bugatti Automobiles S.A.S."@en ;
+.
+<http://dbpedia.org/resource/Bugatti_Type_35>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Bugatti_Type_46>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Bugatti_Type_49>
+  rdf:type :LeMansCar ;
+  :manufacturer <http://dbpedia.org/resource/Bugatti> ;
+  :name "Bugatti Type 30"@en ;
+  :name "Type 38, 40, 43, 44, and 49"@en ;
+  :production 1922 ;
+.
+<http://dbpedia.org/resource/Bugatti_Type_51>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Bugatti_Type_55>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Bugatti_Type_57>
+  rdf:type :LeMansCar ;
+  :engine 3257 ;
+  :manufacturer <http://dbpedia.org/resource/Bugatti> ;
+  :name "Bugatti Type 57"@en ;
+  :production 1934 ;
+  :production 710 ;
+.
+<http://dbpedia.org/resource/Cadillac_Coupe_de_Ville>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Cadillac_Northstar_LMP>
+  rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/Carroll_Shelby_International>
   rdf:type :Manufacturer ;
@@ -204,10 +504,60 @@
   :locationCity <http://dbpedia.org/resource/Caterham> ;
   :name "Caterham Cars Ltd"@en ;
 .
+<http://dbpedia.org/resource/Chevrolet_Corvette_(C1)>
+  rdf:type :LeMansCar ;
+  :engine 155 ;
+  :engine "Small-block  V8"@en ;
+  :engine "Small-block FI V8"@en ;
+  :engine "Small-block V8"@en ;
+  :manufacturer "Chevrolet Division"@en ;
+  :manufacturer "of General Motors"@en ;
+  :name "Chevrolet Corvette (C1)"@en ;
+  :production 1953 ;
+.
+<http://dbpedia.org/resource/Chevrolet_Corvette_C5-R>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Chevrolet_Corvette_C6.R>
+  rdf:type :LeMansCar ;
+  :engine "5.5"^^xsd:double ;
+  :engine 6 ;
+  :engine 7 ;
+  :manufacturer <http://dbpedia.org/resource/Chevrolet> ;
+  :name "Chevrolet Corvette C6.R"@en ;
+  :production 2005 ;
+  :production 2009 ;
+.
+<http://dbpedia.org/resource/Chevrolet_Corvette_GTP>
+  rdf:type :LeMansCar ;
+.
 <http://dbpedia.org/resource/Chinkara_Motors>
   rdf:type :Manufacturer ;
   :locationCity <http://dbpedia.org/resource/Mumbai> ;
   :name "Chinkara Motors"@en ;
+.
+<http://dbpedia.org/resource/Chrysler_Imperial>
+  rdf:type :LeMansCar ;
+  :engine "3.3"^^xsd:double ;
+  :engine "3.8"^^xsd:double ;
+  :engine "323.5"^^xsd:double ;
+  :engine "Chrysler Flathead engine 130 hp  140 hp"@en ;
+  :engine "Chrysler I8"@en ;
+  :engine "Hemihead V8"@en ;
+  :engine "Imperial Airflow and Custom Imperial Airflow CX-323.5CID cast-iron L-head 130 hp 250lb.ft.torque Straight-8 ; Custom Imperial Airflow CW-384.8CID cast iron L-head 150 hp CR 6.5:1 Strait-8"@en ;
+  :engine "L-head 125 hp 135 hp I8"@en ;
+  :engine "L-head 92 hp 100 hp, 110 hpI6"@en ;
+  :manufacturer <http://dbpedia.org/resource/Chrysler> ;
+  :name "Chrysler Imperial"@en ;
+  :production 1926 ;
+  :production 1931 ;
+  :production 1934 ;
+  :production 1937 ;
+  :production 1940 ;
+  :production 1990 ;
+.
+<http://dbpedia.org/resource/Chrysler_Viper_GTS-R>
+  rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/Coda_Automotive>
   rdf:type :Manufacturer ;
@@ -218,6 +568,21 @@
 .
 <http://dbpedia.org/resource/DB_(car)>
   rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/DKW_Monza>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Dallara_SP1>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Dauer_962_Le_Mans>
+  rdf:type :LeMansCar ;
+  :engine """twin turbocharged Flat 6
+*544.4 kW  @ 7400 rpm
+*700.9 N-m  @ 5000 rpm"""@en ;
+  :manufacturer <http://dbpedia.org/resource/Dauer_Sportwagen> ;
+  :name "Dauer 962 Le Mans"@en ;
+  :production 1993 ;
 .
 <http://dbpedia.org/resource/Dauer_Sportwagen>
   rdf:type :Manufacturer ;
@@ -242,15 +607,41 @@
   :founder <http://dbpedia.org/resource/Alejandro_de_Tomaso> ;
   :name "De Tomaso Automobili S.p.A."@en ;
 .
+<http://dbpedia.org/resource/DeltaWing>
+  rdf:type :LeMansCar ;
+.
 <http://dbpedia.org/resource/Diardi>
   rdf:type :Manufacturer ;
   :name "DIARDI"@en ;
   :name "Çenberci Group"@en ;
 .
+<http://dbpedia.org/resource/Dino_(automobile)>
+  rdf:type :LeMansCar ;
+  :engine <http://dbpedia.org/resource/V6_engine> ;
+  :engine <http://dbpedia.org/resource/V8_engine> ;
+  :engine 2 ;
+  :engine "2.4"^^xsd:double ;
+  :engine 3 ;
+  :engine "DOHC V6"@en ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
+  :name "Ferrari Dino"@en ;
+  :production 152 ;
+  :production 1968 ;
+  :production 1969 ;
+  :production 1973 ;
+  :production 1976 ;
+  :production 3761 ;
+.
 <http://dbpedia.org/resource/Donkervoort>
   rdf:type :Manufacturer ;
   :foundedBy <http://dbpedia.org/resource/J.A._Donkervoort> ;
   :founder <http://dbpedia.org/resource/J.A._Donkervoort> ;
+.
+<http://dbpedia.org/resource/E.H.P.>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/EMKA_Aston_Martin>
+  rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/Elfin_MS7>
   rdf:type :Car ;
@@ -281,8 +672,104 @@
   :owner "Fiat S.p.A."@en ;
   :owner "Piero Ferrari"@en ;
 .
+<http://dbpedia.org/resource/Ferrari_166_S>
+  rdf:type :LeMansCar ;
+  rdf:type :MilleMigliaCar ;
+  :engine 2 ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
+  :name "Ferrari 166"@en ;
+  :production 1948 ;
+  :production 39 ;
+.
+<http://dbpedia.org/resource/Ferrari_195_S>
+  rdf:type :LeMansCar ;
+  rdf:type :MilleMigliaCar ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
+  :name "Ferrari 195 S"@en ;
+  :production 1950 ;
+  :production 2 ;
+.
+<http://dbpedia.org/resource/Ferrari_212_Inter>
+  rdf:type :LeMansCar ;
+  :engine "2.6"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
+  :name "Ferrari 212 Inter"@en ;
+  :production 1951 ;
+  :production 82 ;
+.
+<http://dbpedia.org/resource/Ferrari_250>
+  rdf:type :LeMansCar ;
+  rdf:type :MilleMigliaCar ;
+.
+<http://dbpedia.org/resource/Ferrari_330>
+  rdf:type :LeMansCar ;
+  :engine 4 ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
+  :name "Ferrari 330"@en ;
+  :production 1087 ;
+  :production 1963 ;
+  :production 1964 ;
+  :production 1966 ;
+  :production 50 ;
+  :production "GTC: 600 produced"@en ;
+  :production "GTS: 100 produced"@en ;
+.
+<http://dbpedia.org/resource/Ferrari_333_SP>
+  rdf:type :LeMansCar ;
+.
 <http://dbpedia.org/resource/Ferrari_340>
   rdf:type :Car ;
+  rdf:type :MilleMigliaCar ;
+.
+<http://dbpedia.org/resource/Ferrari_458_Italia>
+  rdf:type :LeMansCar ;
+  :engine "4.5"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
+  :name "Ferrari 458 Italia"@en ;
+  :production 2009 ;
+.
+<http://dbpedia.org/resource/Ferrari_550>
+  rdf:type :LeMansCar ;
+  :engine "5.5"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
+  :name "Ferrari 550"@en ;
+  :name "Maranello & Barchetta"@en ;
+  :production 1996 ;
+.
+<http://dbpedia.org/resource/Ferrari_America>
+  rdf:type :LeMansCar ;
+  rdf:type :MilleMigliaCar ;
+  :engine 4 ;
+  :engine "4.1"^^xsd:double ;
+  :engine "4.4"^^xsd:double ;
+  :engine "4.5"^^xsd:double ;
+  :engine 5 ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
+  :name "330, 340, 365, 375, 400, 410, 500"@en ;
+  :name "Ferrari America"@en ;
+  :production 14 ;
+  :production 1950 ;
+  :production 1951 ;
+  :production 1952 ;
+  :production 1955 ;
+  :production 1959 ;
+  :production 1964 ;
+  :production 1966 ;
+  :production 37 ;
+.
+<http://dbpedia.org/resource/Ferrari_F40>
+  rdf:type :LeMansCar ;
+  :engine "twin-turbocharged Tipo F120A V8 , rear, longitudinal, 90°"@en ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
+  :production 1987 ;
+.
+<http://dbpedia.org/resource/Ferrari_F430>
+  rdf:type :LeMansCar ;
+  :engine "4.3"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
+  :name "430"@en ;
+  :name "Ferrari F430"@en ;
+  :production 2004 ;
 .
 <http://dbpedia.org/resource/Ferrari_F430_Challenge>
   rdf:type :Car ;
@@ -298,6 +785,32 @@
   :name "Ferrari FXX"@en ;
   :production 2005 ;
 .
+<http://dbpedia.org/resource/Ferrari_Monza>
+  rdf:type :LeMansCar ;
+  :engine "''Lampredi I4"@en ;
+  :engine 2 ;
+  :engine "2.5"^^xsd:double ;
+  :engine "2.9"^^xsd:double ;
+  :engine "3.4"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Ferrari> ;
+  :name "Ferrari Mondial"@en ;
+  :name "Ferrari Monza"@en ;
+  :name "Ferrari TF"@en ;
+  :production 1953 ;
+  :production 1956 ;
+  :production 1957 ;
+.
+<http://dbpedia.org/resource/Ferrari_TR>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Fiat_508>
+  rdf:type :LeMansCar ;
+  :engine "straight-4 995 cc"@en ;
+  :manufacturer <http://dbpedia.org/resource/Fiat> ;
+  :name "Fiat 508 Balilla"@en ;
+  :name "Fiat 508"@en ;
+  :production 1932 ;
+.
 <http://dbpedia.org/resource/Fisker_Automotive>
   rdf:type :Manufacturer ;
   :foundedBy <http://dbpedia.org/resource/Henrik_Fisker> ;
@@ -307,6 +820,7 @@
 .
 <http://dbpedia.org/resource/Ford_GT40>
   rdf:type :Car ;
+  rdf:type :LeMansCar ;
   :engine 4181 ;
   :engine 4737 ;
   :engine 4942 ;
@@ -346,11 +860,24 @@
   :name "Gumpert Sportwagenmanufaktur"@en ;
   :owner <http://dbpedia.org/resource/Roland_Gumpert> ;
 .
+<http://dbpedia.org/resource/HPD_ARX-03>
+  rdf:type :LeMansCar ;
+.
 <http://dbpedia.org/resource/Hi-Tech_Automotive>
   rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Hommell>
   rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Honda_NSX>
+  rdf:type :LeMansCar ;
+  :engine """C30A V6 , 
+ C32B V6 ,"""@en ;
+  :manufacturer <http://dbpedia.org/resource/Honda> ;
+  :name "Acura NSX"@en ;
+  :name "Honda NSX"@en ;
+  :production 1990 ;
+  :production 2015 ;
 .
 <http://dbpedia.org/resource/Hurtan>
   rdf:type :Manufacturer ;
@@ -382,6 +909,7 @@
 .
 <http://dbpedia.org/resource/Jaguar_C-Type>
   rdf:type :Car ;
+  rdf:type :LeMansCar ;
   :manufacturer <http://dbpedia.org/resource/Jaguar_Cars> ;
   :name "Jaguar C-Type"@en ;
   :production 1951 ;
@@ -396,8 +924,43 @@
 .
 <http://dbpedia.org/resource/Jaguar_D-Type>
   rdf:type :Car ;
+  rdf:type :LeMansCar ;
   :manufacturer <http://dbpedia.org/resource/Jaguar_Cars> ;
   :name "Jaguar D-Type"@en ;
+  :production 1954 ;
+.
+<http://dbpedia.org/resource/Jaguar_XJ220>
+  rdf:type :LeMansCar ;
+  :engine "3.5"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Jaguar_Cars> ;
+  :name "Jaguar XJ220"@en ;
+  :production 1992 ;
+.
+<http://dbpedia.org/resource/Jaguar_XJR-12>
+  rdf:type :LeMansCar ;
+  :manufacturer <http://dbpedia.org/resource/Jaguar_Cars> ;
+  :name "Jaguar XJR-12"@en ;
+  :production 1990 ;
+.
+<http://dbpedia.org/resource/Jaguar_XJR-9>
+  rdf:type :LeMansCar ;
+  :engine 7 ;
+  :manufacturer <http://dbpedia.org/resource/Jaguar_Cars> ;
+  :name "Jaguar XJR-9"@en ;
+  :production 1988 ;
+.
+<http://dbpedia.org/resource/Jaguar_XK120>
+  rdf:type :LeMansCar ;
+  :engine "3.4"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Jaguar_Cars> ;
+  :name "Jaguar XK120"@en ;
+  :production 12055 ;
+  :production 1948 ;
+.
+<http://dbpedia.org/resource/Jaguar_XK140>
+  rdf:type :LeMansCar ;
+  :manufacturer <http://dbpedia.org/resource/Jaguar_Cars> ;
+  :name "Jaguar XK140"@en ;
   :production 1954 ;
 .
 <http://dbpedia.org/resource/Jensen_Motors>
@@ -422,12 +985,48 @@
   :locationCity <http://dbpedia.org/resource/%C3%84ngelholm> ;
   :name "Koenigsegg Automotive AB"@en ;
 .
+<http://dbpedia.org/resource/Kremer_K8_Spyder>
+  rdf:type :LeMansCar ;
+.
 <http://dbpedia.org/resource/Lamborghini>
   rdf:type :Manufacturer ;
   :foundedBy <http://dbpedia.org/resource/Ferruccio_Lamborghini> ;
   :founder <http://dbpedia.org/resource/Ferruccio_Lamborghini> ;
   :locationCity <http://dbpedia.org/resource/Sant'Agata_Bolognese> ;
   :name "Automobili Lamborghini S.p.A."@en ;
+.
+<http://dbpedia.org/resource/Lamborghini_Murci%C3%A9lago>
+  rdf:type :LeMansCar ;
+  :engine "6.2"^^xsd:double ;
+  :engine "6.5"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Lamborghini> ;
+  :name "Lamborghini Murciélago"@en ;
+  :production 2001 ;
+  :production 4099 ;
+.
+<http://dbpedia.org/resource/Lancia_Aurelia>
+  rdf:type :LeMansCar ;
+  :engine "1.8"^^xsd:double ;
+  :engine 2 ;
+  :engine "2.5"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Lancia> ;
+  :name "Lancia Aurelia"@en ;
+  :production 18201 ;
+  :production 1950 ;
+.
+<http://dbpedia.org/resource/Lancia_LC1>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Lancia_LC2>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Lancia_Stratos>
+  rdf:type :LeMansCar ;
+  :engine 2418 ;
+  :manufacturer <http://dbpedia.org/resource/Lancia> ;
+  :name "Lancia Stratos HF"@en ;
+  :production 1972 ;
+  :production 492 ;
 .
 <http://dbpedia.org/resource/Lancia_Zagato>
   rdf:type :Manufacturer ;
@@ -446,11 +1045,53 @@
 <http://dbpedia.org/resource/Lister_Cars>
   rdf:type :Manufacturer ;
 .
+<http://dbpedia.org/resource/Lister_Storm>
+  rdf:type :LeMansCar ;
+  :engine "Jaguar V12"@en ;
+  :manufacturer <http://dbpedia.org/resource/Lister_Cars> ;
+  :name "Lister Storm"@en ;
+.
+<http://dbpedia.org/resource/Lister_Storm_LMP>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Lola_B05/40>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Lola_B06/10>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Lola_B08/60>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Lola_B08/80>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Lola_B11/40>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Lola_B2K/10>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Lola_B2K/40>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Lola_B98/10>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Lola_T70>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Lola_T92/10>
+  rdf:type :LeMansCar ;
+.
 <http://dbpedia.org/resource/Lotec>
   rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Lotus_15>
   rdf:type :Car ;
+.
+<http://dbpedia.org/resource/Lotus_17>
+  rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/Lotus_23>
   rdf:type :Car ;
@@ -479,11 +1120,128 @@
   :owner <http://dbpedia.org/resource/Proton_(automobile)> ;
   :owner <http://dbpedia.org/resource/Romano_Artioli> ;
 .
+<http://dbpedia.org/resource/Lotus_Elise_GT1>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Lotus_Elite>
+  rdf:type :LeMansCar ;
+  :engine "1.2"^^xsd:double ;
+  :engine 2 ;
+  :engine "2.2"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Lotus_Cars> ;
+  :name "Lotus Elite"@en ;
+  :production 1958 ;
+  :production 1974 ;
+  :production 2535 ;
+.
+<http://dbpedia.org/resource/Lotus_Esprit>
+  rdf:type :LeMansCar ;
+  :engine 2 ;
+  :engine "2.2"^^xsd:double ;
+  :engine "3.5"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Lotus_Cars> ;
+  :name "Lotus Esprit"@en ;
+  :production 1976 ;
+  :production 1978 ;
+  :production 1981 ;
+  :production 1987 ;
+  :production 1993 ;
+  :production 2013 ;
+.
+<http://dbpedia.org/resource/Lotus_T128_(Le_Mans_Prototype)>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/MG-Lola_EX257>
+  rdf:type :LeMansCar ;
+.
 <http://dbpedia.org/resource/MG_Cars>
   rdf:type :Manufacturer ;
   :foundedBy <http://dbpedia.org/resource/Cecil_Kimber> ;
   :founder <http://dbpedia.org/resource/Cecil_Kimber> ;
   :name "MG"@en ;
+.
+<http://dbpedia.org/resource/MG_J-type>
+  rdf:type :LeMansCar ;
+  :engine 746 ;
+  :engine 847 ;
+  :manufacturer <http://dbpedia.org/resource/MG_Cars> ;
+  :name "MG J-Type"@en ;
+  :production 1932 ;
+  :production 2083 ;
+  :production 22 ;
+  :production 2494 ;
+  :production 380 ;
+  :production 9 ;
+.
+<http://dbpedia.org/resource/MG_K-type>
+  rdf:type :LeMansCar ;
+  :engine 1087 ;
+  :engine "Straight-6 1087 cc"@en ;
+  :engine "supercharged"@en ;
+  :manufacturer <http://dbpedia.org/resource/MG_Cars> ;
+  :name "MG K-Type Magnette"@en ;
+  :production 181 ;
+  :production 1932 ;
+  :production 1933 ;
+  :production 20 ;
+  :production 33 ;
+  :production "approx 250 units"@en ;
+.
+<http://dbpedia.org/resource/MG_M-type>
+  rdf:type :LeMansCar ;
+  :manufacturer <http://dbpedia.org/resource/MG_Cars> ;
+  :name "MG M-type Midget"@en ;
+  :production 1929 ;
+  :production 3235 ;
+.
+<http://dbpedia.org/resource/MG_MGA>
+  rdf:type :LeMansCar ;
+  :engine "B-Series DOHC I4"@en ;
+  :engine "B-Series I4"@en ;
+  :engine "I4"@en ;
+  :manufacturer <http://dbpedia.org/resource/MG_Cars> ;
+  :name "MGA"@en ;
+  :production 101081 ;
+  :production 1955 ;
+  :production 1958 ;
+  :production 1959 ;
+  :production 1960 ;
+  :production 2111 ;
+  :production 31501 ;
+  :production 58750 ;
+  :production 8719 ;
+.
+<http://dbpedia.org/resource/MG_P-type>
+  rdf:type :LeMansCar ;
+  :engine 847 ;
+  :engine 939 ;
+  :manufacturer <http://dbpedia.org/resource/MG_Cars> ;
+  :name "MG P-type"@en ;
+  :production 1934 ;
+  :production 1935 ;
+  :production 2000 ;
+  :production 2500 ;
+  :production 526 ;
+.
+<http://dbpedia.org/resource/MG_T-type>
+  rdf:type :LeMansCar ;
+  :engine "MPJG type I4"@en ;
+  :engine "XPAG type I4 ohv"@en ;
+  :engine "XPAG type I4"@en ;
+  :engine "XPEG type I4"@en ;
+  :manufacturer <http://dbpedia.org/resource/MG_Cars> ;
+  :manufacturer "BMC from 1952"@en ;
+  :name "MG T-type"@en ;
+  :production 10000 ;
+  :production 1936 ;
+  :production 1939 ;
+  :production 1945 ;
+  :production 1950 ;
+  :production 1953 ;
+  :production 3000 ;
+  :production 30000 ;
+  :production 379 ;
+  :production 9600 ;
 .
 <http://dbpedia.org/resource/MTX_(automobile)>
   rdf:type :Manufacturer ;
@@ -527,6 +1285,7 @@
 .
 <http://dbpedia.org/resource/Maserati_300S>
   rdf:type :Car ;
+  rdf:type :LeMansCar ;
   :manufacturer <http://dbpedia.org/resource/Maserati> ;
   :name "Maserati 300S"@en ;
 .
@@ -551,6 +1310,7 @@
 .
 <http://dbpedia.org/resource/Maserati_Tipo_61>
   rdf:type :Car ;
+  rdf:type :LeMansCar ;
   :engine 187 ;
   :engine "2890.3"^^xsd:double ;
   :manufacturer <http://dbpedia.org/resource/Maserati> ;
@@ -571,6 +1331,42 @@
 <http://dbpedia.org/resource/Matich_SR5>
   rdf:type :Car ;
 .
+<http://dbpedia.org/resource/Mazda_717C>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Mazda_727C>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Mazda_737C>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Mazda_757>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Mazda_767>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Mazda_787B>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Mazda_MXR-01>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Mazda_RX-7>
+  rdf:type :LeMansCar ;
+  :engine "1.3"^^xsd:double ;
+  :engine 1146 ;
+  :engine 1308 ;
+  :manufacturer <http://dbpedia.org/resource/Mazda> ;
+  :name "Mazda RX-7"@en ;
+  :production 1978 ;
+  :production 1992 ;
+  :production 272027 ;
+  :production 471018 ;
+  :production 68589 ;
+  :production 811634 ;
+  :production "S4  &ndash; S5"@en ;
+.
 <http://dbpedia.org/resource/McLaren_Automotive>
   rdf:type :Manufacturer ;
   :foundedBy <http://dbpedia.org/resource/Ron_Dennis> ;
@@ -580,11 +1376,15 @@
   :locationCity <http://dbpedia.org/resource/Woking> ;
   :owner <http://dbpedia.org/resource/McLaren_Group> ;
 .
+<http://dbpedia.org/resource/McLaren_F1_GTR>
+  rdf:type :LeMansCar ;
+.
 <http://dbpedia.org/resource/Melkus>
   rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Mercedes-Benz_300SL>
   rdf:type :Car ;
+  rdf:type :LeMansCar ;
   :engine 212 ;
   :engine 2996 ;
   :manufacturer <http://dbpedia.org/resource/Mercedes-Benz> ;
@@ -597,9 +1397,32 @@
 .
 <http://dbpedia.org/resource/Mercedes-Benz_300_SLR>
   rdf:type :Car ;
+  rdf:type :LeMansCar ;
+  rdf:type :MilleMigliaCar ;
+.
+<http://dbpedia.org/resource/Mercedes-Benz_CLR>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Mercedes-Benz_SSK>
+  rdf:type :MilleMigliaCar ;
+  :engine "supercharged  SOHC I6"@en ;
+  :manufacturer <http://dbpedia.org/resource/Mercedes-Benz> ;
+  :name "Mercedes-Benz SSK"@en ;
+  :production 1928 ;
+.
+<http://dbpedia.org/resource/Mille_Miglia>
+  rdf:type :MilleMigliaCar ;
 .
 <http://dbpedia.org/resource/Mirage_(race_car)>
   rdf:type :Car ;
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Morgan_Aero_8>
+  rdf:type :LeMansCar ;
+  :engine "originally a 4.4 L, now a 4.8 L BMW N62 V8"@en ;
+  :manufacturer <http://dbpedia.org/resource/Morgan_Motor_Company> ;
+  :name "Morgan Aero 8"@en ;
+  :production 2001 ;
 .
 <http://dbpedia.org/resource/Morgan_Motor_Company>
   rdf:type :Manufacturer ;
@@ -618,6 +1441,12 @@
 <http://dbpedia.org/resource/Murtaya>
   rdf:type :Manufacturer ;
   :name "Murtaya"@en ;
+.
+<http://dbpedia.org/resource/Nardi_750LM>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Nimrod_NRA/C2>
+  rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/Nissan_R381>
   rdf:type :Car ;
@@ -642,6 +1471,43 @@
   :name "Nissan R383"@en ;
   :production 1970 ;
 .
+<http://dbpedia.org/resource/Nissan_R390_GT1>
+  rdf:type :LeMansCar ;
+  :engine "3.5"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Nissan_Motor_Company> ;
+  :name "Nissan R390"@en ;
+  :production 1997 ;
+.
+<http://dbpedia.org/resource/Nissan_R391>
+  rdf:type :LeMansCar ;
+  :engine 5 ;
+  :manufacturer <http://dbpedia.org/resource/Nissan_Motor_Company> ;
+  :name "Nissan R391"@en ;
+  :production 1999 ;
+.
+<http://dbpedia.org/resource/Nissan_R89C>
+  rdf:type :LeMansCar ;
+  :engine "3.5"^^xsd:double ;
+  :engine "950.0"^^<http://dbpedia.org/datatype/horsepower> ;
+  :manufacturer <http://dbpedia.org/resource/Nissan_Motor_Company> ;
+  :name "Nissan R89C"@en ;
+  :production 1989 ;
+.
+<http://dbpedia.org/resource/Nissan_R90C>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Nissan_Skyline_GT-R>
+  rdf:type :LeMansCar ;
+  :engine 2 ;
+  :engine "2.6"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Nissan_Motor_Company> ;
+  :name "Nissan Skyline GT-R"@en ;
+  :production 1969 ;
+  :production 1973 ;
+  :production 1989 ;
+  :production 1995 ;
+  :production 1999 ;
+.
 <http://dbpedia.org/resource/Noble_Automotive>
   rdf:type :Manufacturer ;
   :foundedBy <http://dbpedia.org/resource/Lee_Noble> ;
@@ -650,6 +1516,12 @@
 <http://dbpedia.org/resource/Orca_Engineering>
   rdf:type :Manufacturer ;
   :locationCity <http://dbpedia.org/resource/Ebenholz> ;
+.
+<http://dbpedia.org/resource/Oreca_01>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Oreca_03>
+  rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/PGO_(Automobile)>
   rdf:type :Manufacturer ;
@@ -665,14 +1537,46 @@
   :foundedBy <http://dbpedia.org/resource/Horacio_Pagani_(auto_executive)> ;
   :founder <http://dbpedia.org/resource/Horacio_Pagani_(auto_executive)> ;
 .
+<http://dbpedia.org/resource/Pagani_Zonda>
+  rdf:type :LeMansCar ;
+  :engine 6 ;
+  :engine "Mercedes-AMG M120 6.0 L V12"@en ;
+  :engine "Mercedes-AMG M120 7.0 L V12"@en ;
+  :engine "Mercedes-AMG M120 7.3 L V12"@en ;
+  :manufacturer <http://dbpedia.org/resource/Pagani> ;
+  :name "Pagani Zonda"@en ;
+  :production 1999 ;
+  :production 2009 ;
+.
 <http://dbpedia.org/resource/Panoz_Auto_Development>
   rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Panoz_Esperante_GTR-1>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Panoz_LMP-1_Roadster-S>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Panoz_LMP07>
+  rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/Panther_Westwinds>
   rdf:type :Manufacturer ;
 .
 <http://dbpedia.org/resource/Pegaso>
   rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Pescarolo_01>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Peugeot_905>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Peugeot_908>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Peugeot_908_HDi_FAP>
+  rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/Porsche>
   rdf:type :Manufacturer ;
@@ -681,19 +1585,77 @@
   :name "Porsche Automobil Holding"@en ;
   :owner <http://dbpedia.org/resource/Volkswagen_Group> ;
 .
+<http://dbpedia.org/resource/Porsche_356>
+  rdf:type :LeMansCar ;
+  :engine "1.1"^^xsd:double ;
+  :engine "1.3"^^xsd:double ;
+  :engine "1.5"^^xsd:double ;
+  :engine "1.6"^^xsd:double ;
+  :engine 2 ;
+  :manufacturer <http://dbpedia.org/resource/Porsche> ;
+  :name "Porsche 356"@en ;
+  :production 1948 ;
+.
+<http://dbpedia.org/resource/Porsche_550>
+  rdf:type :LeMansCar ;
+  :manufacturer <http://dbpedia.org/resource/Porsche> ;
+  :production 1953 ;
+.
+<http://dbpedia.org/resource/Porsche_718>
+  rdf:type :LeMansCar ;
+.
 <http://dbpedia.org/resource/Porsche_904>
   rdf:type :Car ;
   :name "Porsche 904"@en ;
 .
 <http://dbpedia.org/resource/Porsche_906>
   rdf:type :Car ;
+  rdf:type :LeMansCar ;
   :manufacturer "Porsche"@en ;
   :name "Porsche 906 Carrera 6"@en ;
 .
+<http://dbpedia.org/resource/Porsche_907>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Porsche_908>
+  rdf:type :LeMansCar ;
+  :engine "2.1"^^xsd:double ;
+  :engine 3 ;
+  :manufacturer <http://dbpedia.org/resource/Porsche> ;
+  :name "Porsche 908"@en ;
+  :production 1968 ;
+.
 <http://dbpedia.org/resource/Porsche_910>
   rdf:type :Car ;
+  rdf:type :LeMansCar ;
   :manufacturer "Porsche"@en ;
   :name "Porsche 910 Carrera 10"@en ;
+.
+<http://dbpedia.org/resource/Porsche_911_GT1>
+  rdf:type :LeMansCar ;
+  :engine "3.2"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Porsche> ;
+  :name "Porsche 911 GT1 Straßenversion"@en ;
+.
+<http://dbpedia.org/resource/Porsche_911_GT2>
+  rdf:type :LeMansCar ;
+  :engine "3.6"^^xsd:double ;
+  :engine "H6"@en ;
+  :manufacturer <http://dbpedia.org/resource/Porsche> ;
+  :name "Porsche 911 GT2"@en ;
+  :production 1993 ;
+  :production 1999 ;
+  :production 2008 ;
+.
+<http://dbpedia.org/resource/Porsche_914-6_GT>
+  rdf:type :LeMansCar ;
+  :engine 2 ;
+  :manufacturer <http://dbpedia.org/resource/Porsche> ;
+  :name "Porsche 914-6 GT"@en ;
+  :production 1970 ;
+.
+<http://dbpedia.org/resource/Porsche_917>
+  rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/Porsche_934>
   rdf:type :Car ;
@@ -702,12 +1664,31 @@
 .
 <http://dbpedia.org/resource/Porsche_935>
   rdf:type :Car ;
+  rdf:type :LeMansCar ;
   :engine "Flat 6 turbo"@en ;
   :manufacturer <http://dbpedia.org/resource/Porsche> ;
   :name "Porsche 935"@en ;
 .
+<http://dbpedia.org/resource/Porsche_936>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Porsche_956>
+  rdf:type :LeMansCar ;
+.
 <http://dbpedia.org/resource/Porsche_961>
   rdf:type :Car ;
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Porsche_962>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Porsche_RS_Spyder>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Porsche_WSC-95>
+  rdf:type :LeMansCar ;
+  :manufacturer <http://dbpedia.org/resource/Tom_Walkinshaw_Racing> ;
+  :name "Porsche WSC-95"@en ;
 .
 <http://dbpedia.org/resource/Prince_R380>
   rdf:type :Car ;
@@ -729,6 +1710,22 @@
   rdf:type :Manufacturer ;
   :locationCity <http://dbpedia.org/resource/Herefordshire> ;
 .
+<http://dbpedia.org/resource/Renault_4CV>
+  rdf:type :LeMansCar ;
+  :engine 747 ;
+  :engine 760 ;
+  :manufacturer <http://dbpedia.org/resource/Renault> ;
+  :name "Hino 4CV"@en ;
+  :name "Renault 4/4"@en ;
+  :name "Renault 4CV"@en ;
+  :name "Renault 750"@en ;
+  :name "Renault 760"@en ;
+  :production 1105543 ;
+  :production 1947 ;
+.
+<http://dbpedia.org/resource/Renault_Alpine_A442>
+  rdf:type :LeMansCar ;
+.
 <http://dbpedia.org/resource/Renault_Sport_Spider>
   rdf:type :Car ;
   :engine 1998 ;
@@ -741,6 +1738,19 @@
   rdf:type :Manufacturer ;
   :locationCity <http://dbpedia.org/resource/Tallinn> ;
 .
+<http://dbpedia.org/resource/Reynard_02S>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Riley_&_Scott_Mk_III>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Riley_Nine>
+  rdf:type :LeMansCar ;
+  :engine "1.1"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Riley_Motor> ;
+  :name "Riley Nine"@en ;
+  :production 1926 ;
+.
 <http://dbpedia.org/resource/Rimac_Automobili>
   rdf:type :Manufacturer ;
   :founder "Mate Rimac"@en ;
@@ -748,8 +1758,35 @@
 <http://dbpedia.org/resource/Ronart_Cars>
   rdf:type :Manufacturer ;
 .
+<http://dbpedia.org/resource/Rover-BRM>
+  rdf:type :LeMansCar ;
+  :engine "Gas turbine"@en ;
+  :manufacturer <http://dbpedia.org/resource/British_Racing_Motors> ;
+  :manufacturer <http://dbpedia.org/resource/Rover_Company> ;
+  :name "Rover-BRM"@en ;
+.
+<http://dbpedia.org/resource/Saab_93>
+  rdf:type :LeMansCar ;
+  rdf:type :MilleMigliaCar ;
+  :engine 750 ;
+  :manufacturer <http://dbpedia.org/resource/Saab_Automobile> ;
+  :name "Saab 93"@en ;
+  :production 1956 ;
+.
 <http://dbpedia.org/resource/Saleen>
   rdf:type :Manufacturer ;
+.
+<http://dbpedia.org/resource/Sauber_C7>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Sauber_C8>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Sauber_C9>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Sauber_SHS_C6>
+  rdf:type :LeMansCar ;
 .
 <http://dbpedia.org/resource/Sebring_(sports_car)>
   rdf:type :Manufacturer ;
@@ -766,6 +1803,13 @@
 <http://dbpedia.org/resource/Solana_(automobile)>
   rdf:type :Manufacturer ;
 .
+<http://dbpedia.org/resource/Spyker_C8>
+  rdf:type :LeMansCar ;
+  :engine "4.2"^^xsd:double ;
+  :manufacturer <http://dbpedia.org/resource/Spyker_Cars> ;
+  :name "Spyker C8"@en ;
+  :production 2000 ;
+.
 <http://dbpedia.org/resource/Spyker_Cars>
   rdf:type :Manufacturer ;
   :foundedBy <http://dbpedia.org/resource/Maarten_de_Bruijn> ;
@@ -780,6 +1824,15 @@
 <http://dbpedia.org/resource/TVR>
   rdf:type :Manufacturer ;
   :locationCity <http://dbpedia.org/resource/Blackpool> ;
+.
+<http://dbpedia.org/resource/TVR_Tuscan_Speed_6>
+  rdf:type :LeMansCar ;
+  :engine 4 ;
+  :engine "straight-6, 4 valves/cylinder, 3.6 L  TVR Speed Six"@en ;
+  :manufacturer <http://dbpedia.org/resource/TVR> ;
+  :name "TVR Tuscan Speed-6"@en ;
+  :name "TVR Tuscan"@en ;
+  :production 1999 ;
 .
 <http://dbpedia.org/resource/Tauro_Sport_Auto>
   rdf:type :Manufacturer ;
@@ -801,16 +1854,50 @@
 <http://dbpedia.org/resource/Tiger_Racing>
   rdf:type :Manufacturer ;
 .
+<http://dbpedia.org/resource/Toyota_90C-V>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Toyota_92C-V>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Toyota_Celica_LB_Turbo>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Toyota_GT-One>
+  rdf:type :LeMansCar ;
+.
 <http://dbpedia.org/resource/Toyota_Supra_in_motorsport>
   rdf:type :Car ;
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Toyota_TS010>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Toyota_TS030_Hybrid>
+  rdf:type :LeMansCar ;
+.
+<http://dbpedia.org/resource/Triumph_TR2>
+  rdf:type :LeMansCar ;
+  :engine 1991 ;
+  :manufacturer <http://dbpedia.org/resource/Standard_Motor_Company> ;
+  :name "Triumph TR2"@en ;
+  :production 1953 ;
 .
 <http://dbpedia.org/resource/Triumph_TR3>
   rdf:type :Car ;
+  rdf:type :LeMansCar ;
   :engine 1991 ;
   :engine 2138 ;
   :manufacturer <http://dbpedia.org/resource/Standard_Motor_Company> ;
   :name "Triumph TR3"@en ;
   :production 1955 ;
+.
+<http://dbpedia.org/resource/Triumph_TR4>
+  rdf:type :LeMansCar ;
+  :engine 2138 ;
+  :manufacturer <http://dbpedia.org/resource/Triumph_Motor_Company> ;
+  :name "Triumph TR4"@en ;
+  :production 1961 ;
 .
 <http://dbpedia.org/resource/Ultima_Sports>
   rdf:type :Manufacturer ;
@@ -875,6 +1962,14 @@
 :Car
   rdf:type rdfs:Class ;
 .
+:LeMansCar
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf :Car ;
+.
 :Manufacturer
   rdf:type rdfs:Class ;
+.
+:MilleMigliaCar
+  rdf:type rdfs:Class ;
+  rdfs:subClassOf :Car ;
 .

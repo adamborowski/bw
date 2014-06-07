@@ -1,0 +1,48 @@
+# baseURI: http://km.pg.gda.pl/rdf/
+
+@prefix : <http://km.pg.gda.pl/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://dbpedia.org/resource/Deadheads_(film)>
+  :music "Devin Burrows" ;
+  :producer "Brett Pierce" ;
+  :starring "Markus Taylor" ;
+.
+:
+  rdf:type owl:Ontology ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+:director
+  rdf:type rdf:Property ;
+  rdfs:range xsd:string ;
+.
+:music
+  rdf:type rdf:Property ;
+  rdfs:range xsd:string ;
+.
+:name
+  rdf:type rdf:Property ;
+  rdfs:range xsd:string ;
+.
+:producer
+  rdf:type rdf:Property ;
+  rdfs:range xsd:string ;
+.
+:runtime
+  rdf:type rdf:Property ;
+  rdfs:range xsd:float ;
+.
+:screenplay
+  rdf:type rdf:Property ;
+  rdfs:range xsd:string ;
+.
+:starring
+  rdf:type rdf:Property ;
+  rdfs:range xsd:string ;
+.
+:zawiera
+  rdf:type rdf:Property ;
+.

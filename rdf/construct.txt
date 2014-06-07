@@ -1,0 +1,67 @@
+//Manufacturer
+PREFIX my: <http://km.pg.gda.pl/rdf/>
+CONSTRUCT { 
+	?man rdf:type my:Manufacturer . 
+	?man my:name ?name . 
+	?man my:founder ?founder . 
+	?man my:owner ?own .
+	?man my:foundedBy ?fBy .
+	?man my:foundingDate ?fDate .
+	?man my:locationCity ?locCity .
+} WHERE {
+	?man dcterms:subject <http://dbpedia.org/resource/Category:Sports_car_manufacturers> .
+	OPTIONAL { ?man dbpedia2:name ?name } .
+	OPTIONAL { ?man dbpedia2:founder ?founder } .
+	OPTIONAL { ?man dbpedia2:owner ?own } .
+    OPTIONAL { ?man dbpedia:ontology/foundedBy ?fBy } .
+	OPTIONAL { ?man dbpedia:ontology/foundingDate ?fDate } .
+	OPTIONAL { ?man dbpedia:ontology/locationCity ?locCity } .
+}
+//Car
+PREFIX my: <http://km.pg.gda.pl/rdf/>
+CONSTRUCT { 
+	?car rdf:type my:Car . 
+	?car my:name ?name . 
+	?car my:engine ?en . 
+	?car my:manufacturer ?man .
+    ?car my:production ?prod .
+} WHERE {
+	?car dcterms:subject <http://dbpedia.org/resource/Category:Sports_racing_cars> .
+	OPTIONAL { ?car foaf:name ?name } .
+	OPTIONAL { ?car dbpprop:engine ?en } .
+	OPTIONAL { ?car dbpprop:manufacturer ?man } .
+    OPTIONAL { ?car dbpprop:production ?prod } .
+}
+//24 le mans
+
+PREFIX my: <http://km.pg.gda.pl/rdf/>
+CONSTRUCT { 
+	?car rdf:type my:LeMansCar . 
+	?car my:name ?name . 
+	?car my:engine ?en . 
+	?car my:manufacturer ?man .
+    ?car my:production ?prod .
+} WHERE {
+	?car dcterms:subject <http://dbpedia.org/resource/Category:24_Hours_of_Le_Mans_race_cars> .
+	OPTIONAL { ?car foaf:name ?name } .
+	OPTIONAL { ?car dbpprop:engine ?en } .
+	OPTIONAL { ?car dbpprop:manufacturer ?man } .
+    OPTIONAL { ?car dbpprop:production ?prod } .
+}
+
+//Mille Miglia
+PREFIX my: <http://km.pg.gda.pl/rdf/>
+CONSTRUCT { 
+	?car rdf:type my:MilleMigliaCar . 
+	?car my:name ?name . 
+	?car my:engine ?en . 
+	?car my:manufacturer ?man .
+    ?car my:production ?prod .
+} WHERE {
+	?car dcterms:subject <http://dbpedia.org/resource/Category:Mille_Miglia> .
+	OPTIONAL { ?car foaf:name ?name } .
+	OPTIONAL { ?car dbpprop:engine ?en } .
+	OPTIONAL { ?car dbpprop:manufacturer ?man } .
+    OPTIONAL { ?car dbpprop:production ?prod } .
+}
+Mille Miglia

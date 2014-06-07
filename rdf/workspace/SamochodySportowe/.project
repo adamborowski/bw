@@ -10,6 +10,16 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>24lemans.n3</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/24lemans.n3</locationURI>
+		</link>
+		<link>
+			<name>millemiglia.n3</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/millemiglia.n3</locationURI>
+		</link>
+		<link>
 			<name>prod.n3</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/prod.n3</locationURI>
