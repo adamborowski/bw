@@ -1,72 +1,65 @@
 <http://dbpedia.org/resource/Ferrari_166_S>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Ferrari> .
 <http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Ferrari> .
-<http://dbpedia.org/resource/BMW_328>	<http://km.pg.gda.pl/rdf/engine>	"1971"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/Alfa_Romeo_8C>	<http://km.pg.gda.pl/rdf/engine>	"2.3"^^<http://www.w3.org/2001/XMLSchema#double> .
-<http://dbpedia.org/resource/Ferrari_195_S>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Ferrari> .
+<http://dbpedia.org/resource/Alfa_Romeo_6C>	<http://km.pg.gda.pl/rdf/engine>	"2.5"^^<http://www.w3.org/2001/XMLSchema#float> .
 <http://dbpedia.org/resource/Alfa_Romeo_6C>	<http://km.pg.gda.pl/rdf/name>	"Alfa Romeo 6C"@en .
-<http://dbpedia.org/resource/Mercedes-Benz_SSK>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Mercedes-Benz> .
-<http://dbpedia.org/resource/Ferrari_250>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/MilleMigliaCar> .
-<http://dbpedia.org/resource/Saab_93>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Saab_Automobile> .
-<http://dbpedia.org/resource/Saab_93>	<http://km.pg.gda.pl/rdf/engine>	"750"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/Mercedes-Benz_SSK>	<http://km.pg.gda.pl/rdf/engine>	"supercharged  SOHC I6"@en .
-<http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/engine>	"4"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/Mercedes-Benz_SSK>	<http://km.pg.gda.pl/rdf/name>	"Mercedes-Benz SSK"@en .
-<http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/engine>	"5"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/Alfa_Romeo_8C>	<http://km.pg.gda.pl/rdf/name>	"Alfa Romeo 8C"@en .
+<http://dbpedia.org/resource/Alfa_Romeo_6C>	<http://km.pg.gda.pl/rdf/engine>	"1.9"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://dbpedia.org/resource/Alfa_Romeo_8C>	<http://km.pg.gda.pl/rdf/engine>	"2.6"^^<http://www.w3.org/2001/XMLSchema#float> .
 <http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/name>	"330, 340, 365, 375, 400, 410, 500"@en .
 <http://dbpedia.org/resource/Alfa_Romeo_8C>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Alfa_Romeo> .
-<http://dbpedia.org/resource/BMW_328>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/BMW> .
-<http://dbpedia.org/resource/Alfa_Romeo_8C>	<http://km.pg.gda.pl/rdf/engine>	"Supercharged  DOHC straight-eight engine"@en .
-<http://dbpedia.org/resource/BMW_328>	<http://km.pg.gda.pl/rdf/production>	"464"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/Alfa_Romeo_6C>	<http://km.pg.gda.pl/rdf/engine>	"1.5"^^<http://www.w3.org/2001/XMLSchema#double> .
-<http://dbpedia.org/resource/Ferrari_166_S>	<http://km.pg.gda.pl/rdf/engine>	"2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Alfa_Romeo_8C>	<http://km.pg.gda.pl/rdf/name>	"Alfa Romeo 8C"@en .
+<http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/engine>	"4.0"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://dbpedia.org/resource/Alfa_Romeo_6C>	<http://km.pg.gda.pl/rdf/engine>	"1.7"^^<http://www.w3.org/2001/XMLSchema#float> .
 <http://dbpedia.org/resource/Alfa_Romeo_6C>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Alfa_Romeo> .
-<http://dbpedia.org/resource/Ferrari_195_S>	<http://km.pg.gda.pl/rdf/production>	"2"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/production>	"14"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/BMW_328>	<http://km.pg.gda.pl/rdf/name>	"BMW 328"@en .
-<http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/engine>	"4.1"^^<http://www.w3.org/2001/XMLSchema#double> .
-<http://dbpedia.org/resource/BMW_328>	<http://km.pg.gda.pl/rdf/production>	"1936"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/Ferrari_340>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/MilleMigliaCar> .
-<http://dbpedia.org/resource/Alfa_Romeo_8C>	<http://km.pg.gda.pl/rdf/engine>	"2.9"^^<http://www.w3.org/2001/XMLSchema#double> .
-<http://dbpedia.org/resource/Alfa_Romeo_6C>	<http://km.pg.gda.pl/rdf/engine>	"2.5"^^<http://www.w3.org/2001/XMLSchema#double> .
+<http://dbpedia.org/resource/Ferrari_166_S>	<http://km.pg.gda.pl/rdf/engine>	"2.0"^^<http://www.w3.org/2001/XMLSchema#float> .
 <http://dbpedia.org/resource/Ferrari_166_S>	<http://km.pg.gda.pl/rdf/name>	"Ferrari 166"@en .
 <http://dbpedia.org/resource/Alfa_Romeo_6C>	<http://km.pg.gda.pl/rdf/production>	"1933"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://dbpedia.org/resource/Alfa_Romeo_6C>	<http://km.pg.gda.pl/rdf/production>	"1934"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/engine>	"4.4"^^<http://www.w3.org/2001/XMLSchema#double> .
+<http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/engine>	"4.1"^^<http://www.w3.org/2001/XMLSchema#float> .
 <http://dbpedia.org/resource/Alfa_Romeo_6C>	<http://km.pg.gda.pl/rdf/production>	"1929"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/Mille_Miglia>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/MilleMigliaCar> .
-<http://dbpedia.org/resource/Mercedes-Benz_SSK>	<http://km.pg.gda.pl/rdf/production>	"1928"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Alfa_Romeo_6C>	<http://km.pg.gda.pl/rdf/engine>	"2.3"^^<http://www.w3.org/2001/XMLSchema#float> .
 <http://dbpedia.org/resource/Ferrari_166_S>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/MilleMigliaCar> .
+<http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/engine>	"4.5"^^<http://www.w3.org/2001/XMLSchema#float> .
 <http://dbpedia.org/resource/Alfa_Romeo_6C>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/MilleMigliaCar> .
 <http://dbpedia.org/resource/Ferrari_America>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/MilleMigliaCar> .
 <http://dbpedia.org/resource/Alfa_Romeo_6C>	<http://km.pg.gda.pl/rdf/production>	"1925"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/Ferrari_195_S>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/MilleMigliaCar> .
-<http://dbpedia.org/resource/Mercedes-Benz_300_SLR>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/MilleMigliaCar> .
 <http://dbpedia.org/resource/Alfa_Romeo_8C>	<http://km.pg.gda.pl/rdf/production>	"1935"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/production>	"1950"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/production>	"1951"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/Alfa_Romeo_8C>	<http://km.pg.gda.pl/rdf/engine>	"2.6"^^<http://www.w3.org/2001/XMLSchema#double> .
 <http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/production>	"1952"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/Alfa_Romeo_8C>	<http://km.pg.gda.pl/rdf/engine>	"Supercharged 3822 cc straight eight twin overhead cam"@en .
 <http://dbpedia.org/resource/Alfa_Romeo_8C>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/MilleMigliaCar> .
-<http://dbpedia.org/resource/Alfa_Romeo_6C>	<http://km.pg.gda.pl/rdf/engine>	"1.7"^^<http://www.w3.org/2001/XMLSchema#double> .
+<http://dbpedia.org/resource/Alfa_Romeo_8C>	<http://km.pg.gda.pl/rdf/engine>	"2.3"^^<http://www.w3.org/2001/XMLSchema#float> .
 <http://dbpedia.org/resource/Alfa_Romeo_8C>	<http://km.pg.gda.pl/rdf/production>	"1931"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/Saab_93>	<http://km.pg.gda.pl/rdf/production>	"1956"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/production>	"1955"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/engine>	"4.4"^^<http://www.w3.org/2001/XMLSchema#float> .
 <http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/production>	"37"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/BMW_328>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/MilleMigliaCar> .
-<http://dbpedia.org/resource/Ferrari_195_S>	<http://km.pg.gda.pl/rdf/name>	"Ferrari 195 S"@en .
 <http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/production>	"1959"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://dbpedia.org/resource/Ferrari_166_S>	<http://km.pg.gda.pl/rdf/production>	"1948"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/Mercedes-Benz_SSK>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/MilleMigliaCar> .
-<http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/engine>	"4.5"^^<http://www.w3.org/2001/XMLSchema#double> .
 <http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/production>	"1964"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/Alfa_Romeo_6C>	<http://km.pg.gda.pl/rdf/engine>	"1.9"^^<http://www.w3.org/2001/XMLSchema#double> .
+<http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/engine>	"5.0"^^<http://www.w3.org/2001/XMLSchema#float> .
 <http://dbpedia.org/resource/Ferrari_166_S>	<http://km.pg.gda.pl/rdf/production>	"39"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/production>	"1966"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/Ferrari_195_S>	<http://km.pg.gda.pl/rdf/production>	"1950"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/Saab_93>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/MilleMigliaCar> .
-<http://dbpedia.org/resource/Alfa_Romeo_6C>	<http://km.pg.gda.pl/rdf/engine>	"2.3"^^<http://www.w3.org/2001/XMLSchema#double> .
-<http://dbpedia.org/resource/Alfa_Romeo_6C>	<http://km.pg.gda.pl/rdf/production>	"1938"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://dbpedia.org/resource/Ferrari_America>	<http://km.pg.gda.pl/rdf/name>	"Ferrari America"@en .
+<http://dbpedia.org/resource/Alfa_Romeo_6C>	<http://km.pg.gda.pl/rdf/production>	"1938"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Alfa_Romeo_8C>	<http://km.pg.gda.pl/rdf/engine>	"2.9"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://dbpedia.org/resource/Alfa_Romeo_6C>	<http://km.pg.gda.pl/rdf/engine>	"1.5"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://dbpedia.org/resource/Alfa_Romeo_8C>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/MilleMigliaCar> .
+<http://dbpedia.org/resource/BMW_328>	<http://km.pg.gda.pl/rdf/name>	"BMW 328"@en .
+<http://dbpedia.org/resource/Alfa_Romeo_8C>	<http://km.pg.gda.pl/rdf/production>	"1935"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/BMW_328>	<http://km.pg.gda.pl/rdf/production>	"1936"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Saab_93>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/MilleMigliaCar> .
+<http://dbpedia.org/resource/Mercedes-Benz_SSK>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/MilleMigliaCar> .
+<http://dbpedia.org/resource/Alfa_Romeo_8C>	<http://km.pg.gda.pl/rdf/production>	"1931"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/BMW_328>	<http://km.pg.gda.pl/rdf/engine>	"1.971"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://dbpedia.org/resource/Mercedes-Benz_SSK>	<http://km.pg.gda.pl/rdf/name>	"Mercedes-Benz SSK"@en .
+<http://dbpedia.org/resource/Saab_93>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Saab_Automobile> .
+<http://dbpedia.org/resource/Saab_93>	<http://km.pg.gda.pl/rdf/engine>	"0.75"^^<http://www.w3.org/2001/XMLSchema#float> .
 <http://dbpedia.org/resource/Saab_93>	<http://km.pg.gda.pl/rdf/name>	"Saab 93"@en .
+<http://dbpedia.org/resource/Alfa_Romeo_8C>	<http://km.pg.gda.pl/rdf/name>	"Alfa Romeo 8C"@en .
+<http://dbpedia.org/resource/BMW_328>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/BMW> .
+<http://dbpedia.org/resource/Alfa_Romeo_8C>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Alfa_Romeo> .
+<http://dbpedia.org/resource/Saab_93>	<http://km.pg.gda.pl/rdf/production>	"1956"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Mercedes-Benz_SSK>	<http://km.pg.gda.pl/rdf/production>	"1928"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/BMW_328>	<http://km.pg.gda.pl/rdf/production>	"464"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://dbpedia.org/resource/Mercedes-Benz_SSK>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Mercedes-Benz> .
+<http://dbpedia.org/resource/BMW_328>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://km.pg.gda.pl/rdf/MilleMigliaCar> .

@@ -46,62 +46,113 @@ CONSTRUCT {
 	BIND(REPLACE(REPLACE(STR(?f),"http://dbpedia.org/resource/",""),"_"," ") as ?founder)
 }
 
-DELETE { ?x :p ?value }
-INSERT { 
-    ?x _:p ?before .
-    ?x _:p ?after .
-}
-WHERE {
-   ?x :p ?value .
-   FILTER(CONTAINS(?value, ","))
-   BIND(strbefore(?value, ",") as ?before)
-   BIND(strafter(?value, ",") as ?after)
-}
+
 //Car
 PREFIX my: <http://km.pg.gda.pl/rdf/>
 CONSTRUCT { 
 	?car rdf:type my:Car . 
 	?car my:name ?name . 
-	?car my:engine ?en . 
+	?car my:engine ?engineCapacity . 
 	?car my:manufacturer ?man .
     ?car my:production ?prod .
 } WHERE {
-	?car dcterms:subject <http://dbpedia.org/resource/Category:Sports_racing_cars> .
-	OPTIONAL { ?car foaf:name ?name } .
-	OPTIONAL { ?car dbpprop:engine ?en } .
-	OPTIONAL { ?car dbpprop:manufacturer ?man } .
-    OPTIONAL { ?car dbpprop:production ?prod } .
-}
-//24 le mans
 
+ ?car dcterms:subject <http://dbpedia.org/resource/Category:Sports_racing_cars> .
+        ?car dbpprop:engine ?en .
+	OPTIONAL { ?car foaf:name ?name } .		
+	OPTIONAL { ?car dbpprop:manufacturer ?man } .
+        OPTIONAL { ?car dbpprop:production ?prod } .
+        BIND(xsd:float(?en)/1000 as ?engineCapacity) .
+	FILTER(?en>700) 
+}
+PREFIX my: <http://km.pg.gda.pl/rdf/>
+CONSTRUCT { 
+	?car rdf:type my:Car . 
+	?car my:name ?name . 
+	?car my:engine ?engineCapacity . 
+	?car my:manufacturer ?man .
+    ?car my:production ?prod .
+} WHERE {
+
+ ?car dcterms:subject <http://dbpedia.org/resource/Category:Sports_racing_cars> .
+        ?car dbpprop:engine ?en .
+	OPTIONAL { ?car foaf:name ?name } .		
+	OPTIONAL { ?car dbpprop:manufacturer ?man } .
+        OPTIONAL { ?car dbpprop:production ?prod } .
+        BIND(xsd:float(?en) as ?engineCapacity) .
+	FILTER(?en<=700) 
+
+}
+
+//24 le mans
 PREFIX my: <http://km.pg.gda.pl/rdf/>
 CONSTRUCT { 
 	?car rdf:type my:LeMansCar . 
 	?car my:name ?name . 
-	?car my:engine ?en . 
+	?car my:engine ?engineCapacity . 
 	?car my:manufacturer ?man .
     ?car my:production ?prod .
 } WHERE {
-	?car dcterms:subject <http://dbpedia.org/resource/Category:24_Hours_of_Le_Mans_race_cars> .
-	OPTIONAL { ?car foaf:name ?name } .
-	OPTIONAL { ?car dbpprop:engine ?en } .
+
+ ?car dcterms:subject <http://dbpedia.org/resource/Category:24_Hours_of_Le_Mans_race_cars> .
+        ?car dbpprop:engine ?en .
+	OPTIONAL { ?car foaf:name ?name } .		
 	OPTIONAL { ?car dbpprop:manufacturer ?man } .
-    OPTIONAL { ?car dbpprop:production ?prod } .
+        OPTIONAL { ?car dbpprop:production ?prod } .
+        BIND(xsd:float(?en)/1000 as ?engineCapacity) .
+	FILTER(?en>700) 
 }
+PREFIX my: <http://km.pg.gda.pl/rdf/>
+CONSTRUCT { 
+	?car rdf:type my:LeMansCar . 
+	?car my:name ?name . 
+	?car my:engine ?engineCapacity . 
+	?car my:manufacturer ?man .
+    ?car my:production ?prod .
+} WHERE {
+
+ ?car dcterms:subject <http://dbpedia.org/resource/Category:24_Hours_of_Le_Mans_race_cars> .
+        ?car dbpprop:engine ?en .
+	OPTIONAL { ?car foaf:name ?name } .		
+	OPTIONAL { ?car dbpprop:manufacturer ?man } .
+        OPTIONAL { ?car dbpprop:production ?prod } .
+        BIND(xsd:float(?en) as ?engineCapacity) .
+	FILTER(?en<=700) 
+}
+
 
 //Mille Miglia
 PREFIX my: <http://km.pg.gda.pl/rdf/>
 CONSTRUCT { 
 	?car rdf:type my:MilleMigliaCar . 
 	?car my:name ?name . 
-	?car my:engine ?en . 
+	?car my:engine ?engineCapacity . 
 	?car my:manufacturer ?man .
     ?car my:production ?prod .
 } WHERE {
-	?car dcterms:subject <http://dbpedia.org/resource/Category:Mille_Miglia> .
-	OPTIONAL { ?car foaf:name ?name } .
-	OPTIONAL { ?car dbpprop:engine ?en } .
+
+ ?car dcterms:subject <http://dbpedia.org/resource/Category:Mille_Miglia> .
+        ?car dbpprop:engine ?en .
+	OPTIONAL { ?car foaf:name ?name } .		
 	OPTIONAL { ?car dbpprop:manufacturer ?man } .
-    OPTIONAL { ?car dbpprop:production ?prod } .
+        OPTIONAL { ?car dbpprop:production ?prod } .
+        BIND(xsd:float(?en)/1000 as ?engineCapacity) .
+	FILTER(?en>700) 
 }
-Mille Miglia
+PREFIX my: <http://km.pg.gda.pl/rdf/>
+CONSTRUCT { 
+	?car rdf:type my:MilleMigliaCar . 
+	?car my:name ?name . 
+	?car my:engine ?engineCapacity . 
+	?car my:manufacturer ?man .
+    ?car my:production ?prod .
+} WHERE {
+
+ ?car dcterms:subject <http://dbpedia.org/resource/Category:Mille_Miglia> .
+        ?car dbpprop:engine ?en .
+	OPTIONAL { ?car foaf:name ?name } .		
+	OPTIONAL { ?car dbpprop:manufacturer ?man } .
+        OPTIONAL { ?car dbpprop:production ?prod } .
+        BIND(xsd:float(?en) as ?engineCapacity) .
+	FILTER(?en<=700) 
+}

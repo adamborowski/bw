@@ -3571,3 +3571,39 @@ java.lang.NullPointerException
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1450)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1426)
+
+!ENTRY org.topbraidcomposer.wizards 4 0 2014-06-08 01:50:10.256
+!MESSAGE Failed to import triples from L/SamochodySportowe/24lemans.n3
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/SamochodySportowe/24lemans.n3'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.topbraidcomposer.wizards.addtriples.AddTriplesWizard$1.run(AddTriplesWizard.java:98)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2014-06-08 01:50:10.256
+!MESSAGE Resource is out of sync with the file system: '/SamochodySportowe/24lemans.n3'.
+
+!ENTRY org.topbraidcomposer.wizards 4 0 2014-06-08 01:54:35.568
+!MESSAGE Failed to import triples from L/SamochodySportowe/24lemans.n3
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/SamochodySportowe/24lemans.n3'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.topbraidcomposer.wizards.addtriples.AddTriplesWizard$1.run(AddTriplesWizard.java:98)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2014-06-08 01:54:35.569
+!MESSAGE Resource is out of sync with the file system: '/SamochodySportowe/24lemans.n3'.
+
+!ENTRY org.topbraidcomposer.wizards 4 0 2014-06-08 01:57:00.979
+!MESSAGE Failed to import triples from L/SamochodySportowe/sam.n3
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/SamochodySportowe/sam.n3'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:793)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:289)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:278)
+	at org.topbraidcomposer.wizards.addtriples.AddTriplesWizard$1.run(AddTriplesWizard.java:98)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2014-06-08 01:57:00.979
+!MESSAGE Resource is out of sync with the file system: '/SamochodySportowe/sam.n3'.
