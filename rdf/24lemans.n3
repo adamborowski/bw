@@ -434,7 +434,6 @@
 <http://dbpedia.org/resource/Alfa_Romeo_Tipo_33>	<http://km.pg.gda.pl/rdf/production>	"1966"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://dbpedia.org/resource/Alfa_Romeo_Tipo_33>	<http://km.pg.gda.pl/rdf/production>	"1967"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://dbpedia.org/resource/Austin_7>	<http://km.pg.gda.pl/rdf/production>	"1922"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/Ford_GT40>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/John_Wyer> .
 <http://dbpedia.org/resource/Bugatti_Type_57>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Bugatti> .
 <http://dbpedia.org/resource/MG_J-type>	<http://km.pg.gda.pl/rdf/name>	"MG J-Type"@en .
 <http://dbpedia.org/resource/MG_K-type>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/MG_Cars> .
@@ -456,7 +455,6 @@
 <http://dbpedia.org/resource/Ford_GT40>	<http://km.pg.gda.pl/rdf/engine>	"4.181"^^<http://www.w3.org/2001/XMLSchema#float> .
 <http://dbpedia.org/resource/Renault_4CV>	<http://km.pg.gda.pl/rdf/production>	"1105543"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://dbpedia.org/resource/MG_P-type>	<http://km.pg.gda.pl/rdf/production>	"2500"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/Ford_GT40>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Kar_Kraft> .
 <http://dbpedia.org/resource/BMW_328>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/BMW> .
 <http://dbpedia.org/resource/Ford_GT40>	<http://km.pg.gda.pl/rdf/production>	"1964"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://dbpedia.org/resource/Ford_GT40>	<http://km.pg.gda.pl/rdf/production>	"107"^^<http://www.w3.org/2001/XMLSchema#integer> .
@@ -521,5 +519,4 @@
 <http://dbpedia.org/resource/MG_K-type>	<http://km.pg.gda.pl/rdf/production>	"approx 250 units"@en .
 <http://dbpedia.org/resource/Triumph_TR2>	<http://km.pg.gda.pl/rdf/engine>	"1.991"^^<http://www.w3.org/2001/XMLSchema#float> .
 <http://dbpedia.org/resource/MG_J-type>	<http://km.pg.gda.pl/rdf/production>	"22"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://dbpedia.org/resource/Ford_GT40>	<http://km.pg.gda.pl/rdf/manufacturer>	<http://dbpedia.org/resource/Ford_Advanced_Vehicles> .
 <http://dbpedia.org/resource/Triumph_TR2>	<http://km.pg.gda.pl/rdf/name>	"Triumph TR2"@en .
